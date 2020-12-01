@@ -1,11 +1,7 @@
 /* Name:Huy Doan Minh Huynh; M-number: M03321126;
 */
 
-#include "mainFunction.cpp"
-
-#include <iostream>
-#include <string>
-#include <vector>
+#include "include.h"
 
 using namespace std;
 
