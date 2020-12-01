@@ -12,14 +12,17 @@ using namespace std;
 class BankAcc
 {
     protected:
+    string accType;
     string ID;  //account number
     string password;
     string fName;
     string lName;
     string phoneNum;
     int openY;
+    int openM;
     int openD;
     int closeY;
+    int closeM;
     int closeD;
     double balance; //account balance
     double interestRate;    //yearly interest rate
@@ -38,8 +41,10 @@ class BankAcc
     string getLname();
     string getPhoneNum();
     int getOY();
+    int getOM();
     int getOD();
     int getCY();
+    int getCM();
     int getCD();     
     double getBalance();
     double getInterestRate();
@@ -57,14 +62,23 @@ class BankAcc
     void setLastMonthCounted(int newLastMonthCounted);
     void setLastDayCounted(int newLastDayCounted);      
     //end of getters and setters
-    BankAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate, double newServCharge, double newBalance);     //constructor
+    BankAcc(string newAccType, string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate, double newServCharge, double newBalance);     //constructor
     virtual void deposit(double var) = 0;   //pure virtual function to deposit - to be overridden
     virtual void withdraw(double var) = 0;  //pure virtual function to withdraw - to be overridden
     void setLastTimeCounted();      //set the last time the balance was updated
     int getCurrentY();
     int getCurrentM();
     int getCurrentD();
+    int getCurrentH();
+    int getCurrentMin();
     void calclnt();                 //update the balance
     virtual void monthlyCharge();    //charge the service fee
+    void saveData();
+    void loadData();
+    void saveHistory(int year, int month, int day);
+    void saveTransactionHistory(char type, double amount);
+    void printAllHistory();
+    void printLast7Days();
+    void getDayHistory(string text);
     virtual void closeAcc() = 0;    //pure virtual function to close the acc - to be overridden
 };

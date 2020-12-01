@@ -96,8 +96,10 @@ string BankAcc::getFname() { return fName; }
 string BankAcc::getLname() { return lName; }
 string BankAcc::getPhoneNum() { return phoneNum; }
 int BankAcc::getOY() { return openY; }
+int BankAcc::getOM() { return openM; }
 int BankAcc::getOD() { return openD; }
 int BankAcc::getCY() { return closeY; }
+int BankAcc::getCM() { return closeM; }
 int BankAcc::getCD() { return closeD; }
 double BankAcc::getBalance() { return balance; }        
 double BankAcc::getInterestRate() { return interestRate; }
@@ -116,8 +118,9 @@ void BankAcc::setLastMonthCounted(int newLastMonthCounted) { lastMonthCounted = 
 void BankAcc::setLastDayCounted(int newLastDayCounted) { lastDayCounted = newLastDayCounted; }
 //end of getters and setters
 
-BankAcc::BankAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate, double newServCharge, double newBalance = 0.0)
+BankAcc::BankAcc(string newAccType, string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate, double newServCharge, double newBalance = 0.0)
 {
+    accType = newAccType;
     balance = newBalance;
     ID = newID;
     password = newPassword;
@@ -129,6 +132,13 @@ BankAcc::BankAcc(string newID, string newPassword, string newFname, string newLn
     lastYearCounted = getCurrentY();
     lastMonthCounted = getCurrentM();
     lastDayCounted = getCurrentD();
+    openY = getCurrentY();
+    openM = getCurrentM();
+    openD = getCurrentD();
+    closeY = -1;
+    closeM = -1;
+    closeD = -1;
+
 }
 
 void BankAcc::setLastTimeCounted()  //set the current time as the last time counted
@@ -160,6 +170,20 @@ int BankAcc::getCurrentD()  //set the current time as the last time counted
     return now->tm_mday;
 }
 
+int BankAcc::getCurrentH()  //set the current time as the last time counted
+{
+    time_t t = time(0);
+    tm* now = localtime(&t);
+    return now->tm_hour;
+}
+
+int BankAcc::getCurrentMin()  //set the current time as the last time counted
+{
+    time_t t = time(0);
+    tm* now = localtime(&t);
+    return now->tm_min;
+}
+
 void BankAcc::calclnt()
 {
     int yearNow = getCurrentY();  //get the current year
@@ -173,6 +197,7 @@ void BankAcc::calclnt()
             for (int day = lastDayCounted + 1; day <= dayNow; day++)    //loop from day the account created to today
             {
                 updateDailyBalance(yearNow);    //update the balance
+                saveHistory(yearNow, monthNow, day);
             }
         }
         else if (monthNow > lastMonthCounted)
@@ -180,6 +205,7 @@ void BankAcc::calclnt()
             for (int day = lastDayCounted + 1; day <= getMonthDays(yearNow, lastMonthCounted); day++)    //loop from day the account created to today
             {
                 updateDailyBalance(yearNow);    //update the balance
+                saveHistory(yearNow, lastMonthCounted, day);
             }
             monthlyCharge();
             for (int month = lastMonthCounted + 1; month < monthNow; month++)
@@ -187,12 +213,14 @@ void BankAcc::calclnt()
                 for (int day = 1; day <= getMonthDays(yearNow, month); day++)
                 {
                     updateDailyBalance(yearNow);
+                    saveHistory(yearNow, month, day);
                 }
                 monthlyCharge();
             }
             for (int day = 1; day <= dayNow; day++)
             {
                 updateDailyBalance(yearNow);
+                saveHistory(yearNow, monthNow, day);
             }
         }
         
@@ -203,6 +231,7 @@ void BankAcc::calclnt()
         for (int day = lastDayCounted + 1; day <= getMonthDays(lastYearCounted, lastMonthCounted); day++)
         {
             updateDailyBalance(lastYearCounted);    //update the balance daily
+            saveHistory(lastYearCounted, lastMonthCounted, day);
         }
         monthlyCharge();     //deduct the service charge
         for (int month = lastMonthCounted + 1; month <= 12; month++)
@@ -210,6 +239,7 @@ void BankAcc::calclnt()
             for (int day = 1; day <= getMonthDays(lastYearCounted, month); day++)
             {
                 updateDailyBalance(lastYearCounted);
+                saveHistory(lastYearCounted, month, day);
             }
             monthlyCharge();
         }
@@ -222,6 +252,7 @@ void BankAcc::calclnt()
                 for (int day = 1; day <= getMonthDays(year, month); day++)
                 {
                     updateDailyBalance(year);
+                    saveHistory(year, month, day);
                 }
                 monthlyCharge();
             }
@@ -231,12 +262,14 @@ void BankAcc::calclnt()
             for (int day = 1; day <= getMonthDays(yearNow, month); day++)
             {
                 updateDailyBalance(yearNow);
+                saveHistory(yearNow, month, day);
             }
             monthlyCharge();
         }
         for (int day = 0; day < dayNow; day++)  //loop from Jan 1st of the current year to the current day
         {
             updateDailyBalance(yearNow);
+            saveHistory(yearNow, monthNow, day);
         }
     }
     lastYearCounted = yearNow;      //update the last time the balance was updated
@@ -247,4 +280,244 @@ void BankAcc::calclnt()
 void BankAcc::monthlyCharge()    //to deduct the yearly service charge :))
 {
     balance -= servCharge;
+}
+
+void BankAcc::saveData()
+{
+    
+    ifstream inFile;
+
+    string fileName = "";
+    fileName.append(to_string(ID), fstream::trunc);
+    fileName.append(".txt");
+
+    inFile.open(fileName);
+
+    if (!inFile)
+    {
+        cout << "Cannot find .txt file(s). All data corrupted." << endl;
+        return;
+    }
+    inFile << fName << endl;
+    inFile << lName << endl;
+    inFile << phoneNum << endl;
+    inFile << openY << endl;
+    inFile << openM << endl;
+    inFile << openD << endl;
+    inFile << closeY << endl;
+    inFile << closeM << endl;
+    inFile << closeD << endl;
+    inFile << balance << endl;
+    inFile << interestRate << endl;
+    inFile << servCharge << endl;
+    inFile << online << endl;
+    inFile << lastYearCounted << endl;
+    inFile << lastMonthCounted << endl;
+    inFile << lastDayCounted << endl;
+    inFile << password << endl;
+    inFile.close();
+}
+
+void BankAcc::loadData()
+{
+    ofstream outFile;
+
+    string fileName = "";
+    fileName.append(to_string(ID));
+    fileName.append(".txt");
+
+    outFile.open(fileName);
+
+    if (!outFile)
+    {
+        cout << "Cannot find .txt file(s). All data corrupted." << endl;
+        return;
+    }
+
+    string text;
+    getline(outFile, fName);
+    getline(outFile, lName);
+    getline(outFile, phoneNum);
+    getline(outFile, text);
+    openY = stoi(text);
+    getline(outFile, text);
+    openM = stoi(text);
+    getline(outFile, text);
+    openD = stoi(text);
+    getline(outFile, text);
+    closeY = stoi(text);
+    getline(outFile, text);
+    closeM = stoi(text);
+    getline(outFile, text);
+    closeD = stoi(text);
+    getline(outFile, text);
+    balance = stod(text);
+    getline(outFile, text);
+    interestRate = stod(text);
+    getline(outFile, text);
+    servCharge = stod(text);
+    getline(outFile, text);
+    if (text == "0")
+    {
+        online = false;
+    }
+    else
+    {
+        online = true;
+    }
+    getline(outFile, text);
+    lastYearCounted = stoi(text);
+    getline(outFile, text);
+    lastMonthCounted = stoi(text);
+    getline(outFile, text);
+    lastDayCounted = stoi(text);
+    getline(outFile, password);
+    outFile.close();
+}
+
+void BankAcc::saveHistory(int year, int month, int day)
+{
+    ifstream inFile;
+
+    string fileName = "";
+    fileName.append(to_string(ID));
+    fileName.append("H.txt");
+
+    inFile.open(fileName, fstream::app);
+
+    if (!inFile)
+    {
+        cout << "Cannot find history .txt file(s). All data corrupted." << endl;
+        return;
+    }
+
+    inFile << endl << "Y" << year << "M" << month << "D" << day;
+    inFile.close();
+}
+
+void BankAcc::saveTransactionHistory(char type, double amount)
+{
+    ifstream inFile;
+
+    string fileName = "";
+    fileName.append(to_string(ID));
+    fileName.append("H.txt");
+
+    inFile.open(fileName, fstream::app);
+
+    if (!inFile)
+    {
+        cout << "Cannot find history .txt file(s). All data corrupted." << endl;
+        return;
+    }
+
+    inFile << " " << type << amount << "H" << getCurrentH() << "M" << getCurrentMin();
+    inFile.close();
+}
+
+void BankAcc::printAllHistory()
+{
+    ofstream outFile;
+
+    string fileName = "";
+    fileName.append(to_string(ID));
+    fileName.append("H.txt");
+
+    outFile.open(fileName);
+
+    if (!outFile)
+    {
+        cout << "Cannot find history .txt file(s). All data corrupted." << endl;
+        return;
+    }
+
+    string text;
+    while (getline(outFile, text))
+    {
+        getDayHistory(text);
+    }
+    outFile.close();
+}
+
+void BankAcc::printLast7Days()
+{
+    ofstream outFile;
+
+    string fileName = "";
+    fileName.append(to_string(ID));
+    fileName.append("H.txt");
+
+    outFile.open(fileName);
+
+    if (!outFile)
+    {
+        cout << "Cannot find history .txt file(s). All data corrupted." << endl;
+        return;
+    }
+
+    string text;
+    int count = 0;
+    while (getline(outFile, text))
+    {
+        count++;
+    }
+    outFile.close();
+    outFile.open(fileName);
+    for (int i = 0; i < count; i++)
+    {
+        getline(outFile, text);
+        if (i >= count - 7)
+        {
+            getDayHistory(text);
+        }
+    }
+    outFile.close()
+}
+
+void BankAcc::getDayHistory(string text)
+{
+    string year, month, day, type, val, hour, min;
+    text = text.substr(text.find_first_of("Y") + 1);
+    year = text.substr(0, text.find_first_of("M"));
+    text = text.substr(text.find_first_of("M") + 1);
+    month = text.substr(0, text.find_first_of("D"));
+    text = text.substr(text.find_first_of("D") + 1);
+    if (text.find_first_of(" ") == string::npos)
+    {
+        day = text;
+        cout << "At " << month << "/" << day << "/" << year << ", No Transaction Were Made.\n";
+        continue;
+    }
+    else
+    {            
+        day = text.substr(0, text.find_first_of(" "));
+        text = text.substr(text.find_first_of(" ") + 1);
+        cout << "At " << month << "/" << day << "/" << year << ":\n"
+    }
+    while (true)
+    {
+        type = text.substr(0, 1);
+        if (type == "D")
+        {
+            type = "Deposited";
+        }
+        if (type == "W")
+        {
+            type = "Withdrawed";
+        }
+        text = text.substr(1);
+        val = text.substr(0, text.find_first_of("H"));
+        text = text.substr(text.find_first_of("H") + 1);
+        hour = text.substr(0, text.find_first_of("M"));
+        text = text.substr(text.find_first_of("M") + 1);
+        if (text.find_first_of(" ") == string::npos)
+        {
+            min = text;
+            cout << "\t" << type << " " << val << " at " << hour << ":" << min << ".\n";
+            break;
+        }
+        min = text.substr(0, text.find_first_of(" "));
+        text = text.substr(text.find_first_of(" ") + 1);
+        cout << "\t" << type << " " << val << " at " << hour << ":" << min << ".\n";
+    }
 }

@@ -25,6 +25,8 @@ void SavAcc::withdraw(double var)
     else
     {
         balance -= var;
+        saveTransactionHistory('W', var);
+        saveData();
     }
     
 }
@@ -38,10 +40,15 @@ void SavAcc::deposit(double var)
     else
     {
         balance += var;
+        saveTransactionHistory('D', var);
+        saveData();
     }
 }
 
 void SavAcc::closeAcc()
 {
     online = false;
+    closeY = getCurrentY();
+    closeM = getCurrentM();
+    closeD = getCurrentD();
 }
