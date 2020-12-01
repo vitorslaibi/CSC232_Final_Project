@@ -14,7 +14,7 @@ private:
     
 
 public:
-    ChkAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate, double newServCharge);
+    ChkAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNume);
     void withdraw(double var) override;
     void deposit(double var) override;
     void closeAcc();
