@@ -7,6 +7,9 @@ using namespace std;
 
 int main()
 {
+    vector <SavAcc> SavAccList;
+    vector <ChkAcc> ChkAccList;
+
     bool done = false;
     while (!done)
     {
