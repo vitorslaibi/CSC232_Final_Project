@@ -109,6 +109,7 @@ void officialDepositChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
+
 void officialDepositSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 {
     bool found = false;
@@ -154,6 +155,7 @@ void officialWithdrawChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
+
 void officialWithdrawSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 {
     bool found = false;
@@ -321,12 +323,12 @@ void officialDeposit(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
         {
             case 1:
             {
-                //officialDepositChecking(chkList, savList);
+                officialDepositChecking(chkList, savList);
                 break;
             }
             case 2:
             { 
-                //officialDepositSaving(chkList, savList);
+                officialDepositSaving(chkList, savList);
                 break;
             }
             case 3:
@@ -356,12 +358,12 @@ void officialWithdraw(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
         {
             case 1:
             {
-                //officialWithdrawChecking();
+                officialWithdrawChecking(chkList, savList);
                 break;
             }
             case 2:
             { 
-                //officialWithdrawSaving();
+                officialWithdrawSaving(chkList, savList);
                 break;
             }
             case 3:
@@ -423,7 +425,7 @@ void officialMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
             case 5:
             {
                 cout << "\nChoose A Type Of Account To Withdraw.\n";
-                //officialWithdraw(chkList, savList);
+                officialWithdraw(chkList, savList);
                 cout << "\nWithdrawed.";
                 break;
             }
