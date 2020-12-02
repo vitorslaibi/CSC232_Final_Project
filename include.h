@@ -13,5 +13,8 @@
 #include "ChkAcc.h"
 #include "ChkAccFunc.h"
 #include "mainFunc.h"
+#include "customerMenu.h"
+#include "officialMenu.h"
+#include "adminMenu.h"
 
 #endif
