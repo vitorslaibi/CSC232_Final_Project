@@ -17,7 +17,7 @@ void openChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 void openSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(chkList.size()) << "\n";
-    string id = chkList.size();
+    string id = to_string(chkList.size());
     cout << "\nPlease Enter Your New Password\n";
     string password = getPassword();
     cout << "\nPlease Enter Your First Name\n";
@@ -149,17 +149,17 @@ void closeAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
         {
             case 1:
             {
-                closeChecking();
+                closeChecking(chkList, savList);
                 break;
             }
             case 2:
             { 
-                closeSaving();
+                closeSaving(chkList, savList);
                 break;
             }
             case 3:
             { 
-                //closeCD();
+                //closeCD(chkList, savList);
                 break;
             }
             case 4:
@@ -311,7 +311,7 @@ void officialMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
             case 2:
             {
                 cout << "\nChoose A Type Of Account To Close.\n";
-                closeAccount();
+                closeAccount(chkList, savList);
                 cout << "\nAccount Successfully Closed.\n";
                 break;
             }
