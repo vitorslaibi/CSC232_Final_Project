@@ -285,78 +285,78 @@ void BankAcc::monthlyCharge()    //to deduct the yearly service charge :))
 void BankAcc::saveData()
 {
     
-    ifstream inFile;
-
-    string fileName = "";
-    fileName.append(to_string(ID), fstream::trunc);
-    fileName.append(".txt");
-
-    inFile.open(fileName);
-
-    if (!inFile)
-    {
-        cout << "Cannot find .txt file(s). All data corrupted." << endl;
-        return;
-    }
-    inFile << fName << endl;
-    inFile << lName << endl;
-    inFile << phoneNum << endl;
-    inFile << openY << endl;
-    inFile << openM << endl;
-    inFile << openD << endl;
-    inFile << closeY << endl;
-    inFile << closeM << endl;
-    inFile << closeD << endl;
-    inFile << balance << endl;
-    inFile << interestRate << endl;
-    inFile << servCharge << endl;
-    inFile << online << endl;
-    inFile << lastYearCounted << endl;
-    inFile << lastMonthCounted << endl;
-    inFile << lastDayCounted << endl;
-    inFile << password << endl;
-    inFile.close();
-}
-
-void BankAcc::loadData()
-{
     ofstream outFile;
 
     string fileName = "";
-    fileName.append(to_string(ID));
+    fileName.append(ID);
     fileName.append(".txt");
 
-    outFile.open(fileName);
+    outFile.open(fileName, fstream::trunc);
 
     if (!outFile)
     {
         cout << "Cannot find .txt file(s). All data corrupted." << endl;
         return;
     }
+    outFile << fName << endl;
+    outFile << lName << endl;
+    outFile << phoneNum << endl;
+    outFile << openY << endl;
+    outFile << openM << endl;
+    outFile << openD << endl;
+    outFile << closeY << endl;
+    outFile << closeM << endl;
+    outFile << closeD << endl;
+    outFile << balance << endl;
+    outFile << interestRate << endl;
+    outFile << servCharge << endl;
+    outFile << online << endl;
+    outFile << lastYearCounted << endl;
+    outFile << lastMonthCounted << endl;
+    outFile << lastDayCounted << endl;
+    outFile << password << endl;
+    outFile.close();
+}
+
+void BankAcc::loadData()
+{
+    ifstream inFile;
+
+    string fileName = "";
+    fileName.append(ID);
+    fileName.append(".txt");
+
+    inFile.open(fileName);
+
+    if (!inFile)
+    { 
+        cout << "Cannot find .txt file(s). All data corrupted." << endl;
+        return;
+    }
 
     string text;
-    getline(outFile, fName);
-    getline(outFile, lName);
-    getline(outFile, phoneNum);
-    getline(outFile, text);
+    getline(inFile, fName);
+    getline(inFile, lName);
+    getline(inFile, phoneNum);
+    getline(inFile, text);
     openY = stoi(text);
-    getline(outFile, text);
+    getline(inFile, text);
     openM = stoi(text);
-    getline(outFile, text);
+    getline(inFile, text);
     openD = stoi(text);
-    getline(outFile, text);
+    getline(inFile, text);
     closeY = stoi(text);
-    getline(outFile, text);
+    getline(inFile, text);
     closeM = stoi(text);
-    getline(outFile, text);
+    getline(inFile, text);
     closeD = stoi(text);
-    getline(outFile, text);
+    getline(inFile, text);
     balance = stod(text);
-    getline(outFile, text);
+    getline(inFile, text);
     interestRate = stod(text);
-    getline(outFile, text);
+    getline(inFile, text);
     servCharge = stod(text);
-    getline(outFile, text);
+    getline(inFile, text);
     if (text == "0")
     {
         online = false;
@@ -365,91 +365,91 @@ void BankAcc::loadData()
     {
         online = true;
     }
-    getline(outFile, text);
+    getline(inFile, text);
     lastYearCounted = stoi(text);
-    getline(outFile, text);
+    getline(inFile, text);
     lastMonthCounted = stoi(text);
-    getline(outFile, text);
+    getline(inFile, text);
     lastDayCounted = stoi(text);
-    getline(outFile, password);
-    outFile.close();
+    getline(inFile, password);
+    inFile.close();
 }
 
 void BankAcc::saveHistory(int year, int month, int day)
 {
-    ifstream inFile;
+    ofstream outFile;
 
     string fileName = "";
-    fileName.append(to_string(ID));
+    fileName.append(ID);
     fileName.append("H.txt");
 
-    inFile.open(fileName, fstream::app);
+    outFile.open(fileName, fstream::app);
 
-    if (!inFile)
+    if (!outFile)
     {
         cout << "Cannot find history .txt file(s). All data corrupted." << endl;
         return;
     }
 
-    inFile << endl << "Y" << year << "M" << month << "D" << day;
-    inFile.close();
+    outFile << endl << "Y" << year << "M" << month << "D" << day;
+    outFile.close();
 }
 
 void BankAcc::saveTransactionHistory(char type, double amount)
 {
-    ifstream inFile;
+    ofstream outFile;
 
     string fileName = "";
-    fileName.append(to_string(ID));
+    fileName.append(ID);
     fileName.append("H.txt");
 
-    inFile.open(fileName, fstream::app);
+    outFile.open(fileName, fstream::app);
 
-    if (!inFile)
+    if (!outFile)
     {
         cout << "Cannot find history .txt file(s). All data corrupted." << endl;
         return;
     }
 
-    inFile << " " << type << amount << "H" << getCurrentH() << "M" << getCurrentMin();
-    inFile.close();
+    outFile << " " << type << amount << "H" << getCurrentH() << "M" << getCurrentMin();
+    outFile.close();
 }
 
 void BankAcc::printAllHistory()
 {
-    ofstream outFile;
+    ifstream inFile;
 
     string fileName = "";
-    fileName.append(to_string(ID));
+    fileName.append(ID);
     fileName.append("H.txt");
 
-    outFile.open(fileName);
+    inFile.open(fileName);
 
-    if (!outFile)
+    if (!inFile)
     {
         cout << "Cannot find history .txt file(s). All data corrupted." << endl;
         return;
     }
 
     string text;
-    while (getline(outFile, text))
+    while (getline(inFile, text))
     {
         getDayHistory(text);
     }
-    outFile.close();
+    inFile.close();
 }
 
 void BankAcc::printLast7Days()
 {
-    ofstream outFile;
+    ifstream inFile;
 
     string fileName = "";
-    fileName.append(to_string(ID));
+    fileName.append(ID);
     fileName.append("H.txt");
 
-    outFile.open(fileName);
+    inFile.open(fileName);
 
-    if (!outFile)
+    if (!inFile)
     {
         cout << "Cannot find history .txt file(s). All data corrupted." << endl;
         return;
@@ -457,21 +457,21 @@ void BankAcc::printLast7Days()
 
     string text;
     int count = 0;
-    while (getline(outFile, text))
+    while (getline(inFile, text))
     {
         count++;
     }
-    outFile.close();
-    outFile.open(fileName);
+    inFile.close();
+    inFile.open(fileName);
     for (int i = 0; i < count; i++)
     {
-        getline(outFile, text);
+        getline(inFile, text);
         if (i >= count - 7)
         {
             getDayHistory(text);
         }
     }
-    outFile.close()
+    inFile.close()
 }
 
 void BankAcc::getDayHistory(string text)
