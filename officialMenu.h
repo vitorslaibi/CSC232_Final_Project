@@ -99,6 +99,7 @@ void officialDepositChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
             if (chkList[i].getID() == id)
             {
                 found = true;
+                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Deposit.\n";
                 //customerLogin();
                 cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
                 double amount = getAmount();
@@ -122,6 +123,7 @@ void officialDepositSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
             if (savList[i].getID() == id)
             {
                 found = true;
+                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Deposit.\n";
                 //customerLogin();
                 cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
                 double amount = getAmount();
@@ -145,6 +147,7 @@ void officialWithdrawChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
             if (chkList[i].getID() == id)
             {
                 found = true;
+                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Withdraw.\n";
                 //customerLogin();
                 cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
                 double amount = getAmount();
@@ -168,6 +171,7 @@ void officialWithdrawSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
             if (savList[i].getID() == id)
             {
                 found = true;
+                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Withdraw.\n";
                 //customerLogin();
                 cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
                 double amount = getAmount();
@@ -269,6 +273,227 @@ void closeAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     }
 }
 
+void searchCheckingId(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+{
+    bool found = false;
+    while(!found)
+    {
+        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        string id = getChkID();
+        for (int i = 0; i < chkList.size(); i++)
+        {
+            if (chkList[i].getID() == id)
+            {
+                found = true;
+                cout << "\nDisplaying Information of Checking Account: " << chkList[i].getID() << "\n";
+                cout << "Name: " << chkList[i].getFname() << " " << chkList[i].getLname() << "\n";
+                cout << "Phone Number: " << chkList[i].getPhoneNum() << "\n";
+                cout << "Current Balance: " << chkList[i].getBalance() << "\n";
+            }        
+        }
+        if (!found) 
+            cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+    }
+}
+
+void searchCheckingName(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+{
+    bool found = false;
+    while(!found)
+    {
+        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        string fName = getFirstName();
+        string lName = getLastName();
+        for (int i = 0; i < chkList.size(); i++)
+        {
+            if (chkList[i].getFname() == fName && chkList[i].getLname() == lName)
+            {
+                found = true;
+                cout << "\nDisplaying Information of Checking Account With Name: " << chkList[i].getFname() << " " << chkList[i].getLname() << "\n";
+                cout << "Account ID: " << chkList[i].getID() << "\n";
+                cout << "Phone Number: " << chkList[i].getPhoneNum() << "\n";
+                cout << "Current Balance: " << chkList[i].getBalance() << "\n";
+            }        
+        }
+        if (!found) 
+            cout << "\nThe Account Name You Just Enter Does Not Exist\n";
+    }
+}
+
+void searchCheckingPhone(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+{
+    bool found = false;
+    while(!found)
+    {
+        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        string phone = getPhone();
+        for (int i = 0; i < chkList.size(); i++)
+        {
+            if (chkList[i].getPhoneNum() == phone)
+            {
+                found = true;
+                cout << "\nDisplaying Information of Checking Account With Phone Number: " << chkList[i].getPhoneNum() << "\n";
+                cout << "Account ID: " << chkList[i].getID() << "\n";
+                cout << "Name: " << chkList[i].getFname() << " " << chkList[i].getLname() << "\n";
+                cout << "Current Balance: " << chkList[i].getBalance() << "\n";
+            }        
+        }
+        if (!found) 
+            cout << "\nThe Account Phone Number You Just Enter Does Not Exist\n";
+    }
+}
+
+void searchChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+{
+    bool done = false;
+    while (!done)
+    {
+        cout << "[1] Search By Account Account Number\n";
+        cout << "[2] Search By Name\n";
+        cout << "[3] Search By Phone\n";
+        cout << "[4] Go Back\n";
+        int input = stoi(getInput());
+        switch (input)
+        {
+            case 1:
+            {
+                searchCheckingId(chkList, savList);
+                break;
+            }
+            case 2:
+            { 
+                searchCheckingName(chkList, savList);
+                break;
+            }
+            case 3:
+            { 
+                searchCheckingPhone(chkList, savList);
+                break;
+            }
+            case 4:
+            {
+                done = true;
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
+        cout << endl;
+    }
+}
+
+void searchSavingId(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+{
+    bool found = false;
+    while(!found)
+    {
+        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        string id = getSavID();
+        for (int i = 0; i < savList.size(); i++)
+        {
+            if (savList[i].getID() == id)
+            {
+                found = true;
+                cout << "\nDisplaying Information of Saving Account: " << savList[i].getID() << "\n";
+                cout << "Name: " << savList[i].getFname() << " " << savList[i].getLname() << "\n";
+                cout << "Phone Number: " << savList[i].getPhoneNum() << "\n";
+                cout << "Current Balance: " << savList[i].getBalance() << "\n";
+            }        
+        }
+        if (!found) 
+            cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+    }
+}
+
+void searchSavingName(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+{
+    bool found = false;
+    while(!found)
+    {
+        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        string fName = getFirstName();
+        string lName = getLastName();
+        for (int i = 0; i < savList.size(); i++)
+        {
+            if (savList[i].getFname() == fName && savList[i].getLname() == lName)
+            {
+                found = true;
+                cout << "\nDisplaying Information of Checking Account With Name: " << savList[i].getFname() << " " << savList[i].getLname() << "\n";
+                cout << "Account ID: " << savList[i].getID() << "\n";
+                cout << "Phone Number: " << savList[i].getPhoneNum() << "\n";
+                cout << "Current Balance: " << savList[i].getBalance() << "\n";
+            }        
+        }
+        if (!found) 
+            cout << "\nThe Account Name You Just Enter Does Not Exist\n";
+    }
+}
+
+void searchSavingPhone(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+{
+    bool found = false;
+    while(!found)
+    {
+        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        string phone = getPhone();
+        for (int i = 0; i < savList.size(); i++)
+        {
+            if (savList[i].getPhoneNum() == phone)
+            {
+                found = true;
+                cout << "\nDisplaying Information of Checking Account With Phone Number: " << savList[i].getPhoneNum() << "\n";
+                cout << "Account ID: " << savList[i].getID() << "\n";
+                cout << "Name: " << savList[i].getFname() << " " << savList[i].getLname() << "\n";
+                cout << "Current Balance: " << savList[i].getBalance() << "\n";
+            }        
+        }
+        if (!found) 
+            cout << "\nThe Account Phone Number You Just Enter Does Not Exist\n";
+    }
+}
+
+void searchSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+{
+    bool done = false;
+    while (!done)
+    {
+        cout << "[1] Search By Account Account Number\n";
+        cout << "[2] Search By Name\n";
+        cout << "[3] Search By Phone\n";
+        cout << "[4] Go Back\n";
+        int input = stoi(getInput());
+        switch (input)
+        {
+            case 1:
+            {
+                searchSavingId(chkList, savList);
+                break;
+            }
+            case 2:
+            { 
+                searchSavingName(chkList, savList);
+                break;
+            }
+            case 3:
+            { 
+                searchSavingPhone(chkList, savList);
+                break;
+            }
+            case 4:
+            {
+                done = true;
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
+        cout << endl;
+    }
+}
 void officialSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 {
     bool done = false;
@@ -283,12 +508,12 @@ void officialSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
         {
             case 1:
             {
-                //searchChecking();
+                searchChecking(chkList, savList);
                 break;
             }
             case 2:
             { 
-                //searchSaving();
+                //searchSaving(chkList, savList);
                 break;
             }
             case 3:
@@ -411,7 +636,7 @@ void officialMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
             case 3:
             {
                 cout << "\nChoose A Type Of Account To Search.\n";
-                //officialSearch();
+                officialSearch(chkList, savList);
                 cout << "\nSearched.\n";
                 break;
             }

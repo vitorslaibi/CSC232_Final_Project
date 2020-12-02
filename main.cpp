@@ -48,18 +48,12 @@ int main()
                 break;
             }
             case 3:
-            { 
-                cout << "\nPlease enter login id and password:\n\n";
-                // while(!customerLogin());
-                // {
-                //     cout << "\nIncorect username or password\n";
-                //     continue;
-                // }
+            {
 
                 cout << "\nSuccessfully Logged In.\n";
                 cout << "\nChoose An Account To Interact With.\n";
                 //display information after each successful log in
-                customerMenu();
+                customerMenu(chkList, savList);
                 break;
             }
             case 4:

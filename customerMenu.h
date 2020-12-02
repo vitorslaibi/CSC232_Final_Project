@@ -1,11 +1,33 @@
+void customerDepositChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+{
+    bool found = false;
+    while(!found)
+    {
+        cout << "\nPlease Enter The Account ID That You Would Like To Deposit.\n";
+        string id = getChkID();
+        for (int i = 0; i < chkList.size(); i++)
+        {
+            if (chkList[i].getID() == id)
+            {
+                found = true;
+                //customerLogin();
+                cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
+                double amount = getAmount();
+                chkList[i].deposit(amount);
+            }        
+        }
+        if (!found) 
+            cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+    }
+}
 
-bool customerLogin()
+bool customerLogin(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 {
     //return true when successfully logged in
     return true;
 }
 
-void checkingMenu()
+void checkingMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 {
     bool done = false;
     while (!done)
@@ -19,12 +41,12 @@ void checkingMenu()
         {
             case 1:
             {
-                //customerDepositChecking();
+                //customerDepositChecking(chkList, savList);
                 break;
             }
             case 2:
             { 
-                //customerDepositChecking();
+                //customerWithdrawChecking(chkList, savList);
                 break;
             }
             case 3:
@@ -46,7 +68,7 @@ void checkingMenu()
     }
 }
 
-void savingMenu()
+void savingMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 {
     bool done = false;
     while (!done)
@@ -60,12 +82,12 @@ void savingMenu()
         {
             case 1:
             {
-                //customerDepositSaving();
+                //customerDepositSaving(chkList, savList);
                 break;
             }
             case 2:
             { 
-                //customerDepositSaving();
+                //customerDepositSaving(chkList, savList);
                 break;
             }
             case 3:
@@ -87,7 +109,7 @@ void savingMenu()
     }
 }
 
-void customerMenu()
+void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 {
     bool done = false;
     while (!done)
@@ -100,12 +122,12 @@ void customerMenu()
         {
             case 1:
             {
-                checkingMenu();
+                checkingMenu(chkList, savList);
                 break;
             }
             case 2:
             { 
-                savingMenu();
+                savingMenu(chkList, savList);
                 break;
             }
             case 3:
