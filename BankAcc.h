@@ -25,9 +25,12 @@ class BankAcc
     int closeM;
     int closeD;
     double balance; //account balance
+    double safeLevel;
+    double penalty;
     double interestRate;    //yearly interest rate
     double servCharge;      //yearly service charge
     bool online = true;     //online status; false means the account is closed
+    bool fixedInterest = false;
     int lastYearCounted;    //last year the balance was updated
     int lastMonthCounted;
     int lastDayCounted;     //last day in year the balance was updated
@@ -47,14 +50,19 @@ class BankAcc
     int getCM();
     int getCD();     
     double getBalance();
+    double getSafeLevel();
+    double getPenalty();
     double getInterestRate();
     double getServCharge();
     bool isOnline();
+    bool isInterestFixed();
     int getLastYearCounted();
     int getLastMonthCounted();
     int getLastDayCounted();
     void setID(string newID);
     void setBalance(double newBalance);
+    void setSafeLevel(double newLevel);
+    void setPenalty(double newPenalty);
     void setInterestRate(double newInterestRate);
     void setServCharge(double newServCharge);
     void setOnlStat(bool newOnlStat);
@@ -63,6 +71,7 @@ class BankAcc
     void setLastDayCounted(int newLastDayCounted);      
     //end of getters and setters
     BankAcc(string newAccType, string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate, double newServCharge, double newBalance);     //constructor
+    void updateOnlStat();
     virtual void deposit(double var) = 0;   //pure virtual function to deposit - to be overridden
     virtual void withdraw(double var) = 0;  //pure virtual function to withdraw - to be overridden
     void setLastTimeCounted();      //set the last time the balance was updated

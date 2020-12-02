@@ -103,15 +103,20 @@ int BankAcc::getOD() { return openD; }
 int BankAcc::getCY() { return closeY; }
 int BankAcc::getCM() { return closeM; }
 int BankAcc::getCD() { return closeD; }
-double BankAcc::getBalance() { return balance; }        
+double BankAcc::getBalance() { return balance; }     
+double BankAcc::getSafeLevel() { return safeLevel; }
+double BankAcc::getPenalty() {return penalty; }   
 double BankAcc::getInterestRate() { return interestRate; }
 double BankAcc::getServCharge() { return servCharge; }
 bool BankAcc::isOnline() { return online; }
+bool BankAcc::isInterestFixed() {return fixedInterest; }
 int BankAcc::getLastYearCounted(){ return lastYearCounted; }
 int BankAcc::getLastMonthCounted(){ return lastMonthCounted; }
 int BankAcc::getLastDayCounted(){ return lastDayCounted; }
 void BankAcc::setID(string newID) { ID = newID; }
 void BankAcc::setBalance(double newBalance) { balance = newBalance; }
+void BankAcc::setSafeLevel(double newSafeLevel) {safeLevel = newSafeLevel; }
+void BankAcc::setPenalty(double newPenalty) {penalty = newPenalty; }
 void BankAcc::setInterestRate(double newInterestRate) { interestRate = newInterestRate; }
 void BankAcc::setServCharge(double newServCharge) { servCharge = newServCharge; }
 void BankAcc::setOnlStat(bool newOnlStat) { online = newOnlStat; }
@@ -140,7 +145,8 @@ BankAcc::BankAcc(string newAccType, string newID, string newPassword, string new
     closeY = -1;
     closeM = -1;
     closeD = -1;
-
+    penalty = 0;
+    safeLevel = 0;
 }
 
 void BankAcc::setLastTimeCounted()  //set the current time as the last time counted
@@ -184,6 +190,40 @@ int BankAcc::getCurrentMin()  //set the current time as the last time counted
     time_t t = time(0);
     tm* now = localtime(&t);
     return now->tm_min;
+}
+
+void BankAcc::updateOnlStat()
+{
+    if (balance < safeLevel)     //if the balance is below $50
+    {
+        //message the user, sorry for the long line
+        cout << "\nYour balance is now $" << balance << ", which is lower than " << safeLevel << ". A service fee of " << penalty << " will be deducted from your account." << endl;
+        balance -= penalty;     //deduct $5 fee
+        if (balance < 1.0)  //if after that the balance is smaller than $1
+        {
+            //message the user
+            cout << "\nYour balance is now $" << balance << ".\nIf you don't deposit to increase your account balance, your account will be deleted after you logged out." << endl;
+            closeAcc();     //set the online status to be false
+            return;     //end the function
+        }
+        //update the new balance after deducting fee
+        cout << "Your balance is now $" << balance << endl
+             << endl;
+        return;     //end the function
+    }
+    if (balance < 1.0)  // if the balance is below $1
+    {
+        //message the user
+        cout << "\nYour balance is now $" << balance << ".\nIf you don't deposit to increase your account balance, your account will be deleted after you logged out." << endl;
+        closeAcc();
+        return;
+    }
+    if (balance >= safeLevel)    //if the balance is bigger than $50
+    {
+        //set the stat and online status to be true
+        setOnlStat(true);
+        cout << "\nYour balance is now $" << balance << ".\nYour account is active.\nYou can deposit and withdraw from this account." << endl;
+    }
 }
 
 void BankAcc::calclnt()

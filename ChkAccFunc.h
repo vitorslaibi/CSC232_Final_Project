@@ -11,9 +11,6 @@ ChkAcc::ChkAcc(string newID, string newPassword, string newFname, string newLnam
     ID = newID.insert(0, "C");  //insert a C at the start of the acc number
 }
 
-bool ChkAcc::isActive() { return active; }
-void ChkAcc::setActStat(bool newActStat) { active = newActStat; }
-
 void ChkAcc::withdraw(double var)
 {
     if (!isOnline())    // if the account is closed, message the user
@@ -21,13 +18,14 @@ void ChkAcc::withdraw(double var)
         cout << "\nInactive Account Cannot Be Withdrawed From.\n";
         return;
     }
-    if (var > balance)
+    if (var > balance - penalty)
     {
-        cout << "\nWithdraw Ammount (" << var << ") Cannot Be Bigger Than The Account Balance (" << balance << ").\n";
+        cout << "\nWithdraw Ammount (" << var << ") Cannot Be Bigger Than The Account Balance (" << balance << ") minus the penalty (" << penalty << ").\n";
     }
     else
     {
         balance -= var;
+        updateOnlStat();
         saveTransactionHistory('W', var);
         saveData();
     }
@@ -43,6 +41,7 @@ void ChkAcc::deposit(double var)
     else
     {
         balance += var;
+        updateOnlStat();
         saveTransactionHistory('D', var);
         saveData();
     }
