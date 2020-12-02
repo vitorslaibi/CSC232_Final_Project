@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int getYearDays(int currentYear)    //function to get the number of days in a given year
+int BankAcc::getYearDays(int currentYear)    //function to get the number of days in a given year
 {
     if (currentYear % 4 == 0)   //if the year divides by 4
     {
@@ -22,7 +22,7 @@ int getYearDays(int currentYear)    //function to get the number of days in a gi
     return 365;     //if the year doesn't divide by 4, it's not a leap year
 }
 
-int getMonthDays(int currentYear, int currentMonth)
+int BankAcc::getMonthDays(int currentYear, int currentMonth)
 {
     switch (currentMonth)
     {
@@ -80,9 +80,13 @@ int getMonthDays(int currentYear, int currentMonth)
 
 void BankAcc::updateDailyBalance(int year)  //update the balance after a day
 {
-    double dailyInterestRate = interestRate / getYearDays(year);
-    double dailyInterest = dailyInterestRate * balance;
-    balance += dailyInterest;
+    updateOnlStat();
+    if (isOnline())
+    {
+        double dailyInterestRate = interestRate / getYearDays(year);
+        double dailyInterest = dailyInterestRate * balance;
+        balance += dailyInterest;
+    }
 }
 string BankAcc::getID()     //get the account number, number part only
 {
@@ -197,24 +201,24 @@ void BankAcc::updateOnlStat()
     if (balance < safeLevel)     //if the balance is below $50
     {
         //message the user, sorry for the long line
-        cout << "\nYour balance is now $" << balance << ", which is lower than " << safeLevel << ". A service fee of " << penalty << " will be deducted from your account." << endl;
+        //cout << "\nYour balance is now $" << balance << ", which is lower than " << safeLevel << ". A service fee of " << penalty << " will be deducted from your account." << endl;
         balance -= penalty;     //deduct $5 fee
         if (balance < 1.0)  //if after that the balance is smaller than $1
         {
             //message the user
-            cout << "\nYour balance is now $" << balance << ".\nIf you don't deposit to increase your account balance, your account will be deleted after you logged out." << endl;
+            //cout << "\nYour balance is now $" << balance << ".\nIf you don't deposit to increase your account balance, your account will be deleted after you logged out." << endl;
             closeAcc();     //set the online status to be false
             return;     //end the function
         }
         //update the new balance after deducting fee
-        cout << "Your balance is now $" << balance << endl
+        //cout << "Your balance is now $" << balance << endl
              << endl;
         return;     //end the function
     }
     if (balance < 1.0)  // if the balance is below $1
     {
         //message the user
-        cout << "\nYour balance is now $" << balance << ".\nIf you don't deposit to increase your account balance, your account will be deleted after you logged out." << endl;
+        //cout << "\nYour balance is now $" << balance << ".\nIf you don't deposit to increase your account balance, your account will be deleted after you logged out." << endl;
         closeAcc();
         return;
     }
@@ -222,11 +226,11 @@ void BankAcc::updateOnlStat()
     {
         //set the stat and online status to be true
         setOnlStat(true);
-        cout << "\nYour balance is now $" << balance << ".\nYour account is active.\nYou can deposit and withdraw from this account." << endl;
+        //cout << "\nYour balance is now $" << balance << ".\nYour account is active.\nYou can deposit and withdraw from this account." << endl;
     }
 }
 
-void BankAcc::calclnt()
+void BankAcc::calcInt()
 {
     int yearNow = getCurrentY();  //get the current year
     int monthNow = getCurrentM();
@@ -321,7 +325,12 @@ void BankAcc::calclnt()
 
 void BankAcc::monthlyCharge()    //to deduct the yearly service charge :))
 {
-    balance -= servCharge;
+    updateOnlStat();
+    if (isOnline())
+    {
+        balance -= servCharge;
+        updateOnlStat();
+    }
 }
 
 void BankAcc::saveData()
@@ -528,7 +537,7 @@ void BankAcc::getDayHistory(string text)
     {
         day = text;
         cout << "At " << month << "/" << day << "/" << year << ", No Transaction Were Made.\n";
-        //continue; WHY IS THERE A CONTINUE HERE???
+        //continue; WHY IS THERE A CONTINUE HERE??? Sorry, I cut it from a loop XP
     }
     else
     {            
@@ -562,4 +571,30 @@ void BankAcc::getDayHistory(string text)
         text = text.substr(text.find_first_of(" ") + 1);
         cout << "\t" << type << " " << val << " at " << hour << ":" << min << ".\n";
     }
+}
+
+string BankAcc::encryption(string rawString)
+{
+    char element;
+    string encryptedString = "";
+    for (int i = 0; i < rawString.length(); i++)
+    {
+        element = rawString.at(i);
+        element = 158 - element;
+        encryptedString.append(element);
+    }
+    return encryptedString;
+}
+
+string BankAcc::decryption(string encryptedString)
+{
+    char element;
+    string rawString = "";
+    for (int i = 0; i < encryptedString.length(); i++)
+    {
+        element = encryptedString.at(i);
+        element = 158 - element;
+        rawString.append(element);
+    }
+    return rawString;
 }

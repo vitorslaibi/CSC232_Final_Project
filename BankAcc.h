@@ -36,6 +36,8 @@ class BankAcc
     int lastDayCounted;     //last day in year the balance was updated
 
     public:
+    int getYearDays(int currentYear);
+    int getMonthDays(int currentYear, int currentMonth);
     void updateDailyBalance(int year);  //update the balance after a day
     //getters and setters
     string getID();
@@ -80,7 +82,7 @@ class BankAcc
     int getCurrentD();
     int getCurrentH();
     int getCurrentMin();
-    void calclnt();                 //update the balance
+    void calcInt();                 //update the balance
     virtual void monthlyCharge();    //charge the service fee
     void saveData();
     void loadData();
@@ -89,5 +91,7 @@ class BankAcc
     void printAllHistory();
     void printLast7Days();
     void getDayHistory(string text);
+    string encryption(string rawString);
+    string decryption(string encryptedString);
     virtual void closeAcc() = 0;    //pure virtual function to close the acc - to be overridden
 };
