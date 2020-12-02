@@ -11,10 +11,12 @@ using namespace std;
 class ChkAcc : public BankAcc
 {
 private:
-    
+    static bool active = true;
 
 public:
     ChkAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNume);
+    static bool isActive();
+    static void setActStat(bool newActStat);
     void withdraw(double var) override;
     void deposit(double var) override;
     void closeAcc();

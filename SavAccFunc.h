@@ -11,6 +11,9 @@ SavAcc::SavAcc(string newID, string newPassword, string newFname, string newLnam
     ID = newID.insert(0, "S");  //insert a C at the start of the acc number
 }
 
+static bool SavAcc::isActive() { return active; }
+static void SavAcc::setActStat(bool newActStat) { active = newActStat; }
+
 void SavAcc::withdraw(double var)
 {
     if (!isOnline())    // if the account is closed, message the user
