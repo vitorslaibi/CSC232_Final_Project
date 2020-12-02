@@ -6,13 +6,13 @@
 
 using namespace std;
 
-SavAcc::SavAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate) : BankAcc(newID, newPassword, newFname, newLname, newInterestRate, 0.0)
+SavAcc::SavAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate) : BankAcc("S", newID, newPassword, newFname, newLname, newPhoneNum, newInterestRate, 0.0)
 {
     ID = newID.insert(0, "S");  //insert a C at the start of the acc number
 }
 
-static bool SavAcc::isActive() { return active; }
-static void SavAcc::setActStat(bool newActStat) { active = newActStat; }
+bool SavAcc::isActive() { return active; }
+void SavAcc::setActStat(bool newActStat) { active = newActStat; }
 
 void SavAcc::withdraw(double var)
 {

@@ -11,7 +11,7 @@ using namespace std;
 class ChkAcc : public BankAcc
 {
 private:
-    static bool active = true;
+    static bool active;
 
 public:
     ChkAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNume);

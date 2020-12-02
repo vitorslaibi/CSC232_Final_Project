@@ -11,8 +11,8 @@ ChkAcc::ChkAcc(string newID, string newPassword, string newFname, string newLnam
     ID = newID.insert(0, "C");  //insert a C at the start of the acc number
 }
 
-static bool ChkAcc::isActive() { return active; }
-static void ChkAcc::setActStat(bool newActStat) { active = newActStat; }
+bool ChkAcc::isActive() { return active; }
+void ChkAcc::setActStat(bool newActStat) { active = newActStat; }
 
 void ChkAcc::withdraw(double var)
 {

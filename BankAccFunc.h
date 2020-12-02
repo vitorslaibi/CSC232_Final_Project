@@ -72,8 +72,10 @@ int getMonthDays(int currentYear, int currentMonth)
         break;
     }
     default:
+    
         break;
     }
+    return -1;
 }
 
 void BankAcc::updateDailyBalance(int year)  //update the balance after a day

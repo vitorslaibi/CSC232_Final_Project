@@ -11,7 +11,7 @@ using namespace std;
 class SavAcc : public BankAcc
 {
 private:
-    static bool active = true;
+    static bool active;
 
 public:
     SavAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNume, double newInterestRate);
