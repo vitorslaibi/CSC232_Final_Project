@@ -35,10 +35,10 @@ void openSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 
 void closeChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 {
-    cout << "\nPlease Enter The Account ID That You Would Like To Close.\n";
     bool found = false;
     while(!found)
     {
+        cout << "\nPlease Enter The Account ID That You Would Like To Close.\n";
         string id = getChkID();
         for (int i = 0; i < chkList.size(); i++)
         {
@@ -62,10 +62,10 @@ void closeChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 
 void closeSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 {
-    cout << "\nPlease Enter The Account ID That You Would Like To Close.\n";
     bool found = false;
     while(!found)
     {
+        cout << "\nPlease Enter The Account ID That You Would Like To Close.\n";
         string id = getSavID();
         for (int i = 0; i < savList.size(); i++)
         {
@@ -80,6 +80,98 @@ void closeSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
                 {
                     cout << "\nThis Account Is Already Closed\n";
                 }   
+            }        
+        }
+        if (!found) 
+            cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+    }
+}
+
+void officialDepositChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+{
+    bool found = false;
+    while(!found)
+    {
+        cout << "\nPlease Enter The Account ID That You Would Like To Deposit.\n";
+        string id = getChkID();
+        for (int i = 0; i < chkList.size(); i++)
+        {
+            if (chkList[i].getID() == id)
+            {
+                found = true;
+                //customerLogin();
+                cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
+                double amount = getAmount();
+                chkList[i].deposit(amount);
+            }        
+        }
+        if (!found) 
+            cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+    }
+}
+
+void officialDepositSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+{
+    bool found = false;
+    while(!found)
+    {
+        cout << "\nPlease Enter The Account ID That You Would Like To Deposit.\n";
+        string id = getSavID();
+        for (int i = 0; i < savList.size(); i++)
+        {
+            if (savList[i].getID() == id)
+            {
+                found = true;
+                //customerLogin();
+                cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
+                double amount = getAmount();
+                savList[i].deposit(amount);
+            }        
+        }
+        if (!found) 
+            cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+    }
+}
+
+void officialWithdrawChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+{
+    bool found = false;
+    while(!found)
+    {
+        cout << "\nPlease Enter The Account ID That You Would Like To Deposit.\n";
+        string id = getChkID();
+        for (int i = 0; i < chkList.size(); i++)
+        {
+            if (chkList[i].getID() == id)
+            {
+                found = true;
+                //customerLogin();
+                cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
+                double amount = getAmount();
+                chkList[i].withdraw(amount);
+            }        
+        }
+        if (!found) 
+            cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+    }
+}
+
+void officialWithdrawSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+{
+    bool found = false;
+    while(!found)
+    {
+        cout << "\nPlease Enter The Account ID That You Would Like To Deposit.\n";
+        string id = getSavID();
+        for (int i = 0; i < savList.size(); i++)
+        {
+            if (savList[i].getID() == id)
+            {
+                found = true;
+                //customerLogin();
+                cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
+                double amount = getAmount();
+                savList[i].withdraw(amount);
             }        
         }
         if (!found) 
@@ -231,12 +323,12 @@ void officialDeposit(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
         {
             case 1:
             {
-                //officialDepositChecking();
+                officialDepositChecking(chkList, savList);
                 break;
             }
             case 2:
             { 
-                //officialDepositSaving();
+                officialDepositSaving(chkList, savList);
                 break;
             }
             case 3:
@@ -266,12 +358,12 @@ void officialWithdraw(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
         {
             case 1:
             {
-                //officialWithdrawChecking();
+                officialWithdrawChecking(chkList, savList);
                 break;
             }
             case 2:
             { 
-                //officialWithdrawSaving();
+                officialWithdrawSaving(chkList, savList);
                 break;
             }
             case 3:
@@ -326,14 +418,14 @@ void officialMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
             case 4:
             {
                 cout << "\nChoose A Type Of Account To Deposit.\n";
-                //officialDeposit(); 
+                officialDeposit(chkList, savList); 
                 cout << "\nDeposited.\n";
                 break;
             }
             case 5:
             {
                 cout << "\nChoose A Type Of Account To Withdraw.\n";
-                //officialWithdraw();
+                officialWithdraw(chkList, savList);
                 cout << "\nWithdrawed.";
                 break;
             }
