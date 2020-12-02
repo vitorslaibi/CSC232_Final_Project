@@ -27,6 +27,7 @@ void openSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     cout << "\nPLease Enter Your Phone Number\n";
     string phone = getPhone();
     cout << "\nPLease Enter The Desire Interest Rate\n";
+    double rate = getRate();
     
 
     SavAcc account(id, password, fName, lName, phone, rate);
