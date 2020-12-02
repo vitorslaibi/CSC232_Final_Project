@@ -7,8 +7,8 @@ using namespace std;
 
 int main()
 {
-    vector <SavAcc> SavAccList;
-    vector <ChkAcc> ChkAccList;
+    vector <SavAcc> savList;
+    vector <ChkAcc> chkList;
 
     bool done = false;
     while (!done)
@@ -44,7 +44,7 @@ int main()
                 // }
                 
                 cout << "\nSuccessfully Logged In.\n";
-                officialMenu();
+                officialMenu(chkList, savList);
                 break;
             }
             case 3:
@@ -57,7 +57,7 @@ int main()
                 // }
 
                 cout << "\nSuccessfully Logged In.\n";
-                cout << "\nChoose An Account To Interact With.\n"
+                cout << "\nChoose An Account To Interact With.\n";
                 //display information after each successful log in
                 customerMenu();
                 break;

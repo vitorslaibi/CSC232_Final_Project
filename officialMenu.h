@@ -1,14 +1,26 @@
-#include <iostream>
+void openChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+{
+    cout << "\nYour Checking Account ID Is C" << to_string(chkList.size()) << "\n";
+    string id = chkList.size();
+    cout << "\nPlease Enter Your New Password\n";
+    string password = getPassword();
+    cout << "\nPlease Enter Your First Name\n";
+    string fName = getFirstName();
+    cout << "\nPLease Enter Your Last Name\n";
+    string lName = getLastName();
+    cout << "\nPLease Enter Your Phone Number\n";
+    string phone = getPhone();
 
-using namespace std;
+    ChkAcc account(id, password, fName, lName, phone);
+}
 
-bool officialLogin()
+bool officialLogin(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 {
     //return true when successfully logged in
     return true;
 }
 
-void openAccount()
+void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 {
     bool done = false;
     while (!done)
@@ -22,7 +34,7 @@ void openAccount()
         {
             case 1:
             {
-                //openChecking();
+                openChecking(chkList, savList);
                 break;
             }
             case 2:
@@ -49,7 +61,7 @@ void openAccount()
     }
 }
 
-void closeAccount()
+void closeAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 {
     bool done = false;
     while (!done)
@@ -90,7 +102,7 @@ void closeAccount()
     }
 }
 
-void officialSearch()
+void officialSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 {
     bool done = false;
     while (!done)
@@ -131,7 +143,7 @@ void officialSearch()
     }
 }
 
-void officialDeposit()
+void officialDeposit(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 {
     bool done = false;
     while (!done)
@@ -166,7 +178,7 @@ void officialDeposit()
     }
 }
 
-void officialWithdraw()
+void officialWithdraw(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 {
     bool done = false;
     while (!done)
@@ -201,7 +213,7 @@ void officialWithdraw()
     }
 }
 
-void officialMenu()
+void officialMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
 {
     bool done = false;
     while (!done)
@@ -218,35 +230,35 @@ void officialMenu()
             case 1:
             {
                 cout << "\nChoose A Type Of Account To Open.\n";
-                openAccount();
+                openAccount(chkList, savList);
                 cout << "\nAccount Successfully Opened.\n";   //might print the info of the open account
                 break;
             }
             case 2:
             {
                 cout << "\nChoose A Type Of Account To Close.\n";
-                closeAccount();
+                //closeAccount();
                 cout << "\nAccount Successfully Closed.\n";
                 break;
             }
             case 3:
             {
                 cout << "\nChoose A Type Of Account To Search.\n";
-                officialSearch();
+                //officialSearch();
                 cout << "\nSearched.\n";
                 break;
             }
             case 4:
             {
                 cout << "\nChoose A Type Of Account To Deposit.\n";
-                officialDeposit(); 
+                //officialDeposit(); 
                 cout << "\nDeposited.\n";
                 break;
             }
             case 5:
             {
                 cout << "\nChoose A Type Of Account To Withdraw.\n";
-                officialWithdraw();
+                //officialWithdraw();
                 cout << "\nWithdrawed.";
                 break;
             }
@@ -258,7 +270,7 @@ void officialMenu()
             }
             default:
             {
-                cout << "\nPlease Enter The Correct Input Corresponding To Each Options.\n"
+                cout << "\nPlease Enter The Correct Input Corresponding To Each Options.\n";
                 break;
             }
         }

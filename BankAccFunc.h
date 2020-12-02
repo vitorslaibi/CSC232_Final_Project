@@ -473,7 +473,7 @@ void BankAcc::printLast7Days()
             getDayHistory(text);
         }
     }
-    inFile.close()
+    inFile.close();
 }
 
 void BankAcc::getDayHistory(string text)
@@ -488,13 +488,13 @@ void BankAcc::getDayHistory(string text)
     {
         day = text;
         cout << "At " << month << "/" << day << "/" << year << ", No Transaction Were Made.\n";
-        continue;
+        //continue; WHY IS THERE A CONTINUE HERE???
     }
     else
     {            
         day = text.substr(0, text.find_first_of(" "));
         text = text.substr(text.find_first_of(" ") + 1);
-        cout << "At " << month << "/" << day << "/" << year << ":\n"
+        cout << "At " << month << "/" << day << "/" << year << ":\n";
     }
     while (true)
     {
