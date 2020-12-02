@@ -16,5 +16,18 @@
 #include "customerMenu.h"
 #include "officialMenu.h"
 #include "adminMenu.h"
+#include "CD.h"
+#include "CDFunc.h"
+#include "ClassU.h"
+#include "ClassUFunc.h"
+#include "ClassV.h"
+#include "ClassVFunc.h"
+#include "ClassX.h"
+#include "ClassXFunc.h"
+#include "ClassY.h"
+#include "ClassYFunc.h"
+#include "ClassZ.h"
+#include "ClassZFunc.h"
+
 
 #endif
