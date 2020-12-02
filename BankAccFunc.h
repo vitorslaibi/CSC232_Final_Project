@@ -104,7 +104,8 @@ int BankAcc::getCD() { return closeD; }
 double BankAcc::getBalance() { return balance; }        
 double BankAcc::getInterestRate() { return interestRate; }
 double BankAcc::getServCharge() { return servCharge; }
-bool BankAcc::isOnline(){ return online; }
+bool BankAcc::isOnline() { return online; }
+static bool BankAcc::isActive() { return active; }
 int BankAcc::getLastYearCounted(){ return lastYearCounted; }
 int BankAcc::getLastMonthCounted(){ return lastMonthCounted; }
 int BankAcc::getLastDayCounted(){ return lastDayCounted; }
@@ -113,6 +114,7 @@ void BankAcc::setBalance(double newBalance) { balance = newBalance; }
 void BankAcc::setInterestRate(double newInterestRate) { interestRate = newInterestRate; }
 void BankAcc::setServCharge(double newServCharge) { servCharge = newServCharge; }
 void BankAcc::setOnlStat(bool newOnlStat) { online = newOnlStat; }
+static void BankAcc::setActStat(bool newActStat) { active = newActStat; }
 void BankAcc::setLastYearCounted(int newLastYearCounted) { lastYearCounted = newLastYearCounted; }
 void BankAcc::setLastMonthCounted(int newLastMonthCounted) { lastMonthCounted = newLastMonthCounted; }
 void BankAcc::setLastDayCounted(int newLastDayCounted) { lastDayCounted = newLastDayCounted; }
