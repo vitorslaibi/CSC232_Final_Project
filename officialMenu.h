@@ -1,4 +1,4 @@
-void openChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+void openChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     cout << "\nYour Checking Account ID Is C" << to_string(chkList.size()) << "\n";
     string id = to_string(chkList.size());
@@ -14,7 +14,7 @@ void openChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     ChkAcc account(id, password, fName, lName, phone);
 }
 
-void openSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+void openSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(chkList.size()) << "\n";
     string id = to_string(chkList.size());
@@ -33,7 +33,8 @@ void openSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     SavAcc account(id, password, fName, lName, phone, rate);
 }
 
-void closeChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+
+void closeChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -45,14 +46,16 @@ void closeChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
             if (chkList[i].getID() == id)
             {
                 found = true;
-                if (chkList[i].isOnline())
-                {
-                    chkList[i].setOnlStat(false);
-                }
-                else
-                {
-                    cout << "\nThis Account Is Already Closed\n";
-                }   
+
+
+                // if (chkList[i].isOnline())
+                // {
+                //     chkList[i].setOnlStat(false);
+                // }
+                // else
+                // {
+                //     cout << "\nThis Account Is Already Closed\n";
+                // }   
             }        
         }
         if (!found) 
@@ -60,7 +63,7 @@ void closeChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     }
 }
 
-void closeSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+void closeSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -72,14 +75,14 @@ void closeSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
             if (savList[i].getID() == id)
             {
                 found = true;
-                if (savList[i].isOnline())
-                {
-                    savList[i].setOnlStat(false);
-                }
-                else
-                {
-                    cout << "\nThis Account Is Already Closed\n";
-                }   
+                // if (savList[i].isOnline())
+                // {
+                //     savList[i].setOnlStat(false);
+                // }
+                // else
+                // {
+                //     cout << "\nThis Account Is Already Closed\n";
+                // }   
             }        
         }
         if (!found) 
@@ -87,7 +90,8 @@ void closeSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     }
 }
 
-void officialDepositChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+
+void officialDepositChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -100,10 +104,22 @@ void officialDepositChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
             {
                 found = true;
                 cout << "\nPlease Enter The Customer ID and Password In Order To Make A Deposit.\n";
-                //customerLogin();
-                cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
-                double amount = getAmount();
-                chkList[i].deposit(amount);
+                bool corPass = false;
+                while (!corPass)
+                {
+                    string password = getPassword();
+                    if (chkList[i].getPassword() == password)
+                    {
+                        corPass = true
+                        cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
+                        double amount = getAmount();
+                        //officList[accNum].deposit(amount, chkList[i])
+                    }
+                    else
+                    {
+                        cout << "\nIncorrect Password\n";
+                    }
+                }
             }        
         }
         if (!found) 
@@ -111,23 +127,35 @@ void officialDepositChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     }
 }
 
-void officialDepositSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+void officialDepositSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool found = false;
     while(!found)
     {
         cout << "\nPlease Enter The Account ID That You Would Like To Deposit.\n";
-        string id = getSavID();
+        string id = getChkID();
         for (int i = 0; i < savList.size(); i++)
         {
             if (savList[i].getID() == id)
             {
                 found = true;
                 cout << "\nPlease Enter The Customer ID and Password In Order To Make A Deposit.\n";
-                //customerLogin();
-                cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
-                double amount = getAmount();
-                savList[i].deposit(amount);
+                bool corPass = false;
+                while (!corPass)
+                {
+                    string password = getPassword();
+                    if (savList[i].getPassword() == password)
+                    {
+                        corPass = true
+                        cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
+                        double amount = getAmount();
+                        //officList[accNum].deposit(amount, savList[i])
+                    }
+                    else
+                    {
+                        cout << "\nIncorrect Password\n";
+                    }
+                }
             }        
         }
         if (!found) 
@@ -135,7 +163,43 @@ void officialDepositSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     }
 }
 
-void officialWithdrawChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+void officialDeposit(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
+{
+    bool done = false;
+    while (!done)
+    {
+        cout << "[1] Checking Account\n";
+        cout << "[2] Saving Account\n";
+        cout << "[3] Go Back\n";
+        int input = stoi(getInput());
+        switch (input)
+        {
+            case 1:
+            {
+                officialDepositChecking(chkList, savList, cdList, officList, adminList);
+                break;
+            }
+            case 2:
+            { 
+                officialDepositSaving(chkList, savList, cdList, officList, adminList);
+                break;
+            }
+            case 3:
+            {
+                done = true;
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
+        cout << endl;
+    }
+}
+
+
+void officialWithdrawChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -147,11 +211,23 @@ void officialWithdrawChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
             if (chkList[i].getID() == id)
             {
                 found = true;
-                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Withdraw.\n";
-                //customerLogin();
-                cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
-                double amount = getAmount();
-                chkList[i].withdraw(amount);
+                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Deposit.\n";
+                bool corPass = false;
+                while (!corPass)
+                {
+                    string password = getPassword();
+                    if (chkList[i].getPassword() == password)
+                    {
+                        corPass = true
+                        cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
+                        double amount = getAmount();
+                        //officList[accNum].withdraw(amount, chkList[i])
+                    }
+                    else
+                    {
+                        cout << "\nIncorrect Password\n";
+                    }
+                }
             }        
         }
         if (!found) 
@@ -159,23 +235,35 @@ void officialWithdrawChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     }
 }
 
-void officialWithdrawSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+void officialWithdrawSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool found = false;
     while(!found)
     {
         cout << "\nPlease Enter The Account ID That You Would Like To Deposit.\n";
-        string id = getSavID();
+        string id = getChkID();
         for (int i = 0; i < savList.size(); i++)
         {
             if (savList[i].getID() == id)
             {
                 found = true;
-                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Withdraw.\n";
-                //customerLogin();
-                cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
-                double amount = getAmount();
-                savList[i].withdraw(amount);
+                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Deposit.\n";
+                bool corPass = false;
+                while (!corPass)
+                {
+                    string password = getPassword();
+                    if (savList[i].getPassword() == password)
+                    {
+                        corPass = true
+                        cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
+                        double amount = getAmount();
+                        //officList[accNum].withdraw(amount, savList[i])
+                    }
+                    else
+                    {
+                        cout << "\nIncorrect Password\n";
+                    }
+                }
             }        
         }
         if (!found) 
@@ -183,13 +271,43 @@ void officialWithdrawSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     }
 }
 
-bool officialLogin(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+void officialWithdraw(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
-    //return true when successfully logged in
-    return true;
+    bool done = false;
+    while (!done)
+    {
+        cout << "[1] Checking Account\n";
+        cout << "[2] Saving Account\n";
+        cout << "[3] Go Back\n";
+        int input = stoi(getInput());
+        switch (input)
+        {
+            case 1:
+            {
+                officialWithdrawChecking(chkList, savList, cdList, officList, adminList);
+                break;
+            }
+            case 2:
+            { 
+                officialWithdrawSaving(chkList, savList, cdList, officList, adminList);
+                break;
+            }
+            case 3:
+            {
+                done = true;
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
+        cout << endl;
+    }
 }
 
-void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+
+void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool done = false;
     while (!done)
@@ -203,13 +321,13 @@ void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
         {
             case 1:
             {
-                openChecking(chkList, savList);
+                openChecking(chkList, savList, cdList, officList, adminList);
                 cout << "\nNew Checking Account Created.\n";
                 break;
             }
             case 2:
             { 
-                openSaving(chkList, savList);
+                openSaving(chkList, savList, cdList, officList, adminList);
                 cout << "\nNew Saving Account Created.\n";
                 break;
             }
@@ -232,7 +350,7 @@ void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     }
 }
 
-void closeAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+void closeAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool done = false;
     while (!done)
@@ -246,17 +364,17 @@ void closeAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
         {
             case 1:
             {
-                closeChecking(chkList, savList);
+                closeChecking(chkList, savList, cdList, officList, adminList);
                 break;
             }
             case 2:
             { 
-                closeSaving(chkList, savList);
+                closeSaving(chkList, savList, cdList, officList, adminList);
                 break;
             }
             case 3:
             { 
-                //closeCD(chkList, savList);
+                //closeCD(chkList, savList, cdList, officList, adminList);
                 break;
             }
             case 4:
@@ -273,7 +391,8 @@ void closeAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     }
 }
 
-void searchCheckingId(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+
+void searchCheckingId(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -296,7 +415,7 @@ void searchCheckingId(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     }
 }
 
-void searchCheckingName(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+void searchCheckingName(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -320,7 +439,7 @@ void searchCheckingName(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     }
 }
 
-void searchCheckingPhone(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+void searchCheckingPhone(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -343,7 +462,7 @@ void searchCheckingPhone(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     }
 }
 
-void searchChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+void searchChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool done = false;
     while (!done)
@@ -357,17 +476,17 @@ void searchChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
         {
             case 1:
             {
-                searchCheckingId(chkList, savList);
+                searchCheckingId(chkList, savList, cdList, officList, adminList);
                 break;
             }
             case 2:
             { 
-                searchCheckingName(chkList, savList);
+                searchCheckingName(chkList, savList, cdList, officList, adminList);
                 break;
             }
             case 3:
             { 
-                searchCheckingPhone(chkList, savList);
+                searchCheckingPhone(chkList, savList, cdList, officList, adminList);
                 break;
             }
             case 4:
@@ -384,7 +503,8 @@ void searchChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     }
 }
 
-void searchSavingId(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+
+void searchSavingId(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -407,7 +527,7 @@ void searchSavingId(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     }
 }
 
-void searchSavingName(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+void searchSavingName(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -431,7 +551,7 @@ void searchSavingName(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     }
 }
 
-void searchSavingPhone(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+void searchSavingPhone(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -454,7 +574,7 @@ void searchSavingPhone(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     }
 }
 
-void searchSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+void searchSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool done = false;
     while (!done)
@@ -468,17 +588,17 @@ void searchSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
         {
             case 1:
             {
-                searchSavingId(chkList, savList);
+                searchSavingId(chkList, savList, cdList, officList, adminList);
                 break;
             }
             case 2:
             { 
-                searchSavingName(chkList, savList);
+                searchSavingName(chkList, savList, cdList, officList, adminList);
                 break;
             }
             case 3:
             { 
-                searchSavingPhone(chkList, savList);
+                searchSavingPhone(chkList, savList, cdList, officList, adminList);
                 break;
             }
             case 4:
@@ -494,7 +614,124 @@ void searchSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
         cout << endl;
     }
 }
-void officialSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+
+
+void searchCDId(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
+{
+    bool found = false;
+    while(!found)
+    {
+        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        string id = getCDID();
+        for (int i = 0; i < cdList.size(); i++)
+        {
+            if (cdList[i].getID() == id)
+            {
+                found = true;
+                cout << "\nDisplaying Information of Saving Account: " << cdList[i].getID() << "\n";
+                cout << "Name: " << cdList[i].getFname() << " " << cdList[i].getLname() << "\n";
+                cout << "Phone Number: " << cdList[i].getPhoneNum() << "\n";
+                cout << "Current Balance: " << cdList[i].getBalance() << "\n";
+                cout << "Remaining Days: " << cdList[i].getRemainDays() <, "\n";
+            }        
+        }
+        if (!found) 
+            cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+    }
+}
+
+void searchCDName(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
+{
+    bool found = false;
+    while(!found)
+    {
+        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        string fName = getFirstName();
+        string lName = getLastName();
+        for (int i = 0; i < cdList.size(); i++)
+        {
+            if (cdList[i].getFname() == fName && cdList[i].getLname() == lName)
+            {
+                found = true;
+                cout << "\nDisplaying Information of Checking Account With Name: " << cdList[i].getFname() << " " << cdList[i].getLname() << "\n";
+                cout << "Account ID: " << cdList[i].getID() << "\n";
+                cout << "Phone Number: " << cdList[i].getPhoneNum() << "\n";
+                cout << "Current Balance: " << cdList[i].getBalance() << "\n";
+                cout << "Remaining Days: " << cdList[i].getRemainDays() <, "\n";
+            }        
+        }
+        if (!found) 
+            cout << "\nThe Account Name You Just Enter Does Not Exist\n";
+    }
+}
+
+void searchCDPhone(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
+{
+    bool found = false;
+    while(!found)
+    {
+        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        string phone = getPhone();
+        for (int i = 0; i < cdList.size(); i++)
+        {
+            if (cdList[i].getPhoneNum() == phone)
+            {
+                found = true;
+                cout << "\nDisplaying Information of Checking Account With Phone Number: " << cdList[i].getPhoneNum() << "\n";
+                cout << "Account ID: " << cdList[i].getID() << "\n";
+                cout << "Name: " << cdList[i].getFname() << " " << cdList[i].getLname() << "\n";
+                cout << "Current Balance: " << cdList[i].getBalance() << "\n";
+                cout << "Remaining Days: " << cdList[i].getRemainDays() <, "\n";
+            }        
+        }
+        if (!found) 
+            cout << "\nThe Account Phone Number You Just Enter Does Not Exist\n";
+    }
+}
+
+void searchCD(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
+{
+    bool done = false;
+    while (!done)
+    {
+        cout << "[1] Search By Account Account Number\n";
+        cout << "[2] Search By Name\n";
+        cout << "[3] Search By Phone\n";
+        cout << "[4] Go Back\n";
+        int input = stoi(getInput());
+        switch (input)
+        {
+            case 1:
+            {
+                searchCDId(chkList, savList, cdList, officList, adminList);
+                break;
+            }
+            case 2:
+            { 
+                searchCDName(chkList, savList, cdList, officList, adminList);
+                break;
+            }
+            case 3:
+            { 
+                searchCDPhone(chkList, savList, cdList, officList, adminList);
+                break;
+            }
+            case 4:
+            {
+                done = true;
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
+        cout << endl;
+    }
+}
+
+
+void officialSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool done = false;
     while (!done)
@@ -508,17 +745,17 @@ void officialSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
         {
             case 1:
             {
-                searchChecking(chkList, savList);
+                searchChecking(chkList, savList, cdList, officList, adminList);
                 break;
             }
             case 2:
             { 
-                //searchSaving(chkList, savList);
+                searchSaving(chkList, savList, cdList, officList, adminList);
                 break;
             }
             case 3:
             { 
-                //searchCD();
+                searchCD(chkList, savList, cdList, officList, adminList);
                 break;
             }
             case 4:
@@ -535,77 +772,7 @@ void officialSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
     }
 }
 
-void officialDeposit(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
-{
-    bool done = false;
-    while (!done)
-    {
-        cout << "[1] Checking Account\n";
-        cout << "[2] Saving Account\n";
-        cout << "[3] Go Back\n";
-        int input = stoi(getInput());
-        switch (input)
-        {
-            case 1:
-            {
-                officialDepositChecking(chkList, savList);
-                break;
-            }
-            case 2:
-            { 
-                officialDepositSaving(chkList, savList);
-                break;
-            }
-            case 3:
-            {
-                done = true;
-                break;
-            }
-            default:
-            {
-                break;
-            }
-        }
-        cout << endl;
-    }
-}
-
-void officialWithdraw(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
-{
-    bool done = false;
-    while (!done)
-    {
-        cout << "[1] Checking Account\n";
-        cout << "[2] Saving Account\n";
-        cout << "[3] Go Back\n";
-        int input = stoi(getInput());
-        switch (input)
-        {
-            case 1:
-            {
-                officialWithdrawChecking(chkList, savList);
-                break;
-            }
-            case 2:
-            { 
-                officialWithdrawSaving(chkList, savList);
-                break;
-            }
-            case 3:
-            {
-                done = true;
-                break;
-            }
-            default:
-            {
-                break;
-            }
-        }
-        cout << endl;
-    }
-}
-
-void officialMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
+void officialMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool done = false;
     while (!done)
@@ -622,35 +789,35 @@ void officialMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList)
             case 1:
             {
                 cout << "\nChoose A Type Of Account To Open.\n";
-                openAccount(chkList, savList);
+                openAccount(chkList, savList, cdList, officList, adminList, accNum);
                 cout << "\nAccount Successfully Opened.\n";   //might print the info of the open account
                 break;
             }
             case 2:
             {
                 cout << "\nChoose A Type Of Account To Close.\n";
-                closeAccount(chkList, savList);
+                closeAccount(chkList, savList, cdList, officList, adminList, accNum);
                 cout << "\nAccount Successfully Closed.\n";
                 break;
             }
             case 3:
             {
                 cout << "\nChoose A Type Of Account To Search.\n";
-                officialSearch(chkList, savList);
+                officialSearch(chkList, savList, cdList, officList, adminList, accNum);
                 cout << "\nSearched.\n";
                 break;
             }
             case 4:
             {
                 cout << "\nChoose A Type Of Account To Deposit.\n";
-                officialDeposit(chkList, savList); 
+                officialDeposit(chkList, savList, cdList, officList, adminList, accNum); 
                 cout << "\nDeposited.\n";
                 break;
             }
             case 5:
             {
                 cout << "\nChoose A Type Of Account To Withdraw.\n";
-                officialWithdraw(chkList, savList);
+                officialWithdraw(chkList, savList, cdList, officList, adminList, accNum);
                 cout << "\nWithdrawed.";
                 break;
             }
