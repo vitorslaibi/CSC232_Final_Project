@@ -6,16 +6,13 @@
 #include <string>
 #include <vector>
 #include <ctime>
+#include "mainFunc.h"
 #include "BankAcc.h"
 #include "BankAccFunc.h"
 #include "SavAcc.h"
 #include "SavAccFunc.h"
 #include "ChkAcc.h"
 #include "ChkAccFunc.h"
-#include "mainFunc.h"
-#include "customerMenu.h"
-#include "officialMenu.h"
-#include "adminMenu.h"
 #include "CD.h"
 #include "CDFunc.h"
 #include "ClassU.h"
@@ -28,6 +25,9 @@
 #include "ClassYFunc.h"
 #include "ClassZ.h"
 #include "ClassZFunc.h"
+#include "customerMenu.h"
+#include "officialMenu.h"
+#include "adminMenu.h"
 
 
 #endif

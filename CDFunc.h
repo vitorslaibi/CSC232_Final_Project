@@ -8,7 +8,7 @@ using namespace std;
 
 CD::CD(string newID, string newPassword, string newFname, string newLname, string newPhoneNum) : BankAcc("D", newID, newPassword, newFname, newLname, newPhoneNum, 0.0, 0.0)
 {
-    ID = newID.insert(0, "D");  //insert a C at the start of the acc number
+    ID = newID.insert(0, "D");  //insert a D at the start of the acc number
 }
 
 int CD::getTermLength() { return termLength; }
