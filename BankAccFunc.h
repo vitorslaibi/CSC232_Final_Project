@@ -202,7 +202,7 @@ void BankAcc::updateOnlStat()
     {
         //message the user, sorry for the long line
         //cout << "\nYour balance is now $" << balance << ", which is lower than " << safeLevel << ". A service fee of " << penalty << " will be deducted from your account." << endl;
-        balance -= penalty;     //deduct $5 fee
+        //balance -= penalty;     //deduct $5 fee
         if (balance < 1.0)  //if after that the balance is smaller than $1
         {
             //message the user
@@ -329,6 +329,10 @@ void BankAcc::monthlyCharge()    //to deduct the yearly service charge :))
     if (isOnline())
     {
         balance -= servCharge;
+        if (balance < safeLevel)
+        {
+            balance -= penalty;
+        }
         updateOnlStat();
     }
 }

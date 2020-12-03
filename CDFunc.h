@@ -14,7 +14,7 @@ CD::CD(string newID, string newPassword, string newFname, string newLname, strin
 int CD::getTermLength() { return termLength; }
 int CD::getRemainDays() { return remainDays; }
 
-void CD::calclnt()
+void CD::calcInt()
 {
     int yearNow = getCurrentY();  //get the current year
     int monthNow = getCurrentM();

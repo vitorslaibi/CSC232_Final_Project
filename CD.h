@@ -19,7 +19,7 @@ public:
     int getTermLength();
     int getRemainDays();
     CD(string newID, string newPassword, string newFname, string newLname, string newPhoneNum);
-    void calclnt();
+    void calcInt();
     double withdraw();
     void closeAcc();
 };
