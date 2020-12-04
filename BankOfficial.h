@@ -32,11 +32,11 @@ class BankOfficial{
 
     void closeChkAcc(ChkAcc &account);
     void closeSavAcc(SavAcc &account);
-    void closeCD(CD account);
+    void closeCD(CD &account);
 
     void saveInfoChk(ChkAcc &account);
     void saveInfoSav(SavAcc &account);
-    void saveInfoCD(CD account);
+    void saveInfoCD(CD &account);
 
     void chkDeposit(ChkAcc &account, double ammount);
     void savDeposit(SavAcc &account, double ammount);
