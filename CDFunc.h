@@ -6,7 +6,7 @@
 
 using namespace std;
 
-CD::CD(string newID, string newPassword, string newFname, string newLname, string newPhoneNum) : BankAcc(newID, newPassword, newFname, newLname, newPhoneNum, 0.0)
+CD::CD(string newID, string newPassword = "", string newFname = "", string newLname = "", string newPhoneNum = "") : BankAcc(newID, newPassword, newFname, newLname, newPhoneNum, 0.0)
 {
     ID = newID.insert(0, "D");  //insert a D at the start of the acc number
     setInterestRate(0.02);
@@ -14,6 +14,7 @@ CD::CD(string newID, string newPassword, string newFname, string newLname, strin
 
 int CD::getTermLength() { return termLength; }
 int CD::getRemainDays() { return remainDays; }
+double CD::getReturnAmount() { return returnAmount; }
 
 void CD::calcInt()
 {
@@ -153,18 +154,22 @@ void CD::calcInt()
     lastDayCounted = dayNow;
 }
 
-double CD::withdraw()
+void CD::deposit(double var)
+{
+    cout << "Bro this is a CD. No deposit." << endl;
+    return;
+}
+
+void CD::withdraw(double var)
 {
     if (remainDays > 0)
     {
         balance = balance*0.9;  //if the term get cancelled prematurely, the customer loses 10% of the total balance at that time ~~EVIL~~ >:))
     }
-    double returnAmount;
     returnAmount = balance;
     balance = 0.0;
     saveTransactionHistory('W', returnAmount);
     closeAcc();
-    return returnAmount;
 }
 
 void CD::closeAcc()

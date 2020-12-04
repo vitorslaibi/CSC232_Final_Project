@@ -186,7 +186,7 @@ void closeSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int a
             if (savList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].closeSavAdcc(savList[i]);
+                officList[accNum].closeSavAcc(savList[i]);
                 // if (savList[i].isOnline())
                 // {
                 //     savList[i].setOnlStat(false);

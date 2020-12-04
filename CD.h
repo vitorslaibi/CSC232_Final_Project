@@ -13,13 +13,16 @@ class CD : public BankAcc
 private:
     int termLength = 183;   //fixed term length of 183 days
     int remainDays = termLength;    //days left until end of term
+    double returnAmount;
 
 public:
     static bool active;
     int getTermLength();
     int getRemainDays();
+    double getReturnAmount();
     CD(string newID, string newPassword, string newFname, string newLname, string newPhoneNum);
+    void deposit(double var);
     void calcInt();
-    double withdraw();
+    void withdraw(double var);
     void closeAcc();
 };

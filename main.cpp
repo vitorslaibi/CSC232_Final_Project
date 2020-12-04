@@ -104,8 +104,8 @@ int main()
     {
         string id = to_string(vList.size());
         ClassV acc(id);
-        chkList.push_back(acc);
-        vList.loadData();
+        vList.push_back(acc);
+        acc.loadData();
     }
 
     if (xStatus == "1")
