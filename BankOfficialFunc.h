@@ -38,6 +38,10 @@ int BankOfficial::getCurrentD(){
     return now->tm_mday;
 }
 
+void BankOfficial::setOnlStat(bool newStatus){
+    status = newStatus;
+}
+
 void BankOfficial::closeChkAcc(ChkAcc account){
     account.setOnlStat(false);
     saveInfoChk(account);
