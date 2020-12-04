@@ -528,7 +528,7 @@ double getAmount()  //get the amount from user to deposit or withdraw
 
 string getStat(bool stat)
 {
-    if stat()
+    if (stat)
         return "1";
     else
         return "0"; 

@@ -229,19 +229,19 @@ void xMenu(vector<ClassX> &xList, int accNum)
             {
                 cout << "\nPlease Enter The Deposit Amount\n";
                 double amount = getAmount();
-                chkList[accNum].deposit(amount);
+                xList[accNum].deposit(amount);
                 break;
             }
             case 2:
             {
                 cout << "\nPlease Enter The Withdraw Amount\n";
                 double amount = getAmount();
-                chkList[accNum].withdraw(amount);
+                xList[accNum].withdraw(amount);
                 break;
             }
             case 3:
             {
-                chkList[accNum].printLast7Days();
+                xList[accNum].printLast7Days();
                 break;
             }
             case 4:
@@ -348,7 +348,7 @@ void zMenu(vector<ClassZ> &zList, int accNum)
     }
 }
 
-void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xlist, vector<ClassY> &yList, vector<ClassZ> &zList)
+void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList)
 {
     bool done = false;
     while (!done)

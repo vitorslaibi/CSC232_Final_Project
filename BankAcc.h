@@ -74,8 +74,8 @@ class BankAcc
     //end of getters and setters
     BankAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate, double newServCharge, double newBalance);     //constructor
     void updateOnlStat();
-    virtual void deposit(double var) = 0;   //pure virtual function to deposit - to be overridden
-    virtual void withdraw(double var) = 0;  //pure virtual function to withdraw - to be overridden
+    virtual void deposit(double var);   //pure virtual function to deposit - to be overridden
+    virtual void withdraw(double var);  //pure virtual function to withdraw - to be overridden
     void setLastTimeCounted();      //set the last time the balance was updated
     int getCurrentY();
     int getCurrentM();

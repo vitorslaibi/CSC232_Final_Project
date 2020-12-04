@@ -40,8 +40,8 @@ class BankOfficial{
 
     double chkDeposit(ChkAcc account, double ammount);
     double savDeposit(SavAcc account, double ammount);
-    double chkWithdraw(ChkAccount account, double ammount);
-    double savWithdraw(SavAccount account, double ammount);
+    double chkWithdraw(ChkAcc account, double ammount);
+    double savWithdraw(SavAcc account, double ammount);
     //print account info if search is succesful
     void searchChk(ChkAcc account);
     void searchSav(SavAcc account);
@@ -49,4 +49,4 @@ class BankOfficial{
     
     void saveData();
             
-}
+};

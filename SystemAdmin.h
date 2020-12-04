@@ -32,3 +32,4 @@ class SystemAdmin{
     void changeLoginStatus(bool online);
     void retrieveUserID();
     void changePassword(string accNumber);
+};

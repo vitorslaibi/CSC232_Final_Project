@@ -8,34 +8,37 @@ using namespace std;
 int main()
 {
     int totalChk, totalSav, totalCD, totalU, totalV, totalX, totalY, totalZ;
-    bool uStatus, vStatus, xStatus, yStatus, zStatus;
+    string uStatus, vStatus, xStatus, yStatus, zStatus;
     string text;
     ifstream preview;
     preview.open("preview.txt");
 
     if (preview)
     {
-        getline(preview, totalChk);
-        getline(preview, totalSav);
-        getline(preview, totalCD);
         getline(preview, text);
-        totalU = text.substr(0, text.find(" "));
+        totalChk = stoi(text);
+        getline(preview, text);
+        totalSav = stoi(text);
+        getline(preview, text);
+        totalCD = stoi(text);
+        getline(preview, text);
+        totalU = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         uStatus = text;
         getline(preview, text);
-        totalV = text.substr(0, text.find(" "));
+        totalV = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         vStatus = text;
         getline(preview, text);
-        totalX = text.substr(0, text.find(" "));
+        totalX = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         xStatus = text;
         getline(preview, text);
-        totalY = text.substr(0, text.find(" "));
+        totalY = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         yStatus = text;
         getline(preview, text);
-        totalz = text.substr(0, text.find(" "));
+        totalZ = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         zStatus = text;
     }
@@ -48,8 +51,8 @@ int main()
     vector <SavAcc> savList;
     vector <ChkAcc> chkList;
     vector <CD> cdList;
-    // vector <BankOfficial> officList;
-    // vector <SystemAdmin> adminList;
+    vector <BankOfficial> officList;
+    vector <SystemAdmin> adminList;
     vector <ClassU> uList;
     vector <ClassV> vList;
     vector <ClassX> xList;
@@ -229,13 +232,13 @@ int main()
             case 3:
             {
                 cout << "\nChoose An Account To Interact With.\n";
-                customerMenu(chkList, savList, cdList, officList, uList, vList, xList, yList, zList);
+                customerMenu(chkList, savList, cdList, uList, vList, xList, yList, zList);
                 break;
             }
             case 4:
             {
                 ofstream preview("preview.txt", ofstream::trunc);
-                preview << totalChk << "\n" << totalSav << "\n" << totalCD << "\n" << totalU << " " << getStat(uStatus) << "\n" << totalV << " " << getStat(vStatus) << "\n" << totalX << " " << getStat(xStatus) << "\n" << totalY << " " << getStat(yStatus) << "\n" << totalZ << " " << getStat(zStatus);
+                preview << totalChk << "\n" << totalSav << "\n" << totalCD << "\n" << totalU << " " << uStatus << "\n" << totalV << " " << vStatus << "\n" << totalX << " " << xStatus << "\n" << totalY << " " << yStatus << "\n" << totalZ << " " << zStatus;
                 done = true;
                 break;
             }

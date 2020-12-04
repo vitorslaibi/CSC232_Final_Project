@@ -15,10 +15,10 @@ BankOfficial::BankOfficial(string newID, string newPassword, string newFname,str
     openD = getCurrentD();
 }
 
-string BankOfficial::getID(){return ID}
-string BankOfficial::getPassword(){return password}
-string BankOfficial::getFname(){return fName}
-string BankOfficial::getLname(){return lName}
+string BankOfficial::getID(){return ID;}
+string BankOfficial::getPassword(){return password;}
+string BankOfficial::getFname(){return fName;}
+string BankOfficial::getLname(){return lName;}
 
 int BankOfficial::getCurrentY() {
     time_t t = time(0);
@@ -39,7 +39,7 @@ int BankOfficial::getCurrentD(){
 }
 
 void BankOfficial::setOnlStat(bool newStatus){
-    status = newStatus;
+    online = newStatus;
 }
 
 void BankOfficial::closeChkAcc(ChkAcc account){
@@ -63,7 +63,7 @@ void BankOfficial::saveInfoChk(ChkAcc account){
     outFile << "Bank Official: " << endl;
     outFile << fName << " " << lName << endl;
     outFile << ID << endl;
-    outFile << "Account Closed at: " << getCurrentM() << "/" getCurrentD() << "/" getCurrentY << endl;
+    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" getCurrentY << endl;
 }
 
 void BankOfficial::saveInfoSav(SavAcc account){
@@ -71,10 +71,10 @@ void BankOfficial::saveInfoSav(SavAcc account){
     outFile.open(account.getID() + ".txt", ofstream::app);
     //add bank official info to closed account file
     outFile << "Bank Official: " << endl;
-    outFile << fName << " " 
+    outFile << fName << " ";
     outFile << lName << endl;
     outFile << ID << endl;
-    outFile << "Account Closed at: " << getCurrentM() << "/" getCurrentD() << "/" getCurrentY() << endl;
+    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" getCurrentY() << endl;
     outFile.close();
 }
 
@@ -83,10 +83,10 @@ void BankOfficial::saveInfoCD(CD account){
     outFile.open(account.getID() + ".txt", ofstream::app);
     //add bank official info to closed account file
     outFile << "Bank Official: " << endl;
-    outFile << fName << " " 
+    outFile << fName << " ";
     outFile << lName << endl;
     outFile << ID << endl;
-    outFile << "Account Closed at: " << getCurrentM() << "/" getCurrentD() << "/" getCurrentY() << endl;
+    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" getCurrentY() << endl;
     outFile.close();
 }
 
@@ -102,13 +102,13 @@ double BankOfficial::savDeposit(SavAcc account, double ammount){
     return balance;
 }
 
-double BankOfficial::chkWithdraw(ChkAccount account, double ammount){
+double BankOfficial::chkWithdraw(ChkAcc account, double ammount){
     balance = account.getBalance();
     balance -= ammount;
     return balance;
 }
 
-double BankOfficial::savWithdraw(SavAccount account, double ammount){
+double BankOfficial::savWithdraw(SavAcc account, double ammount){
     balance = account.getBalance();
     balance -= ammount;
     return balance;

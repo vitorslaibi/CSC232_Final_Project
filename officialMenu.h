@@ -1,4 +1,4 @@
-void openChecking(vector<ChkAcc> &chkList, vector <BankOfficial> &officList, int accNum)
+void openChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is C" << to_string(chkList.size()) << "\n";
     string id = to_string(chkList.size());
@@ -14,7 +14,7 @@ void openChecking(vector<ChkAcc> &chkList, vector <BankOfficial> &officList, int
     ChkAcc account(id, password, fName, lName, phone);
 }
 
-void openSaving(vector<SavAcc> &savList, vector <BankOfficial> &officList, int accNum)
+void openSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(savList.size()) << "\n";
     string id = to_string(savList.size());
@@ -33,7 +33,7 @@ void openSaving(vector<SavAcc> &savList, vector <BankOfficial> &officList, int a
     SavAcc account(id, password, fName, lName, phone, rate);
 }
 
-void openCD(vector<CD> &cdList, vector <BankOfficial> &officList, int accNum)
+void openCD(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(cdList.size()) << "\n";
     string id = to_string(cdList.size());
@@ -49,7 +49,7 @@ void openCD(vector<CD> &cdList, vector <BankOfficial> &officList, int accNum)
     CD account(id, password, fName, lName, phone);
 }
 
-void openU(vector<ClassU> &uList, vector <BankOfficial> &officList, int accNum)
+void openU(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(uList.size()) << "\n";
     string id = to_string(uList.size());
@@ -68,7 +68,7 @@ void openU(vector<ClassU> &uList, vector <BankOfficial> &officList, int accNum)
     ClassU account(id, password, fName, lName, phone, rate);
 }
 
-void openV(vector<ClassV> &vList, vector <BankOfficial> &officList, int accNum)
+void openV(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(vList.size()) << "\n";
     string id = to_string(vList.size());
@@ -87,7 +87,7 @@ void openV(vector<ClassV> &vList, vector <BankOfficial> &officList, int accNum)
     ClassV account(id, password, fName, lName, phone, rate);
 }
 
-void openX(vector<ClassX> &xList, vector <BankOfficial> &officList, int accNum)
+void openX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(xList.size()) << "\n";
     string id = to_string(xList.size());
@@ -106,7 +106,7 @@ void openX(vector<ClassX> &xList, vector <BankOfficial> &officList, int accNum)
     ClassX account(id, password, fName, lName, phone, rate);
 }
 
-void openY(vector<ClassY> &yList, vector <BankOfficial> &officList, int accNum)
+void openY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(yList.size()) << "\n";
     string id = to_string(yList.size());
@@ -125,7 +125,7 @@ void openY(vector<ClassY> &yList, vector <BankOfficial> &officList, int accNum)
     ClassY account(id, password, fName, lName, phone, rate);
 }
 
-void openZ(vector<ClassZ> &zList, vector <BankOfficial> &officList, int accNum)
+void openZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(zList.size()) << "\n";
     string id = to_string(zList.size());
@@ -145,7 +145,7 @@ void openZ(vector<ClassZ> &zList, vector <BankOfficial> &officList, int accNum)
 }
 
 
-void closeChecking(vector<ChkAcc> &chkList, vector <BankOfficial> &officList, int accNum)
+void closeChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -157,7 +157,7 @@ void closeChecking(vector<ChkAcc> &chkList, vector <BankOfficial> &officList, in
             if (chkList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].close(id);
+                officList[accNum].closeChkAcc(chkList[i]);
 
                 // if (chkList[i].isOnline())
                 // {
@@ -174,7 +174,7 @@ void closeChecking(vector<ChkAcc> &chkList, vector <BankOfficial> &officList, in
     }
 }
 
-void closeSaving(vector<SavAcc> &savList, vector <BankOfficial> &officList, int accNum)
+void closeSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -186,7 +186,7 @@ void closeSaving(vector<SavAcc> &savList, vector <BankOfficial> &officList, int 
             if (savList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].close(id);
+                officList[accNum].closeSavAdcc(savList[i]);
                 // if (savList[i].isOnline())
                 // {
                 //     savList[i].setOnlStat(false);
@@ -202,7 +202,7 @@ void closeSaving(vector<SavAcc> &savList, vector <BankOfficial> &officList, int 
     }
 }
 
-void closeU(vector<ClassU> &uList, vector <BankOfficial> &officList, int accNum)
+void closeU(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -230,7 +230,7 @@ void closeU(vector<ClassU> &uList, vector <BankOfficial> &officList, int accNum)
     }
 }
 
-void closeV(vector<ClassV> &vList, vector <BankOfficial> &officList, int accNum)
+void closeV(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -258,7 +258,7 @@ void closeV(vector<ClassV> &vList, vector <BankOfficial> &officList, int accNum)
     }
 }
 
-void closeX(vector<ClassX> &xList, vector <BankOfficial> &officList, int accNum)
+void closeX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -286,7 +286,7 @@ void closeX(vector<ClassX> &xList, vector <BankOfficial> &officList, int accNum)
     }
 }
 
-void closeY(vector<ClassY> &yList, vector <BankOfficial> &officList, int accNum)
+void closeY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -314,7 +314,7 @@ void closeY(vector<ClassY> &yList, vector <BankOfficial> &officList, int accNum)
     }
 }
 
-void closeZ(vector<ClassZ> &zList, vector <BankOfficial> &officList, int accNum)
+void closeZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -343,7 +343,7 @@ void closeZ(vector<ClassZ> &zList, vector <BankOfficial> &officList, int accNum)
 }
 
 
-void officialDepositChecking(vector<ChkAcc> &chkList, vector <BankOfficial> &officList, int accNum)
+void officialDepositChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -379,7 +379,7 @@ void officialDepositChecking(vector<ChkAcc> &chkList, vector <BankOfficial> &off
     }
 }
 
-void officialDepositSaving(vector<SavAcc> &savList, vector <BankOfficial> &officList, int accNum)
+void officialDepositSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -415,7 +415,7 @@ void officialDepositSaving(vector<SavAcc> &savList, vector <BankOfficial> &offic
     }
 }
 
-void officialDepositU(vector<ClassU> &uList, vector <BankOfficial> &officList, int accNum)
+void officialDepositU(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -451,7 +451,7 @@ void officialDepositU(vector<ClassU> &uList, vector <BankOfficial> &officList, i
     }
 }
 
-void officialDepositV(vector<ClassV> &vList, vector <BankOfficial> &officList, int accNum)
+void officialDepositV(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -487,7 +487,7 @@ void officialDepositV(vector<ClassV> &vList, vector <BankOfficial> &officList, i
     }
 }
 
-void officialDepositX(vector<ClassX> &xList, vector <BankOfficial> &officList, int accNum)
+void officialDepositX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -523,7 +523,7 @@ void officialDepositX(vector<ClassX> &xList, vector <BankOfficial> &officList, i
     }
 }
 
-void officialDepositY(vector<ClassY> &yList, vector <BankOfficial> &officList, int accNum)
+void officialDepositY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -559,7 +559,7 @@ void officialDepositY(vector<ClassY> &yList, vector <BankOfficial> &officList, i
     }
 }
 
-void officialDepositZ(vector<ClassZ> &zList, vector <BankOfficial> &officList, int accNum)
+void officialDepositZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -595,7 +595,7 @@ void officialDepositZ(vector<ClassZ> &zList, vector <BankOfficial> &officList, i
     }
 }
 
-void officialDeposit(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xlist, vector<ClassY> &yList, vector<ClassZ> &zList)
+void officialDeposit(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList)
 {
     bool done = false;
     while (!done)
@@ -661,7 +661,7 @@ void officialDeposit(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD
 }
 
 
-void officialWithdrawChecking(vector<ChkAcc> &chkList, vector <BankOfficial> &officList, int accNum)
+void officialWithdrawChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -697,7 +697,7 @@ void officialWithdrawChecking(vector<ChkAcc> &chkList, vector <BankOfficial> &of
     }
 }
 
-void officialWithdrawSaving(vector<SavAcc> &savList, vector <BankOfficial> &officList, int accNum)
+void officialWithdrawSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -733,7 +733,7 @@ void officialWithdrawSaving(vector<SavAcc> &savList, vector <BankOfficial> &offi
     }
 }
 
-void officialWithdrawU(vector<ClassU> &uList, vector <BankOfficial> &officList, int accNum)
+void officialWithdrawU(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -769,7 +769,7 @@ void officialWithdrawU(vector<ClassU> &uList, vector <BankOfficial> &officList, 
     }
 }
 
-void officialWithdrawV(vector<ClassV> &vList, vector <BankOfficial> &officList, int accNum)
+void officialWithdrawV(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -805,7 +805,7 @@ void officialWithdrawV(vector<ClassV> &vList, vector <BankOfficial> &officList, 
     }
 }
 
-void officialWithdrawX(vector<ClassX> &xList, vector <BankOfficial> &officList, int accNum)
+void officialWithdrawX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -841,7 +841,7 @@ void officialWithdrawX(vector<ClassX> &xList, vector <BankOfficial> &officList, 
     }
 }
 
-void officialWithdrawY(vector<ClassY> &yList, vector <BankOfficial> &officList, int accNum)
+void officialWithdrawY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -877,7 +877,7 @@ void officialWithdrawY(vector<ClassY> &yList, vector <BankOfficial> &officList, 
     }
 }
 
-void officialWithdrawZ(vector<ClassZ> &zList, vector <BankOfficial> &officList, int accNum)
+void officialWithdrawZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -913,7 +913,7 @@ void officialWithdrawZ(vector<ClassZ> &zList, vector <BankOfficial> &officList, 
     }
 }
 
-void officialWithdraw(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xlist, vector<ClassY> &yList, vector<ClassZ> &zList)
+void officialWithdraw(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList)
 {
     bool done = false;
     while (!done)
@@ -978,7 +978,7 @@ void officialWithdraw(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<C
     }
 }
 
-void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xlist, vector<ClassY> &yList, vector<ClassZ> &zList, bool uStat, bool vStat, bool xStat, bool yStat, bool zStat)
+void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, string uStat, string vStat, string xStat, string yStat, string zStat)
 {
     bool done = false;
     while (!done)
@@ -1014,7 +1014,7 @@ void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &c
             }
             case 4:
             {
-                if (uStat)
+                if (uStat == "1")
                     openU(uList, officList, accNum);
                 else
                 {
@@ -1023,7 +1023,7 @@ void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &c
             }
             case 5:
             {
-                if (vStat)
+                if (vStat == "1")
                     openV(vList, officList, accNum);
                 else
                 {
@@ -1032,7 +1032,7 @@ void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &c
             }
             case 6:
             {
-                if (xStat)
+                if (xStat == "1")
                     openX(xList, officList, accNum);
                 else
                 {
@@ -1041,7 +1041,7 @@ void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &c
             }
             case 7:
             {
-                if (yStat)
+                if (yStat == "1")
                     openY(yList, officList, accNum);
                 else
                 {
@@ -1050,7 +1050,7 @@ void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &c
             }
             case 8:
             {
-                if (zStat)
+                if (zStat == "1")
                     openZ(zList, officList, accNum);
                 else
                 {
@@ -1071,7 +1071,7 @@ void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &c
     }
 }
 
-void closeAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xlist, vector<ClassY> &yList, vector<ClassZ> &zList, bool uStat, bool vStat, bool xStat, bool yStat, bool zStat)
+void closeAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList)
 {
     bool done = false;
     while (!done)
@@ -1094,7 +1094,7 @@ void closeAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
             }
             case 2:
             { 
-                closeSaving(savList, cdList, officList, accNum);
+                closeSaving(savList, officList, accNum);
                 break;
             }
             case 3:
@@ -1137,7 +1137,7 @@ void closeAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
 }
 
 
-void searchCheckingId(vector<ChkAcc> &chkList, vector <BankOfficial> &officList, int accNum)
+void searchCheckingId(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1160,7 +1160,7 @@ void searchCheckingId(vector<ChkAcc> &chkList, vector <BankOfficial> &officList,
     }
 }
 
-void searchCheckingName(vector<ChkAcc> &chkList, vector <BankOfficial> &officList, int accNum)
+void searchCheckingName(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1184,7 +1184,7 @@ void searchCheckingName(vector<ChkAcc> &chkList, vector <BankOfficial> &officLis
     }
 }
 
-void searchCheckingPhone(vector<ChkAcc> &chkList, vector <BankOfficial> &officList, int accNum)
+void searchCheckingPhone(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1207,7 +1207,7 @@ void searchCheckingPhone(vector<ChkAcc> &chkList, vector <BankOfficial> &officLi
     }
 }
 
-void searchChecking(vector<ChkAcc> &chkList, vector <BankOfficial> &officList, int accNum)
+void searchChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int accNum)
 {
     bool done = false;
     while (!done)
@@ -1221,17 +1221,17 @@ void searchChecking(vector<ChkAcc> &chkList, vector <BankOfficial> &officList, i
         {
             case 1:
             {
-                searchCheckingId(chkList, savList, cdList, officList, adminList);
+                searchCheckingId(chkList, officList, accNum);
                 break;
             }
             case 2:
             { 
-                searchCheckingName(chkList, savList, cdList, officList, adminList);
+                searchCheckingName(chkList, officList, accNum);
                 break;
             }
             case 3:
             { 
-                searchCheckingPhone(chkList, savList, cdList, officList, adminList);
+                searchCheckingPhone(chkList, officList, accNum);
                 break;
             }
             case 4:
@@ -1249,7 +1249,7 @@ void searchChecking(vector<ChkAcc> &chkList, vector <BankOfficial> &officList, i
 }
 
 
-void searchSavingId(vector<SavAcc> &savList, vector <BankOfficial> &officList, int accNum)
+void searchSavingId(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1272,7 +1272,7 @@ void searchSavingId(vector<SavAcc> &savList, vector <BankOfficial> &officList, i
     }
 }
 
-void searchSavingName(vector<SavAcc> &savList, vector <BankOfficial> &officList, int accNum)
+void searchSavingName(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1296,7 +1296,7 @@ void searchSavingName(vector<SavAcc> &savList, vector <BankOfficial> &officList,
     }
 }
 
-void searchSavingPhone(vector<SavAcc> &savList, vector <BankOfficial> &officList, int accNum)
+void searchSavingPhone(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1319,7 +1319,7 @@ void searchSavingPhone(vector<SavAcc> &savList, vector <BankOfficial> &officList
     }
 }
 
-void searchSaving(vector<SavAcc> &savList, vector <BankOfficial> &officList, int accNum)
+void searchSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
 {
     bool done = false;
     while (!done)
@@ -1333,17 +1333,17 @@ void searchSaving(vector<SavAcc> &savList, vector <BankOfficial> &officList, int
         {
             case 1:
             {
-                searchSavingId(chkList, savList, cdList, officList, adminList);
+                searchSavingId(savList, officList, accNum);
                 break;
             }
             case 2:
             { 
-                searchSavingName(chkList, savList, cdList, officList, adminList);
+                searchSavingName(savList, officList, accNum);
                 break;
             }
             case 3:
             { 
-                searchSavingPhone(chkList, savList, cdList, officList, adminList);
+                searchSavingPhone(savList, officList, accNum);
                 break;
             }
             case 4:
@@ -1361,7 +1361,7 @@ void searchSaving(vector<SavAcc> &savList, vector <BankOfficial> &officList, int
 }
 
 
-void searchCDId(vector<CD> &cdList, vector <BankOfficial> &officList, int accNum)
+void searchCDId(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1385,7 +1385,7 @@ void searchCDId(vector<CD> &cdList, vector <BankOfficial> &officList, int accNum
     }
 }
 
-void searchCDName(vector<CD> &cdList, vector <BankOfficial> &officList, int accNum)
+void searchCDName(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1410,7 +1410,7 @@ void searchCDName(vector<CD> &cdList, vector <BankOfficial> &officList, int accN
     }
 }
 
-void searchCDPhone(vector<CD> &cdList, vector <BankOfficial> &officList, int accNum)
+void searchCDPhone(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1434,7 +1434,7 @@ void searchCDPhone(vector<CD> &cdList, vector <BankOfficial> &officList, int acc
     }
 }
 
-void searchCD(vector<CD> &cdList, vector <BankOfficial> &officList, int accNum)
+void searchCD(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
 {
     bool done = false;
     while (!done)
@@ -1448,17 +1448,17 @@ void searchCD(vector<CD> &cdList, vector <BankOfficial> &officList, int accNum)
         {
             case 1:
             {
-                searchCDId(chkList, savList, cdList, officList, adminList);
+                searchCDId(cdList, officList, accNum);
                 break;
             }
             case 2:
             { 
-                searchCDName(chkList, savList, cdList, officList, adminList);
+                searchCDName(cdList, officList, accNum);
                 break;
             }
             case 3:
             { 
-                searchCDPhone(chkList, savList, cdList, officList, adminList);
+                searchCDPhone(cdList, officList, accNum);
                 break;
             }
             case 4:
@@ -1475,7 +1475,8 @@ void searchCD(vector<CD> &cdList, vector <BankOfficial> &officList, int accNum)
     }
 }
 
-void searchVId(vvector<ClassV> &vList, vector <BankOfficial> &officList, int accNum)
+
+void searchVId(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1498,7 +1499,7 @@ void searchVId(vvector<ClassV> &vList, vector <BankOfficial> &officList, int acc
     }
 }
 
-void searchVName(vector<ClassV> &vList, vector <BankOfficial> &officList, int accNum)
+void searchVName(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1511,7 +1512,7 @@ void searchVName(vector<ClassV> &vList, vector <BankOfficial> &officList, int ac
             if (vList[i].getFname() == fName && vList[i].getLname() == lName)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Name: " << vList[i].getFname() << " " << cdList[i].getLname() << "\n";
+                cout << "\nDisplaying Information of Checking Account With Name: " << vList[i].getFname() << " " << vList[i].getLname() << "\n";
                 cout << "Account ID: " << vList[i].getID() << "\n";
                 cout << "Phone Number: " << vList[i].getPhoneNum() << "\n";
                 cout << "Current Balance: " << vList[i].getBalance() << "\n";
@@ -1522,7 +1523,7 @@ void searchVName(vector<ClassV> &vList, vector <BankOfficial> &officList, int ac
     }
 }
 
-void searchVPhone(vector<ClassV> &vList, vector <BankOfficial> &officList, int accNum)
+void searchVPhone(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1545,7 +1546,7 @@ void searchVPhone(vector<ClassV> &vList, vector <BankOfficial> &officList, int a
     }
 }
 
-void searchV(vector<ClassV> &vList, vector <BankOfficial> &officList, int accNum)
+void searchV(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
 {
     bool done = false;
     while (!done)
@@ -1586,7 +1587,8 @@ void searchV(vector<ClassV> &vList, vector <BankOfficial> &officList, int accNum
     }
 }
 
-void searchUId(vvector<ClassU> &uList, vector <BankOfficial> &officList, int accNum)
+
+void searchUId(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1609,7 +1611,7 @@ void searchUId(vvector<ClassU> &uList, vector <BankOfficial> &officList, int acc
     }
 }
 
-void searchUName(vector<ClassU> &uList, vector <BankOfficial> &officList, int accNum)
+void searchUName(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1622,7 +1624,7 @@ void searchUName(vector<ClassU> &uList, vector <BankOfficial> &officList, int ac
             if (uList[i].getFname() == fName && uList[i].getLname() == lName)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Name: " << uList[i].getFname() << " " << cdList[i].getLname() << "\n";
+                cout << "\nDisplaying Information of Checking Account With Name: " << uList[i].getFname() << " " << uList[i].getLname() << "\n";
                 cout << "Account ID: " << uList[i].getID() << "\n";
                 cout << "Phone Number: " << uList[i].getPhoneNum() << "\n";
                 cout << "Current Balance: " << uList[i].getBalance() << "\n";
@@ -1633,7 +1635,7 @@ void searchUName(vector<ClassU> &uList, vector <BankOfficial> &officList, int ac
     }
 }
 
-void searchUPhone(vector<ClassU> &uList, vector <BankOfficial> &officList, int accNum)
+void searchUPhone(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1656,7 +1658,7 @@ void searchUPhone(vector<ClassU> &uList, vector <BankOfficial> &officList, int a
     }
 }
 
-void searchU(vector<ClassU> &uList, vector <BankOfficial> &officList, int accNum)
+void searchU(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
 {
     bool done = false;
     while (!done)
@@ -1697,22 +1699,23 @@ void searchU(vector<ClassU> &uList, vector <BankOfficial> &officList, int accNum
     }
 }
 
-void searchXId(vvector<ClassX> &xList, vector <BankOfficial> &officList, int accNum)
+
+void searchXId(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
     {
         cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
         string id = getXID();
-        for (int i = 0; i < uList.size(); i++)
+        for (int i = 0; i < xList.size(); i++)
         {
-            if (uList[i].getID() == id)
+            if (xList[i].getID() == id)
             {
                 found = true;
-                cout << "\nDisplaying Information of Saving Account: " << uList[i].getID() << "\n";
-                cout << "Name: " << uList[i].getFname() << " " << uList[i].getLname() << "\n";
-                cout << "Phone Number: " << uList[i].getPhoneNum() << "\n";
-                cout << "Current Balance: " << uList[i].getBalance() << "\n";
+                cout << "\nDisplaying Information of Saving Account: " << xList[i].getID() << "\n";
+                cout << "Name: " << xList[i].getFname() << " " << xList[i].getLname() << "\n";
+                cout << "Phone Number: " << xList[i].getPhoneNum() << "\n";
+                cout << "Current Balance: " << xList[i].getBalance() << "\n";
             }        
         }
         if (!found) 
@@ -1720,7 +1723,7 @@ void searchXId(vvector<ClassX> &xList, vector <BankOfficial> &officList, int acc
     }
 }
 
-void searchXName(vector<ClassX> &xList, vector <BankOfficial> &officList, int accNum)
+void searchXName(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1744,7 +1747,7 @@ void searchXName(vector<ClassX> &xList, vector <BankOfficial> &officList, int ac
     }
 }
 
-void searchXPhone(vector<ClassX> &xList, vector <BankOfficial> &officList, int accNum)
+void searchXPhone(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1767,7 +1770,7 @@ void searchXPhone(vector<ClassX> &xList, vector <BankOfficial> &officList, int a
     }
 }
 
-void searchX(vector<ClassX> &xList, vector <BankOfficial> &officList, int accNum)
+void searchX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
 {
     bool done = false;
     while (!done)
@@ -1808,7 +1811,7 @@ void searchX(vector<ClassX> &xList, vector <BankOfficial> &officList, int accNum
     }
 }
 
-void searchYId(vvector<ClassX> &yList, vector <BankOfficial> &officList, int accNum)
+void searchYId(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1831,7 +1834,7 @@ void searchYId(vvector<ClassX> &yList, vector <BankOfficial> &officList, int acc
     }
 }
 
-void searchYName(vector<ClassY> &yList, vector <BankOfficial> &officList, int accNum)
+void searchYName(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1855,7 +1858,7 @@ void searchYName(vector<ClassY> &yList, vector <BankOfficial> &officList, int ac
     }
 }
 
-void searchYPhone(vector<ClassY> &yList, vector <BankOfficial> &officList, int accNum)
+void searchYPhone(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1878,7 +1881,7 @@ void searchYPhone(vector<ClassY> &yList, vector <BankOfficial> &officList, int a
     }
 }
 
-void searchY(vector<ClassY> &yList, vector <BankOfficial> &officList, int accNum)
+void searchY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     bool done = false;
     while (!done)
@@ -1919,7 +1922,7 @@ void searchY(vector<ClassY> &yList, vector <BankOfficial> &officList, int accNum
     }
 }
 
-void searchZId(vvector<ClassZ> &zList, vector <BankOfficial> &officList, int accNum)
+void searchZId(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1942,7 +1945,7 @@ void searchZId(vvector<ClassZ> &zList, vector <BankOfficial> &officList, int acc
     }
 }
 
-void searchZName(vector<ClassZ> &zList, vector <BankOfficial> &officList, int accNum)
+void searchZName(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1966,7 +1969,7 @@ void searchZName(vector<ClassZ> &zList, vector <BankOfficial> &officList, int ac
     }
 }
 
-void searchZPhone(vector<ClassZ> &zList, vector <BankOfficial> &officList, int accNum)
+void searchZPhone(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
     while(!found)
@@ -1989,7 +1992,7 @@ void searchZPhone(vector<ClassZ> &zList, vector <BankOfficial> &officList, int a
     }
 }
 
-void searchZ(vector<ClassZ> &zList, vector <BankOfficial> &officList, int accNum)
+void searchZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     bool done = false;
     while (!done)
@@ -2030,7 +2033,7 @@ void searchZ(vector<ClassZ> &zList, vector <BankOfficial> &officList, int accNum
     }
 }
 
-void officialSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xlist, vector<ClassY> &yList, vector<ClassZ> &zList)
+void officialSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList)
 {
     bool done = false;
     while (!done)
@@ -2102,7 +2105,7 @@ void officialSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
     }
 }
 
-void officialMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xlist, vector<ClassY> &yList, vector<ClassZ> &zList, bool uStat, bool vStat, bool xStat, bool yStat, bool zStat)
+void officialMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, string uStat, string vStat, string xStat, string yStat, string zStat)
 {
     bool done = false;
     while (!done)
@@ -2119,7 +2122,7 @@ void officialMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
             case 1:
             {
                 cout << "\nChoose A Type Of Account To Open.\n";
-                openAccount(chkList, savList, cdList, officList, accNum, uList, vList, xList, yList, zList);
+                openAccount(chkList, savList, cdList, officList, accNum, uList, vList, xList, yList, zList, uStat, vStat, xStat, yStat, zStat);
                 cout << "\nAccount Successfully Opened.\n";   //might print the info of the open account
                 break;
             }
