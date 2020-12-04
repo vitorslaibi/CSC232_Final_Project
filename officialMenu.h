@@ -214,7 +214,7 @@ void closeU(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
             if (uList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].close(id);
+                officList[accNum].closeU(id);
                 // if (savList[i].isOnline())
                 // {
                 //     savList[i].setOnlStat(false);
@@ -242,7 +242,7 @@ void closeV(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
             if (vList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].close(id);
+                officList[accNum].closeV(id);
                 // if (savList[i].isOnline())
                 // {
                 //     savList[i].setOnlStat(false);
@@ -270,7 +270,7 @@ void closeX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
             if (xList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].close(id);
+                officList[accNum].closeX(id);
                 // if (savList[i].isOnline())
                 // {
                 //     savList[i].setOnlStat(false);
@@ -298,7 +298,7 @@ void closeY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
             if (yList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].close(id);
+                officList[accNum].closeY(id);
                 // if (savList[i].isOnline())
                 // {
                 //     savList[i].setOnlStat(false);
@@ -326,7 +326,7 @@ void closeZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
             if (zList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].close(id);
+                officList[accNum].closeZ(id);
                 // if (savList[i].isOnline())
                 // {
                 //     savList[i].setOnlStat(false);
@@ -365,7 +365,7 @@ void officialDepositChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &offi
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
                         double amount = getAmount();
-                        officList[accNum].chkDeposit(chkList[i], amount)
+                        officList[accNum].chkDeposit(chkList[i], amount);
                     }
                     else
                     {
@@ -401,7 +401,7 @@ void officialDepositSaving(vector<SavAcc> &savList, vector<BankOfficial> &officL
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
                         double amount = getAmount();
-                        officList[accNum].savDeposit(savList[i], amount)
+                        officList[accNum].savDeposit(savList[i], amount);
                     }
                     else
                     {
@@ -683,7 +683,7 @@ void officialWithdrawChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &off
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
                         double amount = getAmount();
-                        officList[accNum].chkWithdraw(chkList[i], amount)
+                        officList[accNum].chkWithdraw(chkList[i], amount);
                     }
                     else
                     {
@@ -719,7 +719,7 @@ void officialWithdrawSaving(vector<SavAcc> &savList, vector<BankOfficial> &offic
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
                         double amount = getAmount();
-                        officList[accNum].savWithdraw(savList[i], amount)
+                        officList[accNum].savWithdraw(savList[i], amount);
                     }
                     else
                     {
@@ -1562,7 +1562,7 @@ void searchUId(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNu
             if (uList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].searchV(uList[i]);
+                officList[accNum].searchU(uList[i]);
             }        
         }
         if (!found) 
@@ -1583,7 +1583,7 @@ void searchUName(vector<ClassU> &uList, vector<BankOfficial> &officList, int acc
             if (uList[i].getFname() == fName && uList[i].getLname() == lName)
             {
                 found = true;
-                officList[accNum].searchV(uList[i]);
+                officList[accNum].searchU(uList[i]);
             }        
         }
         if (!found) 
@@ -1603,7 +1603,7 @@ void searchUPhone(vector<ClassU> &uList, vector<BankOfficial> &officList, int ac
             if (uList[i].getPhoneNum() == phone)
             {
                 found = true;
-                officList[accNum].searchV(uList[i]);
+                officList[accNum].searchU(uList[i]);
             }        
         }
         if (!found) 
@@ -1665,7 +1665,7 @@ void searchXId(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNu
             if (xList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].searchV(xList[i]);
+                officList[accNum].searchX(xList[i]);
             }        
         }
         if (!found) 
@@ -1686,7 +1686,7 @@ void searchXName(vector<ClassX> &xList, vector<BankOfficial> &officList, int acc
             if (xList[i].getFname() == fName && xList[i].getLname() == lName)
             {
                 found = true;
-                officList[accNum].searchV(xList[i]);
+                officList[accNum].searchX(xList[i]);
             }        
         }
         if (!found) 
@@ -1706,7 +1706,7 @@ void searchXPhone(vector<ClassX> &xList, vector<BankOfficial> &officList, int ac
             if (xList[i].getPhoneNum() == phone)
             {
                 found = true;
-                officList[accNum].searchV(xList[i]);
+                officList[accNum].searchX(xList[i]);
             }        
         }
         if (!found) 
@@ -1768,7 +1768,7 @@ void searchYId(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNu
             if (yList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].searchV(yList[i]);
+                officList[accNum].searchY(yList[i]);
             }        
         }
         if (!found) 
@@ -1789,7 +1789,7 @@ void searchYName(vector<ClassY> &yList, vector<BankOfficial> &officList, int acc
             if (yList[i].getFname() == fName && yList[i].getLname() == lName)
             {
                 found = true;
-                officList[accNum].searchV(yList[i]);
+                officList[accNum].searchY(yList[i]);
             }        
         }
         if (!found) 
@@ -1809,7 +1809,7 @@ void searchYPhone(vector<ClassY> &yList, vector<BankOfficial> &officList, int ac
             if (yList[i].getPhoneNum() == phone)
             {
                 found = true;
-                officList[accNum].searchV(yList[i]);
+                officList[accNum].searchY(yList[i]);
             }        
         }
         if (!found) 
@@ -1865,13 +1865,13 @@ void searchZId(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNu
     while(!found)
     {
         cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
-        string id = getXID();
+        string id = getZID();
         for (int i = 0; i < zList.size(); i++)
         {
             if (zList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].searchV(zList[i]);
+                officList[accNum].searchZ(zList[i]);
             }        
         }
         if (!found) 
@@ -1892,7 +1892,7 @@ void searchZName(vector<ClassZ> &zList, vector<BankOfficial> &officList, int acc
             if (zList[i].getFname() == fName && zList[i].getLname() == lName)
             {
                 found = true;
-                officList[accNum].searchV(zList[i]);
+                officList[accNum].searchZ(zList[i]);
             }        
         }
         if (!found) 
@@ -1912,7 +1912,7 @@ void searchZPhone(vector<ClassZ> &zList, vector<BankOfficial> &officList, int ac
             if (zList[i].getPhoneNum() == phone)
             {
                 found = true;
-                officList[accNum].searchV(zList[i]);
+                officList[accNum].searchZ(zList[i]);
             }        
         }
         if (!found) 
@@ -1960,7 +1960,6 @@ void searchZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
         cout << endl;
     }
 }
-
 
 void officialSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList)
 {

@@ -106,7 +106,7 @@ void cdMenu(vector<CD> &cdList, int accNum)
             }
             case 2:
             {
-                cdList[accNum].withdraw();
+                cdList[accNum].withdraw(0);
                 break;
             }
             case 3:

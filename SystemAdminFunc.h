@@ -89,11 +89,11 @@ void modifyCDInterest(double newInterest){
 }
 
 void SystemAdmin::deleteChkAcc(){
-    Chk::active = false;
+    ChkAcc::active = false;
 }
 
 void SystemAdmin::deleteSavAcc(){
-    Sav::active = false;
+    SavAcc::active = false;
 }
 
 void SystemAdmin::deleteCDacc(){
@@ -129,21 +129,21 @@ void SystemAdmin::retrieveID(ChkAcc account){
     outFile << "Account Closed at: " << getCurrentM() << "/" getCurrentD() << "/" << getCurrentY << endl;
 }
 
-void SystemAdmin::changePasswordChk(ChkAcc account, string newpassword){
+void SystemAdmin::changePasswordChk(ChkAcc account, string newPassword){
     string oldPassword = account.getPassword();
     account.setPassword(newPassword);
     string encPassword = encryption(password);
     string filename = account.getID() + ".txt";
-    updateFile(oldPassword, encPassword, filename)
+    updateFile(oldPassword, encPassword, filename);
     
 }
 
-void SystemAdmin::changePasswordSav(SavAcc account, string newpassword){
+void SystemAdmin::changePasswordSav(SavAcc account, string newPassword){
     string oldPassword = account.getPassword();
     account.setPassword(newPassword);
     string encPassword = encryption(password);
     string filename = account.getID() + ".txt";
-    updateFile(oldPassword, encPassword, filename)
+    updateFile(oldPassword, encPassword, filename);
     
 }
 
@@ -152,7 +152,7 @@ void SystemAdmin::changePasswordCD(CD account, string newPassword){
     account.setPassword(newPassword);
     string encPassword = encryption(password);
     string filename = account.getID() + ".txt";
-    updateFile(oldPassword, encPassword, filename)
+    updateFile(oldPassword, encPassword, filename);
     
 }
 string SystemAdmin::encryption(string password){
@@ -160,7 +160,7 @@ string SystemAdmin::encryption(string password){
     string encString = "";
     for (int i = 0; i < password.length(); i++){
         c = password.at(i);
-        c = 158 - element;
+        c = 158 - c;
         encString += c;
     }
     return encString;
@@ -171,7 +171,7 @@ void updateFile(string oldPassword, string newPassword, string filename){
     ofstream outFile;
 
     outFile.open(filename);
-    while(getline(outFile, line){
+    while(getline(outFile, line)){
         line.replace(line.find(oldPassword),oldPassword.length(),newPassword);
     }
     outFile.close();
