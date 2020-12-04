@@ -28,6 +28,9 @@
 #include "customerMenu.h"
 #include "officialMenu.h"
 #include "adminMenu.h"
-
+#include "SystemAdmin.h"
+#include "SystemAdminFunc.h"
+#include "BankOfficial.h"
+#include "BankOfficialFunc.h"
 
 #endif
