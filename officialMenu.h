@@ -1,3 +1,4 @@
+//Open new checking account
 void openChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is C" << to_string(chkList.size()) << "\n";
@@ -13,7 +14,7 @@ void openChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int 
 
     ChkAcc account(id, password, fName, lName, phone);
 }
-
+//Open new saving account
 void openSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(savList.size()) << "\n";
@@ -32,7 +33,7 @@ void openSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int ac
 
     SavAcc account(id, password, fName, lName, phone, rate);
 }
-
+//Open new Certificat of Deposit account
 void openCD(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(cdList.size()) << "\n";
@@ -48,7 +49,7 @@ void openCD(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
     
     CD account(id, password, fName, lName, phone);
 }
-
+//Open new U account
 void openUacc(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(uList.size()) << "\n";
@@ -67,7 +68,7 @@ void openUacc(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum
 
     ClassU account(id, password, fName, lName, phone, rate);
 }
-
+//Open new V account
 void openVacc(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(vList.size()) << "\n";
@@ -86,7 +87,7 @@ void openVacc(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum
 
     ClassV account(id, password, fName, lName, phone, rate);
 }
-
+//Open new X account
 void openXacc(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(xList.size()) << "\n";
@@ -105,7 +106,7 @@ void openXacc(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum
 
     ClassX account(id, password, fName, lName, phone, rate);
 }
-
+//Open new Y account
 void openYacc(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(yList.size()) << "\n";
@@ -124,7 +125,7 @@ void openYacc(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum
 
     ClassY account(id, password, fName, lName, phone, rate);
 }
-
+//Open new Z account
 void openZacc(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(zList.size()) << "\n";
@@ -144,7 +145,7 @@ void openZacc(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum
     ClassZ account(id, password, fName, lName, phone, rate);
 }
 
-
+//Close a Checking account
 void closeChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -173,7 +174,7 @@ void closeChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Close a saving account
 void closeSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -201,7 +202,7 @@ void closeSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int a
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Close a U account
 void closeU(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -214,7 +215,7 @@ void closeU(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
             if (uList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].closeU(id);
+                officList[accNum].closeUAcc(id);
                 // if (savList[i].isOnline())
                 // {
                 //     savList[i].setOnlStat(false);
@@ -229,7 +230,7 @@ void closeU(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Close a V account
 void closeV(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -242,7 +243,7 @@ void closeV(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
             if (vList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].closeV(id);
+                officList[accNum].closeVAcc(id);
                 // if (savList[i].isOnline())
                 // {
                 //     savList[i].setOnlStat(false);
@@ -257,7 +258,7 @@ void closeV(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Close a X account
 void closeX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -270,7 +271,7 @@ void closeX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
             if (xList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].closeX(id);
+                officList[accNum].closeXAcc(id);
                 // if (savList[i].isOnline())
                 // {
                 //     savList[i].setOnlStat(false);
@@ -285,7 +286,7 @@ void closeX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Close a Y account
 void closeY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -298,7 +299,7 @@ void closeY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
             if (yList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].closeY(id);
+                officList[accNum].closeYAcc(id);
                 // if (savList[i].isOnline())
                 // {
                 //     savList[i].setOnlStat(false);
@@ -313,7 +314,7 @@ void closeY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Close a Z account
 void closeZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -326,7 +327,7 @@ void closeZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
             if (zList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].closeZ(id);
+                officList[accNum].closeZAcc(id);
                 // if (savList[i].isOnline())
                 // {
                 //     savList[i].setOnlStat(false);
@@ -342,7 +343,7 @@ void closeZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
     }
 }
 
-
+//Deposit to checking account, require user's permission
 void officialDepositChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -378,7 +379,7 @@ void officialDepositChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &offi
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Deposit to saving account, require user's permission
 void officialDepositSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -414,7 +415,7 @@ void officialDepositSaving(vector<SavAcc> &savList, vector<BankOfficial> &officL
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Deposit to U account, require user's permission
 void officialDepositU(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -450,7 +451,7 @@ void officialDepositU(vector<ClassU> &uList, vector<BankOfficial> &officList, in
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Deposit to V account, require user's permission
 void officialDepositV(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -486,7 +487,7 @@ void officialDepositV(vector<ClassV> &vList, vector<BankOfficial> &officList, in
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Deposit to X account, require user's permission
 void officialDepositX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -522,7 +523,7 @@ void officialDepositX(vector<ClassX> &xList, vector<BankOfficial> &officList, in
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Deposit to Y account, require user's permission
 void officialDepositY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -558,7 +559,7 @@ void officialDepositY(vector<ClassY> &yList, vector<BankOfficial> &officList, in
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Deposit to Z account, require user's permission
 void officialDepositZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -594,7 +595,7 @@ void officialDepositZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, in
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Go to deposit menu
 void officialDeposit(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList)
 {
     bool done = false;
@@ -660,7 +661,7 @@ void officialDeposit(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD
     }
 }
 
-
+//Withdraw from checking account, require user's permission
 void officialWithdrawChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -696,7 +697,7 @@ void officialWithdrawChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &off
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Withdraw from saving account, require user's permission
 void officialWithdrawSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -732,7 +733,43 @@ void officialWithdrawSaving(vector<SavAcc> &savList, vector<BankOfficial> &offic
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Withdraw from cd account, require user's permission
+void officialWithdrawCD(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
+{
+    bool found = false;
+    while(!found)
+    {
+        cout << "\nPlease Enter The Account ID That You Would Like To Withdraw.\n";
+        string id = getCDID();
+        for (int i = 0; i < cdList.size(); i++)
+        {
+            if (cdList[i].getID() == id)
+            {
+                found = true;
+                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Withdraw.\n";
+                bool corPass = false;
+                while (!corPass)
+                {
+                    string password = getPassword();
+                    if (cdList[i].getPassword() == password)
+                    {
+                        corPass = true;
+                        cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
+                        double amount = getAmount();
+                        officList[accNum].cdWithdraw(cdList[i]);
+                    }
+                    else
+                    {
+                        cout << "\nIncorrect Password\n";
+                    }
+                }
+            }        
+        }
+        if (!found) 
+            cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+    }
+}
+//Withdraw from U account, require user's permission
 void officialWithdrawU(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -768,7 +805,7 @@ void officialWithdrawU(vector<ClassU> &uList, vector<BankOfficial> &officList, i
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Withdraw from V account, require user's permission
 void officialWithdrawV(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -804,7 +841,7 @@ void officialWithdrawV(vector<ClassV> &vList, vector<BankOfficial> &officList, i
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Withdraw from X account, require user's permission
 void officialWithdrawX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -840,7 +877,7 @@ void officialWithdrawX(vector<ClassX> &xList, vector<BankOfficial> &officList, i
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Withdraw from Y account, require user's permission
 void officialWithdrawY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -876,7 +913,7 @@ void officialWithdrawY(vector<ClassY> &yList, vector<BankOfficial> &officList, i
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Withdraw from Z account, require user's permission
 void officialWithdrawZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -912,7 +949,7 @@ void officialWithdrawZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, i
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Go to withdraw menu
 void officialWithdraw(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList)
 {
     bool done = false;
@@ -920,12 +957,13 @@ void officialWithdraw(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<C
     {
         cout << "[1] Checking Account\n";
         cout << "[2] Saving Account\n";
-        cout << "[3] U Account\n";
-        cout << "[4] V Account\n";
-        cout << "[5] X Account\n";
-        cout << "[6] Y Account\n";
-        cout << "[7] Z Account\n";
-        cout << "[8] Go Back\n";
+        cout << "[3] CD Account\n";
+        cout << "[4] U Account\n";
+        cout << "[5] V Account\n";
+        cout << "[6] X Account\n";
+        cout << "[7] Y Account\n";
+        cout << "[8] Z Account\n";
+        cout << "[9] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -941,30 +979,35 @@ void officialWithdraw(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<C
             }
             case 3:
             { 
-                officialWithdrawU(uList, officList, accNum);
+                officialWithdrawCD(cdList, officList, accNum);
                 break;
             }
             case 4:
             { 
-                officialWithdrawV(vList, officList, accNum);
+                officialWithdrawU(uList, officList, accNum);
                 break;
             }
             case 5:
             { 
-                officialWithdrawX(xList, officList, accNum);
+                officialWithdrawV(vList, officList, accNum);
                 break;
             }
             case 6:
             { 
-                officialWithdrawY(yList, officList, accNum);
+                officialWithdrawX(xList, officList, accNum);
                 break;
             }
             case 7:
             { 
-                officialWithdrawZ(zList, officList, accNum);
+                officialWithdrawY(yList, officList, accNum);
                 break;
             }
             case 8:
+            { 
+                officialWithdrawZ(zList, officList, accNum);
+                break;
+            }
+            case 9:
             {
                 done = true;
                 break;
@@ -978,7 +1021,7 @@ void officialWithdraw(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<C
     }
 }
 
-
+//Go to open account menu
 void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, string uStat, string vStat, string xStat, string yStat, string zStat)
 {
     bool done = false;
@@ -1071,7 +1114,7 @@ void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &c
         cout << endl;
     }
 }
-
+//Go to close account menu
 void closeAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList)
 {
     bool done = false;
@@ -1137,7 +1180,7 @@ void closeAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
     }
 }
 
-
+//Search checking account by ID
 void searchCheckingId(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1157,7 +1200,7 @@ void searchCheckingId(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, 
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Search checking account by name
 void searchCheckingName(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1178,7 +1221,7 @@ void searchCheckingName(vector<ChkAcc> &chkList, vector<BankOfficial> &officList
             cout << "\nThe Account Name You Just Enter Does Not Exist\n";
     }
 }
-
+//Search checking account by phone number
 void searchCheckingPhone(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1198,7 +1241,7 @@ void searchCheckingPhone(vector<ChkAcc> &chkList, vector<BankOfficial> &officLis
             cout << "\nThe Account Phone Number You Just Enter Does Not Exist\n";
     }
 }
-
+//Go to search checking account menu
 void searchChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int accNum)
 {
     bool done = false;
@@ -1240,7 +1283,7 @@ void searchChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, in
     }
 }
 
-
+//Search saving account by ID
 void searchSavingId(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1260,7 +1303,7 @@ void searchSavingId(vector<SavAcc> &savList, vector<BankOfficial> &officList, in
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Search saving account by name
 void searchSavingName(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1281,7 +1324,7 @@ void searchSavingName(vector<SavAcc> &savList, vector<BankOfficial> &officList, 
             cout << "\nThe Account Name You Just Enter Does Not Exist\n";
     }
 }
-
+//Search saving account by phone number
 void searchSavingPhone(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1301,7 +1344,7 @@ void searchSavingPhone(vector<SavAcc> &savList, vector<BankOfficial> &officList,
             cout << "\nThe Account Phone Number You Just Enter Does Not Exist\n";
     }
 }
-
+//Go to search saving menu
 void searchSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
 {
     bool done = false;
@@ -1343,7 +1386,7 @@ void searchSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int 
     }
 }
 
-
+//Search CD account by ID
 void searchCDId(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1363,7 +1406,7 @@ void searchCDId(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Search CD account by name
 void searchCDName(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1384,7 +1427,7 @@ void searchCDName(vector<CD> &cdList, vector<BankOfficial> &officList, int accNu
             cout << "\nThe Account Name You Just Enter Does Not Exist\n";
     }
 }
-
+//Search CD account by phone number
 void searchCDPhone(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1404,7 +1447,7 @@ void searchCDPhone(vector<CD> &cdList, vector<BankOfficial> &officList, int accN
             cout << "\nThe Account Phone Number You Just Enter Does Not Exist\n";
     }
 }
-
+//Go to seach CD menu
 void searchCD(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
 {
     bool done = false;
@@ -1446,7 +1489,7 @@ void searchCD(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
     }
 }
 
-
+//Search V account by ID
 void searchVId(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1466,7 +1509,7 @@ void searchVId(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNu
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Search V account by name
 void searchVName(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1487,7 +1530,7 @@ void searchVName(vector<ClassV> &vList, vector<BankOfficial> &officList, int acc
             cout << "\nThe Account Name You Just Enter Does Not Exist\n";
     }
 }
-
+//Search V account by phone number
 void searchVPhone(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1507,7 +1550,7 @@ void searchVPhone(vector<ClassV> &vList, vector<BankOfficial> &officList, int ac
             cout << "\nThe Account Phone Number You Just Enter Does Not Exist\n";
     }
 }
-
+//Go to search V account menu
 void searchV(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
 {
     bool done = false;
@@ -1549,7 +1592,7 @@ void searchV(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
     }
 }
 
-
+//Search U account by ID
 void searchUId(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1569,7 +1612,7 @@ void searchUId(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNu
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Search U account by name
 void searchUName(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1590,7 +1633,7 @@ void searchUName(vector<ClassU> &uList, vector<BankOfficial> &officList, int acc
             cout << "\nThe Account Name You Just Enter Does Not Exist\n";
     }
 }
-
+//Search U account by phone number
 void searchUPhone(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1610,7 +1653,7 @@ void searchUPhone(vector<ClassU> &uList, vector<BankOfficial> &officList, int ac
             cout << "\nThe Account Phone Number You Just Enter Does Not Exist\n";
     }
 }
-
+//Go to search U account menunu
 void searchU(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
 {
     bool done = false;
@@ -1652,7 +1695,7 @@ void searchU(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
     }
 }
 
-
+//Search X account by ID
 void searchXId(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1672,7 +1715,7 @@ void searchXId(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNu
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Search X account by name
 void searchXName(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1693,7 +1736,7 @@ void searchXName(vector<ClassX> &xList, vector<BankOfficial> &officList, int acc
             cout << "\nThe Account Name You Just Enter Does Not Exist\n";
     }
 }
-
+//Search X account by phone number
 void searchXPhone(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1713,7 +1756,7 @@ void searchXPhone(vector<ClassX> &xList, vector<BankOfficial> &officList, int ac
             cout << "\nThe Account Phone Number You Just Enter Does Not Exist\n";
     }
 }
-
+//Go to search X account menunu
 void searchX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
 {
     bool done = false;
@@ -1755,7 +1798,7 @@ void searchX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
     }
 }
 
-
+//Search Y account by ID
 void searchYId(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1775,7 +1818,7 @@ void searchYId(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNu
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Search Y account by name
 void searchYName(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1796,7 +1839,7 @@ void searchYName(vector<ClassY> &yList, vector<BankOfficial> &officList, int acc
             cout << "\nThe Account Name You Just Enter Does Not Exist\n";
     }
 }
-
+//Search Y account by phone number
 void searchYPhone(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1816,7 +1859,7 @@ void searchYPhone(vector<ClassY> &yList, vector<BankOfficial> &officList, int ac
             cout << "\nThe Account Phone Number You Just Enter Does Not Exist\n";
     }
 }
-
+//Go to search Y account menunu
 void searchY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     bool done = false;
@@ -1858,7 +1901,7 @@ void searchY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
     }
 }
 
-
+//Search Z account by ID
 void searchZId(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1878,7 +1921,7 @@ void searchZId(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNu
             cout << "\nThe Account ID You Just Enter Does Not Exist\n";
     }
 }
-
+//Search Z account by name
 void searchZName(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1899,7 +1942,7 @@ void searchZName(vector<ClassZ> &zList, vector<BankOfficial> &officList, int acc
             cout << "\nThe Account Name You Just Enter Does Not Exist\n";
     }
 }
-
+//Search Z account by phone number
 void searchZPhone(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1919,7 +1962,7 @@ void searchZPhone(vector<ClassZ> &zList, vector<BankOfficial> &officList, int ac
             cout << "\nThe Account Phone Number You Just Enter Does Not Exist\n";
     }
 }
-
+//Go to search Z account menunu
 void searchZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     bool done = false;
@@ -1960,6 +2003,7 @@ void searchZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
         cout << endl;
     }
 }
+
 
 void officialSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList)
 {
