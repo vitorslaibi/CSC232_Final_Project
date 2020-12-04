@@ -28,6 +28,7 @@ class BankOfficial{
     int getCurrentY();
     int getCurrentM();
     int getCurrentD();
+    void setOnlStat(bool newStatus);
 
     void closeChkAcc(ChkAcc account);
     void closeSavAcc(SavAcc account);
