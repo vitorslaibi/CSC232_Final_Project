@@ -62,3 +62,4 @@ class SystemAdmin{
     void updateFile(string oldPassword, string newPassword, string filename);
     //save admin info in file
     void saveData();
+};
