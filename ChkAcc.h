@@ -13,7 +13,7 @@ class ChkAcc : public BankAcc
 private:
 
 public:
-    static bool active;
+    static bool active;     //flag to see if new accounts can be created
     ChkAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNum);
     void withdraw(double var) override;
     void deposit(double var) override;

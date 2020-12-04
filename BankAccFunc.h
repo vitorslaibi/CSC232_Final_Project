@@ -22,7 +22,7 @@ int BankAcc::getYearDays(int currentYear)    //function to get the number of day
     return 365;     //if the year doesn't divide by 4, it's not a leap year
 }
 
-int BankAcc::getMonthDays(int currentYear, int currentMonth)
+int BankAcc::getMonthDays(int currentYear, int currentMonth)    //calculate the number of days in a given month
 {
     switch (currentMonth)
     {
@@ -81,7 +81,7 @@ int BankAcc::getMonthDays(int currentYear, int currentMonth)
 void BankAcc::updateDailyBalance(int year)  //update the balance after a day
 {
     updateOnlStat();
-    if (isOnline())
+    if (isOnline()) //if the account is online, update the interest
     {
         double dailyInterestRate = interestRate / getYearDays(year);
         double dailyInterest = dailyInterestRate * balance;
@@ -159,43 +159,35 @@ BankAcc::BankAcc(string newID, string newPassword = "", string newFname = "", st
     safeLevel = 0.0;
 }
 
-void BankAcc::setLastTimeCounted()  //set the current time as the last time counted
-{
-    time_t t = time(0);
-    tm* now = localtime(&t);
-    lastYearCounted = now->tm_year + 1900;
-    lastDayCounted = now->tm_yday;
-}
-
-int BankAcc::getCurrentY()  //set the current time as the last time counted
+int BankAcc::getCurrentY()  //get the current year
 {
     time_t t = time(0);
     tm* now = localtime(&t);
     return now->tm_year + 1900;
 }
 
-int BankAcc::getCurrentM()  //set the current time as the last time counted
+int BankAcc::getCurrentM()  //get the current month
 {
     time_t t = time(0);
     tm* now = localtime(&t);
     return now->tm_mon + 1;
 }
 
-int BankAcc::getCurrentD()  //set the current time as the last time counted
+int BankAcc::getCurrentD()  //get the current day
 {
     time_t t = time(0);
     tm* now = localtime(&t);
     return now->tm_mday;
 }
 
-int BankAcc::getCurrentH()  //set the current time as the last time counted
+int BankAcc::getCurrentH()  //get the current hour
 {
     time_t t = time(0);
     tm* now = localtime(&t);
     return now->tm_hour;
 }
 
-int BankAcc::getCurrentMin()  //set the current time as the last time counted
+int BankAcc::getCurrentMin()  //get the current minute
 {
     time_t t = time(0);
     tm* now = localtime(&t);
@@ -204,27 +196,8 @@ int BankAcc::getCurrentMin()  //set the current time as the last time counted
 
 void BankAcc::updateOnlStat()
 {
-    if (balance < safeLevel)     //if the balance is below $50
-    {
-        //message the user, sorry for the long line
-        //cout << "\nYour balance is now $" << balance << ", which is lower than " << safeLevel << ". A service fee of " << penalty << " will be deducted from your account." << endl;
-        //balance -= penalty;     //deduct $5 fee
-        if (balance < 1.0)  //if after that the balance is smaller than $1
-        {
-            //message the user
-            //cout << "\nYour balance is now $" << balance << ".\nIf you don't deposit to increase your account balance, your account will be deleted after you logged out." << endl;
-            closeAcc();     //set the online status to be false
-            return;     //end the function
-        }
-        //update the new balance after deducting fee
-        //cout << "Your balance is now $" << balance << endl
-        //     << endl;
-        return;     //end the function
-    }
     if (balance < 1.0)  // if the balance is below $1
     {
-        //message the user
-        //cout << "\nYour balance is now $" << balance << ".\nIf you don't deposit to increase your account balance, your account will be deleted after you logged out." << endl;
         closeAcc();
         return;
     }
@@ -232,7 +205,6 @@ void BankAcc::updateOnlStat()
     {
         //set the stat and online status to be true
         setOnlStat(true);
-        //cout << "\nYour balance is now $" << balance << ".\nYour account is active.\nYou can deposit and withdraw from this account." << endl;
     }
 }
 
@@ -242,34 +214,34 @@ void BankAcc::calcInt()
     int monthNow = getCurrentM();
     int dayNow = getCurrentD();          //get the current day after Jan 1st
     //cout << "|" << lastYearCounted << "|" << lastDayCounted << "|" << yearNow << "|" << dayNow << "|" << endl;
-    if (yearNow == lastYearCounted)     //if we're in the same year as the year the account is created
+    if (yearNow == lastYearCounted)     //if we're in the same year as the last year recorded
     {
-        if (monthNow == lastMonthCounted)
+        if (monthNow == lastMonthCounted)   //if we are in the same month as the last month recorded
         {
             for (int day = lastDayCounted + 1; day <= dayNow; day++)    //loop from day the account created to today
             {
                 updateDailyBalance(yearNow);    //update the balance
-                saveHistory(yearNow, monthNow, day);
+                saveHistory(yearNow, monthNow, day);    //save the day into the text file
             }
         }
-        else if (monthNow > lastMonthCounted)
+        else if (monthNow > lastMonthCounted)   //if we are in the same year but different month
         {
-            for (int day = lastDayCounted + 1; day <= getMonthDays(yearNow, lastMonthCounted); day++)    //loop from day the account created to today
+            for (int day = lastDayCounted + 1; day <= getMonthDays(yearNow, lastMonthCounted); day++)    //loop from day last recorded to the last day of that month
             {
                 updateDailyBalance(yearNow);    //update the balance
                 saveHistory(yearNow, lastMonthCounted, day);
             }
             monthlyCharge();
-            for (int month = lastMonthCounted + 1; month < monthNow; month++)
+            for (int month = lastMonthCounted + 1; month < monthNow; month++) //loop through the months
             {
-                for (int day = 1; day <= getMonthDays(yearNow, month); day++)
+                for (int day = 1; day <= getMonthDays(yearNow, month); day++)   //loop through the day in month
                 {
                     updateDailyBalance(yearNow);
                     saveHistory(yearNow, month, day);
                 }
                 monthlyCharge();
             }
-            for (int day = 1; day <= dayNow; day++)
+            for (int day = 1; day <= dayNow; day++)     //the days of the current month
             {
                 updateDailyBalance(yearNow);
                 saveHistory(yearNow, monthNow, day);
@@ -343,7 +315,7 @@ void BankAcc::monthlyCharge()    //to deduct the yearly service charge :))
     }
 }
 
-void BankAcc::saveData()
+void BankAcc::saveData()    //save the data to a text file
 {
     
     ofstream outFile;
@@ -379,7 +351,7 @@ void BankAcc::saveData()
     outFile.close();
 }
 
-void BankAcc::loadData()
+void BankAcc::loadData()    //load data from the text file
 {
     ifstream inFile;
 
@@ -436,7 +408,7 @@ void BankAcc::loadData()
     inFile.close();
 }
 
-void BankAcc::saveHistory(int year, int month, int day)
+void BankAcc::saveHistory(int year, int month, int day)     //save the day into the txt file
 {
     ofstream outFile;
 
@@ -456,7 +428,7 @@ void BankAcc::saveHistory(int year, int month, int day)
     outFile.close();
 }
 
-void BankAcc::saveTransactionHistory(char type, double amount)
+void BankAcc::saveTransactionHistory(char type, double amount)      //save the transaction into the text file
 {
     ofstream outFile;
 

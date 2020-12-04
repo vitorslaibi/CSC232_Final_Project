@@ -1,5 +1,5 @@
 /*
-- This file contains definitions of SavAcc class's functions
+- This file contains definitions of ClassY class's functions
 */
 
 #include "include.h"
@@ -8,7 +8,7 @@ using namespace std;
 
 ClassY::ClassY(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate) : BankAcc(newID, newPassword, newFname, newLname, newPhoneNum, newInterestRate, 0.0)
 {
-    ID = newID.insert(0, "Y");  //insert a C at the start of the acc number
+    ID = newID.insert(0, "Y");  //insert a Y at the start of the acc number
 }
 
 void ClassY::withdraw(double var)
