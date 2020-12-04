@@ -1,8 +1,107 @@
-
-bool adminLogin()
+void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList)
 {
-    //return true when successfully logged in
-    return true;
+    bool done = false;
+    while (!done)
+    {
+        cout << "[1] Create U Account\n";
+        cout << "[2] Create V Account\n";
+        cout << "[3] Create X Account\n";
+        cout << "[4] Create Y Account\n";
+        cout << "[5] Create Z Account\n";
+        cout << "[6] Go Back\n";
+        int input = stoi(getInput());
+        switch (input)
+        {
+            case 1:
+            {
+                adminList[accNum].createUacc();
+                break;
+            }
+            case 2:
+            { 
+                adminList[accNum].createVacc();
+                break;
+            }
+            case 3:
+            { 
+                adminList[accNum].createXacc();
+                break;
+            }
+            case 4:
+            { 
+                adminList[accNum].createYacc();
+                break;
+            }
+            case 5:
+            { 
+                adminList[accNum].createZacc();
+                break;
+            }
+            case 6:
+            {
+                done = true;
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
+        cout << endl;
+    }
+}
+
+void deleteAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList)
+{
+    bool done = false;
+    while (!done)
+    {
+        cout << "[1] Create U Account\n";
+        cout << "[2] Create V Account\n";
+        cout << "[3] Create X Account\n";
+        cout << "[4] Create Y Account\n";
+        cout << "[5] Create Z Account\n";
+        cout << "[6] Go Back\n";
+        int input = stoi(getInput());
+        switch (input)
+        {
+            case 1:
+            {
+                adminList[accNum].deleteUacc();
+                break;
+            }
+            case 2:
+            { 
+                adminList[accNum].deleteVacc();
+                break;
+            }
+            case 3:
+            { 
+                adminList[accNum].deleteXacc();
+                break;
+            }
+            case 4:
+            { 
+                adminList[accNum].deleteYacc();
+                break;
+            }
+            case 5:
+            { 
+                adminList[accNum].deleteZacc();
+                break;
+            }
+            case 6:
+            {
+                done = true;
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
+        cout << endl;
+    }
 }
 
 void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
@@ -91,7 +190,7 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
     }
 }
 
-void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
+void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, string uStat, string vStat, string xStat, string yStat, string zStat)
 {
     bool done = false;
     while (!done)
@@ -111,31 +210,70 @@ void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdL
         {
             case 1:
             {
-                //createOfficialAcc();
+                cout << "\nYour Bank Official Account ID Is B" << to_string(officList.size()) << "\n";
+                string id = to_string(officList.size());
+                cout << "\nPlease Enter Your New Password\n";
+                string password = getPassword();
+                cout << "\nPlease Enter Your First Name\n";
+                string fName = getFirstName();
+                cout << "\nPLease Enter Your Last Name\n";
+                string lName = getLastName();
+
+                adminList[accNum].createOfficialAcc(id, password, fName,lName);
                 cout << "\nNew Bank Official Created\n";
                 break;
             }
             case 2:
-            { 
-                //changeLoginStatus(true);
+            {
+                bool found = false;
+                while(!found)
+                {
+                    cout << "\nPlease Enter The Account ID That You Would Like To Close.\n";
+                    string id = getOffID();
+                    for (int i = 0; i < officList.size(); i++)
+                    {
+                        if (officList[i].getID() == id)
+                        {
+                            found = true;
+                            adminList[accNum].enableOfficialAcc(officList[i]);
+                        }        
+                    }
+                    if (!found) 
+                        cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                }
                 cout << "\nBank Official Enabled\n";
                 break;
             }
             case 3:
-            { 
-                //changeLoginStatus(false);
+            {
+                bool found = false;
+                while(!found)
+                {
+                    cout << "\nPlease Enter The Account ID That You Would Like To Close.\n";
+                    string id = getOffID();
+                    for (int i = 0; i < officList.size(); i++)
+                    {
+                        if (officList[i].getID() == id)
+                        {
+                            found = true;
+                            adminList[accNum].disableOfficialAcc(officList[i]);
+                        }        
+                    }
+                    if (!found) 
+                        cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                }
                 cout << "\nBank Official Disabled\n";
                 break;
             }
             case 4:
             { 
-                //newBankType();
+                createAccMenu(adminList, accNum, uList, vList, xList, yList, zList);
                 cout << "\nNew Bank Account Type Created\n";
                 break;
             }
             case 5:
             { 
-                //delBankType();
+                deleteAccMenu(adminList, accNum, uList, vList, xList, yList, zList);
                 cout << "\nBank Account Type Deleted\n";
                 break;
             }

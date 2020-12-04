@@ -49,7 +49,7 @@ void openCD(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
     CD account(id, password, fName, lName, phone);
 }
 
-void openU(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
+void openUacc(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(uList.size()) << "\n";
     string id = to_string(uList.size());
@@ -68,7 +68,7 @@ void openU(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
     ClassU account(id, password, fName, lName, phone, rate);
 }
 
-void openV(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
+void openVacc(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(vList.size()) << "\n";
     string id = to_string(vList.size());
@@ -87,7 +87,7 @@ void openV(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
     ClassV account(id, password, fName, lName, phone, rate);
 }
 
-void openX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
+void openXacc(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(xList.size()) << "\n";
     string id = to_string(xList.size());
@@ -106,7 +106,7 @@ void openX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
     ClassX account(id, password, fName, lName, phone, rate);
 }
 
-void openY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
+void openYacc(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(yList.size()) << "\n";
     string id = to_string(yList.size());
@@ -125,7 +125,7 @@ void openY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
     ClassY account(id, password, fName, lName, phone, rate);
 }
 
-void openZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
+void openZacc(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     cout << "\nYour Checking Account ID Is S" << to_string(zList.size()) << "\n";
     string id = to_string(zList.size());
@@ -365,7 +365,7 @@ void officialDepositChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &offi
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
                         double amount = getAmount();
-                        //officList[accNum].deposit(chkList[i], amount)
+                        officList[accNum].chkDeposit(chkList[i], amount)
                     }
                     else
                     {
@@ -401,7 +401,7 @@ void officialDepositSaving(vector<SavAcc> &savList, vector<BankOfficial> &officL
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
                         double amount = getAmount();
-                        //officList[accNum].deposit(savList[i], amount)
+                        officList[accNum].savDeposit(savList[i], amount)
                     }
                     else
                     {
@@ -437,7 +437,7 @@ void officialDepositU(vector<ClassU> &uList, vector<BankOfficial> &officList, in
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
                         double amount = getAmount();
-                        //officList[accNum].deposit(uList[i],amount);
+                        officList[accNum].uDeposit(uList[i],amount);
                     }
                     else
                     {
@@ -473,7 +473,7 @@ void officialDepositV(vector<ClassV> &vList, vector<BankOfficial> &officList, in
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
                         double amount = getAmount();
-                        //officList[accNum].deposit(vList[i],amount);
+                        officList[accNum].vDeposit(vList[i],amount);
                     }
                     else
                     {
@@ -509,7 +509,7 @@ void officialDepositX(vector<ClassX> &xList, vector<BankOfficial> &officList, in
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
                         double amount = getAmount();
-                        //officList[accNum].deposit(xList[i],amount);
+                        officList[accNum].xDeposit(xList[i],amount);
                     }
                     else
                     {
@@ -545,7 +545,7 @@ void officialDepositY(vector<ClassY> &yList, vector<BankOfficial> &officList, in
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
                         double amount = getAmount();
-                        //officList[accNum].deposit(yList[i],amount);
+                        officList[accNum].yDeposit(yList[i],amount);
                     }
                     else
                     {
@@ -581,7 +581,7 @@ void officialDepositZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, in
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
                         double amount = getAmount();
-                        //officList[accNum].deposit(zList[i],amount);
+                        officList[accNum].zDeposit(zList[i],amount);
                     }
                     else
                     {
@@ -683,7 +683,7 @@ void officialWithdrawChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &off
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
                         double amount = getAmount();
-                        //officList[accNum].withdraw(chkList[i], amount)
+                        officList[accNum].chkWithdraw(chkList[i], amount)
                     }
                     else
                     {
@@ -719,7 +719,7 @@ void officialWithdrawSaving(vector<SavAcc> &savList, vector<BankOfficial> &offic
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
                         double amount = getAmount();
-                        //officList[accNum].withdraw(savList[i], amount)
+                        officList[accNum].savWithdraw(savList[i], amount)
                     }
                     else
                     {
@@ -755,7 +755,7 @@ void officialWithdrawU(vector<ClassU> &uList, vector<BankOfficial> &officList, i
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
                         double amount = getAmount();
-                        //officList[accNum].withdraw(uList[i],amount);
+                        officList[accNum].uWithdraw(uList[i],amount);
                     }
                     else
                     {
@@ -791,7 +791,7 @@ void officialWithdrawV(vector<ClassV> &vList, vector<BankOfficial> &officList, i
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
                         double amount = getAmount();
-                        //officList[accNum].withdraw(vList[i],amount);
+                        officList[accNum].vWithdraw(vList[i],amount);
                     }
                     else
                     {
@@ -827,7 +827,7 @@ void officialWithdrawX(vector<ClassX> &xList, vector<BankOfficial> &officList, i
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
                         double amount = getAmount();
-                        //officList[accNum].withdraw(xList[i],amount);
+                        officList[accNum].xWithdraw(xList[i],amount);
                     }
                     else
                     {
@@ -863,7 +863,7 @@ void officialWithdrawY(vector<ClassY> &yList, vector<BankOfficial> &officList, i
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
                         double amount = getAmount();
-                        //officList[accNum].withdraw(yList[i],amount);
+                        officList[accNum].yWithdraw(yList[i],amount);
                     }
                     else
                     {
@@ -899,7 +899,7 @@ void officialWithdrawZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, i
                         corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
                         double amount = getAmount();
-                        //officList[accNum].withdraw(zList[i],amount);
+                        officList[accNum].zWithdraw(zList[i],amount);
                     }
                     else
                     {
@@ -978,6 +978,7 @@ void officialWithdraw(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<C
     }
 }
 
+
 void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, string uStat, string vStat, string xStat, string yStat, string zStat)
 {
     bool done = false;
@@ -1015,7 +1016,7 @@ void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &c
             case 4:
             {
                 if (uStat == "1")
-                    openU(uList, officList, accNum);
+                    openUacc(uList, officList, accNum);
                 else
                 {
                     cout << "\nThis Account Type Is Not Available To Be Used\n";
@@ -1024,7 +1025,7 @@ void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &c
             case 5:
             {
                 if (vStat == "1")
-                    openV(vList, officList, accNum);
+                    openVacc(vList, officList, accNum);
                 else
                 {
                     cout << "\nThis Account Type Is Not Available To Be Used\n";
@@ -1033,7 +1034,7 @@ void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &c
             case 6:
             {
                 if (xStat == "1")
-                    openX(xList, officList, accNum);
+                    openXacc(xList, officList, accNum);
                 else
                 {
                     cout << "\nThis Account Type Is Not Available To Be Used\n";
@@ -1042,7 +1043,7 @@ void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &c
             case 7:
             {
                 if (yStat == "1")
-                    openY(yList, officList, accNum);
+                    openYacc(yList, officList, accNum);
                 else
                 {
                     cout << "\nThis Account Type Is Not Available To Be Used\n";
@@ -1051,7 +1052,7 @@ void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &c
             case 8:
             {
                 if (zStat == "1")
-                    openZ(zList, officList, accNum);
+                    openZacc(zList, officList, accNum);
                 else
                 {
                     cout << "\nThis Account Type Is Not Available To Be Used\n";
@@ -1149,10 +1150,7 @@ void searchCheckingId(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, 
             if (chkList[i].getID() == id)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account: " << chkList[i].getID() << "\n";
-                cout << "Name: " << chkList[i].getFname() << " " << chkList[i].getLname() << "\n";
-                cout << "Phone Number: " << chkList[i].getPhoneNum() << "\n";
-                cout << "Current Balance: " << chkList[i].getBalance() << "\n";
+                officList[accNum].searchChk(chkList[i]);
             }        
         }
         if (!found) 
@@ -1173,10 +1171,7 @@ void searchCheckingName(vector<ChkAcc> &chkList, vector<BankOfficial> &officList
             if (chkList[i].getFname() == fName && chkList[i].getLname() == lName)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Name: " << chkList[i].getFname() << " " << chkList[i].getLname() << "\n";
-                cout << "Account ID: " << chkList[i].getID() << "\n";
-                cout << "Phone Number: " << chkList[i].getPhoneNum() << "\n";
-                cout << "Current Balance: " << chkList[i].getBalance() << "\n";
+                officList[accNum].searchChk(chkList[i]);
             }        
         }
         if (!found) 
@@ -1196,10 +1191,7 @@ void searchCheckingPhone(vector<ChkAcc> &chkList, vector<BankOfficial> &officLis
             if (chkList[i].getPhoneNum() == phone)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Phone Number: " << chkList[i].getPhoneNum() << "\n";
-                cout << "Account ID: " << chkList[i].getID() << "\n";
-                cout << "Name: " << chkList[i].getFname() << " " << chkList[i].getLname() << "\n";
-                cout << "Current Balance: " << chkList[i].getBalance() << "\n";
+                officList[accNum].searchChk(chkList[i]);
             }        
         }
         if (!found) 
@@ -1261,10 +1253,7 @@ void searchSavingId(vector<SavAcc> &savList, vector<BankOfficial> &officList, in
             if (savList[i].getID() == id)
             {
                 found = true;
-                cout << "\nDisplaying Information of Saving Account: " << savList[i].getID() << "\n";
-                cout << "Name: " << savList[i].getFname() << " " << savList[i].getLname() << "\n";
-                cout << "Phone Number: " << savList[i].getPhoneNum() << "\n";
-                cout << "Current Balance: " << savList[i].getBalance() << "\n";
+                officList[accNum].searchSav(savList[i]);
             }        
         }
         if (!found) 
@@ -1285,10 +1274,7 @@ void searchSavingName(vector<SavAcc> &savList, vector<BankOfficial> &officList, 
             if (savList[i].getFname() == fName && savList[i].getLname() == lName)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Name: " << savList[i].getFname() << " " << savList[i].getLname() << "\n";
-                cout << "Account ID: " << savList[i].getID() << "\n";
-                cout << "Phone Number: " << savList[i].getPhoneNum() << "\n";
-                cout << "Current Balance: " << savList[i].getBalance() << "\n";
+                officList[accNum].searchSav(savList[i]);
             }        
         }
         if (!found) 
@@ -1308,10 +1294,7 @@ void searchSavingPhone(vector<SavAcc> &savList, vector<BankOfficial> &officList,
             if (savList[i].getPhoneNum() == phone)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Phone Number: " << savList[i].getPhoneNum() << "\n";
-                cout << "Account ID: " << savList[i].getID() << "\n";
-                cout << "Name: " << savList[i].getFname() << " " << savList[i].getLname() << "\n";
-                cout << "Current Balance: " << savList[i].getBalance() << "\n";
+                officList[accNum].searchSav(savList[i]);
             }        
         }
         if (!found) 
@@ -1373,11 +1356,7 @@ void searchCDId(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
             if (cdList[i].getID() == id)
             {
                 found = true;
-                cout << "\nDisplaying Information of Saving Account: " << cdList[i].getID() << "\n";
-                cout << "Name: " << cdList[i].getFname() << " " << cdList[i].getLname() << "\n";
-                cout << "Phone Number: " << cdList[i].getPhoneNum() << "\n";
-                cout << "Current Balance: " << cdList[i].getBalance() << "\n";
-                cout << "Remaining Days: " << cdList[i].getRemainDays() << "\n";
+                officList[accNum].searchCD(cdList[i]);
             }        
         }
         if (!found) 
@@ -1398,11 +1377,7 @@ void searchCDName(vector<CD> &cdList, vector<BankOfficial> &officList, int accNu
             if (cdList[i].getFname() == fName && cdList[i].getLname() == lName)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Name: " << cdList[i].getFname() << " " << cdList[i].getLname() << "\n";
-                cout << "Account ID: " << cdList[i].getID() << "\n";
-                cout << "Phone Number: " << cdList[i].getPhoneNum() << "\n";
-                cout << "Current Balance: " << cdList[i].getBalance() << "\n";
-                cout << "Remaining Days: " << cdList[i].getRemainDays() << "\n";
+                officList[accNum].searchCD(cdList[i]);
             }        
         }
         if (!found) 
@@ -1422,11 +1397,7 @@ void searchCDPhone(vector<CD> &cdList, vector<BankOfficial> &officList, int accN
             if (cdList[i].getPhoneNum() == phone)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Phone Number: " << cdList[i].getPhoneNum() << "\n";
-                cout << "Account ID: " << cdList[i].getID() << "\n";
-                cout << "Name: " << cdList[i].getFname() << " " << cdList[i].getLname() << "\n";
-                cout << "Current Balance: " << cdList[i].getBalance() << "\n";
-                cout << "Remaining Days: " << cdList[i].getRemainDays() << "\n";
+                officList[accNum].searchCD(cdList[i]);
             }        
         }
         if (!found) 
@@ -1488,10 +1459,7 @@ void searchVId(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNu
             if (vList[i].getID() == id)
             {
                 found = true;
-                cout << "\nDisplaying Information of Saving Account: " << vList[i].getID() << "\n";
-                cout << "Name: " << vList[i].getFname() << " " << vList[i].getLname() << "\n";
-                cout << "Phone Number: " << vList[i].getPhoneNum() << "\n";
-                cout << "Current Balance: " << vList[i].getBalance() << "\n";
+                officList[accNum].searchV(vList[i]);
             }        
         }
         if (!found) 
@@ -1512,10 +1480,7 @@ void searchVName(vector<ClassV> &vList, vector<BankOfficial> &officList, int acc
             if (vList[i].getFname() == fName && vList[i].getLname() == lName)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Name: " << vList[i].getFname() << " " << vList[i].getLname() << "\n";
-                cout << "Account ID: " << vList[i].getID() << "\n";
-                cout << "Phone Number: " << vList[i].getPhoneNum() << "\n";
-                cout << "Current Balance: " << vList[i].getBalance() << "\n";
+                officList[accNum].searchV(vList[i]);
             }        
         }
         if (!found) 
@@ -1535,10 +1500,7 @@ void searchVPhone(vector<ClassV> &vList, vector<BankOfficial> &officList, int ac
             if (vList[i].getPhoneNum() == phone)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Phone Number: " << vList[i].getPhoneNum() << "\n";
-                cout << "Account ID: " << vList[i].getID() << "\n";
-                cout << "Name: " << vList[i].getFname() << " " << vList[i].getLname() << "\n";
-                cout << "Current Balance: " << vList[i].getBalance() << "\n";
+                officList[accNum].searchV(vList[i]);
             }        
         }
         if (!found) 
@@ -1600,10 +1562,7 @@ void searchUId(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNu
             if (uList[i].getID() == id)
             {
                 found = true;
-                cout << "\nDisplaying Information of Saving Account: " << uList[i].getID() << "\n";
-                cout << "Name: " << uList[i].getFname() << " " << uList[i].getLname() << "\n";
-                cout << "Phone Number: " << uList[i].getPhoneNum() << "\n";
-                cout << "Current Balance: " << uList[i].getBalance() << "\n";
+                officList[accNum].searchV(uList[i]);
             }        
         }
         if (!found) 
@@ -1624,10 +1583,7 @@ void searchUName(vector<ClassU> &uList, vector<BankOfficial> &officList, int acc
             if (uList[i].getFname() == fName && uList[i].getLname() == lName)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Name: " << uList[i].getFname() << " " << uList[i].getLname() << "\n";
-                cout << "Account ID: " << uList[i].getID() << "\n";
-                cout << "Phone Number: " << uList[i].getPhoneNum() << "\n";
-                cout << "Current Balance: " << uList[i].getBalance() << "\n";
+                officList[accNum].searchV(uList[i]);
             }        
         }
         if (!found) 
@@ -1647,10 +1603,7 @@ void searchUPhone(vector<ClassU> &uList, vector<BankOfficial> &officList, int ac
             if (uList[i].getPhoneNum() == phone)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Phone Number: " << uList[i].getPhoneNum() << "\n";
-                cout << "Account ID: " << uList[i].getID() << "\n";
-                cout << "Name: " << uList[i].getFname() << " " << uList[i].getLname() << "\n";
-                cout << "Current Balance: " << uList[i].getBalance() << "\n";
+                officList[accNum].searchV(uList[i]);
             }        
         }
         if (!found) 
@@ -1712,10 +1665,7 @@ void searchXId(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNu
             if (xList[i].getID() == id)
             {
                 found = true;
-                cout << "\nDisplaying Information of Saving Account: " << xList[i].getID() << "\n";
-                cout << "Name: " << xList[i].getFname() << " " << xList[i].getLname() << "\n";
-                cout << "Phone Number: " << xList[i].getPhoneNum() << "\n";
-                cout << "Current Balance: " << xList[i].getBalance() << "\n";
+                officList[accNum].searchV(xList[i]);
             }        
         }
         if (!found) 
@@ -1736,10 +1686,7 @@ void searchXName(vector<ClassX> &xList, vector<BankOfficial> &officList, int acc
             if (xList[i].getFname() == fName && xList[i].getLname() == lName)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Name: " << xList[i].getFname() << " " << xList[i].getLname() << "\n";
-                cout << "Account ID: " << xList[i].getID() << "\n";
-                cout << "Phone Number: " << xList[i].getPhoneNum() << "\n";
-                cout << "Current Balance: " << xList[i].getBalance() << "\n";
+                officList[accNum].searchV(xList[i]);
             }        
         }
         if (!found) 
@@ -1759,10 +1706,7 @@ void searchXPhone(vector<ClassX> &xList, vector<BankOfficial> &officList, int ac
             if (xList[i].getPhoneNum() == phone)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Phone Number: " << xList[i].getPhoneNum() << "\n";
-                cout << "Account ID: " << xList[i].getID() << "\n";
-                cout << "Name: " << xList[i].getFname() << " " << xList[i].getLname() << "\n";
-                cout << "Current Balance: " << xList[i].getBalance() << "\n";
+                officList[accNum].searchV(xList[i]);
             }        
         }
         if (!found) 
@@ -1811,6 +1755,7 @@ void searchX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
     }
 }
 
+
 void searchYId(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1823,10 +1768,7 @@ void searchYId(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNu
             if (yList[i].getID() == id)
             {
                 found = true;
-                cout << "\nDisplaying Information of Saving Account: " << yList[i].getID() << "\n";
-                cout << "Name: " << yList[i].getFname() << " " << yList[i].getLname() << "\n";
-                cout << "Phone Number: " << yList[i].getPhoneNum() << "\n";
-                cout << "Current Balance: " << yList[i].getBalance() << "\n";
+                officList[accNum].searchV(yList[i]);
             }        
         }
         if (!found) 
@@ -1847,10 +1789,7 @@ void searchYName(vector<ClassY> &yList, vector<BankOfficial> &officList, int acc
             if (yList[i].getFname() == fName && yList[i].getLname() == lName)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Name: " << yList[i].getFname() << " " << yList[i].getLname() << "\n";
-                cout << "Account ID: " << yList[i].getID() << "\n";
-                cout << "Phone Number: " << yList[i].getPhoneNum() << "\n";
-                cout << "Current Balance: " << yList[i].getBalance() << "\n";
+                officList[accNum].searchV(yList[i]);
             }        
         }
         if (!found) 
@@ -1870,10 +1809,7 @@ void searchYPhone(vector<ClassY> &yList, vector<BankOfficial> &officList, int ac
             if (yList[i].getPhoneNum() == phone)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Phone Number: " << yList[i].getPhoneNum() << "\n";
-                cout << "Account ID: " << yList[i].getID() << "\n";
-                cout << "Name: " << yList[i].getFname() << " " << yList[i].getLname() << "\n";
-                cout << "Current Balance: " << yList[i].getBalance() << "\n";
+                officList[accNum].searchV(yList[i]);
             }        
         }
         if (!found) 
@@ -1922,6 +1858,7 @@ void searchY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
     }
 }
 
+
 void searchZId(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
 {
     bool found = false;
@@ -1934,10 +1871,7 @@ void searchZId(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNu
             if (zList[i].getID() == id)
             {
                 found = true;
-                cout << "\nDisplaying Information of Saving Account: " << zList[i].getID() << "\n";
-                cout << "Name: " << zList[i].getFname() << " " << zList[i].getLname() << "\n";
-                cout << "Phone Number: " << zList[i].getPhoneNum() << "\n";
-                cout << "Current Balance: " << zList[i].getBalance() << "\n";
+                officList[accNum].searchV(zList[i]);
             }        
         }
         if (!found) 
@@ -1958,10 +1892,7 @@ void searchZName(vector<ClassZ> &zList, vector<BankOfficial> &officList, int acc
             if (zList[i].getFname() == fName && zList[i].getLname() == lName)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Name: " << zList[i].getFname() << " " << zList[i].getLname() << "\n";
-                cout << "Account ID: " << zList[i].getID() << "\n";
-                cout << "Phone Number: " << zList[i].getPhoneNum() << "\n";
-                cout << "Current Balance: " << zList[i].getBalance() << "\n";
+                officList[accNum].searchV(zList[i]);
             }        
         }
         if (!found) 
@@ -1981,10 +1912,7 @@ void searchZPhone(vector<ClassZ> &zList, vector<BankOfficial> &officList, int ac
             if (zList[i].getPhoneNum() == phone)
             {
                 found = true;
-                cout << "\nDisplaying Information of Checking Account With Phone Number: " << zList[i].getPhoneNum() << "\n";
-                cout << "Account ID: " << zList[i].getID() << "\n";
-                cout << "Name: " << zList[i].getFname() << " " << zList[i].getLname() << "\n";
-                cout << "Current Balance: " << zList[i].getBalance() << "\n";
+                officList[accNum].searchV(zList[i]);
             }        
         }
         if (!found) 
@@ -2032,6 +1960,7 @@ void searchZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
         cout << endl;
     }
 }
+
 
 void officialSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList)
 {

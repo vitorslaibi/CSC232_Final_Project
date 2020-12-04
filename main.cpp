@@ -190,7 +190,7 @@ int main()
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
                 cout << "\nSuccessfully Logged In\n";
-                adminMenu(chkList, savList, cdList, officList, adminList, accNum);
+                adminMenu(chkList, savList, cdList, officList, adminList, accNum, uList, vList, xList, yList, zList, uStatus, vStatus, xStatus, yStatus, zStatus);
                 break;
             }
             case 2:
