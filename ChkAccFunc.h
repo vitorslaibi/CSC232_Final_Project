@@ -6,7 +6,7 @@
 
 using namespace std;
 
-ChkAcc::ChkAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNum) : BankAcc("C", newID, newPassword, newFname, newLname, newPhoneNum, 0.0, 0.0)
+ChkAcc::ChkAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNum) : BankAcc(newID, newPassword, newFname, newLname, newPhoneNum, 0.0, 0.0)
 {
     ID = newID.insert(0, "C");  //insert a C at the start of the acc number
 }

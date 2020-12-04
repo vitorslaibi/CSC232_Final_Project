@@ -8,14 +8,18 @@
 
 using namespace std;
 
-class ChkAcc : public BankAcc
+class CD : public BankAcc
 {
 private:
+    int termLength = 183;
+    int remainDays = termLength;
 
 public:
     static bool active;
-    ChkAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNum);
-    void withdraw(double var) override;
-    void deposit(double var) override;
+    int getTermLength();
+    int getRemainDays();
+    CD(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate);
+    void calcInt();
+    double withdraw();
     void closeAcc();
 };

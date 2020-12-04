@@ -8,13 +8,13 @@
 
 using namespace std;
 
-class SavAcc : public BankAcc
+class ClassZ : public BankAcc
 {
 private:
 
 public:
     static bool active;
-    SavAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate);
+    ClassZ(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate);
     void withdraw(double var) override;
     void deposit(double var) override;
     void closeAcc();

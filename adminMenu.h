@@ -5,7 +5,93 @@ bool adminLogin()
     return true;
 }
 
-void adminMenu()
+void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
+{
+    bool done = false;
+    while (!done)
+    {
+        cout << "[1] Checking Account\n";
+        cout << "[2] Saving Account\n";
+        cout << "[3] Certificate of Deposit\n";
+        cout << "[4] Go Back\n";
+        int input = stoi(getInput());
+        switch (input)
+        {
+            case 1:
+            {
+                bool found = false;
+                while(!found)
+                {
+                    cout << "\nPlease Enter The Account ID That You Would Like To Change the Password.\n";
+                    string id = getChkID();
+                    for (int i = 0; i < chkList.size(); i++)
+                    {
+                        if (chkList[i].getID() == id)
+                        {
+                            found = true;
+                            //changePassword(id);
+                        }        
+                    }
+                    if (!found) 
+                        cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                }
+                break;
+            }
+            case 2:
+            { 
+                bool found = false;
+                while(!found)
+                {
+                    cout << "\nPlease Enter The Account ID That You Would Like To Change the Password.\n";
+                    string id = getSavID();
+                    for (int i = 0; i < savList.size(); i++)
+                    {
+                        if (savList[i].getID() == id)
+                        {
+                            found = true;
+                            //changePassword(id);
+                        }        
+                    }
+                    if (!found) 
+                        cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                }
+                break;
+            }
+            case 3:
+            { 
+                bool found = false;
+                while(!found)
+                {
+                    cout << "\nPlease Enter The Account ID That You Would Like To Change the Password.\n";
+                    string id = getCDID();
+                    for (int i = 0; i < cdList.size(); i++)
+                    {
+                        if (cdList[i].getID() == id)
+                        {
+                            found = true;
+                            //changePassword(id);
+                        }        
+                    }
+                    if (!found) 
+                        cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                }
+                break;
+            }
+            case 4:
+            {
+                done = true;
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
+        cout << endl;
+    }
+}
+
+void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum)
 {
     bool done = false;
     while (!done)
@@ -25,19 +111,19 @@ void adminMenu()
         {
             case 1:
             {
-                //newOfficial();
+                //createOfficialAcc();
                 cout << "\nNew Bank Official Created\n";
                 break;
             }
             case 2:
             { 
-                //enableOfficial();
+                //changeLoginStatus(true);
                 cout << "\nBank Official Enabled\n";
                 break;
             }
             case 3:
             { 
-                //disableOfficial();
+                //changeLoginStatus(false);
                 cout << "\nBank Official Disabled\n";
                 break;
             }
@@ -61,13 +147,45 @@ void adminMenu()
             }
             case 7:
             { 
-                //retreiveID();
+                //retrieveUserID();
                 cout << "\nUser's ID retrieved\n";
                 break;
             }
             case 8:
-            { 
-                //changePass();
+            {
+                bool found = false;
+                while(!found)
+                {
+                    cout << "\nPlease Enter The Account ID That You Would Like To Deposit.\n";
+                    string id = getChkID();
+                    for (int i = 0; i < chkList.size(); i++)
+                    {
+                        if (chkList[i].getID() == id)
+                        {
+                            found = true;
+                            cout << "\nPlease Enter The Customer ID and Password In Order To Make A Deposit.\n";
+                            bool corPass = false;
+                            while (!corPass)
+                            {
+                                string password = getPassword();
+                                if (chkList[i].getPassword() == password)
+                                {
+                                    corPass = true;
+                                    cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
+                                    double amount = getAmount();
+                                    //officList[accNum].deposit(amount, chkList[i])
+                                }
+                                else
+                                {
+                                    cout << "\nIncorrect Password\n";
+                                }
+                            }
+                        }        
+                    }
+                    if (!found) 
+                        cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                }
+                //changePassMenu();
                 cout << "\nUser's Password changed\n";
                 break;
             }

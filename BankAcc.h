@@ -12,7 +12,6 @@ using namespace std;
 class BankAcc
 {
     protected:
-    string accType;
     string ID;  //account number
     string password;
     string fName;
@@ -36,6 +35,8 @@ class BankAcc
     int lastDayCounted;     //last day in year the balance was updated
 
     public:
+    int getYearDays(int currentYear);
+    int getMonthDays(int currentYear, int currentMonth);
     void updateDailyBalance(int year);  //update the balance after a day
     //getters and setters
     string getID();
@@ -66,11 +67,12 @@ class BankAcc
     void setInterestRate(double newInterestRate);
     void setServCharge(double newServCharge);
     void setOnlStat(bool newOnlStat);
+    void setFixedInterest(bool newFixedInterest);
     void setLastYearCounted(int newLastYearCounted);
     void setLastMonthCounted(int newLastMonthCounted);
     void setLastDayCounted(int newLastDayCounted);      
     //end of getters and setters
-    BankAcc(string newAccType, string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate, double newServCharge, double newBalance);     //constructor
+    BankAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate, double newServCharge, double newBalance);     //constructor
     void updateOnlStat();
     virtual void deposit(double var) = 0;   //pure virtual function to deposit - to be overridden
     virtual void withdraw(double var) = 0;  //pure virtual function to withdraw - to be overridden
@@ -80,7 +82,7 @@ class BankAcc
     int getCurrentD();
     int getCurrentH();
     int getCurrentMin();
-    void calclnt();                 //update the balance
+    void calcInt();                 //update the balance
     virtual void monthlyCharge();    //charge the service fee
     void saveData();
     void loadData();
@@ -89,5 +91,7 @@ class BankAcc
     void printAllHistory();
     void printLast7Days();
     void getDayHistory(string text);
+    string encryption(string rawString);
+    string decryption(string encryptedString);
     virtual void closeAcc() = 0;    //pure virtual function to close the acc - to be overridden
 };

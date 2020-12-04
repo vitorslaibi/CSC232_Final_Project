@@ -6,12 +6,12 @@
 
 using namespace std;
 
-SavAcc::SavAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate) : BankAcc(newID, newPassword, newFname, newLname, newPhoneNum, newInterestRate, 0.0)
+ClassY::ClassY(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate) : BankAcc(newID, newPassword, newFname, newLname, newPhoneNum, newInterestRate, 0.0)
 {
-    ID = newID.insert(0, "S");  //insert a C at the start of the acc number
+    ID = newID.insert(0, "Y");  //insert a C at the start of the acc number
 }
 
-void SavAcc::withdraw(double var)
+void ClassY::withdraw(double var)
 {
     if (!isOnline())    // if the account is closed, message the user
     {
@@ -31,7 +31,7 @@ void SavAcc::withdraw(double var)
     }
     
 }
-void SavAcc::deposit(double var)
+void ClassY::deposit(double var)
 {
     if (!isOnline())    // if the account is closed, message the user
     {
@@ -47,7 +47,7 @@ void SavAcc::deposit(double var)
     }
 }
 
-void SavAcc::closeAcc()
+void ClassY::closeAcc()
 {
     online = false;
     closeY = getCurrentY();
