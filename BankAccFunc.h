@@ -130,7 +130,7 @@ void BankAcc::setInterestRate(double newInterestRate)
 }
 void BankAcc::setServCharge(double newServCharge) { servCharge = newServCharge; }
 void BankAcc::setOnlStat(bool newOnlStat) { online = newOnlStat; }
-void BankAcc::setFixedInterest(bool newFixedInterest) { fixedInterest = newFixedStat};
+void BankAcc::setFixedInterest(bool newFixedInterest) { fixedInterest = newFixedInterest; }
 void BankAcc::setLastYearCounted(int newLastYearCounted) { lastYearCounted = newLastYearCounted; }
 void BankAcc::setLastMonthCounted(int newLastMonthCounted) { lastMonthCounted = newLastMonthCounted; }
 void BankAcc::setLastDayCounted(int newLastDayCounted) { lastDayCounted = newLastDayCounted; }
@@ -591,7 +591,7 @@ string BankAcc::encryption(string rawString)
     {
         element = rawString.at(i);
         element = 158 - element;
-        encryptedString.append(element);
+        encryptedString += element;
     }
     return encryptedString;
 }
@@ -604,7 +604,7 @@ string BankAcc::decryption(string encryptedString)
     {
         element = encryptedString.at(i);
         element = 158 - element;
-        rawString.append(element);
+        rawString += element;
     }
     return rawString;
 }
