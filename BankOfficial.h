@@ -25,13 +25,27 @@ class BankOfficial{
     string getPassword();
     string getFname();
     string getLname();
-    void openAcc();
-    void closeAcc(string accNumber);
-    void saveCloseAccNum();
-    void deposit(double ammount);
-    void withdraw(double ammount);
-    void searchByNum(string accNumber);
-    void searchByName(string fName, string lName);
-    void searchByPhone(string phone);
-        
+    int getCurrentY();
+    int getCurrentM();
+    int getCurrentD();
+
+    void closeChkAcc(ChkAcc account);
+    void closeSavAcc(SavAcc account);
+    void closeCD(CD account);
+
+    void saveInfoChk(ChkAcc account);
+    void saveInfoSav(SavAcc account);
+    void saveInfoCD(CD account);
+
+    double chkDeposit(ChkAcc account, double ammount);
+    double savDeposit(SavAcc account, double ammount);
+    double chkWithdraw(ChkAccount account, double ammount);
+    double savWithdraw(SavAccount account, double ammount);
+    //print account info if search is succesful
+    void searchChk(ChkAcc account);
+    void searchSav(SavAcc account);
+    void searchCD(CD account);
+    
+    void saveData();
+            
 }
