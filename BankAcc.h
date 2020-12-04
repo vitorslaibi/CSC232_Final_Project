@@ -12,7 +12,6 @@ using namespace std;
 class BankAcc
 {
     protected:
-    string accType;
     string ID;  //account number
     string password;
     string fName;
@@ -68,11 +67,12 @@ class BankAcc
     void setInterestRate(double newInterestRate);
     void setServCharge(double newServCharge);
     void setOnlStat(bool newOnlStat);
+    void setFixedInterest(bool newFixedInterest);
     void setLastYearCounted(int newLastYearCounted);
     void setLastMonthCounted(int newLastMonthCounted);
     void setLastDayCounted(int newLastDayCounted);      
     //end of getters and setters
-    BankAcc(string newAccType, string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate, double newServCharge, double newBalance);     //constructor
+    BankAcc(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate, double newServCharge, double newBalance);     //constructor
     void updateOnlStat();
     virtual void deposit(double var) = 0;   //pure virtual function to deposit - to be overridden
     virtual void withdraw(double var) = 0;  //pure virtual function to withdraw - to be overridden

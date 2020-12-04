@@ -18,7 +18,7 @@ public:
     static bool active;
     int getTermLength();
     int getRemainDays();
-    CD(string newID, string newPassword, string newFname, string newLname, string newPhoneNum);
+    CD(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate);
     void calcInt();
     double withdraw();
     void closeAcc();

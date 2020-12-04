@@ -121,17 +121,23 @@ void BankAcc::setID(string newID) { ID = newID; }
 void BankAcc::setBalance(double newBalance) { balance = newBalance; }
 void BankAcc::setSafeLevel(double newSafeLevel) {safeLevel = newSafeLevel; }
 void BankAcc::setPenalty(double newPenalty) {penalty = newPenalty; }
-void BankAcc::setInterestRate(double newInterestRate) { interestRate = newInterestRate; }
+void BankAcc::setInterestRate(double newInterestRate) 
+{ 
+    if (!isInterestFixed())
+    {
+        interestRate = newInterestRate; 
+    }
+}
 void BankAcc::setServCharge(double newServCharge) { servCharge = newServCharge; }
 void BankAcc::setOnlStat(bool newOnlStat) { online = newOnlStat; }
+void BankAcc::setFixedInterest(bool newFixedInterest) { fixedInterest = newFixedStat};
 void BankAcc::setLastYearCounted(int newLastYearCounted) { lastYearCounted = newLastYearCounted; }
 void BankAcc::setLastMonthCounted(int newLastMonthCounted) { lastMonthCounted = newLastMonthCounted; }
 void BankAcc::setLastDayCounted(int newLastDayCounted) { lastDayCounted = newLastDayCounted; }
 //end of getters and setters
 
-BankAcc::BankAcc(string newAccType, string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate, double newServCharge, double newBalance = 0.0)
+BankAcc::BankAcc(string newID, string newPassword = "", string newFname = "", string newLname = "", string newPhoneNum = "", double newInterestRate = 0.0, double newServCharge = 0.0, double newBalance = 0.0)
 {
-    accType = newAccType;
     balance = newBalance;
     ID = newID;
     password = newPassword;
@@ -149,8 +155,8 @@ BankAcc::BankAcc(string newAccType, string newID, string newPassword, string new
     closeY = -1;
     closeM = -1;
     closeD = -1;
-    penalty = 0;
-    safeLevel = 0;
+    penalty = 0.0;
+    safeLevel = 0.0;
 }
 
 void BankAcc::setLastTimeCounted()  //set the current time as the last time counted
@@ -212,7 +218,7 @@ void BankAcc::updateOnlStat()
         }
         //update the new balance after deducting fee
         //cout << "Your balance is now $" << balance << endl
-             << endl;
+        //     << endl;
         return;     //end the function
     }
     if (balance < 1.0)  // if the balance is below $1

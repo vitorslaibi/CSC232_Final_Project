@@ -6,7 +6,7 @@
 
 using namespace std;
 
-ClassU::ClassU(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate) : BankAcc("U", newID, newPassword, newFname, newLname, newPhoneNum, newInterestRate, 0.0)
+ClassU::ClassU(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate) : BankAcc(newID, newPassword, newFname, newLname, newPhoneNum, newInterestRate, 0.0)
 {
     ID = newID.insert(0, "U");  //insert a C at the start of the acc number
 }
