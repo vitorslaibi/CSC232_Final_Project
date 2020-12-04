@@ -69,25 +69,6 @@ void SystemAdmin::createZacc(){
     ClassZ::active = true;
 }
 
-void modifyChkCharge(double newCharge){
-    ChkAcc.setServCharge(newCharge);
-}
-
-void modifyChkInterest(double newInterest){
-    ChkAcc.setInterestRate(newInterest);
-}
-void modifySavCharge(double newCharge){
-    SavAcc.setServCharge(newCharge);
-}
-
-void modifySavInterest(double newInterest){
-    SavAcc.setInterestRate(newInterest);
-}
-
-void modifyCDInterest(double newInterest){
-    CD.setInterestRate(newInterest);
-}
-
 void SystemAdmin::deleteChkAcc(){
     ChkAcc::active = false;
 }
@@ -168,13 +149,13 @@ string SystemAdmin::encryption(string password){
 
 void updateFile(string oldPassword, string newPassword, string filename){
     string line;
-    ofstream outFile;
+    ifstream inFile;
 
-    outFile.open(filename);
-    while(getline(outFile, line)){
+    inFile.open(filename);
+    while(getline(inFile, line)){
         line.replace(line.find(oldPassword),oldPassword.length(),newPassword);
     }
-    outFile.close();
+    inFile.close();
 }
 
 //save admin info in file

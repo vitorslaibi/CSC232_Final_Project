@@ -26,8 +26,8 @@ class BankAcc
     double balance; //account balance
     double safeLevel; //the safe benchmark for balance, if the balance goes below this amount, a penalty will be applied each month
     double penalty;   //the penalty amount
-    static double interestRate;    //yearly interest rate
-    static double servCharge;      //yearly service charge
+    double interestRate;    //yearly interest rate
+    double servCharge;      //yearly service charge
     bool online = true;     //online status; false means the account is closed
     bool fixedInterest = false;   //flag indicates if the interest is fixed or variable for the account type
     int lastYearCounted;    //last year the balance was updated
