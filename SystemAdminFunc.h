@@ -15,10 +15,10 @@ SystemAdmin::SystemAdmin(string newID, string newPassword, string newFname,strin
     openD = getCurrentD();
 }
 
-string SystemAdmin::getID(){return ID}
-string SystemAdmin::getPassword(){return password}
-string SystemAdmin::getFname(){return fName}
-string SystemAdmin::getLname(){return lName}
+string SystemAdmin::getID(){return ID;}
+string SystemAdmin::getPassword(){return password;}
+string SystemAdmin::getFname(){return fName;}
+string SystemAdmin::getLname(){return lName;}
 
 int SystemAdmin::getCurrentY() {
     time_t t = time(0);
@@ -68,9 +68,6 @@ void SystemAdmin::createYacc(){
 void SystemAdmin::createZacc(){
     ClassZ::active = true;
 }
-
-setInterestRate(double newInterestRate);
-setServCharge(double newServCharge);
 
 void modifyChkCharge(double newCharge){
     ChkAcc.setServCharge(newCharge);
