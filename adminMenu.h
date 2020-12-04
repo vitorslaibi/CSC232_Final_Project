@@ -170,7 +170,7 @@ void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdL
                                 string password = getPassword();
                                 if (chkList[i].getPassword() == password)
                                 {
-                                    corPass = true
+                                    corPass = true;
                                     cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
                                     double amount = getAmount();
                                     //officList[accNum].deposit(amount, chkList[i])

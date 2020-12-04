@@ -110,7 +110,7 @@ void officialDepositChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList, v
                     string password = getPassword();
                     if (chkList[i].getPassword() == password)
                     {
-                        corPass = true
+                        corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
                         double amount = getAmount();
                         //officList[accNum].deposit(amount, chkList[i])
@@ -146,7 +146,7 @@ void officialDepositSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vec
                     string password = getPassword();
                     if (savList[i].getPassword() == password)
                     {
-                        corPass = true
+                        corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
                         double amount = getAmount();
                         //officList[accNum].deposit(amount, savList[i])
@@ -218,7 +218,7 @@ void officialWithdrawChecking(vector<ChkAcc> &chkList, vector<SavAcc> &savList, 
                     string password = getPassword();
                     if (chkList[i].getPassword() == password)
                     {
-                        corPass = true
+                        corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
                         double amount = getAmount();
                         //officList[accNum].withdraw(amount, chkList[i])
@@ -254,7 +254,7 @@ void officialWithdrawSaving(vector<ChkAcc> &chkList, vector<SavAcc> &savList, ve
                     string password = getPassword();
                     if (savList[i].getPassword() == password)
                     {
-                        corPass = true
+                        corPass = true;
                         cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
                         double amount = getAmount();
                         //officList[accNum].withdraw(amount, savList[i])
@@ -632,7 +632,7 @@ void searchCDId(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cd
                 cout << "Name: " << cdList[i].getFname() << " " << cdList[i].getLname() << "\n";
                 cout << "Phone Number: " << cdList[i].getPhoneNum() << "\n";
                 cout << "Current Balance: " << cdList[i].getBalance() << "\n";
-                cout << "Remaining Days: " << cdList[i].getRemainDays() <, "\n";
+                cout << "Remaining Days: " << cdList[i].getRemainDays() << "\n";
             }        
         }
         if (!found) 
@@ -657,7 +657,7 @@ void searchCDName(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 cout << "Account ID: " << cdList[i].getID() << "\n";
                 cout << "Phone Number: " << cdList[i].getPhoneNum() << "\n";
                 cout << "Current Balance: " << cdList[i].getBalance() << "\n";
-                cout << "Remaining Days: " << cdList[i].getRemainDays() <, "\n";
+                cout << "Remaining Days: " << cdList[i].getRemainDays() << "\n";
             }        
         }
         if (!found) 
@@ -681,7 +681,7 @@ void searchCDPhone(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> 
                 cout << "Account ID: " << cdList[i].getID() << "\n";
                 cout << "Name: " << cdList[i].getFname() << " " << cdList[i].getLname() << "\n";
                 cout << "Current Balance: " << cdList[i].getBalance() << "\n";
-                cout << "Remaining Days: " << cdList[i].getRemainDays() <, "\n";
+                cout << "Remaining Days: " << cdList[i].getRemainDays() << "\n";
             }        
         }
         if (!found) 

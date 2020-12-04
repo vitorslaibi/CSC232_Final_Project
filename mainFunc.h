@@ -1,3 +1,5 @@
+using namespace std;
+
 string getInput()
 {
     string str;

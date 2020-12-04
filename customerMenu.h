@@ -14,14 +14,14 @@ void checkingMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
             {
                 cout << "\nPlease Enter The Deposit Amount\n";
                 double amount = getAmount();
-                chkList[accNum].deposit();
+                chkList[accNum].deposit(amount);
                 break;
             }
             case 2:
             {
                 cout << "\nPlease Enter The Withdraw Amount\n";
                 double amount = getAmount();
-                chkList[accNum].deposit();
+                chkList[accNum].withdraw(amount);
                 break;
             }
             case 3:
@@ -59,14 +59,14 @@ void savingMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cd
             {
                 cout << "\nPlease Enter The Deposit Amount\n";
                 double amount = getAmount();
-                savList[accNum].deposit();
+                savList[accNum].deposit(amount);
                 break;
             }
             case 2:
             {
                 cout << "\nPlease Enter The Withdraw Amount\n";
                 double amount = getAmount();
-                savList[accNum].deposit();
+                savList[accNum].withdraw(amount);
                 break;
             }
             case 3:
@@ -148,7 +148,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                         if (chkList[i].getID() == id)
                         {
                             found = true;
-                            bool corPass = false
+                            bool corPass = false;
                             while (!corPass)
                             {
                                 cout << "\nPlease Enter Password: \n";
@@ -184,7 +184,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                         if (savList[i].getID() == id)
                         {
                             found = true;
-                            bool corPass = false
+                            bool corPass = false;
                             while (!corPass)
                             {
                                 cout << "\nPlease Enter Password: \n";
@@ -220,7 +220,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                         if (cdList[i].getID() == id)
                         {
                             found = true;
-                            bool corPass = false
+                            bool corPass = false;
                             while (!corPass)
                             {
                                 cout << "\nPlease Enter Password: \n";

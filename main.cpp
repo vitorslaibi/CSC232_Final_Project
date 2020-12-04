@@ -13,7 +13,7 @@ int main()
     // vector <BankOfficial> officList;
     // vector <SystemAdmin> adminList;
 
-    
+
 
     bool done = false;
     while (!done)
@@ -39,7 +39,7 @@ int main()
                         if (adminList[i].getID() == id)
                         {
                             found = true;
-                            bool corPass = false
+                            bool corPass = false;
                             while (!corPass)
                             {
                                 cout << "\nPlease Enter Password: \n";
@@ -76,7 +76,7 @@ int main()
                         if (officList[i].getID() == id)
                         {
                             found = true;
-                            bool corPass = false
+                            bool corPass = false;
                             while (!corPass)
                             {
                                 cout << "\nPlease Enter Password: \n";
