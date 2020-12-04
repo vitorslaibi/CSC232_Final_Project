@@ -61,6 +61,7 @@ class BankAcc
     int getLastMonthCounted();
     int getLastDayCounted();
     void setID(string newID);
+    void setPassword(string newPassword);
     void setBalance(double newBalance);
     void setSafeLevel(double newLevel);
     void setPenalty(double newPenalty);

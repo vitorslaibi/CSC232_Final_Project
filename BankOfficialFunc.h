@@ -5,7 +5,8 @@
 #include "include.h"
 using namespace std;
 
-BankOfficial::BankOfficial(string newID, string newPassword, string newFname,string newLname){
+BankOfficial::BankOfficial(string newID, string newPassword, string newFname,string newLname)
+{
     ID = newID.insert(0, "B");
     password = newPassword;
     fName = newFname;
@@ -42,31 +43,31 @@ void BankOfficial::setOnlStat(bool newStatus){
     online = newStatus;
 }
 
-void BankOfficial::closeChkAcc(ChkAcc account){
+void BankOfficial::closeChkAcc(ChkAcc &account){
     account.setOnlStat(false);
     saveInfoChk(account);
 }
-void BankOfficial::closeSavAcc(SavAcc account){
+void BankOfficial::closeSavAcc(SavAcc &account){
     account.setOnlStat(false);
     saveInfoSav(account);
 }
 
-void BankOfficial::closeCD(CD account){
+void BankOfficial::closeCD(CD &account){
     account.setOnlStat(false);
-    saveInfCD(account);
+    saveInfoCD(account);
 }
 
-void BankOfficial::saveInfoChk(ChkAcc account){
+void BankOfficial::saveInfoChk(ChkAcc &account){
     ofstream outFile;
     outFile.open(account.getID() + ".txt", ofstream::app);
     //add bank official info to closed account file
     outFile << "Bank Official: " << endl;
     outFile << fName << " " << lName << endl;
     outFile << ID << endl;
-    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" getCurrentY << endl;
+    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << endl;
 }
 
-void BankOfficial::saveInfoSav(SavAcc account){
+void BankOfficial::saveInfoSav(SavAcc &account){
     ofstream outFile;
     outFile.open(account.getID() + ".txt", ofstream::app);
     //add bank official info to closed account file
@@ -74,11 +75,11 @@ void BankOfficial::saveInfoSav(SavAcc account){
     outFile << fName << " ";
     outFile << lName << endl;
     outFile << ID << endl;
-    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" getCurrentY() << endl;
+    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << endl;
     outFile.close();
 }
 
-void BankOfficial::saveInfoCD(CD account){
+void BankOfficial::saveInfoCD(CD &account){
     ofstream outFile;
     outFile.open(account.getID() + ".txt", ofstream::app);
     //add bank official info to closed account file
@@ -86,49 +87,49 @@ void BankOfficial::saveInfoCD(CD account){
     outFile << fName << " ";
     outFile << lName << endl;
     outFile << ID << endl;
-    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" getCurrentY() << endl;
+    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << endl;
     outFile.close();
 }
 
-double BankOfficial::BankOfficial::chkDeposit(ChkAcc account, double ammount){
-    balance = account.getBalance();
+void BankOfficial::chkDeposit(ChkAcc &account, double ammount){
+    double balance = account.getBalance();
     balance += ammount;
-    return balance;
+    account.setBalance(balance);
 }
 
-double BankOfficial::savDeposit(SavAcc account, double ammount){
-    balance = account.getBalance();
+void BankOfficial::savDeposit(SavAcc &account, double ammount){
+    double balance = account.getBalance();
     balance += ammount;
-    return balance;
+    account.setBalance(balance);
 }
 
-double BankOfficial::chkWithdraw(ChkAcc account, double ammount){
-    balance = account.getBalance();
+void BankOfficial::chkWithdraw(ChkAcc &account, double ammount){
+    double balance = account.getBalance();
     balance -= ammount;
-    return balance;
+    account.setBalance(balance);
 }
 
-double BankOfficial::savWithdraw(SavAcc account, double ammount){
-    balance = account.getBalance();
+void BankOfficial::savWithdraw(SavAcc &account, double ammount){
+    double balance = account.getBalance();
     balance -= ammount;
-    return balance;
+    account.setBalance(balance);
 }
 
 //these functions print account info if search is succesful
-void BankOfficial::searchChk(ChkAcc account){
+void BankOfficial::searchChk(ChkAcc &account){
     cout << "\nChecking Account: " << account.getID() << endl;
     cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
     cout << "Phone Number: " << account.getPhoneNum() << endl;
     cout << "Current Balance: " << account.getBalance() << endl;
 }
-void BankOfficial::searchSav(SavAcc account){
+void BankOfficial::searchSav(SavAcc &account){
     cout << "\nChecking Account: " << account.getID() << endl;
     cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
     cout << "Phone Number: " << account.getPhoneNum() << endl;
     cout << "Current Balance: " << account.getBalance() << endl;
 
 }
-void BankOfficial::searchCD(CD account){
+void BankOfficial::searchCD(CD &account){
     cout << "\nCD Number: " << account.getID() << endl;
     cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
     cout << "Phone Number: " << account.getPhoneNum() << endl;

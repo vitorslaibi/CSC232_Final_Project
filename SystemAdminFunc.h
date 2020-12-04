@@ -129,7 +129,7 @@ void SystemAdmin::retrieveID(ChkAcc account){
     outFile << "System Admin: " << endl;
     outFile << fName << " " << lName << endl;
     outFile << ID << endl;
-    outFile << "Account Closed at: " << getCurrentM() << "/" getCurrentD() << "/" getCurrentY << endl;
+    outFile << "Account Closed at: " << getCurrentM() << "/" getCurrentD() << "/" << getCurrentY << endl;
 }
 
 void SystemAdmin::changePasswordChk(ChkAcc account, string newpassword){
@@ -150,7 +150,7 @@ void SystemAdmin::changePasswordSav(SavAcc account, string newpassword){
     
 }
 
-void SystemAdmin::changePasswordCD(CD account, string newpassword){
+void SystemAdmin::changePasswordCD(CD account, string newPassword){
     string oldPassword = account.getPassword();
     account.setPassword(newPassword);
     string encPassword = encryption(password);
@@ -174,7 +174,7 @@ void updateFile(string oldPassword, string newPassword, string filename){
     ofstream outFile;
 
     outFile.open(filename);
-    while(getline(outFile, line)){
+    while(getline(outFile, line){
         line.replace(line.find(oldPassword),oldPassword.length(),newPassword);
     }
     outFile.close();

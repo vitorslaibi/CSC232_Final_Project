@@ -118,6 +118,7 @@ int BankAcc::getLastYearCounted(){ return lastYearCounted; }
 int BankAcc::getLastMonthCounted(){ return lastMonthCounted; }
 int BankAcc::getLastDayCounted(){ return lastDayCounted; }
 void BankAcc::setID(string newID) { ID = newID; }
+void BankAcc::setPassword(string newPassword) { password = newPassword; }
 void BankAcc::setBalance(double newBalance) { balance = newBalance; }
 void BankAcc::setSafeLevel(double newSafeLevel) {safeLevel = newSafeLevel; }
 void BankAcc::setPenalty(double newPenalty) {penalty = newPenalty; }

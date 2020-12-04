@@ -30,22 +30,22 @@ class BankOfficial{
     int getCurrentD();
     void setOnlStat(bool newStatus);
 
-    void closeChkAcc(ChkAcc account);
-    void closeSavAcc(SavAcc account);
+    void closeChkAcc(ChkAcc &account);
+    void closeSavAcc(SavAcc &account);
     void closeCD(CD account);
 
-    void saveInfoChk(ChkAcc account);
-    void saveInfoSav(SavAcc account);
+    void saveInfoChk(ChkAcc &account);
+    void saveInfoSav(SavAcc &account);
     void saveInfoCD(CD account);
 
-    double chkDeposit(ChkAcc account, double ammount);
-    double savDeposit(SavAcc account, double ammount);
-    double chkWithdraw(ChkAcc account, double ammount);
-    double savWithdraw(SavAcc account, double ammount);
+    void chkDeposit(ChkAcc &account, double ammount);
+    void savDeposit(SavAcc &account, double ammount);
+    void chkWithdraw(ChkAcc &account, double ammount);
+    void savWithdraw(SavAcc &account, double ammount);
     //print account info if search is succesful
-    void searchChk(ChkAcc account);
-    void searchSav(SavAcc account);
-    void searchCD(CD account);
+    void searchChk(ChkAcc &account);
+    void searchSav(SavAcc &account);
+    void searchCD(CD &account);
     
     void saveData();
             
