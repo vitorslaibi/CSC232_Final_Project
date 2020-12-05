@@ -35,6 +35,7 @@ void checkingMenu(vector<ChkAcc> &chkList, int accNum)
                 cout << "\nName: " << chkList[accNum].getFname() << " " << chkList[accNum].getLname() << endl;
                 cout << "Phone Number: " << chkList[accNum].getPhoneNum() << endl;
                 cout << "Current Balance: " << chkList[accNum].getBalance() << endl;
+                break;
             }
             case 5:
             {
@@ -87,6 +88,7 @@ void savingMenu(vector<SavAcc> &savList, int accNum)
                 cout << "\nName: " << savList[accNum].getFname() << " " << savList[accNum].getLname() << endl;
                 cout << "Phone Number: " << savList[accNum].getPhoneNum() << endl;
                 cout << "Current Balance: " << savList[accNum].getBalance() << endl;
+                break;
             }
             case 5:
             {
@@ -135,6 +137,7 @@ void cdMenu(vector<CD> &cdList, int accNum)
                 cout << "\nName: " << cdList[accNum].getFname() << " " << cdList[accNum].getLname() << endl;
                 cout << "Phone Number: " << cdList[accNum].getPhoneNum() << endl;
                 cout << "Current Balance: " << cdList[accNum].getBalance() << endl;
+                break;
             }
             case 5:
             {
@@ -187,6 +190,7 @@ void uMenu(vector<ClassU> &uList, int accNum)
                 cout << "\nName: " << uList[accNum].getFname() << " " << uList[accNum].getLname() << endl;
                 cout << "Phone Number: " << uList[accNum].getPhoneNum() << endl;
                 cout << "Current Balance: " << uList[accNum].getBalance() << endl;
+                break;
             }
             case 5:
             {
@@ -239,6 +243,7 @@ void vMenu(vector<ClassV> &vList, int accNum)
                 cout << "\nName: " << vList[accNum].getFname() << " " << vList[accNum].getLname() << endl;
                 cout << "Phone Number: " << vList[accNum].getPhoneNum() << endl;
                 cout << "Current Balance: " << vList[accNum].getBalance() << endl;
+                break;
             }
             case 5:
             {
@@ -291,6 +296,7 @@ void xMenu(vector<ClassX> &xList, int accNum)
                 cout << "\nName: " << xList[accNum].getFname() << " " << xList[accNum].getLname() << endl;
                 cout << "Phone Number: " << xList[accNum].getPhoneNum() << endl;
                 cout << "Current Balance: " << xList[accNum].getBalance() << endl;
+                break;
             }
             case 5:
             {
@@ -343,6 +349,7 @@ void yMenu(vector<ClassY> &yList, int accNum)
                 cout << "\nName: " << yList[accNum].getFname() << " " << yList[accNum].getLname() << endl;
                 cout << "Phone Number: " << yList[accNum].getPhoneNum() << endl;
                 cout << "Current Balance: " << yList[accNum].getBalance() << endl;
+                break;
             }
             case 5:
             {
@@ -395,6 +402,7 @@ void zMenu(vector<ClassZ> &zList, int accNum)
                 cout << "\nName: " << zList[accNum].getFname() << " " << zList[accNum].getLname() << endl;
                 cout << "Phone Number: " << zList[accNum].getPhoneNum() << endl;
                 cout << "Current Balance: " << zList[accNum].getBalance() << endl;
+                break;
             }
             case 5:
             {
