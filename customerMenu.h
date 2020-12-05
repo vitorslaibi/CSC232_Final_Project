@@ -398,6 +398,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
+                chkList[accNum].calcInt();
                 checkingMenu(chkList, accNum);
                 break;
             }
@@ -434,6 +435,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
+                savList[accNum].calcInt();
                 savingMenu(savList, accNum);
                 break;
             }
@@ -470,6 +472,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
+                cdList[accNum].calcInt();
                 cdMenu(cdList, accNum);
                 break;
             }
@@ -506,6 +509,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
+                uList[accNum].calcInt();
                 uMenu(uList, accNum);
                 break;
             }
@@ -542,6 +546,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
+                vList[accNum].calcInt();
                 vMenu(vList, accNum);
                 break;
             }
@@ -578,6 +583,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
+                xList[accNum].calcInt();
                 xMenu(xList, accNum);
                 break;
             }
@@ -614,6 +620,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
+                yList[accNum].calcInt();
                 yMenu(yList, accNum);
                 break;
             }
@@ -650,6 +657,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
+                zList[accNum].calcInt();
                 zMenu(zList, accNum);
                 break;
             }
