@@ -107,7 +107,7 @@ void SystemAdmin::searchChk(ChkAcc &account){
 }
 
 void SystemAdmin::searchSav(SavAcc &account){
-    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "\nSaving Account: " << account.getID() << endl;
     cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
     cout << "Phone Number: " << account.getPhoneNum() << endl;
     cout << "Current Balance: " << account.getBalance() << endl;
@@ -124,7 +124,7 @@ void SystemAdmin::searchCD(CD &account){
 }
 
 void SystemAdmin::searchU(ClassU &account){
-    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "\nU Account: " << account.getID() << endl;
     cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
     cout << "Phone Number: " << account.getPhoneNum() << endl;
     cout << "Current Balance: " << account.getBalance() << endl;
@@ -132,7 +132,7 @@ void SystemAdmin::searchU(ClassU &account){
 }
 
 void SystemAdmin::searchV(ClassV &account){
-    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "\nV Account: " << account.getID() << endl;
     cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
     cout << "Phone Number: " << account.getPhoneNum() << endl;
     cout << "Current Balance: " << account.getBalance() << endl;
@@ -140,7 +140,7 @@ void SystemAdmin::searchV(ClassV &account){
 }
 
 void SystemAdmin::searchX(ClassX &account){
-    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "\nX Account: " << account.getID() << endl;
     cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
     cout << "Phone Number: " << account.getPhoneNum() << endl;
     cout << "Current Balance: " << account.getBalance() << endl;
@@ -148,7 +148,7 @@ void SystemAdmin::searchX(ClassX &account){
 }
 
 void SystemAdmin::searchY(ClassY &account){
-    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "\nY Account: " << account.getID() << endl;
     cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
     cout << "Phone Number: " << account.getPhoneNum() << endl;
     cout << "Current Balance: " << account.getBalance() << endl;
@@ -156,7 +156,7 @@ void SystemAdmin::searchY(ClassY &account){
 }
 
 void SystemAdmin::searchZ(ClassZ &account){
-    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "\nZ Account: " << account.getID() << endl;
     cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
     cout << "Phone Number: " << account.getPhoneNum() << endl;
     cout << "Current Balance: " << account.getBalance() << endl;

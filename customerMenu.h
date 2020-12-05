@@ -13,14 +13,14 @@ void checkingMenu(vector<ChkAcc> &chkList, int accNum)
         {
             case 1:
             {
-                cout << "\nPlease Enter The Deposit Amount\n";
+                cout << "\nPlease Enter The Deposit Amount: $";
                 double amount = getAmount();
                 chkList[accNum].deposit(amount);
                 break;
             }
             case 2:
             {
-                cout << "\nPlease Enter The Withdraw Amount\n";
+                cout << "\nPlease Enter The Withdraw Amount: $";
                 double amount = getAmount();
                 chkList[accNum].withdraw(amount);
                 break;
@@ -34,7 +34,11 @@ void checkingMenu(vector<ChkAcc> &chkList, int accNum)
             {
                 cout << "\nName: " << chkList[accNum].getFname() << " " << chkList[accNum].getLname() << endl;
                 cout << "Phone Number: " << chkList[accNum].getPhoneNum() << endl;
-                cout << "Current Balance: " << chkList[accNum].getBalance() << endl;
+                cout << "Current Balance: $" << chkList[accNum].getBalance() << endl;
+                cout << "Yearly Interest Rate: " << chkList[accNum].getInterestRate()*100.0 << "%" << endl;
+                cout << "Monthly Fees: $" << chkList[accNum].getServCharge() << endl;
+                cout << "Safe Level (Stay Above This Level To Avoid Additional Service Fees): $" << chkList[accNum].getSafeLevel() << endl;
+                cout << "Additional Fees (Applied Each Month On Top Of The Normal Monthly Fees): $" << chkList[accNum].getPenalty() << endl;
                 break;
             }
             case 5:
@@ -66,14 +70,14 @@ void savingMenu(vector<SavAcc> &savList, int accNum)
         {
             case 1:
             {
-                cout << "\nPlease Enter The Deposit Amount\n";
+                cout << "\nPlease Enter The Deposit Amount: $";
                 double amount = getAmount();
                 savList[accNum].deposit(amount);
                 break;
             }
             case 2:
             {
-                cout << "\nPlease Enter The Withdraw Amount\n";
+                cout << "\nPlease Enter The Withdraw Amount: $";
                 double amount = getAmount();
                 savList[accNum].withdraw(amount);
                 break;
@@ -87,7 +91,11 @@ void savingMenu(vector<SavAcc> &savList, int accNum)
             {
                 cout << "\nName: " << savList[accNum].getFname() << " " << savList[accNum].getLname() << endl;
                 cout << "Phone Number: " << savList[accNum].getPhoneNum() << endl;
-                cout << "Current Balance: " << savList[accNum].getBalance() << endl;
+                cout << "Current Balance: $" << savList[accNum].getBalance() << endl;
+                cout << "Yearly Interest Rate: " << savList[accNum].getInterestRate()*100.0 << "%" << endl;
+                cout << "Monthly Fees: $" << savList[accNum].getServCharge() << endl;
+                cout << "Safe Level (Stay Above This Level To Avoid Additional Service Fees): $" << savList[accNum].getSafeLevel() << endl;
+                cout << "Additional Fees (Applied Each Month On Top Of The Normal Monthly Fees): $" << savList[accNum].getPenalty() << endl;
                 break;
             }
             case 5:
@@ -124,19 +132,28 @@ void cdMenu(vector<CD> &cdList, int accNum)
             }
             case 2:
             {
-                cout << "\nYour Balance: " << cdList[accNum].getBalance() << endl;
+                cout << "\nYour Balance: $" << cdList[accNum].getBalance() << endl;
                 break;
             }
             case 3:
             {
                 cdList[accNum].withdraw(0);
+                if (cdList[accNum].getRemainDays() > 0)
+                {
+                    cout << "\nYou withdraw your balance prematurely. A fee equal to 10% of your current balance is applied.\n";
+                }
+                cout << "You withdrawed $" << cdList[accNum].getReturnAmount() << ".\n";
                 break;
             }
             case 4:
             {
                 cout << "\nName: " << cdList[accNum].getFname() << " " << cdList[accNum].getLname() << endl;
                 cout << "Phone Number: " << cdList[accNum].getPhoneNum() << endl;
-                cout << "Current Balance: " << cdList[accNum].getBalance() << endl;
+                cout << "Current Balance: $" << cdList[accNum].getBalance() << endl;
+                cout << "Yearly Interest Rate: $" << cdList[accNum].getInterestRate()*100.0 << "%" << endl;
+                cout << "Monthly Fees: $" << cdList[accNum].getServCharge() << endl;
+                cout << "Safe Level (Stay Above This Level To Avoid Additional Service Fees): $" << cdList[accNum].getSafeLevel() << endl;
+                cout << "Additional Fees (Applied Each Month On Top Of The Normal Monthly Fees): $" << cdList[accNum].getPenalty() << endl;
                 break;
             }
             case 5:
@@ -168,14 +185,14 @@ void uMenu(vector<ClassU> &uList, int accNum)
         {
             case 1:
             {
-                cout << "\nPlease Enter The Deposit Amount\n";
+                cout << "\nPlease Enter The Deposit Amount: $";
                 double amount = getAmount();
                 uList[accNum].deposit(amount);
                 break;
             }
             case 2:
             {
-                cout << "\nPlease Enter The Withdraw Amount\n";
+                cout << "\nPlease Enter The Withdraw Amount: $";
                 double amount = getAmount();
                 uList[accNum].withdraw(amount);
                 break;
@@ -189,7 +206,11 @@ void uMenu(vector<ClassU> &uList, int accNum)
             {
                 cout << "\nName: " << uList[accNum].getFname() << " " << uList[accNum].getLname() << endl;
                 cout << "Phone Number: " << uList[accNum].getPhoneNum() << endl;
-                cout << "Current Balance: " << uList[accNum].getBalance() << endl;
+                cout << "Current Balance: $" << uList[accNum].getBalance() << endl;
+                cout << "Yearly Interest Rate: " << uList[accNum].getInterestRate()*100.0 << "%" << endl;
+                cout << "Monthly Fees: $" << uList[accNum].getServCharge() << endl;
+                cout << "Safe Level (Stay Above This Level To Avoid Additional Service Fees): $" << uList[accNum].getSafeLevel() << endl;
+                cout << "Additional Fees (Applied Each Month On Top Of The Normal Monthly Fees): $" << uList[accNum].getPenalty() << endl;
                 break;
             }
             case 5:
@@ -221,14 +242,14 @@ void vMenu(vector<ClassV> &vList, int accNum)
         {
             case 1:
             {
-                cout << "\nPlease Enter The Deposit Amount\n";
+                cout << "\nPlease Enter The Deposit Amount: $";
                 double amount = getAmount();
                 vList[accNum].deposit(amount);
                 break;
             }
             case 2:
             {
-                cout << "\nPlease Enter The Withdraw Amount\n";
+                cout << "\nPlease Enter The Withdraw Amount: $";
                 double amount = getAmount();
                 vList[accNum].withdraw(amount);
                 break;
@@ -242,7 +263,11 @@ void vMenu(vector<ClassV> &vList, int accNum)
             {
                 cout << "\nName: " << vList[accNum].getFname() << " " << vList[accNum].getLname() << endl;
                 cout << "Phone Number: " << vList[accNum].getPhoneNum() << endl;
-                cout << "Current Balance: " << vList[accNum].getBalance() << endl;
+                cout << "Current Balance: $" << vList[accNum].getBalance() << endl;
+                cout << "Yearly Interest Rate: " << vList[accNum].getInterestRate()*100.0 << "%" << endl;
+                cout << "Monthly Fees: $" << vList[accNum].getServCharge() << endl;
+                cout << "Safe Level (Stay Above This Level To Avoid Additional Service Fees): $" << vList[accNum].getSafeLevel() << endl;
+                cout << "Additional Fees (Applied Each Month On Top Of The Normal Monthly Fees): $" << vList[accNum].getPenalty() << endl;
                 break;
             }
             case 5:
@@ -274,14 +299,14 @@ void xMenu(vector<ClassX> &xList, int accNum)
         {
             case 1:
             {
-                cout << "\nPlease Enter The Deposit Amount\n";
+                cout << "\nPlease Enter The Deposit Amount: $";
                 double amount = getAmount();
                 xList[accNum].deposit(amount);
                 break;
             }
             case 2:
             {
-                cout << "\nPlease Enter The Withdraw Amount\n";
+                cout << "\nPlease Enter The Withdraw Amount: $";
                 double amount = getAmount();
                 xList[accNum].withdraw(amount);
                 break;
@@ -295,7 +320,11 @@ void xMenu(vector<ClassX> &xList, int accNum)
             {
                 cout << "\nName: " << xList[accNum].getFname() << " " << xList[accNum].getLname() << endl;
                 cout << "Phone Number: " << xList[accNum].getPhoneNum() << endl;
-                cout << "Current Balance: " << xList[accNum].getBalance() << endl;
+                cout << "Current Balance: $" << xList[accNum].getBalance() << endl;
+                cout << "Yearly Interest Rate: " << xList[accNum].getInterestRate()*100.0 << "%" << endl;
+                cout << "Monthly Fees: $" << xList[accNum].getServCharge() << endl;
+                cout << "Safe Level (Stay Above This Level To Avoid Additional Service Fees): $" << xList[accNum].getSafeLevel() << endl;
+                cout << "Additional Fees (Applied Each Month On Top Of The Normal Monthly Fees): $" << xList[accNum].getPenalty() << endl;
                 break;
             }
             case 5:
@@ -327,14 +356,14 @@ void yMenu(vector<ClassY> &yList, int accNum)
         {
             case 1:
             {
-                cout << "\nPlease Enter The Deposit Amount\n";
+                cout << "\nPlease Enter The Deposit Amount: $";
                 double amount = getAmount();
                 yList[accNum].deposit(amount);
                 break;
             }
             case 2:
             {
-                cout << "\nPlease Enter The Withdraw Amount\n";
+                cout << "\nPlease Enter The Withdraw Amount: $";
                 double amount = getAmount();
                 yList[accNum].withdraw(amount);
                 break;
@@ -348,7 +377,11 @@ void yMenu(vector<ClassY> &yList, int accNum)
             {
                 cout << "\nName: " << yList[accNum].getFname() << " " << yList[accNum].getLname() << endl;
                 cout << "Phone Number: " << yList[accNum].getPhoneNum() << endl;
-                cout << "Current Balance: " << yList[accNum].getBalance() << endl;
+                cout << "Current Balance: $" << yList[accNum].getBalance() << endl;
+                cout << "Yearly Interest Rate: " << yList[accNum].getInterestRate()*100.0 << "%" << endl;
+                cout << "Monthly Fees: $" << yList[accNum].getServCharge() << endl;
+                cout << "Safe Level (Stay Above This Level To Avoid Additional Service Fees): $" << yList[accNum].getSafeLevel() << endl;
+                cout << "Additional Fees (Applied Each Month On Top Of The Normal Monthly Fees): $" << yList[accNum].getPenalty() << endl;
                 break;
             }
             case 5:
@@ -380,14 +413,14 @@ void zMenu(vector<ClassZ> &zList, int accNum)
         {
             case 1:
             {
-                cout << "\nPlease Enter The Deposit Amount\n";
+                cout << "\nPlease Enter The Deposit Amount: $";
                 double amount = getAmount();
                 zList[accNum].deposit(amount);
                 break;
             }
             case 2:
             {
-                cout << "\nPlease Enter The Withdraw Amount\n";
+                cout << "\nPlease Enter The Withdraw Amount: $";
                 double amount = getAmount();
                 zList[accNum].withdraw(amount);
                 break;
@@ -401,7 +434,11 @@ void zMenu(vector<ClassZ> &zList, int accNum)
             {
                 cout << "\nName: " << zList[accNum].getFname() << " " << zList[accNum].getLname() << endl;
                 cout << "Phone Number: " << zList[accNum].getPhoneNum() << endl;
-                cout << "Current Balance: " << zList[accNum].getBalance() << endl;
+                cout << "Current Balance: $" << zList[accNum].getBalance() << endl;
+                cout << "Yearly Interest Rate: " << zList[accNum].getInterestRate()*100.0 << "%" << endl;
+                cout << "Monthly Fees: $" << zList[accNum].getServCharge() << endl;
+                cout << "Safe Level (Stay Above This Level To Avoid Additional Service Fees): $" << zList[accNum].getSafeLevel() << endl;
+                cout << "Additional Fees (Applied Each Month On Top Of The Normal Monthly Fees): $" << zList[accNum].getPenalty() << endl;
                 break;
             }
             case 5:
@@ -444,11 +481,17 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 int accNum;
                 bool found = false;
+                bool back = false;
                 bool loggedIn = false;
                 while(!found)
                 {
-                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
+                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into, Or Enter \"quit\" To Exit To The Previous Menu.\n";
                     string id = getChkID();
+                    if (id == "quit")
+                    {
+                        found = true;
+                        back = true;
+                    }
                     for (int i = 0; i < chkList.size(); i++)
                     {
                         if (chkList[i].getID() == id)
@@ -464,8 +507,13 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                             bool corPass = false;
                             while (!corPass)
                             {
-                                cout << "\nPlease Enter Password: \n";
+                                cout << "\nPlease Enter Password, Or Enter \"quit\" To Exit To The Previous Menu: \n";
                                 string password = getPassword();
+                                if (password == "quit")
+                                {
+                                    back = true;
+                                    break;
+                                }
                                 if (chkList[i].getPassword() == password)
                                 {
                                     corPass = true;
@@ -480,6 +528,10 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     }
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                }
+                if (back)
+                {
+                    break;
                 }
                 if (loggedIn)
                 {
@@ -498,11 +550,17 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 int accNum;
                 bool found = false;
+                bool back = false;
                 bool loggedIn = false;
                 while(!found)
                 {
-                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
+                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into, Or Enter \"quit\" To Exit To The Previous Menu.\n";
                     string id = getSavID();
+                    if (id == "quit")
+                    {
+                        found = true;
+                        back = true;
+                    }
                     for (int i = 0; i < savList.size(); i++)
                     {
                         if (savList[i].getID() == id)
@@ -518,8 +576,13 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                             bool corPass = false;
                             while (!corPass)
                             {
-                                cout << "\nPlease Enter Password: \n";
+                                cout << "\nPlease Enter Password, Or Enter \"quit\" To Exit To The Previous Menu: \n";
                                 string password = getPassword();
+                                if (password == "quit")
+                                {
+                                    back = true;
+                                    break;
+                                }
                                 if (savList[i].getPassword() == password)
                                 {
                                     corPass = true;
@@ -534,6 +597,10 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     }
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                }
+                if (back)
+                {
+                    break;
                 }
                 if (loggedIn)
                 {
@@ -552,11 +619,17 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 int accNum;
                 bool found = false;
+                bool back = false;
                 bool loggedIn = false;
                 while(!found)
                 {
-                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
+                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into, Or Enter \"quit\" To Exit To The Previous Menu.\n";
                     string id = getCDID();
+                    if (id == "quit")
+                    {
+                        found = true;
+                        back = true;
+                    }
                     for (int i = 0; i < cdList.size(); i++)
                     {
                         if (cdList[i].getID() == id)
@@ -572,8 +645,13 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                             bool corPass = false;
                             while (!corPass)
                             {
-                                cout << "\nPlease Enter Password: \n";
+                                cout << "\nPlease Enter Password, Or Enter \"quit\" To Exit To The Previous Menu: \n";
                                 string password = getPassword();
+                                if (password == "quit")
+                                {
+                                    back = true;
+                                    break;
+                                }
                                 if (cdList[i].getPassword() == password)
                                 {
                                     corPass = true;
@@ -588,6 +666,10 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     }
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                }
+                if (back)
+                {
+                    break;
                 }
                 if (loggedIn)
                 {
@@ -606,11 +688,17 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 int accNum;
                 bool found = false;
+                bool back = false;
                 bool loggedIn = false;
                 while(!found)
                 {
-                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
+                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into, Or Enter \"quit\" To Exit To The Previous Menu.\n";
                     string id = getUID();
+                    if (id == "quit")
+                    {
+                        found = true;
+                        back = true;
+                    }
                     for (int i = 0; i < uList.size(); i++)
                     {
                         if (uList[i].getID() == id)
@@ -626,8 +714,13 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                             bool corPass = false;
                             while (!corPass)
                             {
-                                cout << "\nPlease Enter Password: \n";
+                                cout << "\nPlease Enter Password, Or Enter \"quit\" To Exit To The Previous Menu: \n";
                                 string password = getPassword();
+                                if (password == "quit")
+                                {
+                                    back = true;
+                                    break;
+                                }
                                 if (uList[i].getPassword() == password)
                                 {
                                     corPass = true;
@@ -642,6 +735,10 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     }
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                }
+                if (back)
+                {
+                    break;
                 }
                 if (loggedIn)
                 {
@@ -660,11 +757,17 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 int accNum;
                 bool found = false;
+                bool back = false;
                 bool loggedIn = false;
                 while(!found)
                 {
-                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
+                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into, Or Enter \"quit\" To Exit To The Previous Menu.\n";
                     string id = getVID();
+                    if (id == "quit")
+                    {
+                        found = true;
+                        back = true;
+                    }
                     for (int i = 0; i < vList.size(); i++)
                     {
                         if (vList[i].getID() == id)
@@ -680,8 +783,13 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                             bool corPass = false;
                             while (!corPass)
                             {
-                                cout << "\nPlease Enter Password: \n";
+                                cout << "\nPlease Enter Password, Or Enter \"quit\" To Exit To The Previous Menu: \n";
                                 string password = getPassword();
+                                if (password == "quit")
+                                {
+                                    back = true;
+                                    break;
+                                }
                                 if (vList[i].getPassword() == password)
                                 {
                                     corPass = true;
@@ -696,6 +804,10 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     }
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                }
+                if (back)
+                {
+                    break;
                 }
                 if (loggedIn)
                 {
@@ -714,11 +826,17 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 int accNum;
                 bool found = false;
+                bool back = false;
                 bool loggedIn = false;
                 while(!found)
                 {
-                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
+                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into, Or Enter \"quit\" To Exit To The Previous Menu.\n";
                     string id = getXID();
+                    if (id == "quit")
+                    {
+                        found = true;
+                        back = true;
+                    }
                     for (int i = 0; i < xList.size(); i++)
                     {
                         if (xList[i].getID() == id)
@@ -734,8 +852,13 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                             bool corPass = false;
                             while (!corPass)
                             {
-                                cout << "\nPlease Enter Password: \n";
+                                cout << "\nPlease Enter Password, Or Enter \"quit\" To Exit To The Previous Menu: \n";
                                 string password = getPassword();
+                                if (password == "quit")
+                                {
+                                    back = true;
+                                    break;
+                                }
                                 if (uList[i].getPassword() == password)
                                 {
                                     corPass = true;
@@ -750,6 +873,10 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     }
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                }
+                if (back)
+                {
+                    break;
                 }
                 if (loggedIn)
                 {
@@ -768,11 +895,17 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 int accNum;
                 bool found = false;
+                bool back = false;
                 bool loggedIn = false;
                 while(!found)
                 {
-                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
+                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into, Or Enter \"quit\" To Exit To The Previous Menu.\n";
                     string id = getYID();
+                    if (id == "quit")
+                    {
+                        found = true;
+                        back = true;
+                    }
                     for (int i = 0; i < yList.size(); i++)
                     {
                         if (yList[i].getID() == id)
@@ -788,8 +921,13 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                             bool corPass = false;
                             while (!corPass)
                             {
-                                cout << "\nPlease Enter Password: \n";
+                                cout << "\nPlease Enter Password, Or Enter \"quit\" To Exit To The Previous Menu: \n";
                                 string password = getPassword();
+                                if (password == "quit")
+                                {
+                                    back = true;
+                                    break;
+                                }
                                 if (yList[i].getPassword() == password)
                                 {
                                     corPass = true;
@@ -804,6 +942,10 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     }
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                }
+                if (back)
+                {
+                    break;
                 }
                 if (loggedIn)
                 {
@@ -822,11 +964,17 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 int accNum;
                 bool found = false;
+                bool back = false;
                 bool loggedIn = false;
                 while(!found)
                 {
-                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
+                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into, Or Enter \"quit\" To Exit To The Previous Menu.\n";
                     string id = getZID();
+                    if (id == "quit")
+                    {
+                        found = true;
+                        back = true;
+                    }
                     for (int i = 0; i < zList.size(); i++)
                     {
                         if (zList[i].getID() == id)
@@ -842,8 +990,13 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                             bool corPass = false;
                             while (!corPass)
                             {
-                                cout << "\nPlease Enter Password: \n";
+                                cout << "\nPlease Enter Password, Or Enter \"quit\" To Exit To The Previous Menu: \n";
                                 string password = getPassword();
+                                if (password == "quit")
+                                {
+                                    back = true;
+                                    break;
+                                }
                                 if (zList[i].getPassword() == password)
                                 {
                                     corPass = true;
@@ -858,6 +1011,10 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     }
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                }
+                if (back)
+                {
+                    break;
                 }
                 if (loggedIn)
                 {

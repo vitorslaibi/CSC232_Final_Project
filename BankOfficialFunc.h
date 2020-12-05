@@ -247,7 +247,7 @@ void BankOfficial::searchChk(ChkAcc &account){
 }
 
 void BankOfficial::searchSav(SavAcc &account){
-    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "\nSaving Account: " << account.getID() << endl;
     cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
     cout << "Phone Number: " << account.getPhoneNum() << endl;
     cout << "Current Balance: " << account.getBalance() << endl;
@@ -264,7 +264,7 @@ void BankOfficial::searchCD(CD &account){
 }
 
 void BankOfficial::searchU(ClassU &account){
-    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "\nU Account: " << account.getID() << endl;
     cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
     cout << "Phone Number: " << account.getPhoneNum() << endl;
     cout << "Current Balance: " << account.getBalance() << endl;
@@ -272,7 +272,7 @@ void BankOfficial::searchU(ClassU &account){
 }
 
 void BankOfficial::searchV(ClassV &account){
-    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "\nV Account: " << account.getID() << endl;
     cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
     cout << "Phone Number: " << account.getPhoneNum() << endl;
     cout << "Current Balance: " << account.getBalance() << endl;
@@ -280,7 +280,7 @@ void BankOfficial::searchV(ClassV &account){
 }
 
 void BankOfficial::searchX(ClassX &account){
-    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "\nX Account: " << account.getID() << endl;
     cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
     cout << "Phone Number: " << account.getPhoneNum() << endl;
     cout << "Current Balance: " << account.getBalance() << endl;
@@ -288,7 +288,7 @@ void BankOfficial::searchX(ClassX &account){
 }
 
 void BankOfficial::searchY(ClassY &account){
-    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "\nY Account: " << account.getID() << endl;
     cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
     cout << "Phone Number: " << account.getPhoneNum() << endl;
     cout << "Current Balance: " << account.getBalance() << endl;
@@ -296,7 +296,7 @@ void BankOfficial::searchY(ClassY &account){
 }
 
 void BankOfficial::searchZ(ClassZ &account){
-    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "\nZ Account: " << account.getID() << endl;
     cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
     cout << "Phone Number: " << account.getPhoneNum() << endl;
     cout << "Current Balance: " << account.getBalance() << endl;

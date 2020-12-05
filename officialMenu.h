@@ -34,9 +34,10 @@ void openSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int ac
     
 
     SavAcc account(id, password, fName, lName, phone);
+    account.setInterestRate(savInt);
+    cout << account.getInterestRate() << endl;
     account.saveData();
     account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
-    account.setInterestRate(savInt);
     SavAcc::totalSav++;
     savList.push_back(account);
 }
@@ -78,9 +79,9 @@ void openUacc(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum
     
 
     ClassU account(id, password, fName, lName, phone);
+    account.setInterestRate(uInt);
     account.saveData();
     account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
-    account.setInterestRate(uInt);
     ClassU::totalU++;
     uList.push_back(account);
 }
@@ -100,9 +101,9 @@ void openVacc(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum
     
 
     ClassV account(id, password, fName, lName, phone);
+    account.setInterestRate(vInt);
     account.saveData();
     account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
-    account.setInterestRate(vInt);
     ClassV::totalV++;
     vList.push_back(account);
 }
@@ -122,9 +123,9 @@ void openXacc(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum
     
 
     ClassX account(id, password, fName, lName, phone);
+    account.setInterestRate(xInt);
     account.saveData();
     account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
-    account.setInterestRate(xInt);
     ClassX::totalX++;
     xList.push_back(account);
 }
@@ -144,9 +145,9 @@ void openYacc(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum
     
 
     ClassY account(id, password, fName, lName, phone);
+    account.setInterestRate(yInt);
     account.saveData();
     account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
-    account.setInterestRate(yInt);
     ClassY::totalY++;
     yList.push_back(account);
 }
@@ -166,9 +167,9 @@ void openZacc(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum
     
 
     ClassZ account(id, password, fName, lName, phone);
+    account.setInterestRate(zInt);
     account.saveData();
     account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
-    account.setInterestRate(zInt);
     ClassZ::totalZ++;
     zList.push_back(account);
 }
@@ -384,7 +385,7 @@ void officialDepositChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &offi
             if (chkList[i].getID() == id)
             {
                 found = true;
-                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Deposit.\n";
+                cout << "\nPlease Enter The Customer Password In Order To Make A Deposit.\n";
                 bool corPass = false;
                 while (!corPass)
                 {
@@ -392,7 +393,7 @@ void officialDepositChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &offi
                     if (chkList[i].getPassword() == password)
                     {
                         corPass = true;
-                        cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
+                        cout << "\nPlease Enter The Amount You Would Like to Deposit: $";
                         double amount = getAmount();
                         officList[accNum].chkDeposit(chkList[i], amount);
                     }
@@ -420,7 +421,7 @@ void officialDepositSaving(vector<SavAcc> &savList, vector<BankOfficial> &officL
             if (savList[i].getID() == id)
             {
                 found = true;
-                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Deposit.\n";
+                cout << "\nPlease Enter The Customer Password In Order To Make A Deposit.\n";
                 bool corPass = false;
                 while (!corPass)
                 {
@@ -428,7 +429,7 @@ void officialDepositSaving(vector<SavAcc> &savList, vector<BankOfficial> &officL
                     if (savList[i].getPassword() == password)
                     {
                         corPass = true;
-                        cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
+                        cout << "\nPlease Enter The Amount You Would Like to Deposit: $";
                         double amount = getAmount();
                         officList[accNum].savDeposit(savList[i], amount);
                     }
@@ -456,7 +457,7 @@ void officialDepositU(vector<ClassU> &uList, vector<BankOfficial> &officList, in
             if (uList[i].getID() == id)
             {
                 found = true;
-                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Deposit.\n";
+                cout << "\nPlease Enter The Customer Password In Order To Make A Deposit.\n";
                 bool corPass = false;
                 while (!corPass)
                 {
@@ -464,7 +465,7 @@ void officialDepositU(vector<ClassU> &uList, vector<BankOfficial> &officList, in
                     if (uList[i].getPassword() == password)
                     {
                         corPass = true;
-                        cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
+                        cout << "\nPlease Enter The Amount You Would Like to Deposit: $";
                         double amount = getAmount();
                         officList[accNum].uDeposit(uList[i],amount);
                     }
@@ -492,7 +493,7 @@ void officialDepositV(vector<ClassV> &vList, vector<BankOfficial> &officList, in
             if (vList[i].getID() == id)
             {
                 found = true;
-                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Deposit.\n";
+                cout << "\nPlease Enter The Customer Password In Order To Make A Deposit.\n";
                 bool corPass = false;
                 while (!corPass)
                 {
@@ -500,7 +501,7 @@ void officialDepositV(vector<ClassV> &vList, vector<BankOfficial> &officList, in
                     if (vList[i].getPassword() == password)
                     {
                         corPass = true;
-                        cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
+                        cout << "\nPlease Enter The Amount You Would Like to Deposit: $";
                         double amount = getAmount();
                         officList[accNum].vDeposit(vList[i],amount);
                     }
@@ -528,7 +529,7 @@ void officialDepositX(vector<ClassX> &xList, vector<BankOfficial> &officList, in
             if (xList[i].getID() == id)
             {
                 found = true;
-                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Deposit.\n";
+                cout << "\nPlease Enter The Customer Password In Order To Make A Deposit.\n";
                 bool corPass = false;
                 while (!corPass)
                 {
@@ -536,7 +537,7 @@ void officialDepositX(vector<ClassX> &xList, vector<BankOfficial> &officList, in
                     if (xList[i].getPassword() == password)
                     {
                         corPass = true;
-                        cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
+                        cout << "\nPlease Enter The Amount You Would Like to Deposit: $";
                         double amount = getAmount();
                         officList[accNum].xDeposit(xList[i],amount);
                     }
@@ -564,7 +565,7 @@ void officialDepositY(vector<ClassY> &yList, vector<BankOfficial> &officList, in
             if (yList[i].getID() == id)
             {
                 found = true;
-                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Deposit.\n";
+                cout << "\nPlease Enter The Customer Password In Order To Make A Deposit.\n";
                 bool corPass = false;
                 while (!corPass)
                 {
@@ -572,7 +573,7 @@ void officialDepositY(vector<ClassY> &yList, vector<BankOfficial> &officList, in
                     if (yList[i].getPassword() == password)
                     {
                         corPass = true;
-                        cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
+                        cout << "\nPlease Enter The Amount You Would Like to Deposit: $";
                         double amount = getAmount();
                         officList[accNum].yDeposit(yList[i],amount);
                     }
@@ -600,7 +601,7 @@ void officialDepositZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, in
             if (zList[i].getID() == id)
             {
                 found = true;
-                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Deposit.\n";
+                cout << "\nPlease Enter The Customer Password In Order To Make A Deposit.\n";
                 bool corPass = false;
                 while (!corPass)
                 {
@@ -608,7 +609,7 @@ void officialDepositZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, in
                     if (zList[i].getPassword() == password)
                     {
                         corPass = true;
-                        cout << "\nPlease Enter The Amount You Would Like to Deposit\n";
+                        cout << "\nPlease Enter The Amount You Would Like to Deposit: $";
                         double amount = getAmount();
                         officList[accNum].zDeposit(zList[i],amount);
                     }
@@ -643,36 +644,43 @@ void officialDeposit(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD
             case 1:
             {
                 officialDepositChecking(chkList, officList, accNum);
+                cout << "\nDeposited.\n";
                 break;
             }
             case 2:
             { 
                 officialDepositSaving(savList, officList, accNum);
+                cout << "\nDeposited.\n";
                 break;
             }
             case 3:
             { 
                 officialDepositU(uList, officList, accNum);
+                cout << "\nDeposited.\n";
                 break;
             }
             case 4:
             { 
                 officialDepositV(vList, officList, accNum);
+                cout << "\nDeposited.\n";
                 break;
             }
             case 5:
             { 
                 officialDepositX(xList, officList, accNum);
+                cout << "\nDeposited.\n";
                 break;
             }
             case 6:
             { 
                 officialDepositY(yList, officList, accNum);
+                cout << "\nDeposited.\n";
                 break;
             }
             case 7:
             { 
                 officialDepositZ(zList, officList, accNum);
+                cout << "\nDeposited.\n";
                 break;
             }
             case 8:
@@ -702,7 +710,7 @@ void officialWithdrawChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &off
             if (chkList[i].getID() == id)
             {
                 found = true;
-                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Withdraw.\n";
+                cout << "\nPlease Enter The Customer Password In Order To Make A Withdraw.\n";
                 bool corPass = false;
                 while (!corPass)
                 {
@@ -710,7 +718,7 @@ void officialWithdrawChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &off
                     if (chkList[i].getPassword() == password)
                     {
                         corPass = true;
-                        cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
+                        cout << "\nPlease Enter The Amount You Would Like to Withdraw: $";
                         double amount = getAmount();
                         officList[accNum].chkWithdraw(chkList[i], amount);
                     }
@@ -738,7 +746,7 @@ void officialWithdrawSaving(vector<SavAcc> &savList, vector<BankOfficial> &offic
             if (savList[i].getID() == id)
             {
                 found = true;
-                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Withdraw.\n";
+                cout << "\nPlease Enter The Customer Password In Order To Make A Withdraw.\n";
                 bool corPass = false;
                 while (!corPass)
                 {
@@ -746,7 +754,7 @@ void officialWithdrawSaving(vector<SavAcc> &savList, vector<BankOfficial> &offic
                     if (savList[i].getPassword() == password)
                     {
                         corPass = true;
-                        cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
+                        cout << "\nPlease Enter The Amount You Would Like to Withdraw: $";
                         double amount = getAmount();
                         officList[accNum].savWithdraw(savList[i], amount);
                     }
@@ -774,7 +782,7 @@ void officialWithdrawCD(vector<CD> &cdList, vector<BankOfficial> &officList, int
             if (cdList[i].getID() == id)
             {
                 found = true;
-                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Withdraw.\n";
+                cout << "\nPlease Enter The Customer Password In Order To Make A Withdraw.\n";
                 bool corPass = false;
                 while (!corPass)
                 {
@@ -782,7 +790,7 @@ void officialWithdrawCD(vector<CD> &cdList, vector<BankOfficial> &officList, int
                     if (cdList[i].getPassword() == password)
                     {
                         corPass = true;
-                        cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
+                        cout << "\nPlease Enter The Amount You Would Like to Withdraw: $";
                         double amount = getAmount();
                         officList[accNum].cdWithdraw(cdList[i]);
                     }
@@ -810,7 +818,7 @@ void officialWithdrawU(vector<ClassU> &uList, vector<BankOfficial> &officList, i
             if (uList[i].getID() == id)
             {
                 found = true;
-                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Withdraw.\n";
+                cout << "\nPlease Enter The Customer Password In Order To Make A Withdraw.\n";
                 bool corPass = false;
                 while (!corPass)
                 {
@@ -818,7 +826,7 @@ void officialWithdrawU(vector<ClassU> &uList, vector<BankOfficial> &officList, i
                     if (uList[i].getPassword() == password)
                     {
                         corPass = true;
-                        cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
+                        cout << "\nPlease Enter The Amount You Would Like to Withdraw: $";
                         double amount = getAmount();
                         officList[accNum].uWithdraw(uList[i],amount);
                     }
@@ -846,7 +854,7 @@ void officialWithdrawV(vector<ClassV> &vList, vector<BankOfficial> &officList, i
             if (vList[i].getID() == id)
             {
                 found = true;
-                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Withdraw.\n";
+                cout << "\nPlease Enter The Customer Password In Order To Make A Withdraw.\n";
                 bool corPass = false;
                 while (!corPass)
                 {
@@ -854,7 +862,7 @@ void officialWithdrawV(vector<ClassV> &vList, vector<BankOfficial> &officList, i
                     if (vList[i].getPassword() == password)
                     {
                         corPass = true;
-                        cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
+                        cout << "\nPlease Enter The Amount You Would Like to Withdraw: $";
                         double amount = getAmount();
                         officList[accNum].vWithdraw(vList[i],amount);
                     }
@@ -882,7 +890,7 @@ void officialWithdrawX(vector<ClassX> &xList, vector<BankOfficial> &officList, i
             if (xList[i].getID() == id)
             {
                 found = true;
-                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Withdraw.\n";
+                cout << "\nPlease Enter The Customer Password In Order To Make A Withdraw.\n";
                 bool corPass = false;
                 while (!corPass)
                 {
@@ -890,7 +898,7 @@ void officialWithdrawX(vector<ClassX> &xList, vector<BankOfficial> &officList, i
                     if (xList[i].getPassword() == password)
                     {
                         corPass = true;
-                        cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
+                        cout << "\nPlease Enter The Amount You Would Like to Withdraw: $";
                         double amount = getAmount();
                         officList[accNum].xWithdraw(xList[i],amount);
                     }
@@ -918,7 +926,7 @@ void officialWithdrawY(vector<ClassY> &yList, vector<BankOfficial> &officList, i
             if (yList[i].getID() == id)
             {
                 found = true;
-                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Withdraw.\n";
+                cout << "\nPlease Enter The Customer Password In Order To Make A Withdraw.\n";
                 bool corPass = false;
                 while (!corPass)
                 {
@@ -926,7 +934,7 @@ void officialWithdrawY(vector<ClassY> &yList, vector<BankOfficial> &officList, i
                     if (yList[i].getPassword() == password)
                     {
                         corPass = true;
-                        cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
+                        cout << "\nPlease Enter The Amount You Would Like to Withdraw: $";
                         double amount = getAmount();
                         officList[accNum].yWithdraw(yList[i],amount);
                     }
@@ -954,7 +962,7 @@ void officialWithdrawZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, i
             if (zList[i].getID() == id)
             {
                 found = true;
-                cout << "\nPlease Enter The Customer ID and Password In Order To Make A Withdraw.\n";
+                cout << "\nPlease Enter The Customer Password In Order To Make A Withdraw.\n";
                 bool corPass = false;
                 while (!corPass)
                 {
@@ -962,7 +970,7 @@ void officialWithdrawZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, i
                     if (zList[i].getPassword() == password)
                     {
                         corPass = true;
-                        cout << "\nPlease Enter The Amount You Would Like to Withdraw\n";
+                        cout << "\nPlease Enter The Amount You Would Like to Withdraw: $";
                         double amount = getAmount();
                         officList[accNum].zWithdraw(zList[i],amount);
                     }
@@ -998,41 +1006,49 @@ void officialWithdraw(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<C
             case 1:
             {
                 officialWithdrawChecking(chkList, officList, accNum);
+                cout << "\nWithdrawed.";
                 break;
             }
             case 2:
             { 
                 officialWithdrawSaving(savList, officList, accNum);
+                cout << "\nWithdrawed.";
                 break;
             }
             case 3:
             { 
                 officialWithdrawCD(cdList, officList, accNum);
+                cout << "\nWithdrawed.";
                 break;
             }
             case 4:
             { 
                 officialWithdrawU(uList, officList, accNum);
+                cout << "\nWithdrawed.";
                 break;
             }
             case 5:
             { 
                 officialWithdrawV(vList, officList, accNum);
+                cout << "\nWithdrawed.";
                 break;
             }
             case 6:
             { 
                 officialWithdrawX(xList, officList, accNum);
+                cout << "\nWithdrawed.";
                 break;
             }
             case 7:
             { 
                 officialWithdrawY(yList, officList, accNum);
+                cout << "\nWithdrawed.";
                 break;
             }
             case 8:
             { 
                 officialWithdrawZ(zList, officList, accNum);
+                cout << "\nWithdrawed.";
                 break;
             }
             case 9:
@@ -1167,36 +1183,43 @@ void closeAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
             case 1:
             {
                 closeChecking(chkList, officList, accNum);
+                cout << "\nAccount Successfully Closed.\n";
                 break;
             }
             case 2:
             { 
                 closeSaving(savList, officList, accNum);
+                cout << "\nAccount Successfully Closed.\n";
                 break;
             }
             case 3:
             { 
                 closeU(uList, officList, accNum);
+                cout << "\nAccount Successfully Closed.\n";
                 break;
             }
             case 4:
             { 
                 closeV(vList, officList, accNum);
+                cout << "\nAccount Successfully Closed.\n";
                 break;
             }
             case 5:
             { 
                 closeX(xList, officList, accNum);
+                cout << "\nAccount Successfully Closed.\n";
                 break;
             }
             case 6:
             { 
                 closeY(yList, officList, accNum);
+                cout << "\nAccount Successfully Closed.\n";
                 break;
             }
             case 7:
             { 
                 closeZ(zList, officList, accNum);
+                cout << "\nAccount Successfully Closed.\n";
                 break;
             }
             case 8:
@@ -2059,41 +2082,49 @@ void officialSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
             case 1:
             {
                 searchChecking(chkList, officList, accNum);
+                cout << "\nSearched.\n";
                 break;
             }
             case 2:
             { 
                 searchSaving(savList, officList, accNum);
+                cout << "\nSearched.\n";
                 break;
             }
             case 3:
             { 
                 searchCD(cdList, officList, accNum);
+                cout << "\nSearched.\n";
                 break;
             }
             case 4:
             { 
                 searchU(uList, officList, accNum);
+                cout << "\nSearched.\n";
                 break;
             }
             case 5:
             { 
                 searchV(vList, officList, accNum);
+                cout << "\nSearched.\n";
                 break;
             }
             case 6:
             { 
                 searchX(xList, officList, accNum);
+                cout << "\nSearched.\n";
                 break;
             }
             case 7:
             { 
                 searchY(yList, officList, accNum);
+                cout << "\nSearched.\n";
                 break;
             }
             case 8:
             { 
                 searchZ(zList, officList, accNum);
+                cout << "\nSearched.\n";
                 break;
             }
             case 9:
@@ -2128,35 +2159,35 @@ void officialMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
             {
                 cout << "\nChoose A Type Of Account To Open.\n";
                 openAccount(chkList, savList, cdList, officList, accNum, uList, vList, xList, yList, zList, uStat, vStat, xStat, yStat, zStat, savInt, uInt, vInt, xInt, yInt, zInt);
-                cout << "\nAccount Successfully Opened.\n";   //might print the info of the open account
+                   //might print the info of the open account
                 break;
             }
             case 2:
             {
                 cout << "\nChoose A Type Of Account To Close.\n";
                 closeAccount(chkList, savList, cdList, officList, accNum, uList, vList, xList, yList, zList);
-                cout << "\nAccount Successfully Closed.\n";
+                
                 break;
             }
             case 3:
             {
                 cout << "\nChoose A Type Of Account To Search.\n";
                 officialSearch(chkList, savList, cdList, officList, accNum, uList, vList, xList, yList, zList);
-                cout << "\nSearched.\n";
+                
                 break;
             }
             case 4:
             {
                 cout << "\nChoose A Type Of Account To Deposit.\n";
                 officialDeposit(chkList, savList, cdList, officList, accNum, uList, vList, xList, yList, zList); 
-                cout << "\nDeposited.\n";
+                
                 break;
             }
             case 5:
             {
                 cout << "\nChoose A Type Of Account To Withdraw.\n";
                 officialWithdraw(chkList, savList, cdList, officList, accNum, uList, vList, xList, yList, zList);
-                cout << "\nWithdrawed.";
+                
                 break;
             }
             case 6:

@@ -247,10 +247,17 @@ int main()
             {
                 int accNum;
                 bool found = false;
+                bool back = false;
                 while(!found)
                 {
-                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
+                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into, Or Enter \"quit\" To Exit To The Previous Menu.\n";
                     string id = getAdminID();
+                    if (id == "quit")
+                    {
+                        found = true;
+                        back = true;
+                        break;
+                    }
                     for (int i = 0; i < adminList.size(); i++)
                     {
                         if (adminList[i].getID() == id)
@@ -259,8 +266,13 @@ int main()
                             bool corPass = false;
                             while (!corPass)
                             {
-                                cout << "\nPlease Enter Password: \n";
+                                cout << "\nPlease Enter Password, Or Enter \"quit\" To Exit To The Previous Menu: \n";
                                 string password = getPassword();
+                                if (password == "quit")
+                                {
+                                    back = true;
+                                    break;
+                                }
                                 if (adminList[i].getPassword() == password)
                                 {
                                     corPass = true;
@@ -276,6 +288,10 @@ int main()
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
+                if (back)
+                {
+                    break;
+                }
                 cout << "\nSuccessfully Logged In\n";
                 adminMenu(chkList, savList, cdList, officList, adminList, accNum, uList, vList, xList, yList, zList, uStatus, vStatus, xStatus, yStatus, zStatus, savPen, uPen, vPen, xPen, yPen, zPen, savSafLe, uSafLe, vSafLe, xSafLe, ySafLe, zSafLe, savInt, uInt, vInt, xInt, yInt, zInt);
                 break;
@@ -284,11 +300,17 @@ int main()
             { 
                 int accNum;
                 bool found = false;
+                bool back = false;
                 bool loggedIn = false;
                 while(!found)
                 {
-                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
+                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into, Or Enter \"quit\" To Exit To The Previous Menu.\n";
                     string id = getOffID();
+                    if (id == "quit")
+                    {
+                        found = true;
+                        back = true;
+                    }
                     for (int i = 0; i < officList.size(); i++)
                     {
                         if (officList[i].getID() == id)
@@ -304,8 +326,13 @@ int main()
                             bool corPass = false;
                             while (!corPass)
                             {
-                                cout << "\nPlease Enter Password: \n" <<officList[i].getPassword() << endl;
+                                cout << "\nPlease Enter Password, Or Enter \"quit\" To Exit To The Previous Menu: \n" <<officList[i].getPassword() << endl;
                                 string password = getPassword();
+                                if (password == "quit")
+                                {
+                                    back = true;
+                                    break;
+                                }
                                 if (officList[i].getPassword() == password)
                                 {
                                     corPass = true;
@@ -320,6 +347,10 @@ int main()
                     }
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                }
+                if (back)
+                {
+                    break;
                 }
                 if (loggedIn)
                     officialMenu(chkList, savList, cdList, officList, accNum, uList, vList, xList, yList, zList, uStatus, vStatus, xStatus, yStatus, zStatus, savInt, uInt, vInt, xInt, yInt, zInt);
