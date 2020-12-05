@@ -623,7 +623,8 @@ void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdL
                 cout << "\nPLease Enter Your Last Name\n";
                 string lName = getLastName();
 
-                adminList[accNum].createOfficialAcc(id, password, fName,lName);
+                BankOfficial account(id, password, fName,lName);
+                officList.push_back(account);
                 cout << "\nNew Bank Official Created\n";
                 break;
             }
