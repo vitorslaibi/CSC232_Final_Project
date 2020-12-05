@@ -175,74 +175,81 @@ void SystemAdmin::updateFile(string oldPassword, string newPassword, string file
 }
 
 void SystemAdmin::changePasswordChk(ChkAcc &account, string newPassword){
-    string oldPassword = account.getPassword();
+    // string oldPassword = account.getPassword();
+    // account.setPassword(newPassword);
+    // string encPassword = encryption(password);
+    // string filename = account.getID() + ".txt";
+    // updateFile(oldPassword, encPassword, filename);
     account.setPassword(newPassword);
-    string encPassword = encryption(password);
-    string filename = account.getID() + ".txt";
-    updateFile(oldPassword, encPassword, filename);
     
 }
 
 void SystemAdmin::changePasswordSav(SavAcc &account, string newPassword){
-    string oldPassword = account.getPassword();
+    // string oldPassword = account.getPassword();
+    // account.setPassword(newPassword);
+    // string encPassword = encryption(password);
+    // string filename = account.getID() + ".txt";
+    // updateFile(oldPassword, encPassword, filename);
     account.setPassword(newPassword);
-    string encPassword = encryption(password);
-    string filename = account.getID() + ".txt";
-    updateFile(oldPassword, encPassword, filename);
     
 }
 
 void SystemAdmin::changePasswordCD(CD &account, string newPassword){
-    string oldPassword = account.getPassword();
+    // string oldPassword = account.getPassword();
+    // account.setPassword(newPassword);
+    // string encPassword = encryption(password);
+    // string filename = account.getID() + ".txt";
+    // updateFile(oldPassword, encPassword, filename);
     account.setPassword(newPassword);
-    string encPassword = encryption(password);
-    string filename = account.getID() + ".txt";
-    updateFile(oldPassword, encPassword, filename);
     
 }
 
 void SystemAdmin::changePasswordU(ClassU &account, string newPassword){
-    string oldPassword = account.getPassword();
+    // string oldPassword = account.getPassword();
+    // account.setPassword(newPassword);
+    // string encPassword = encryption(password);
+    // string filename = account.getID() + ".txt";
+    // updateFile(oldPassword, encPassword, filename);
     account.setPassword(newPassword);
-    string encPassword = encryption(password);
-    string filename = account.getID() + ".txt";
-    updateFile(oldPassword, encPassword, filename);
     
 }
 
 void SystemAdmin::changePasswordV(ClassV &account, string newPassword){
-    string oldPassword = account.getPassword();
+    // string oldPassword = account.getPassword();
+    // account.setPassword(newPassword);
+    // string encPassword = encryption(password);
+    // string filename = account.getID() + ".txt";
+    // updateFile(oldPassword, encPassword, filename);
     account.setPassword(newPassword);
-    string encPassword = encryption(password);
-    string filename = account.getID() + ".txt";
-    updateFile(oldPassword, encPassword, filename);
     
 }
 
 void SystemAdmin::changePasswordX(ClassX &account, string newPassword){
-    string oldPassword = account.getPassword();
+    // string oldPassword = account.getPassword();
+    // account.setPassword(newPassword);
+    // string encPassword = encryption(password);
+    // string filename = account.getID() + ".txt";
+    // updateFile(oldPassword, encPassword, filename);
     account.setPassword(newPassword);
-    string encPassword = encryption(password);
-    string filename = account.getID() + ".txt";
-    updateFile(oldPassword, encPassword, filename);
-    
 }
 
 void SystemAdmin::changePasswordY(ClassY &account, string newPassword){
-    string oldPassword = account.getPassword();
+    // string oldPassword = account.getPassword();
+    // account.setPassword(newPassword);
+    // string encPassword = encryption(password);
+    // string filename = account.getID() + ".txt";
+    // updateFile(oldPassword, encPassword, filename);
     account.setPassword(newPassword);
-    string encPassword = encryption(password);
-    string filename = account.getID() + ".txt";
-    updateFile(oldPassword, encPassword, filename);
     
 }
 
 void SystemAdmin::changePasswordZ(ClassZ &account, string newPassword){
-    string oldPassword = account.getPassword();
+    // string oldPassword = account.getPassword();
+    // account.setPassword(newPassword);
+    // string encPassword = encryption(password);
+    // string filename = account.getID() + ".txt";
+    // updateFile(oldPassword, encPassword, filename);
     account.setPassword(newPassword);
-    string encPassword = encryption(password);
-    string filename = account.getID() + ".txt";
-    updateFile(oldPassword, encPassword, filename);
     
 }
 
