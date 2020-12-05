@@ -117,6 +117,8 @@ bool BankAcc::isInterestFixed() {return fixedInterest; }
 int BankAcc::getLastYearCounted(){ return lastYearCounted; }
 int BankAcc::getLastMonthCounted(){ return lastMonthCounted; }
 int BankAcc::getLastDayCounted(){ return lastDayCounted; }
+int BankAcc::getLastHourCounted(){ return lastHourCounted; }
+int BankAcc::getLastMinCounted(){ return lastMinCounted; }
 void BankAcc::setID(string newID) { ID = newID; }
 void BankAcc::setPassword(string newPassword) { password = newPassword; }
 void BankAcc::setBalance(double newBalance) { balance = newBalance; }
@@ -166,6 +168,8 @@ BankAcc::BankAcc(string newID, string newPassword = "", string newFname = "", st
     lastYearCounted = getCurrentY();
     lastMonthCounted = getCurrentM();
     lastDayCounted = getCurrentD();
+    lastHourCounted = getCurrentH();
+    lastMinCounted = getCurrentMin();
     openY = getCurrentY();
     openM = getCurrentM();
     openD = getCurrentD();
@@ -316,6 +320,8 @@ void BankAcc::calcInt()
     lastYearCounted = yearNow;      //update the last time the balance was updated
     lastMonthCounted = monthNow;
     lastDayCounted = dayNow;
+    lastHourCounted = getCurrentH();
+    lastMinCounted = getCurrentMin();
 }
 
 void BankAcc::monthlyCharge()    //to deduct the yearly service charge :))

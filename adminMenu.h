@@ -1,4 +1,4 @@
-void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, string &uStatus, string &vStatus, string &xStatus, string &yStatus, string &zStatus, double &savPen, double &uPen, double &vPen, double &xPen, double &yPen, double &zPen, double &savSafLe, double &uSafLe, double &vSafLe, double &xSafLe, double &ySafLe, double &zSafLe)
+void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, string &uStatus, string &vStatus, string &xStatus, string &yStatus, string &zStatus, double &savPen, double &uPen, double &vPen, double &xPen, double &yPen, double &zPen, double &savSafLe, double &uSafLe, double &vSafLe, double &xSafLe, double &ySafLe, double &zSafLe, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
 {
     bool done = false;
     while (!done)
@@ -16,11 +16,14 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
             {
                 if(!ClassU::active)
                 {
-                    cout << ClassU::active;
+                    //cout << ClassU::active;
                     while (true)
                     {
                         uSafLe = 0;
                         uPen = 0;
+                        cout << "\nPlease Set The Interest Rate\n";
+                        double rate = getRate();
+                        uInt = rate;
                         cout << "\nPlease Set The Safety Level\n";
                         double safeLev = getAmount();
                         uSafLe = safeLev;
@@ -41,7 +44,8 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                         {
                             uList[i].setSafeLevel(safeLev);
                             uList[i].setPenalty(pen);
-                            cout << uList[i].getSafeLevel() << uList[i].getPenalty();
+                            uList[i].setInterestRate(rate);
+                            //cout << uList[i].getSafeLevel() << uList[i].getPenalty();
                         }
                         break;
                     }
@@ -58,6 +62,9 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                     {
                         vSafLe = 0;
                         vPen = 0;
+                        cout << "\nPlease Set The Interest Rate\n";
+                        double rate = getRate();
+                        vInt = rate;
                         cout << "\nPlease Set The Safety Level\n";
                         double safeLev = getAmount();
                         vSafLe = safeLev;
@@ -78,7 +85,9 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                         {
                             vList[i].setSafeLevel(safeLev);
                             vList[i].setPenalty(pen);
+                            vList[i].setInterestRate(rate);
                         }
+                        break;
                     }
                 }
                 adminList[accNum].createVacc();
@@ -93,6 +102,9 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                     {
                         xSafLe = 0;
                         xPen = 0;
+                        cout << "\nPlease Set The Interest Rate\n";
+                        double rate = getRate();
+                        xInt = rate;
                         cout << "\nPlease Set The Safety Level\n";
                         double safeLev = getAmount();
                         xSafLe = safeLev;
@@ -113,7 +125,9 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                         {
                             xList[i].setSafeLevel(safeLev);
                             xList[i].setPenalty(pen);
+                            xList[i].setInterestRate(rate);
                         }
+                        break;
                     }
                 }
                 adminList[accNum].createXacc();
@@ -128,6 +142,9 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                     {
                         ySafLe = 0;
                         yPen = 0;
+                        cout << "\nPlease Set The Interest Rate\n";
+                        double rate = getRate();
+                        yInt = rate;
                         cout << "\nPlease Set The Safety Level\n";
                         double safeLev = getAmount();
                         ySafLe = safeLev;
@@ -148,7 +165,9 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                         {
                             yList[i].setSafeLevel(safeLev);
                             yList[i].setPenalty(pen);
+                            yList[i].setInterestRate(rate);
                         }
+                        break;
                     }
                 }
                 adminList[accNum].createYacc();
@@ -163,6 +182,9 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                     {
                         zSafLe = 0;
                         zPen = 0;
+                        cout << "\nPlease Set The Interest Rate\n";
+                        double rate = getRate();
+                        zInt = rate;
                         cout << "\nPlease Set The Safety Level\n";
                         double safeLev = getAmount();
                         zSafLe = safeLev;
@@ -183,7 +205,9 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                         {
                             zList[i].setSafeLevel(safeLev);
                             zList[i].setPenalty(pen);
+                            zList[i].setInterestRate(rate);
                         }
+                        break;
                     }
                 }
                 adminList[accNum].createZacc();
@@ -1962,7 +1986,7 @@ void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdL
             }
             case 4:
             { 
-                createAccMenu(adminList, accNum, uList, vList, xList, yList, zList, uStatus, vStatus, xStatus, yStatus, zStatus, savPen, uPen, vPen, xPen, yPen, zPen, savSafLe, uSafLe, vSafLe, xSafLe, ySafLe, zSafLe);
+                createAccMenu(adminList, accNum, uList, vList, xList, yList, zList, uStatus, vStatus, xStatus, yStatus, zStatus, savPen, uPen, vPen, xPen, yPen, zPen, savSafLe, uSafLe, vSafLe, xSafLe, ySafLe, zSafLe, savInt, uInt, vInt, xInt, yInt, zInt);
                 cout << "\nNew Bank Account Type Created\n";
                 break;
             }

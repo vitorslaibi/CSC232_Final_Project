@@ -132,7 +132,6 @@ int main()
     SystemAdmin acc("0");
     acc.loadData();
     adminList.push_back(acc);
-    cout << acc.getPassword() << endl;
     
     for (int i = 0; i < ChkAcc::totalChk; i++)
     {
@@ -226,7 +225,6 @@ int main()
     //cout << BankOfficial::totalB << endl;
     for (int i = 0; i < BankOfficial::totalB; i++)
     {
-        cout << i << endl;
         string id = to_string(officList.size());
         BankOfficial acc(id);
         acc.loadData();
@@ -261,7 +259,7 @@ int main()
                             bool corPass = false;
                             while (!corPass)
                             {
-                                cout << "\nPlease Enter Password: \n" << adminList[i].getPassword() << endl;
+                                cout << "\nPlease Enter Password: \n";
                                 string password = getPassword();
                                 if (adminList[i].getPassword() == password)
                                 {
@@ -340,7 +338,6 @@ int main()
                 preview << SavAcc::totalSav << " " << savInt << " " << savPen << " " << savSafLe << "\n";
                 preview << CD::totalCD << "\n";
                 preview << ClassU::totalU << " " << uInt << " " << uPen << " " << uSafLe << " " << uStatus << "\n";
-                cout << "|" << uStatus << "|" << "\n";
                 preview << ClassV::totalV << " " << vInt << " " << vPen << " " << vSafLe << " " << vStatus << "\n";
                 preview << ClassX::totalX << " " << xInt << " " << xPen << " " << xSafLe << " " << xStatus << "\n";
                 preview << ClassY::totalY << " " << yInt << " " << yPen << " " << ySafLe << " " << yStatus << "\n";

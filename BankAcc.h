@@ -33,6 +33,8 @@ class BankAcc
     int lastYearCounted;    //last year the balance was updated
     int lastMonthCounted;   //last month the balance was updated
     int lastDayCounted;     //last day in month the balance was updated
+    int lastHourCounted;
+    int lastMinCounted;
 
     public:
     int getYearDays(int currentYear);   //get number of days in a given year
@@ -60,6 +62,8 @@ class BankAcc
     int getLastYearCounted();
     int getLastMonthCounted();
     int getLastDayCounted();
+    int getLastHourCounted();
+    int getLastMinCounted();
     void setID(string newID);
     void setPassword(string newPassword);
     void setBalance(double newBalance);

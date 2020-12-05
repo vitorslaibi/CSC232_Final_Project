@@ -6,7 +6,8 @@ void checkingMenu(vector<ChkAcc> &chkList, int accNum)
         cout << "[1] Deposit\n";
         cout << "[2] Withdraw\n";
         cout << "[3] Transaction In The Last 7 Days\n";
-        cout << "[4] Log Out\n";
+        cout << "[4] Display Information\n";
+        cout << "[5] Log Out\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -31,6 +32,12 @@ void checkingMenu(vector<ChkAcc> &chkList, int accNum)
             }
             case 4:
             {
+                cout << "\nName: " << chkList[accNum].getFname() << " " << chkList[accNum].getLname() << endl;
+                cout << "Phone Number: " << chkList[accNum].getPhoneNum() << endl;
+                cout << "Current Balance: " << chkList[accNum].getBalance() << endl;
+            }
+            case 5:
+            {
                 done = true;
                 break;
             }
@@ -51,7 +58,8 @@ void savingMenu(vector<SavAcc> &savList, int accNum)
         cout << "[1] Deposit\n";
         cout << "[2] Withdraw\n";
         cout << "[3] Transaction In The Last 7 Days\n";
-        cout << "[4] Log out\n";
+        cout << "[4] Display Information\n";
+        cout << "[5] Log Out\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -76,6 +84,12 @@ void savingMenu(vector<SavAcc> &savList, int accNum)
             }
             case 4:
             {
+                cout << "\nName: " << savList[accNum].getFname() << " " << savList[accNum].getLname() << endl;
+                cout << "Phone Number: " << savList[accNum].getPhoneNum() << endl;
+                cout << "Current Balance: " << savList[accNum].getBalance() << endl;
+            }
+            case 5:
+            {
                 done = true;
                 break;
             }
@@ -96,7 +110,8 @@ void cdMenu(vector<CD> &cdList, int accNum)
         cout << "[1] Display Remaining Days \n";
         cout << "[2] Display Balance \n";
         cout << "[3] Withdraw\n";
-        cout << "[4] Log out\n";
+        cout << "[4] Display Information\n";
+        cout << "[5] Log Out\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -116,6 +131,12 @@ void cdMenu(vector<CD> &cdList, int accNum)
                 break;
             }
             case 4:
+            {
+                cout << "\nName: " << cdList[accNum].getFname() << " " << cdList[accNum].getLname() << endl;
+                cout << "Phone Number: " << cdList[accNum].getPhoneNum() << endl;
+                cout << "Current Balance: " << cdList[accNum].getBalance() << endl;
+            }
+            case 5:
             {
                 done = true;
                 break;
@@ -137,7 +158,8 @@ void uMenu(vector<ClassU> &uList, int accNum)
         cout << "[1] Deposit\n";
         cout << "[2] Withdraw\n";
         cout << "[3] Transaction In The Last 7 Days\n";
-        cout << "[4] Log Out\n";
+        cout << "[4] Display Information\n";
+        cout << "[5] Log Out\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -162,6 +184,12 @@ void uMenu(vector<ClassU> &uList, int accNum)
             }
             case 4:
             {
+                cout << "\nName: " << uList[accNum].getFname() << " " << uList[accNum].getLname() << endl;
+                cout << "Phone Number: " << uList[accNum].getPhoneNum() << endl;
+                cout << "Current Balance: " << uList[accNum].getBalance() << endl;
+            }
+            case 5:
+            {
                 done = true;
                 break;
             }
@@ -182,7 +210,8 @@ void vMenu(vector<ClassV> &vList, int accNum)
         cout << "[1] Deposit\n";
         cout << "[2] Withdraw\n";
         cout << "[3] Transaction In The Last 7 Days\n";
-        cout << "[4] Log Out\n";
+        cout << "[4] Display Information\n";
+        cout << "[5] Log Out\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -207,6 +236,12 @@ void vMenu(vector<ClassV> &vList, int accNum)
             }
             case 4:
             {
+                cout << "\nName: " << vList[accNum].getFname() << " " << vList[accNum].getLname() << endl;
+                cout << "Phone Number: " << vList[accNum].getPhoneNum() << endl;
+                cout << "Current Balance: " << vList[accNum].getBalance() << endl;
+            }
+            case 5:
+            {
                 done = true;
                 break;
             }
@@ -227,7 +262,8 @@ void xMenu(vector<ClassX> &xList, int accNum)
         cout << "[1] Deposit\n";
         cout << "[2] Withdraw\n";
         cout << "[3] Transaction In The Last 7 Days\n";
-        cout << "[4] Log Out\n";
+        cout << "[4] Display Information\n";
+        cout << "[5] Log Out\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -252,6 +288,12 @@ void xMenu(vector<ClassX> &xList, int accNum)
             }
             case 4:
             {
+                cout << "\nName: " << xList[accNum].getFname() << " " << xList[accNum].getLname() << endl;
+                cout << "Phone Number: " << xList[accNum].getPhoneNum() << endl;
+                cout << "Current Balance: " << xList[accNum].getBalance() << endl;
+            }
+            case 5:
+            {
                 done = true;
                 break;
             }
@@ -272,7 +314,8 @@ void yMenu(vector<ClassY> &yList, int accNum)
         cout << "[1] Deposit\n";
         cout << "[2] Withdraw\n";
         cout << "[3] Transaction In The Last 7 Days\n";
-        cout << "[4] Log Out\n";
+        cout << "[4] Display Information\n";
+        cout << "[5] Log Out\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -297,6 +340,12 @@ void yMenu(vector<ClassY> &yList, int accNum)
             }
             case 4:
             {
+                cout << "\nName: " << yList[accNum].getFname() << " " << yList[accNum].getLname() << endl;
+                cout << "Phone Number: " << yList[accNum].getPhoneNum() << endl;
+                cout << "Current Balance: " << yList[accNum].getBalance() << endl;
+            }
+            case 5:
+            {
                 done = true;
                 break;
             }
@@ -317,7 +366,8 @@ void zMenu(vector<ClassZ> &zList, int accNum)
         cout << "[1] Deposit\n";
         cout << "[2] Withdraw\n";
         cout << "[3] Transaction In The Last 7 Days\n";
-        cout << "[4] Log Out\n";
+        cout << "[4] Display Information\n";
+        cout << "[5] Log Out\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -341,6 +391,12 @@ void zMenu(vector<ClassZ> &zList, int accNum)
                 break;
             }
             case 4:
+            {
+                cout << "\nName: " << zList[accNum].getFname() << " " << zList[accNum].getLname() << endl;
+                cout << "Phone Number: " << zList[accNum].getPhoneNum() << endl;
+                cout << "Current Balance: " << zList[accNum].getBalance() << endl;
+            }
+            case 5:
             {
                 done = true;
                 break;
@@ -419,6 +475,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 if (loggedIn)
                 {
+                    cout << "Your last login date was in " << chkList[accNum].getLastMonthCounted() << "/" << chkList[accNum].getLastDayCounted() << "/" << chkList[accNum].getLastYearCounted() << " at " << chkList[accNum].getLastHourCounted() << ":" << chkList[accNum].getLastMinCounted() << ".\n";
                     chkList[accNum].calcInt();
                     checkingMenu(chkList, accNum);
                 }
@@ -472,6 +529,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 if (loggedIn)
                 {
+                    cout << "Your last login date was in " << savList[accNum].getLastMonthCounted() << "/" << savList[accNum].getLastDayCounted() << "/" << savList[accNum].getLastYearCounted() << " at " << savList[accNum].getLastHourCounted() << ":" << savList[accNum].getLastMinCounted() << ".\n";
                     savList[accNum].calcInt();
                     savingMenu(savList, accNum);
                 }
@@ -525,6 +583,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 if (loggedIn)
                 {
+                    cout << "Your last login date was in " << cdList[accNum].getLastMonthCounted() << "/" << cdList[accNum].getLastDayCounted() << "/" << cdList[accNum].getLastYearCounted() << " at " << cdList[accNum].getLastHourCounted() << ":" << cdList[accNum].getLastMinCounted() << ".\n";
                     cdList[accNum].calcInt();
                     cdMenu(cdList, accNum);
                 }
@@ -578,6 +637,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 if (loggedIn)
                 {
+                    cout << "Your last login date was in " << uList[accNum].getLastMonthCounted() << "/" << uList[accNum].getLastDayCounted() << "/" << uList[accNum].getLastYearCounted() << " at " << uList[accNum].getLastHourCounted() << ":" << uList[accNum].getLastMinCounted() << ".\n";
                     uList[accNum].calcInt();
                     uMenu(uList, accNum);
                 }
@@ -631,6 +691,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 if (loggedIn)
                 {
+                    cout << "Your last login date was in " << vList[accNum].getLastMonthCounted() << "/" << vList[accNum].getLastDayCounted() << "/" << vList[accNum].getLastYearCounted() << " at " << vList[accNum].getLastHourCounted() << ":" << vList[accNum].getLastMinCounted() << ".\n";
                     vList[accNum].calcInt();
                     vMenu(vList, accNum);
                 }
@@ -684,6 +745,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 if (loggedIn)
                 {
+                    cout << "Your last login date was in " << xList[accNum].getLastMonthCounted() << "/" << xList[accNum].getLastDayCounted() << "/" << xList[accNum].getLastYearCounted() << " at " << xList[accNum].getLastHourCounted() << ":" << xList[accNum].getLastMinCounted() << ".\n";
                     xList[accNum].calcInt();
                     xMenu(xList, accNum);
                 }
@@ -737,6 +799,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 if (loggedIn)
                 {
+                    cout << "Your last login date was in " << yList[accNum].getLastMonthCounted() << "/" << yList[accNum].getLastDayCounted() << "/" << yList[accNum].getLastYearCounted() << " at " << yList[accNum].getLastHourCounted() << ":" << yList[accNum].getLastMinCounted() << ".\n";
                     yList[accNum].calcInt();
                     yMenu(yList, accNum);
                 }
@@ -790,6 +853,7 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 if (loggedIn)
                 {
+                    cout << "Your last login date was in " << zList[accNum].getLastMonthCounted() << "/" << zList[accNum].getLastDayCounted() << "/" << zList[accNum].getLastYearCounted() << " at " << zList[accNum].getLastHourCounted() << ":" << zList[accNum].getLastMinCounted() << ".\n";
                     zList[accNum].calcInt();
                     zMenu(zList, accNum);
                 }
