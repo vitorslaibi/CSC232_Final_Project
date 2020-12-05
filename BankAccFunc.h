@@ -391,28 +391,44 @@ void BankAcc::loadData()    //load data from the text file
     }
 
     string text;
-    getline(inFile, fName);
-    getline(inFile, lName);
-    getline(inFile, phoneNum);
     getline(inFile, text);
+    stripSpace(text);
+    fName = text;
+    getline(inFile, text);
+    stripSpace(text);
+    lName = text;
+    getline(inFile, text);
+    stripSpace(text);
+    phoneNum = text;
+    getline(inFile, text);
+    stripSpace(text);
     openY = stoi(text);
     getline(inFile, text);
+    stripSpace(text);
     openM = stoi(text);
     getline(inFile, text);
+    stripSpace(text);
     openD = stoi(text);
     getline(inFile, text);
+    stripSpace(text);
     closeY = stoi(text);
     getline(inFile, text);
+    stripSpace(text);
     closeM = stoi(text);
     getline(inFile, text);
+    stripSpace(text);
     closeD = stoi(text);
     getline(inFile, text);
+    stripSpace(text);
     balance = stod(text);
     getline(inFile, text);
+    stripSpace(text);
     interestRate = stod(text);
     getline(inFile, text);
+    stripSpace(text);
     servCharge = stod(text);
     getline(inFile, text);
+    stripSpace(text);
     if (text == "0")
     {
         online = false;
@@ -422,12 +438,17 @@ void BankAcc::loadData()    //load data from the text file
         online = true;
     }
     getline(inFile, text);
+    stripSpace(text);
     lastYearCounted = stoi(text);
     getline(inFile, text);
+    stripSpace(text);
     lastMonthCounted = stoi(text);
     getline(inFile, text);
+    stripSpace(text);
     lastDayCounted = stoi(text);
-    getline(inFile, password);
+    getline(inFile, text);
+    stripSpace(text);
+    password = text;
     inFile.close();
 }
 

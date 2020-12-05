@@ -328,16 +328,22 @@ void BankOfficial::loadData(){
 
     string text;
     getline(inFile, text);
+    stripSpace(text);
     fName = text;
     getline(inFile, text);
+    stripSpace(text);
     lName = text;
     getline(inFile, text);
+    stripSpace(text);
     openY = stoi(text);
     getline(inFile, text);
+    stripSpace(text);
     openM = stoi(text);
     getline(inFile, text);
+    stripSpace(text);
     openD = stoi(text);
     getline(inFile, text);
+    stripSpace(text);
     if (text == "0")
     {
         online = false;
@@ -347,6 +353,7 @@ void BankOfficial::loadData(){
         online = true;
     }
     getline(inFile, text);
+    stripSpace(text);
     password = text;
     inFile.close();
 }

@@ -1,11 +1,24 @@
 using namespace std;
 
+void stripSpace(string &text)   // remove the leading and trailing space of a string
+{
+    if (text.find_first_not_of(" \n\v\t\r\f") != string::npos)
+    {
+        text = text.substr(text.find_first_not_of(" \n\v\t\r\f"));
+    }
+    if (text.find_last_not_of(" \n\v\t\r\f") != string::npos)
+    {
+        text = text.substr(0, text.find_last_not_of(" \n\v\t\r\f") + 1);
+    }
+}
+
 string getInput()
 {
     string str;
     while (true)
     {
         getline(cin,str);
+        stripSpace(str);
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos){
             cout << "Error" <<"\n";
@@ -31,6 +44,7 @@ string getFirstName()
     while (true)
     {
         getline(cin,str);
+        stripSpace(str);
         if (str == "quit")
         {
             return str;
@@ -54,6 +68,7 @@ string getLastName()
     while (true)
     {
         getline(cin,str);
+        stripSpace(str);
         if (str == "quit")
         {
             return str;
@@ -77,6 +92,7 @@ string getPhone()
     while (true)
     {
         getline(cin,str);
+        stripSpace(str);
         if (str == "quit")
         {
             return str;
@@ -100,6 +116,7 @@ string getPassword()
     while (true)
     {
         getline(cin,str);
+        stripSpace(str);
         if (str == "quit")
         {
             return str;
@@ -124,6 +141,7 @@ double getRate()    //get the interest rate
     while (true)
     {
         getline(cin, str);
+        stripSpace(str);
 
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos)
@@ -156,6 +174,7 @@ string getChkID() //this fucntion is used to getaccount nummber
     while (true)
     {
         getline(cin,str);
+        stripSpace(str);
 
         if (str == "quit")
         {
@@ -196,6 +215,7 @@ string getSavID() //this fucntion is used to getaccount nummber
     while (true)
     {
         getline(cin,str);
+        stripSpace(str);
 
         if (str == "quit")
         {
@@ -236,6 +256,7 @@ string getCDID() //this fucntion is used to getaccount nummber
     while (true)
     {
         getline(cin,str);
+        stripSpace(str);
 
         if (str == "quit")
         {
@@ -277,6 +298,7 @@ string getUID() //this fucntion is used to getaccount nummber
     while (true)
     {
         getline(cin,str);
+        stripSpace(str);
 
         if (str == "quit")
         {
@@ -318,6 +340,7 @@ string getVID() //this fucntion is used to getaccount nummber
     while (true)
     {
         getline(cin,str);
+        stripSpace(str);
 
         if (str == "quit")
         {
@@ -359,6 +382,7 @@ string getXID() //this fucntion is used to getaccount nummber
     while (true)
     {
         getline(cin,str);
+        stripSpace(str);
 
         if (str == "quit")
         {
@@ -400,6 +424,7 @@ string getYID() //this fucntion is used to getaccount nummber
     while (true)
     {
         getline(cin,str);
+        stripSpace(str);
 
         if (str == "quit")
         {
@@ -441,6 +466,7 @@ string getZID() //this fucntion is used to getaccount nummber
     while (true)
     {
         getline(cin,str);
+        stripSpace(str);
 
         if (str == "quit")
         {
@@ -482,6 +508,7 @@ string getOffID() //this fucntion is used to getaccount nummber
     while (true)
     {
         getline(cin,str);
+        stripSpace(str);
 
         if (str == "quit")
         {
@@ -522,6 +549,7 @@ string getAdminID() //this fucntion is used to getaccount nummber
     while (true)
     {
         getline(cin,str);
+        stripSpace(str);
 
         if (str == "quit")
         {
@@ -564,6 +592,7 @@ double getAmount()  //get the amount from user to deposit or withdraw
     while (true)
     {
         getline(cin, str);
+        stripSpace(str);
 
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos)

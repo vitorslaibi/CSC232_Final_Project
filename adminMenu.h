@@ -1066,6 +1066,10 @@ void searchCheckingId(vector<ChkAcc> &chkList, vector<SystemAdmin> &adminList, i
     {
         cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
         string id = getChkID();
+        if (id == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < chkList.size(); i++)
         {
             if (chkList[i].getID() == id)
@@ -1087,6 +1091,10 @@ void searchCheckingName(vector<ChkAcc> &chkList, vector<SystemAdmin> &adminList,
         cout << "\nPlease Enter The Name That You Are Searching For.\n";
         string fName = getFirstName();
         string lName = getLastName();
+        if ((fName == "quit") or (lName == "quit"))
+        {
+            break;
+        }
         for (int i = 0; i < chkList.size(); i++)
         {
             if (chkList[i].getFname() == fName && chkList[i].getLname() == lName)
@@ -1107,6 +1115,10 @@ void searchCheckingPhone(vector<ChkAcc> &chkList, vector<SystemAdmin> &adminList
     {
         cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
         string phone = getPhone();
+        if (phone == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < chkList.size(); i++)
         {
             if (chkList[i].getPhoneNum() == phone)
@@ -1169,6 +1181,10 @@ void searchSavingId(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, int
     {
         cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
         string id = getSavID();
+        if (id == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < savList.size(); i++)
         {
             if (savList[i].getID() == id)
@@ -1190,6 +1206,10 @@ void searchSavingName(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, i
         cout << "\nPlease Enter The Name That You Are Searching For.\n";
         string fName = getFirstName();
         string lName = getLastName();
+        if ((fName == "quit") or (lName == "quit"))
+        {
+            break;
+        }
         for (int i = 0; i < savList.size(); i++)
         {
             if (savList[i].getFname() == fName && savList[i].getLname() == lName)
@@ -1210,6 +1230,10 @@ void searchSavingPhone(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, 
     {
         cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
         string phone = getPhone();
+        if (phone == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < savList.size(); i++)
         {
             if (savList[i].getPhoneNum() == phone)
@@ -1272,6 +1296,10 @@ void searchCDId(vector<CD> &cdList, vector<SystemAdmin> &adminList, int accNum)
     {
         cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
         string id = getCDID();
+        if (id == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < cdList.size(); i++)
         {
             if (cdList[i].getID() == id)
@@ -1293,6 +1321,10 @@ void searchCDName(vector<CD> &cdList, vector<SystemAdmin> &adminList, int accNum
         cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
         string lName = getLastName();
+        if ((fName == "quit") or (lName == "quit"))
+        {
+            break;
+        }
         for (int i = 0; i < cdList.size(); i++)
         {
             if (cdList[i].getFname() == fName && cdList[i].getLname() == lName)
@@ -1313,6 +1345,10 @@ void searchCDPhone(vector<CD> &cdList, vector<SystemAdmin> &adminList, int accNu
     {
         cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
         string phone = getPhone();
+        if (phone == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < cdList.size(); i++)
         {
             if (cdList[i].getPhoneNum() == phone)
@@ -1375,6 +1411,10 @@ void searchVId(vector<ClassV> &vList, vector<SystemAdmin> &adminList, int accNum
     {
         cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
         string id = getVID();
+        if (id == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < vList.size(); i++)
         {
             if (vList[i].getID() == id)
@@ -1396,6 +1436,10 @@ void searchVName(vector<ClassV> &vList, vector<SystemAdmin> &adminList, int accN
         cout << "\nPlease Enter The Name That You Are Searching For.\n";
         string fName = getFirstName();
         string lName = getLastName();
+        if ((fName == "quit") or (lName == "quit"))
+        {
+            break;
+        }
         for (int i = 0; i < vList.size(); i++)
         {
             if (vList[i].getFname() == fName && vList[i].getLname() == lName)
@@ -1416,6 +1460,10 @@ void searchVPhone(vector<ClassV> &vList, vector<SystemAdmin> &adminList, int acc
     {
         cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
         string phone = getPhone();
+        if (phone == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < vList.size(); i++)
         {
             if (vList[i].getPhoneNum() == phone)
@@ -1478,6 +1526,10 @@ void searchUId(vector<ClassU> &uList, vector<SystemAdmin> &adminList, int accNum
     {
         cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
         string id = getUID();
+        if (id == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < uList.size(); i++)
         {
             if (uList[i].getID() == id)
@@ -1499,6 +1551,10 @@ void searchUName(vector<ClassU> &uList, vector<SystemAdmin> &adminList, int accN
         cout << "\nPlease Enter The Name That You Are Searching For.\n";
         string fName = getFirstName();
         string lName = getLastName();
+        if ((fName == "quit") or (lName == "quit"))
+        {
+            break;
+        }
         for (int i = 0; i < uList.size(); i++)
         {
             if (uList[i].getFname() == fName && uList[i].getLname() == lName)
@@ -1519,6 +1575,10 @@ void searchUPhone(vector<ClassU> &uList, vector<SystemAdmin> &adminList, int acc
     {
         cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
         string phone = getPhone();
+        if (phone == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < uList.size(); i++)
         {
             if (uList[i].getPhoneNum() == phone)
@@ -1581,6 +1641,10 @@ void searchXId(vector<ClassX> &xList, vector<SystemAdmin> &adminList, int accNum
     {
         cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
         string id = getXID();
+        if (id == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < xList.size(); i++)
         {
             if (xList[i].getID() == id)
@@ -1602,6 +1666,10 @@ void searchXName(vector<ClassX> &xList, vector<SystemAdmin> &adminList, int accN
         cout << "\nPlease Enter The Name That You Are Searching For.\n";
         string fName = getFirstName();
         string lName = getLastName();
+        if ((fName == "quit") or (lName == "quit"))
+        {
+            break;
+        }
         for (int i = 0; i < xList.size(); i++)
         {
             if (xList[i].getFname() == fName && xList[i].getLname() == lName)
@@ -1622,6 +1690,10 @@ void searchXPhone(vector<ClassX> &xList, vector<SystemAdmin> &adminList, int acc
     {
         cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
         string phone = getPhone();
+        if (phone == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < xList.size(); i++)
         {
             if (xList[i].getPhoneNum() == phone)
@@ -1684,6 +1756,10 @@ void searchYId(vector<ClassY> &yList, vector<SystemAdmin> &adminList, int accNum
     {
         cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
         string id = getYID();
+        if (id == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < yList.size(); i++)
         {
             if (yList[i].getID() == id)
@@ -1705,6 +1781,10 @@ void searchYName(vector<ClassY> &yList, vector<SystemAdmin> &adminList, int accN
         cout << "\nPlease Enter The Name That You Are Searching For.\n";
         string fName = getFirstName();
         string lName = getLastName();
+        if ((fName == "quit") or (lName == "quit"))
+        {
+            break;
+        }
         for (int i = 0; i < yList.size(); i++)
         {
             if (yList[i].getFname() == fName && yList[i].getLname() == lName)
@@ -1725,6 +1805,10 @@ void searchYPhone(vector<ClassY> &yList, vector<SystemAdmin> &adminList, int acc
     {
         cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
         string phone = getPhone();
+        if (phone == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < yList.size(); i++)
         {
             if (yList[i].getPhoneNum() == phone)
@@ -1787,6 +1871,10 @@ void searchZId(vector<ClassZ> &zList, vector<SystemAdmin> &adminList, int accNum
     {
         cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
         string id = getZID();
+        if (id == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < zList.size(); i++)
         {
             if (zList[i].getID() == id)
@@ -1808,6 +1896,10 @@ void searchZName(vector<ClassZ> &zList, vector<SystemAdmin> &adminList, int accN
         cout << "\nPlease Enter The Name That You Are Searching For.\n";
         string fName = getFirstName();
         string lName = getLastName();
+        if ((fName == "quit") or (lName == "quit"))
+        {
+            break;
+        }
         for (int i = 0; i < zList.size(); i++)
         {
             if (zList[i].getFname() == fName && zList[i].getLname() == lName)
@@ -1828,6 +1920,10 @@ void searchZPhone(vector<ClassZ> &zList, vector<SystemAdmin> &adminList, int acc
     {
         cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
         string phone = getPhone();
+        if (phone == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < zList.size(); i++)
         {
             if (zList[i].getPhoneNum() == phone)
