@@ -14,6 +14,7 @@ void openChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int 
 
     ChkAcc account(id, password, fName, lName, phone);
     account.saveData();
+    account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
     ChkAcc::totalChk++;
     chkList.push_back(account);
 }
@@ -34,6 +35,7 @@ void openSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int ac
 
     SavAcc account(id, password, fName, lName, phone);
     account.saveData();
+    account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
     account.setInterestRate(savInt);
     SavAcc::totalSav++;
     savList.push_back(account);
@@ -56,6 +58,7 @@ void openCD(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
     
     CD account(id, balance, password, fName, lName, phone);
     account.saveData();
+    account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
     CD::totalCD++;
     cdList.push_back(account);
 }
@@ -76,6 +79,7 @@ void openUacc(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum
 
     ClassU account(id, password, fName, lName, phone);
     account.saveData();
+    account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
     account.setInterestRate(uInt);
     ClassU::totalU++;
     uList.push_back(account);
@@ -97,6 +101,7 @@ void openVacc(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum
 
     ClassV account(id, password, fName, lName, phone);
     account.saveData();
+    account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
     account.setInterestRate(vInt);
     ClassV::totalV++;
     vList.push_back(account);
@@ -118,6 +123,7 @@ void openXacc(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum
 
     ClassX account(id, password, fName, lName, phone);
     account.saveData();
+    account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
     account.setInterestRate(xInt);
     ClassX::totalX++;
     xList.push_back(account);
@@ -139,6 +145,7 @@ void openYacc(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum
 
     ClassY account(id, password, fName, lName, phone);
     account.saveData();
+    account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
     account.setInterestRate(yInt);
     ClassY::totalY++;
     yList.push_back(account);
@@ -160,6 +167,7 @@ void openZacc(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum
 
     ClassZ account(id, password, fName, lName, phone);
     account.saveData();
+    account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
     account.setInterestRate(zInt);
     ClassZ::totalZ++;
     zList.push_back(account);

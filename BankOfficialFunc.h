@@ -316,7 +316,7 @@ void BankOfficial::saveData(){
     outFile << openM << endl;
     outFile << openD << endl;
     outFile << online << endl;
-    outFile << password << endl;
+    outFile << password;
     outFile.close();
 }
 

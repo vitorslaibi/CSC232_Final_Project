@@ -270,7 +270,7 @@ void SystemAdmin::saveData(){
     outFile << openY << endl;
     outFile << openM << endl;
     outFile << openD << endl;
-    outFile << password << endl;
+    outFile << password;
     outFile.close();
 }
 

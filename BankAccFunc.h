@@ -364,7 +364,7 @@ void BankAcc::saveData()    //save the data to a text file
     outFile << lastYearCounted << endl;
     outFile << lastMonthCounted << endl;
     outFile << lastDayCounted << endl;
-    outFile << password << endl;
+    outFile << password;
     outFile.close();
 }
 
@@ -482,6 +482,7 @@ void BankAcc::printAllHistory()
     }
 
     string text;
+    getline(inFile, text);
     while (getline(inFile, text))
     {
         getDayHistory(text);
@@ -507,12 +508,14 @@ void BankAcc::printLast7Days()
 
     string text;
     int count = 0;
+    getline(inFile, text);
     while (getline(inFile, text))
     {
         count++;
     }
     inFile.close();
     inFile.open(ID + "H.txt");
+    getline(inFile, text);
     for (int i = 0; i < count; i++)
     {
         getline(inFile, text);

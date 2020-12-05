@@ -306,7 +306,7 @@ int main()
                             bool corPass = false;
                             while (!corPass)
                             {
-                                cout << "\nPlease Enter Password: \n";
+                                cout << "\nPlease Enter Password: \n" <<officList[i].getPassword() << endl;
                                 string password = getPassword();
                                 if (officList[i].getPassword() == password)
                                 {
@@ -346,7 +346,7 @@ int main()
                 preview << ClassY::totalY << " " << yInt << " " << yPen << " " << ySafLe << " " << yStatus << "\n";
                 preview << ClassZ::totalZ << " " << zInt << " " << zPen << " " << zSafLe << " " << zStatus << "\n";
                 preview << BankOfficial::totalB << "\n";
-                preview << SystemAdmin::totalA << "\n";
+                preview << SystemAdmin::totalA;
                 acc.saveData();
                 done = true;
                 break;
