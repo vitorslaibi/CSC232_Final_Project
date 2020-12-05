@@ -102,14 +102,18 @@ int main()
     vector <ClassX> xList;
     vector <ClassY> yList;
     vector <ClassZ> zList;
-    
+
+    SystemAdmin acc("0");
+    acc.loadData();
+    adminList.push_back(acc);
+    cout << acc.getPassword() << endl;
 
     for (int i = 0; i < ChkAcc::totalChk; i++)
     {
         string id = to_string(chkList.size());
         ChkAcc acc(id);
-        chkList.push_back(acc);
         acc.loadData();
+        chkList.push_back(acc);
     }
 
     for (int i = 0; i < SavAcc::totalSav; i++)
@@ -117,16 +121,16 @@ int main()
         string id = to_string(savList.size());
         SavAcc acc(id);
         acc.setInterestRate(savInt);
-        savList.push_back(acc);
         acc.loadData();
+        savList.push_back(acc);
     }
 
     for (int i = 0; i < CD::totalCD; i++)
     {
         string id = to_string(cdList.size());
         CD acc(id);
-        cdList.push_back(acc);
         acc.loadData();
+        cdList.push_back(acc);
     }
 
     if (uStatus == "1")
@@ -138,8 +142,8 @@ int main()
         string id = to_string(uList.size());
         ClassU acc(id);
         acc.setInterestRate(uInt);
-        uList.push_back(acc);
         acc.loadData();
+        uList.push_back(acc);
     }
 
     if (vStatus == "1")
@@ -151,8 +155,8 @@ int main()
         string id = to_string(vList.size());
         ClassV acc(id);
         acc.setInterestRate(vInt);
-        vList.push_back(acc);
         acc.loadData();
+        vList.push_back(acc);
     }
 
     if (xStatus == "1")
@@ -164,8 +168,8 @@ int main()
         string id = to_string(xList.size());
         ClassX acc(id);
         acc.setInterestRate(xInt);
-        xList.push_back(acc);
         acc.loadData();
+        xList.push_back(acc);
     }
 
     if (yStatus == "1")
@@ -177,8 +181,8 @@ int main()
         string id = to_string(yList.size());
         ClassY acc(id);
         acc.setInterestRate(yInt);
-        yList.push_back(acc);
         acc.loadData();
+        yList.push_back(acc);
     }
 
     if (zStatus == "1")
@@ -190,16 +194,16 @@ int main()
         string id = to_string(zList.size());
         ClassZ acc(id);
         acc.setInterestRate(zInt);
-        zList.push_back(acc);
         acc.loadData();
+        zList.push_back(acc);
     }
 
     for (int i = 0; i < BankOfficial::totalB; i++)
     {
         string id = to_string(officList.size());
         BankOfficial acc(id);
-        officList.push_back(acc);
         acc.loadData();
+        officList.push_back(acc);
     }
 
 
@@ -207,7 +211,7 @@ int main()
     while (!done)
     {
         cout << "Log in as:\n";
-        cout << "[1] System Adminastrator\n";
+        cout << "[1] System Administrator\n";
         cout << "[2] Bear Officials\n";
         cout << "[3] Customers\n";
         cout << "[4] Exit\n";
@@ -230,7 +234,7 @@ int main()
                             bool corPass = false;
                             while (!corPass)
                             {
-                                cout << "\nPlease Enter Password: \n";
+                                cout << "\nPlease Enter Password: \n" << adminList[i].getPassword() << endl;
                                 string password = getPassword();
                                 if (adminList[i].getPassword() == password)
                                 {
@@ -306,6 +310,7 @@ int main()
                 preview << ClassZ::totalZ << " " << zInt << " " << zStatus << "\n";
                 preview << BankOfficial::totalB << "\n";
                 preview << SystemAdmin::totalA << "\n";
+                acc.saveData();
                 done = true;
                 break;
             }

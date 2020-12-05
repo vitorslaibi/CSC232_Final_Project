@@ -1689,7 +1689,7 @@ void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdL
                         {
                             found = true;
                             adminList[accNum].enableOfficialAcc(officList[i]);
-                            account.saveData();
+                            officList[i].saveData();
                         }        
                     }
                     if (!found) 
@@ -1711,7 +1711,7 @@ void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdL
                         {
                             found = true;
                             adminList[accNum].disableOfficialAcc(officList[i]);
-                            account.saveData();
+                            officList[i].saveData();
                         }        
                     }
                     if (!found) 
