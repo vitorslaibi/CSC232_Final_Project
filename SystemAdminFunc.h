@@ -13,7 +13,7 @@ SystemAdmin::SystemAdmin(string newID, string newPassword = "", string newFname 
     openY = getCurrentY();
     openM = getCurrentM();
     openD = getCurrentD();
-    totalA++;
+    //totalA++;
 }
 
 string SystemAdmin::getID(){return SystemAdmin::ID;}
@@ -39,10 +39,10 @@ int SystemAdmin::getCurrentD(){
     return now->tm_mday;
 }
 
-void SystemAdmin::enableOfficialAcc(BankOfficial account){
+void SystemAdmin::enableOfficialAcc(BankOfficial &account){
     account.setOnlStat(true);
 }
-void SystemAdmin::disableOfficialAcc(BankOfficial account){
+void SystemAdmin::disableOfficialAcc(BankOfficial &account){
     account.setOnlStat(false);
 }
 

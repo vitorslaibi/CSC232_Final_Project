@@ -94,22 +94,28 @@ void cdMenu(vector<CD> &cdList, int accNum)
     while (!done)
     {
         cout << "[1] Display Remaining Days \n";
-        cout << "[2] Withdraw\n";
-        cout << "[3] Log out\n";
+        cout << "[2] Display Balance \n";
+        cout << "[3] Withdraw\n";
+        cout << "[4] Log out\n";
         int input = stoi(getInput());
         switch (input)
         {
             case 1:
             {
-                cdList[accNum].getRemainDays();
+                cout << "\nYour Remaining Days: " << cdList[accNum].getRemainDays() << endl;
                 break;
             }
             case 2:
             {
-                cdList[accNum].withdraw(0);
+                cout << "\nYour Balance: " << cdList[accNum].getBalance() << endl;
                 break;
             }
             case 3:
+            {
+                cdList[accNum].withdraw(0);
+                break;
+            }
+            case 4:
             {
                 done = true;
                 break;
@@ -367,8 +373,14 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
         {
             case 1:
             {
+                if (chkList.size() == 0)
+                {
+                    cout << "\nThere Are Currently No Account Of This Type\n";
+                    break;
+                }
                 int accNum;
                 bool found = false;
+                bool loggedIn = false;
                 while(!found)
                 {
                     cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
@@ -378,6 +390,13 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                         if (chkList[i].getID() == id)
                         {
                             found = true;
+                            if(chkList[i].isOnline())
+                                loggedIn = true;
+                            else
+                            {
+                                cout << "\nThis Account is Currently Closed\n";
+                                break;
+                            }
                             bool corPass = false;
                             while (!corPass)
                             {
@@ -398,14 +417,23 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
-                chkList[accNum].calcInt();
-                checkingMenu(chkList, accNum);
+                if (loggedIn)
+                {
+                    chkList[accNum].calcInt();
+                    checkingMenu(chkList, accNum);
+                }
                 break;
             }
             case 2:
             {
+                if (savList.size() == 0)
+                {
+                    cout << "\nThere Are Currently No Account Of This Type\n";
+                    break;
+                }
                 int accNum;
                 bool found = false;
+                bool loggedIn = false;
                 while(!found)
                 {
                     cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
@@ -415,6 +443,13 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                         if (savList[i].getID() == id)
                         {
                             found = true;
+                            if (savList[i].isOnline())
+                                loggedIn = true;
+                            else
+                            {
+                                cout << "\nThis Account is Currently Closed\n";
+                                break;
+                            }
                             bool corPass = false;
                             while (!corPass)
                             {
@@ -435,14 +470,23 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
-                savList[accNum].calcInt();
-                savingMenu(savList, accNum);
+                if (loggedIn)
+                {
+                    savList[accNum].calcInt();
+                    savingMenu(savList, accNum);
+                }
                 break;
             }
             case 3:
             {
+                if (cdList.size() == 0)
+                {
+                    cout << "\nThere Are Currently No Account Of This Type\n";
+                    break;
+                }
                 int accNum;
                 bool found = false;
+                bool loggedIn = false;
                 while(!found)
                 {
                     cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
@@ -452,6 +496,13 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                         if (cdList[i].getID() == id)
                         {
                             found = true;
+                            if (cdList[i].isOnline())
+                                loggedIn = true;
+                            else
+                            {
+                                cout << "\nThis Account is Currently Closed\n";
+                                break;
+                            }
                             bool corPass = false;
                             while (!corPass)
                             {
@@ -472,14 +523,23 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
-                cdList[accNum].calcInt();
-                cdMenu(cdList, accNum);
+                if (loggedIn)
+                {
+                    cdList[accNum].calcInt();
+                    cdMenu(cdList, accNum);
+                }
                 break;
             }
             case 4:
             {
+                if (uList.size() == 0)
+                {
+                    cout << "\nThere Are Currently No Account Of This Type\n";
+                    break;
+                }
                 int accNum;
                 bool found = false;
+                bool loggedIn = false;
                 while(!found)
                 {
                     cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
@@ -489,6 +549,13 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                         if (uList[i].getID() == id)
                         {
                             found = true;
+                            if (uList[i].isOnline())
+                                loggedIn = true;
+                            else
+                            {
+                                cout << "\nThis Account is Currently Closed\n";
+                                break;
+                            }
                             bool corPass = false;
                             while (!corPass)
                             {
@@ -509,14 +576,23 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
-                uList[accNum].calcInt();
-                uMenu(uList, accNum);
+                if (loggedIn)
+                {
+                    uList[accNum].calcInt();
+                    uMenu(uList, accNum);
+                }
                 break;
             }
             case 5:
             {
+                if (vList.size() == 0)
+                {
+                    cout << "\nThere Are Currently No Account Of This Type\n";
+                    break;
+                }
                 int accNum;
                 bool found = false;
+                bool loggedIn = false;
                 while(!found)
                 {
                     cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
@@ -526,6 +602,13 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                         if (vList[i].getID() == id)
                         {
                             found = true;
+                            if (vList[i].isOnline())
+                                loggedIn = true;
+                            else
+                            {
+                                cout << "\nThis Account is Currently Closed\n";
+                                break;
+                            }
                             bool corPass = false;
                             while (!corPass)
                             {
@@ -546,14 +629,23 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
-                vList[accNum].calcInt();
-                vMenu(vList, accNum);
+                if (loggedIn)
+                {
+                    vList[accNum].calcInt();
+                    vMenu(vList, accNum);
+                }
                 break;
             }
             case 6:
             {
+                if (xList.size() == 0)
+                {
+                    cout << "\nThere Are Currently No Account Of This Type\n";
+                    break;
+                }
                 int accNum;
                 bool found = false;
+                bool loggedIn = false;
                 while(!found)
                 {
                     cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
@@ -563,6 +655,13 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                         if (xList[i].getID() == id)
                         {
                             found = true;
+                            if (xList[i].isOnline())
+                                loggedIn = true;
+                            else
+                            {
+                                cout << "\nThis Account is Currently Closed\n";
+                                break;
+                            }
                             bool corPass = false;
                             while (!corPass)
                             {
@@ -583,14 +682,23 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
-                xList[accNum].calcInt();
-                xMenu(xList, accNum);
+                if (loggedIn)
+                {
+                    xList[accNum].calcInt();
+                    xMenu(xList, accNum);
+                }
                 break;
             }
             case 7:
             {
+                if (yList.size() == 0)
+                {
+                    cout << "\nThere Are Currently No Account Of This Type\n";
+                    break;
+                }
                 int accNum;
                 bool found = false;
+                bool loggedIn = false;
                 while(!found)
                 {
                     cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
@@ -600,6 +708,13 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                         if (yList[i].getID() == id)
                         {
                             found = true;
+                            if (yList[i].isOnline())
+                                loggedIn = true;
+                            else
+                            {
+                                cout << "\nThis Account is Currently Closed\n";
+                                break;
+                            }
                             bool corPass = false;
                             while (!corPass)
                             {
@@ -620,14 +735,23 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
-                yList[accNum].calcInt();
-                yMenu(yList, accNum);
+                if (loggedIn)
+                {
+                    yList[accNum].calcInt();
+                    yMenu(yList, accNum);
+                }
                 break;
             }
             case 8:
             {
+                if (zList.size() == 0)
+                {
+                    cout << "\nThere Are Currently No Account Of This Type\n";
+                    break;
+                }
                 int accNum;
                 bool found = false;
+                bool loggedIn = false;
                 while(!found)
                 {
                     cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
@@ -637,6 +761,13 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                         if (zList[i].getID() == id)
                         {
                             found = true;
+                            if (zList[i].isOnline())
+                                loggedIn = true;
+                            else
+                            {
+                                cout << "\nThis Account is Currently Closed\n";
+                                break;
+                            }
                             bool corPass = false;
                             while (!corPass)
                             {
@@ -657,8 +788,11 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
-                zList[accNum].calcInt();
-                zMenu(zList, accNum);
+                if (loggedIn)
+                {
+                    zList[accNum].calcInt();
+                    zMenu(zList, accNum);
+                }
                 break;
             }
             case 9:

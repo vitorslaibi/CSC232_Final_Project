@@ -30,7 +30,6 @@ string getFirstName()
     string str;
     while (true)
     {
-        cout << "Enter First Name: \n";
         getline(cin,str);
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos){
@@ -50,7 +49,6 @@ string getLastName()
     string str;
     while (true)
     {
-        cout << "Enter Last Name: \n";
         getline(cin,str);
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos){
@@ -70,7 +68,6 @@ string getPhone()
     string str;
     while (true)
     {
-        cout << "Enter Phone Number: \n";
         getline(cin,str);
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos){
@@ -90,7 +87,6 @@ string getPassword()
     string str;
     while (true)
     {
-        cout << "Enter First Name: \n";
         getline(cin,str);
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos){
@@ -125,12 +121,12 @@ double getRate()    //get the interest rate
         int nonIntChar = str.find_first_not_of("0123456789.");
         if (nonIntChar != string::npos)
         {
-            cout << "Accout number must contain only integer" <<"\n";
+            cout << "Error" <<"\n";
             continue;  //return the error condition
         }
-        if (stod(str) > 10 or stod(str) < 0.1)
+        if (stod(str) > 0.1 or stod(str) < 0.01)
         {
-            cout << "Interest rate must be between 0.1% and 10%" << "\n";
+            cout << "Interest rate must be between 0.01 and 0.1%" << "\n";
             continue;
         }
         break;
@@ -518,7 +514,7 @@ double getAmount()  //get the amount from user to deposit or withdraw
         int nonIntChar = str.find_first_not_of("0123456789.");
         if (nonIntChar != string::npos)
         {
-            cout << "Accout number must contain only integer" <<"\n";
+            cout << "Error" <<"\n";
             continue;  //return the error condition
         }
         break;

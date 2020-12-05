@@ -29,6 +29,7 @@ class BankOfficial{
     int getCurrentY();
     int getCurrentM();
     int getCurrentD();
+    bool isOnl() { return online; }
     void setOnlStat(bool newStatus);
 
     void closeChkAcc(ChkAcc &account);

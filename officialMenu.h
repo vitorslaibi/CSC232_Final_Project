@@ -13,12 +13,14 @@ void openChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int 
     string phone = getPhone();
 
     ChkAcc account(id, password, fName, lName, phone);
+    account.saveData();
+    ChkAcc::totalChk++;
     chkList.push_back(account);
 }
 //Open new saving account
-void openSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
+void openSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
 {
-    cout << "\nYour Checking Account ID Is S" << to_string(savList.size()) << "\n";
+    cout << "\nYour Saving Account ID Is S" << to_string(savList.size()) << "\n";
     string id = to_string(savList.size());
     cout << "\nPlease Enter Your New Password\n";
     string password = getPassword();
@@ -31,29 +33,36 @@ void openSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int ac
     
 
     SavAcc account(id, password, fName, lName, phone);
+    account.saveData();
+    account.setInterestRate(savInt);
+    SavAcc::totalSav++;
     savList.push_back(account);
 }
 //Open new Certificat of Deposit account
 void openCD(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
 {
-    cout << "\nYour Checking Account ID Is S" << to_string(cdList.size()) << "\n";
+    cout << "\nYour Certificate Of Deposit Account ID Is D" << to_string(cdList.size()) << "\n";
     string id = to_string(cdList.size());
     cout << "\nPlease Enter Your New Password\n";
     string password = getPassword();
     cout << "\nPlease Enter Your First Name\n";
     string fName = getFirstName();
-    cout << "\nPLease Enter Your Last Name\n";
+    cout << "\nPlease Enter Your Last Name\n";
     string lName = getLastName();
-    cout << "\nPLease Enter Your Phone Number\n";
+    cout << "\nPlease Enter Your Phone Number\n";
     string phone = getPhone();
+    cout << "\nPlease Enter Your Initial Balance\n";
+    double balance = getAmount();
     
-    CD account(id, password, fName, lName, phone);
+    CD account(id, balance, password, fName, lName, phone);
+    account.saveData();
+    CD::totalCD++;
     cdList.push_back(account);
 }
 //Open new U account
-void openUacc(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
+void openUacc(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
 {
-    cout << "\nYour Checking Account ID Is S" << to_string(uList.size()) << "\n";
+    cout << "\nYour U Account ID Is U" << to_string(uList.size()) << "\n";
     string id = to_string(uList.size());
     cout << "\nPlease Enter Your New Password\n";
     string password = getPassword();
@@ -66,12 +75,15 @@ void openUacc(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum
     
 
     ClassU account(id, password, fName, lName, phone);
+    account.saveData();
+    account.setInterestRate(uInt);
+    ClassU::totalU++;
     uList.push_back(account);
 }
 //Open new V account
-void openVacc(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
+void openVacc(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
 {
-    cout << "\nYour Checking Account ID Is S" << to_string(vList.size()) << "\n";
+    cout << "\nYour V Account ID Is V" << to_string(vList.size()) << "\n";
     string id = to_string(vList.size());
     cout << "\nPlease Enter Your New Password\n";
     string password = getPassword();
@@ -84,12 +96,15 @@ void openVacc(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum
     
 
     ClassV account(id, password, fName, lName, phone);
+    account.saveData();
+    account.setInterestRate(vInt);
+    ClassV::totalV++;
     vList.push_back(account);
 }
 //Open new X account
-void openXacc(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
+void openXacc(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
 {
-    cout << "\nYour Checking Account ID Is S" << to_string(xList.size()) << "\n";
+    cout << "\nYour X Account ID Is X" << to_string(xList.size()) << "\n";
     string id = to_string(xList.size());
     cout << "\nPlease Enter Your New Password\n";
     string password = getPassword();
@@ -102,12 +117,15 @@ void openXacc(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum
     
 
     ClassX account(id, password, fName, lName, phone);
+    account.saveData();
+    account.setInterestRate(xInt);
+    ClassX::totalX++;
     xList.push_back(account);
 }
 //Open new Y account
-void openYacc(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
+void openYacc(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
 {
-    cout << "\nYour Checking Account ID Is S" << to_string(yList.size()) << "\n";
+    cout << "\nYour Y Account ID Is Y" << to_string(yList.size()) << "\n";
     string id = to_string(yList.size());
     cout << "\nPlease Enter Your New Password\n";
     string password = getPassword();
@@ -120,12 +138,15 @@ void openYacc(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum
     
 
     ClassY account(id, password, fName, lName, phone);
+    account.saveData();
+    account.setInterestRate(yInt);
+    ClassY::totalY++;
     yList.push_back(account);
 }
 //Open new Z account
-void openZacc(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
+void openZacc(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
 {
-    cout << "\nYour Checking Account ID Is S" << to_string(zList.size()) << "\n";
+    cout << "\nYour Z Account ID Is Z" << to_string(zList.size()) << "\n";
     string id = to_string(zList.size());
     cout << "\nPlease Enter Your New Password\n";
     string password = getPassword();
@@ -138,6 +159,9 @@ void openZacc(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum
     
 
     ClassZ account(id, password, fName, lName, phone);
+    account.saveData();
+    account.setInterestRate(zInt);
+    ClassZ::totalZ++;
     zList.push_back(account);
 }
 
@@ -1018,7 +1042,7 @@ void officialWithdraw(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<C
 }
 
 //Go to open account menu
-void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, string uStat, string vStat, string xStat, string yStat, string zStat)
+void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, string &uStat, string &vStat, string &xStat, string &yStat, string &zStat, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
 {
     bool done = false;
     while (!done)
@@ -1043,7 +1067,7 @@ void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &c
             }
             case 2:
             { 
-                openSaving(savList, officList, accNum);
+                openSaving(savList, officList, accNum, savInt, uInt, vInt, xInt, yInt, zInt);
                 cout << "\nNew Saving Account Created.\n";
                 break;
             }
@@ -1054,48 +1078,53 @@ void openAccount(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &c
             }
             case 4:
             {
-                if (uStat == "1")
-                    openUacc(uList, officList, accNum);
+                if (ClassU::active)
+                    openUacc(uList, officList, accNum, savInt, uInt, vInt, xInt, yInt, zInt);
                 else
                 {
                     cout << "\nThis Account Type Is Not Available To Be Used\n";
                 }
+                break;
             }
             case 5:
             {
-                if (vStat == "1")
-                    openVacc(vList, officList, accNum);
+                if (ClassV::active)
+                    openVacc(vList, officList, accNum, savInt, uInt, vInt, xInt, yInt, zInt);
                 else
                 {
                     cout << "\nThis Account Type Is Not Available To Be Used\n";
                 }
+                break;
             }
             case 6:
             {
-                if (xStat == "1")
-                    openXacc(xList, officList, accNum);
+                if (ClassX::active)
+                    openXacc(xList, officList, accNum, savInt, uInt, vInt, xInt, yInt, zInt);
                 else
                 {
                     cout << "\nThis Account Type Is Not Available To Be Used\n";
                 }
+                break;
             }
             case 7:
             {
-                if (yStat == "1")
-                    openYacc(yList, officList, accNum);
+                if (ClassY::active)
+                    openYacc(yList, officList, accNum, savInt, uInt, vInt, xInt, yInt, zInt);
                 else
                 {
                     cout << "\nThis Account Type Is Not Available To Be Used\n";
                 }
+                break;
             }
             case 8:
             {
-                if (zStat == "1")
-                    openZacc(zList, officList, accNum);
+                if (ClassZ::active)
+                    openZacc(zList, officList, accNum, savInt, uInt, vInt, xInt, yInt, zInt);
                 else
                 {
                     cout << "\nThis Account Type Is Not Available To Be Used\n";
                 }
+                break;
             }
             case 9:
             {
@@ -2073,7 +2102,7 @@ void officialSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
     }
 }
 
-void officialMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, string uStat, string vStat, string xStat, string yStat, string zStat)
+void officialMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector<BankOfficial> &officList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, string &uStat, string &vStat, string &xStat, string &yStat, string &zStat, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
 {
     bool done = false;
     while (!done)
@@ -2090,7 +2119,7 @@ void officialMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
             case 1:
             {
                 cout << "\nChoose A Type Of Account To Open.\n";
-                openAccount(chkList, savList, cdList, officList, accNum, uList, vList, xList, yList, zList, uStat, vStat, xStat, yStat, zStat);
+                openAccount(chkList, savList, cdList, officList, accNum, uList, vList, xList, yList, zList, uStat, vStat, xStat, yStat, zStat, savInt, uInt, vInt, xInt, yInt, zInt);
                 cout << "\nAccount Successfully Opened.\n";   //might print the info of the open account
                 break;
             }

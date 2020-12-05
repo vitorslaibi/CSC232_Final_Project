@@ -1,4 +1,4 @@
-void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList)
+void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, string &uStatus, string &vStatus, string &xStatus, string &yStatus, string &zStatus, double &savPen, double &uPen, double &vPen, double &xPen, double &yPen, double &zPen, double &savSafLe, double &uSafLe, double &vSafLe, double &xSafLe, double &ySafLe, double &zSafLe)
 {
     bool done = false;
     while (!done)
@@ -14,72 +14,180 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
         {
             case 1:
             {
-                adminList[accNum].createUacc();
-                cout << "\nPlease Set The Safety Level\n";
-                double safeLev = getAmount();
-                cout << "\nPlease Enter the Penalty Amount\n";
-                double pen = getAmount();
-                for (int i = 0; i < uList.size(); i++)
+                if(!ClassU::active)
                 {
-                    uList[i].setSafeLevel(safeLev);
-                    uList[i].setPenalty(pen);
+                    cout << ClassU::active;
+                    while (true)
+                    {
+                        uSafLe = 0;
+                        uPen = 0;
+                        cout << "\nPlease Set The Safety Level\n";
+                        double safeLev = getAmount();
+                        uSafLe = safeLev;
+                        if (uSafLe < uPen)
+                        {
+                            cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
+                            continue;
+                        }
+                        cout << "\nPlease Enter The Penalty Amount\n";
+                        double pen = getAmount();
+                        uPen = pen;
+                        if (uPen >= uSafLe)
+                        {
+                            cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
+                            continue;
+                        }
+                        for (int i = 0; i < uList.size(); i++)
+                        {
+                            uList[i].setSafeLevel(safeLev);
+                            uList[i].setPenalty(pen);
+                            cout << uList[i].getSafeLevel() << uList[i].getPenalty();
+                        }
+                        break;
+                    }
                 }
+                adminList[accNum].createUacc();
+                uStatus = "1";
                 break;
             }
             case 2:
             { 
-                adminList[accNum].createVacc();
-                cout << "\nPlease Set The Safety Level\n";
-                double safeLev = getAmount();
-                cout << "\nPlease Enter the Penalty Amount\n";
-                double pen = getAmount();
-                for (int i = 0; i < vList.size(); i++)
+                if(!ClassV::active)
                 {
-                    vList[i].setSafeLevel(safeLev);
-                    vList[i].setPenalty(pen);
+                    while (true)
+                    {
+                        vSafLe = 0;
+                        vPen = 0;
+                        cout << "\nPlease Set The Safety Level\n";
+                        double safeLev = getAmount();
+                        vSafLe = safeLev;
+                        if (vSafLe < vPen)
+                        {
+                            cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
+                            continue;
+                        }
+                        cout << "\nPlease Enter the Penalty Amount\n";
+                        double pen = getAmount();
+                        vPen = pen;
+                        if (vPen >= vSafLe)
+                        {
+                            cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
+                            continue;
+                        }
+                        for (int i = 0; i < vList.size(); i++)
+                        {
+                            vList[i].setSafeLevel(safeLev);
+                            vList[i].setPenalty(pen);
+                        }
+                    }
                 }
+                adminList[accNum].createVacc();
+                vStatus = "1";
                 break;
             }
             case 3:
             { 
-                adminList[accNum].createXacc();
-                cout << "\nPlease Set The Safety Level\n";
-                double safeLev = getAmount();
-                cout << "\nPlease Enter the Penalty Amount\n";
-                double pen = getAmount();
-                for (int i = 0; i < xList.size(); i++)
+                if(!ClassX::active)
                 {
-                    xList[i].setSafeLevel(safeLev);
-                    xList[i].setPenalty(pen);
+                    while (true)
+                    {
+                        xSafLe = 0;
+                        xPen = 0;
+                        cout << "\nPlease Set The Safety Level\n";
+                        double safeLev = getAmount();
+                        xSafLe = safeLev;
+                        if (xSafLe < xPen)
+                        {
+                            cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
+                            continue;
+                        }
+                        cout << "\nPlease Enter the Penalty Amount\n";
+                        double pen = getAmount();
+                        xPen = pen;
+                        if (xPen >= xSafLe)
+                        {
+                            cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
+                            continue;
+                        }
+                        for (int i = 0; i < xList.size(); i++)
+                        {
+                            xList[i].setSafeLevel(safeLev);
+                            xList[i].setPenalty(pen);
+                        }
+                    }
                 }
+                adminList[accNum].createXacc();
+                xStatus = "1";
                 break;
             }
             case 4:
             { 
-                adminList[accNum].createYacc();
-                cout << "\nPlease Set The Safety Level\n";
-                double safeLev = getAmount();
-                cout << "\nPlease Enter the Penalty Amount\n";
-                double pen = getAmount();
-                for (int i = 0; i < yList.size(); i++)
+                if(!ClassY::active)
                 {
-                    yList[i].setSafeLevel(safeLev);
-                    yList[i].setPenalty(pen);
+                    while (true)
+                    {
+                        ySafLe = 0;
+                        yPen = 0;
+                        cout << "\nPlease Set The Safety Level\n";
+                        double safeLev = getAmount();
+                        ySafLe = safeLev;
+                        if (ySafLe < yPen)
+                        {
+                            cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
+                            continue;
+                        }
+                        cout << "\nPlease Enter the Penalty Amount\n";
+                        double pen = getAmount();
+                        yPen = pen;
+                        if (yPen >= ySafLe)
+                        {
+                            cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
+                            continue;
+                        }
+                        for (int i = 0; i < yList.size(); i++)
+                        {
+                            yList[i].setSafeLevel(safeLev);
+                            yList[i].setPenalty(pen);
+                        }
+                    }
                 }
+                adminList[accNum].createYacc();
+                yStatus = "1";
                 break;
             }
             case 5:
-            { 
-                adminList[accNum].createZacc();
-                cout << "\nPlease Set The Safety Level\n";
-                double safeLev = getAmount();
-                cout << "\nPlease Enter the Penalty Amount\n";
-                double pen = getAmount();
-                for (int i = 0; i < zList.size(); i++)
+            {
+                if(!ClassZ::active)
                 {
-                    zList[i].setSafeLevel(safeLev);
-                    zList[i].setPenalty(pen);
+                    while (true)
+                    {
+                        zSafLe = 0;
+                        zPen = 0;
+                        cout << "\nPlease Set The Safety Level\n";
+                        double safeLev = getAmount();
+                        zSafLe = safeLev;
+                        if (zSafLe < zPen)
+                        {
+                            cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
+                            continue;
+                        }
+                        cout << "\nPlease Enter the Penalty Amount\n";
+                        double pen = getAmount();
+                        zPen = pen;
+                        if (zPen >= zSafLe)
+                        {
+                            cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
+                            continue;
+                        }
+                        for (int i = 0; i < zList.size(); i++)
+                        {
+                            zList[i].setSafeLevel(safeLev);
+                            zList[i].setPenalty(pen);
+                        }
+                    }
                 }
+                adminList[accNum].createZacc();
+                zStatus = "1";
                 break;
             }
             case 6:
@@ -96,7 +204,7 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
     }
 }
 
-void deleteAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList)
+void deleteAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, string &uStatus, string &vStatus, string &xStatus, string &yStatus, string &zStatus, double &savPen, double &uPen, double &vPen, double &xPen, double &yPen, double &zPen, double &savSafLe, double &uSafLe, double &vSafLe, double &xSafLe, double &ySafLe, double &zSafLe)
 {
     bool done = false;
     while (!done)
@@ -113,26 +221,31 @@ void deleteAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
             case 1:
             {
                 adminList[accNum].deleteUacc();
+                uStatus = "0";
                 break;
             }
             case 2:
             { 
                 adminList[accNum].deleteVacc();
+                vStatus = "0";
                 break;
             }
             case 3:
             { 
                 adminList[accNum].deleteXacc();
+                xStatus = "0";
                 break;
             }
             case 4:
             { 
                 adminList[accNum].deleteYacc();
+                yStatus = "0";
                 break;
             }
             case 5:
             { 
                 adminList[accNum].deleteZacc();
+                zStatus = "0";
                 break;
             }
             case 6:
@@ -149,7 +262,7 @@ void deleteAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
     }
 }
 
-void modSav(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, int accNum)
+void modSav(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, int accNum, double &savPen, double &uPen, double &vPen, double &xPen, double &yPen, double &zPen, double &savSafLe, double &uSafLe, double &vSafLe, double &xSafLe, double &ySafLe, double &zSafLe, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
 {
     bool done = false;
     while (!done)
@@ -165,28 +278,34 @@ void modSav(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, int accNum)
             {
                 cout << "\nPlease Enter new Interest rate\n";
                 double rate = getRate();
+                savInt = rate;
                 for (int i = 0; i < savList.size(); i++)
                 {
                     savList[i].setInterestRate(rate);
                 }
+                break;
             }
             case 2:
             {
                 cout << "\nPlease Enter new Penalty Amount\n";
                 double amount = getAmount();
+                savPen = amount;
                 for (int i = 0; i < savList.size(); i++)
                 {
                     savList[i].setPenalty(amount);
                 }
+                break;
             }
             case 3:
             {
                 cout << "\nPlease Enter new Safety Level\n";
-                double safeLevel = getRate();
+                double safeLevel = getAmount();
+                savSafLe = safeLevel;
                 for (int i = 0; i < savList.size(); i++)
                 {
                     savList[i].setSafeLevel(safeLevel);
                 }
+                break;
             }
             case 4: 
             {
@@ -199,7 +318,7 @@ void modSav(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, int accNum)
     }
 }
 
-void modU(vector<ClassU> &uList, vector<SystemAdmin> &adminList, int accNum)
+void modU(vector<ClassU> &uList, vector<SystemAdmin> &adminList, int accNum, double &savPen, double &uPen, double &vPen, double &xPen, double &yPen, double &zPen, double &savSafLe, double &uSafLe, double &vSafLe, double &xSafLe, double &ySafLe, double &zSafLe, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
 {
     bool done = false;
     while (!done)
@@ -215,28 +334,52 @@ void modU(vector<ClassU> &uList, vector<SystemAdmin> &adminList, int accNum)
             {
                 cout << "\nPlease Enter new Interest rate\n";
                 double rate = getRate();
+                uInt = rate;
                 for (int i = 0; i < uList.size(); i++)
                 {
                     uList[i].setInterestRate(rate);
                 }
+                break;
             }
             case 2:
             {
-                cout << "\nPlease Enter new Penalty Amount\n";
-                double amount = getAmount();
-                for (int i = 0; i < uList.size(); i++)
+                while (true)
                 {
-                    uList[i].setPenalty(amount);
+                    cout << "\nPlease Enter new Penalty Amount\n";
+                    double amount = getAmount();
+                    uPen = amount;
+                    if (uPen > uSafLe)
+                    {
+                        cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
+                        continue;
+                    }                    
+                    for (int i = 0; i < uList.size(); i++)
+                    {
+                        uList[i].setPenalty(amount);
+                    }
+                    break;
                 }
+                break;
             }
             case 3:
             {
-                cout << "\nPlease Enter new Safety Level\n";
-                double safeLevel = getRate();
-                for (int i = 0; i < uList.size(); i++)
+                while (true)
                 {
-                    uList[i].setSafeLevel(safeLevel);
+                    cout << "\nPlease Enter new Safety Level\n";
+                    double safeLevel = getAmount();
+                    uSafLe = safeLevel;
+                    if (uSafLe < uPen)
+                        {
+                            cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
+                            continue;
+                        }
+                    for (int i = 0; i < uList.size(); i++)
+                    {
+                        uList[i].setSafeLevel(safeLevel);
+                    }
+                    break;
                 }
+                break;
             }
             case 4: 
             {
@@ -249,7 +392,7 @@ void modU(vector<ClassU> &uList, vector<SystemAdmin> &adminList, int accNum)
     }
 }
 
-void modV(vector<ClassV> &vList, vector<SystemAdmin> &adminList, int accNum)
+void modV(vector<ClassV> &vList, vector<SystemAdmin> &adminList, int accNum, double &savPen, double &uPen, double &vPen, double &xPen, double &yPen, double &zPen, double &savSafLe, double &uSafLe, double &vSafLe, double &xSafLe, double &ySafLe, double &zSafLe, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
 {
     bool done = false;
     while (!done)
@@ -265,28 +408,52 @@ void modV(vector<ClassV> &vList, vector<SystemAdmin> &adminList, int accNum)
             {
                 cout << "\nPlease Enter new Interest rate\n";
                 double rate = getRate();
+                vInt = rate;
                 for (int i = 0; i < vList.size(); i++)
                 {
                     vList[i].setInterestRate(rate);
                 }
+                break;
             }
             case 2:
             {
-                cout << "\nPlease Enter new Penalty Amount\n";
-                double amount = getAmount();
-                for (int i = 0; i < vList.size(); i++)
+                while (true)
                 {
-                    vList[i].setPenalty(amount);
+                    cout << "\nPlease Enter new Penalty Amount\n";
+                    double amount = getAmount();
+                    vPen = amount;
+                    if (vPen > vSafLe)
+                    {
+                        cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
+                        continue;
+                    }
+                    for (int i = 0; i < vList.size(); i++)
+                    {
+                        vList[i].setPenalty(amount);
+                    }
+                    break;
                 }
+                break;
             }
             case 3:
             {
-                cout << "\nPlease Enter new Safety Level\n";
-                double safeLevel = getRate();
-                for (int i = 0; i < vList.size(); i++)
+                while (true)
                 {
-                    vList[i].setSafeLevel(safeLevel);
+                    cout << "\nPlease Enter new Safety Level\n";
+                    double safeLevel = getAmount();
+                    vSafLe = safeLevel;
+                    if (vSafLe < vPen)
+                        {
+                            cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
+                            continue;
+                        }
+                    for (int i = 0; i < vList.size(); i++)
+                    {
+                        vList[i].setSafeLevel(safeLevel);
+                    }
+                    break;
                 }
+                break;
             }
             case 4: 
             {
@@ -299,7 +466,7 @@ void modV(vector<ClassV> &vList, vector<SystemAdmin> &adminList, int accNum)
     }
 }
 
-void modX(vector<ClassX> &xList, vector<SystemAdmin> &adminList, int accNum)
+void modX(vector<ClassX> &xList, vector<SystemAdmin> &adminList, int accNum, double &savPen, double &uPen, double &vPen, double &xPen, double &yPen, double &zPen, double &savSafLe, double &uSafLe, double &vSafLe, double &xSafLe, double &ySafLe, double &zSafLe, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
 {
     bool done = false;
     while (!done)
@@ -315,28 +482,52 @@ void modX(vector<ClassX> &xList, vector<SystemAdmin> &adminList, int accNum)
             {
                 cout << "\nPlease Enter new Interest rate\n";
                 double rate = getRate();
+                xInt = rate;
                 for (int i = 0; i < xList.size(); i++)
                 {
                     xList[i].setInterestRate(rate);
                 }
+                break;
             }
             case 2:
             {
-                cout << "\nPlease Enter new Penalty Amount\n";
-                double amount = getAmount();
-                for (int i = 0; i < xList.size(); i++)
+                while (true)
                 {
-                    xList[i].setPenalty(amount);
+                    cout << "\nPlease Enter new Penalty Amount\n";
+                    double amount = getAmount();
+                    xPen = amount;
+                    if (xPen > xSafLe)
+                    {
+                        cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
+                        continue;
+                    }
+                    for (int i = 0; i < xList.size(); i++)
+                    {
+                        xList[i].setPenalty(amount);
+                    }
+                    break;
                 }
+                break;
             }
             case 3:
             {
-                cout << "\nPlease Enter new Safety Level\n";
-                double safeLevel = getRate();
-                for (int i = 0; i < xList.size(); i++)
+                while (true)
                 {
-                    xList[i].setSafeLevel(safeLevel);
+                    cout << "\nPlease Enter new Safety Level\n";
+                    double safeLevel = getAmount();
+                    xSafLe = safeLevel;
+                    if (xSafLe < xPen)
+                        {
+                            cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
+                            continue;
+                        }
+                    for (int i = 0; i < xList.size(); i++)
+                    {
+                        xList[i].setSafeLevel(safeLevel);
+                    }
+                    break;
                 }
+                break;
             }
             case 4: 
             {
@@ -349,7 +540,7 @@ void modX(vector<ClassX> &xList, vector<SystemAdmin> &adminList, int accNum)
     }
 }
 
-void modY(vector<ClassY> &yList, vector<SystemAdmin> &adminList, int accNum)
+void modY(vector<ClassY> &yList, vector<SystemAdmin> &adminList, int accNum, double &savPen, double &uPen, double &vPen, double &xPen, double &yPen, double &zPen, double &savSafLe, double &uSafLe, double &vSafLe, double &xSafLe, double &ySafLe, double &zSafLe, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
 {
     bool done = false;
     while (!done)
@@ -365,28 +556,52 @@ void modY(vector<ClassY> &yList, vector<SystemAdmin> &adminList, int accNum)
             {
                 cout << "\nPlease Enter new Interest rate\n";
                 double rate = getRate();
+                yInt = rate;
                 for (int i = 0; i < yList.size(); i++)
                 {
                     yList[i].setInterestRate(rate);
                 }
+                break;
             }
             case 2:
             {
-                cout << "\nPlease Enter new Penalty Amount\n";
-                double amount = getAmount();
-                for (int i = 0; i < yList.size(); i++)
+                while (true)
                 {
-                    yList[i].setPenalty(amount);
+                    cout << "\nPlease Enter new Penalty Amount\n";
+                    double amount = getAmount();
+                    yPen = amount;
+                    if (yPen > ySafLe)
+                    {
+                        cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
+                        continue;
+                    }
+                    for (int i = 0; i < yList.size(); i++)
+                    {
+                        yList[i].setPenalty(amount);
+                    }
+                    break;
                 }
+                break;
             }
             case 3:
             {
-                cout << "\nPlease Enter new Safety Level\n";
-                double safeLevel = getRate();
-                for (int i = 0; i < yList.size(); i++)
+                while (true)
                 {
-                    yList[i].setSafeLevel(safeLevel);
+                    cout << "\nPlease Enter new Safety Level\n";
+                    double safeLevel = getAmount();
+                    ySafLe = safeLevel;
+                    if (ySafLe < yPen)
+                        {
+                            cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
+                            continue;
+                        }
+                    for (int i = 0; i < yList.size(); i++)
+                    {
+                        yList[i].setSafeLevel(safeLevel);
+                    }
+                    break;
                 }
+                break;
             }
             case 4: 
             {
@@ -399,7 +614,7 @@ void modY(vector<ClassY> &yList, vector<SystemAdmin> &adminList, int accNum)
     }
 }
 
-void modZ(vector<ClassZ> &zList, vector<SystemAdmin> &adminList, int accNum)
+void modZ(vector<ClassZ> &zList, vector<SystemAdmin> &adminList, int accNum, double &savPen, double &uPen, double &vPen, double &xPen, double &yPen, double &zPen, double &savSafLe, double &uSafLe, double &vSafLe, double &xSafLe, double &ySafLe, double &zSafLe, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
 {
     bool done = false;
     while (!done)
@@ -415,28 +630,52 @@ void modZ(vector<ClassZ> &zList, vector<SystemAdmin> &adminList, int accNum)
             {
                 cout << "\nPlease Enter new Interest rate\n";
                 double rate = getRate();
+                zInt = rate;
                 for (int i = 0; i < zList.size(); i++)
                 {
                     zList[i].setInterestRate(rate);
                 }
+                break;
             }
             case 2:
             {
-                cout << "\nPlease Enter new Penalty Amount\n";
-                double amount = getAmount();
-                for (int i = 0; i < zList.size(); i++)
+                while (true)
                 {
-                    zList[i].setPenalty(amount);
+                    cout << "\nPlease Enter new Penalty Amount\n";
+                    double amount = getAmount();
+                    zPen = amount;
+                    if (zPen > zSafLe)
+                    {
+                        cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
+                        continue;
+                    }
+                    for (int i = 0; i < zList.size(); i++)
+                    {
+                        zList[i].setPenalty(amount);
+                    }
+                    break;
                 }
+                break;
             }
             case 3:
             {
-                cout << "\nPlease Enter new Safety Level\n";
-                double safeLevel = getRate();
-                for (int i = 0; i < zList.size(); i++)
+                while (true)
                 {
-                    zList[i].setSafeLevel(safeLevel);
+                    cout << "\nPlease Enter new Safety Level\n";
+                    double safeLevel = getAmount();
+                    zSafLe = safeLevel;
+                    if (zSafLe < zPen)
+                        {
+                            cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
+                            continue;
+                        }
+                    for (int i = 0; i < zList.size(); i++)
+                    {
+                        zList[i].setSafeLevel(safeLevel);
+                    }
+                    break;
                 }
+                break;
             }
             case 4: 
             {
@@ -449,7 +688,7 @@ void modZ(vector<ClassZ> &zList, vector<SystemAdmin> &adminList, int accNum)
     }
 }
 
-void modAccMenu(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList)
+void modAccMenu(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, double &savPen, double &uPen, double &vPen, double &xPen, double &yPen, double &zPen, double &savSafLe, double &uSafLe, double &vSafLe, double &xSafLe, double &ySafLe, double &zSafLe, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
 {
     bool done = false;
     while (!done)
@@ -466,32 +705,32 @@ void modAccMenu(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, int acc
         {
             case 1:
             {
-                modSav(savList, adminList, accNum);
+                modSav(savList, adminList, accNum, savPen, uPen, vPen, xPen, yPen, zPen, savSafLe, uSafLe, vSafLe, xSafLe, ySafLe, zSafLe, savInt, uInt, vInt, xInt, yInt, zInt);
                 break;
             }
             case 2:
             { 
-                modU(uList, adminList, accNum);
+                modU(uList, adminList, accNum, savPen, uPen, vPen, xPen, yPen, zPen, savSafLe, uSafLe, vSafLe, xSafLe, ySafLe, zSafLe, savInt, uInt, vInt, xInt, yInt, zInt);
                 break;
             }
             case 3:
             { 
-                modV(vList, adminList, accNum);
+                modV(vList, adminList, accNum, savPen, uPen, vPen, xPen, yPen, zPen, savSafLe, uSafLe, vSafLe, xSafLe, ySafLe, zSafLe, savInt, uInt, vInt, xInt, yInt, zInt);
                 break;
             }
             case 4:
             { 
-                modX(xList, adminList, accNum);
+                modX(xList, adminList, accNum, savPen, uPen, vPen, xPen, yPen, zPen, savSafLe, uSafLe, vSafLe, xSafLe, ySafLe, zSafLe, savInt, uInt, vInt, xInt, yInt, zInt);
                 break;
             }
             case 5:
             { 
-                modY(yList, adminList, accNum);
+                modY(yList, adminList, accNum, savPen, uPen, vPen, xPen, yPen, zPen, savSafLe, uSafLe, vSafLe, xSafLe, ySafLe, zSafLe, savInt, uInt, vInt, xInt, yInt, zInt);
                 break;
             }
             case 6:
             {
-                modZ(zList, adminList, accNum);
+                modZ(zList, adminList, accNum, savPen, uPen, vPen, xPen, yPen, zPen, savSafLe, uSafLe, vSafLe, xSafLe, ySafLe, zSafLe, savInt, uInt, vInt, xInt, yInt, zInt);
                 break;
             }
             case 7:
@@ -508,7 +747,7 @@ void modAccMenu(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, int acc
     }
 }
 
-void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <SystemAdmin> &adminList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, string uStat, string vStat, string xStat, string yStat, string zStat)
+void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <SystemAdmin> &adminList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, string &uStatus, string &vStatus, string &xStatus, string &yStatus, string &zStatus)
 {
     bool done = false;
     while (!done)
@@ -593,7 +832,7 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
             }
             case 4:
             {
-                if (uStat == "1")
+                if (uStatus == "1")
                 {
                     bool found = false;
                     while(!found)
@@ -621,7 +860,7 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
             }
             case 5:
             {
-                if (vStat == "1")
+                if (vStatus == "1")
                 {
                     bool found = false;
                     while(!found)
@@ -649,7 +888,7 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
             }
             case 6:
             {
-                if (xStat == "1")
+                if (xStatus == "1")
                 {
                     bool found = false;
                     while(!found)
@@ -677,7 +916,7 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
             }
             case 7:
             {
-                if (yStat == "1")
+                if (yStatus == "1")
                 {
                     bool found = false;
                     while(!found)
@@ -705,7 +944,7 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
             }
             case 8:
             {
-                if (zStat == "1")
+                if (zStatus == "1")
                 {
                     bool found = false;
                     while(!found)
@@ -1641,7 +1880,7 @@ void adminSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &c
     }
 }
 
-void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, string uStat, string vStat, string xStat, string yStat, string zStat)
+void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdList, vector <BankOfficial> &officList, vector <SystemAdmin> &adminList, int accNum, vector<ClassU> &uList, vector<ClassV> &vList, vector<ClassX> &xList, vector<ClassY> &yList, vector<ClassZ> &zList, string &uStatus, string &vStatus, string &xStatus, string &yStatus, string &zStatus, double &savPen, double &uPen, double &vPen, double &xPen, double &yPen, double &zPen, double &savSafLe, double &uSafLe, double &vSafLe, double &xSafLe, double &ySafLe, double &zSafLe, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
 {
     bool done = false;
     while (!done)
@@ -1671,6 +1910,7 @@ void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdL
                 string lName = getLastName();
 
                 BankOfficial account(id, password, fName,lName);
+                BankOfficial::totalB++;
                 officList.push_back(account);
                 account.saveData();
                 cout << "\nNew Bank Official Created\n";
@@ -1681,7 +1921,7 @@ void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdL
                 bool found = false;
                 while(!found)
                 {
-                    cout << "\nPlease Enter The Account ID That You Would Like To Close.\n";
+                    cout << "\nPlease Enter The Account ID That You Would Like To Enable.\n";
                     string id = getOffID();
                     for (int i = 0; i < officList.size(); i++)
                     {
@@ -1722,19 +1962,19 @@ void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdL
             }
             case 4:
             { 
-                createAccMenu(adminList, accNum, uList, vList, xList, yList, zList);
+                createAccMenu(adminList, accNum, uList, vList, xList, yList, zList, uStatus, vStatus, xStatus, yStatus, zStatus, savPen, uPen, vPen, xPen, yPen, zPen, savSafLe, uSafLe, vSafLe, xSafLe, ySafLe, zSafLe);
                 cout << "\nNew Bank Account Type Created\n";
                 break;
             }
             case 5:
             { 
-                deleteAccMenu(adminList, accNum, uList, vList, xList, yList, zList);
+                deleteAccMenu(adminList, accNum, uList, vList, xList, yList, zList, uStatus, vStatus, xStatus, yStatus, zStatus, savPen, uPen, vPen, xPen, yPen, zPen, savSafLe, uSafLe, vSafLe, xSafLe, ySafLe, zSafLe);
                 cout << "\nBank Account Type Deleted\n";
                 break;
             }
             case 6:
             { 
-                modAccMenu(savList, adminList, accNum, uList, vList, xList, yList, zList);
+                modAccMenu(savList, adminList, accNum, uList, vList, xList, yList, zList, savPen, uPen, vPen, xPen, yPen, zPen, savSafLe, uSafLe, vSafLe, xSafLe, ySafLe, zSafLe, savInt, uInt, vInt, xInt, yInt, zInt);
                 cout << "\nBank Account Type Modified\n";
                 break;
             }
@@ -1746,7 +1986,7 @@ void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdL
             }
             case 8:
             {
-                changePassMenu(chkList, savList, cdList, adminList, accNum, uList, vList, xList, yList, zList, uStat, vStat, xStat, yStat, zStat);
+                changePassMenu(chkList, savList, cdList, adminList, accNum, uList, vList, xList, yList, zList, uStatus, vStatus, xStatus, yStatus, zStatus);
                 cout << "\nUser's Password changed\n";
                 break;
             }

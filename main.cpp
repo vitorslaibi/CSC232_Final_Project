@@ -28,6 +28,8 @@ int main()
 {
     string uStatus, vStatus, xStatus, yStatus, zStatus;
     double savInt, uInt, vInt, xInt, yInt, zInt;
+    double savPen, uPen, vPen, xPen, yPen, zPen;
+    double savSafLe, uSafLe, vSafLe, xSafLe, ySafLe, zSafLe;
     string text;
     ifstream preview;
     preview.open("preview.txt");
@@ -40,7 +42,11 @@ int main()
         getline(preview, text);
         SavAcc::totalSav = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
-        savInt = stod(text);
+        savInt = stod(text.substr(0, text.find(" ")));
+        text = text.substr(text.find(" ") + 1, text.length());
+        savPen = stod(text.substr(0, text.find(" ")));
+        text = text.substr(text.find(" ") + 1, text.length());
+        savSafLe = stod(text);
 
         getline(preview, text);
         CD::totalCD = stoi(text);
@@ -48,35 +54,55 @@ int main()
         getline(preview, text);
         ClassU::totalU = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
-        uInt = stod(text);
+        uInt = stod(text.substr(0, text.find(" ")));
+        text = text.substr(text.find(" ") + 1, text.length());
+        uPen = stod(text.substr(0, text.find(" ")));
+        text = text.substr(text.find(" ") + 1, text.length());
+        uSafLe = stod(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         uStatus = text;
 
         getline(preview, text);
         ClassV::totalV = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
-        vInt = stod(text);
+        vInt = stod(text.substr(0, text.find(" ")));
+        text = text.substr(text.find(" ") + 1, text.length());
+        vPen = stod(text.substr(0, text.find(" ")));
+        text = text.substr(text.find(" ") + 1, text.length());
+        vSafLe = stod(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         vStatus = text;
 
         getline(preview, text);
         ClassX::totalX = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
-        xInt = stod(text);
+        xInt = stod(text.substr(0, text.find(" ")));
+        text = text.substr(text.find(" ") + 1, text.length());
+        xPen = stod(text.substr(0, text.find(" ")));
+        text = text.substr(text.find(" ") + 1, text.length());
+        xSafLe = stod(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         xStatus = text;
 
         getline(preview, text);
         ClassY::totalY = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
-        yInt = stod(text);
+        yInt = stod(text.substr(0, text.find(" ")));
+        text = text.substr(text.find(" ") + 1, text.length());
+        yPen = stod(text.substr(0, text.find(" ")));
+        text = text.substr(text.find(" ") + 1, text.length());
+        ySafLe = stod(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         yStatus = text;
         
         getline(preview, text);
         ClassZ::totalZ = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
-        zInt = stod(text);
+        zInt = stod(text.substr(0, text.find(" ")));
+        text = text.substr(text.find(" ") + 1, text.length());
+        zPen = stod(text.substr(0, text.find(" ")));
+        text = text.substr(text.find(" ") + 1, text.length());
+        zSafLe = stod(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         zStatus = text;
 
@@ -107,7 +133,7 @@ int main()
     acc.loadData();
     adminList.push_back(acc);
     cout << acc.getPassword() << endl;
-
+    
     for (int i = 0; i < ChkAcc::totalChk; i++)
     {
         string id = to_string(chkList.size());
@@ -128,7 +154,7 @@ int main()
     for (int i = 0; i < CD::totalCD; i++)
     {
         string id = to_string(cdList.size());
-        CD acc(id);
+        CD acc(id, 0.0);
         acc.loadData();
         cdList.push_back(acc);
     }
@@ -197,9 +223,10 @@ int main()
         acc.loadData();
         zList.push_back(acc);
     }
-
+    //cout << BankOfficial::totalB << endl;
     for (int i = 0; i < BankOfficial::totalB; i++)
     {
+        cout << i << endl;
         string id = to_string(officList.size());
         BankOfficial acc(id);
         acc.loadData();
@@ -252,13 +279,14 @@ int main()
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
                 cout << "\nSuccessfully Logged In\n";
-                adminMenu(chkList, savList, cdList, officList, adminList, accNum, uList, vList, xList, yList, zList, uStatus, vStatus, xStatus, yStatus, zStatus);
+                adminMenu(chkList, savList, cdList, officList, adminList, accNum, uList, vList, xList, yList, zList, uStatus, vStatus, xStatus, yStatus, zStatus, savPen, uPen, vPen, xPen, yPen, zPen, savSafLe, uSafLe, vSafLe, xSafLe, ySafLe, zSafLe, savInt, uInt, vInt, xInt, yInt, zInt);
                 break;
             }
             case 2:
             { 
                 int accNum;
                 bool found = false;
+                bool loggedIn = false;
                 while(!found)
                 {
                     cout << "\nPlease Enter The Account ID That You Would Like To Log Into.\n";
@@ -268,6 +296,13 @@ int main()
                         if (officList[i].getID() == id)
                         {
                             found = true;
+                            if (officList[i].isOnl())
+                                loggedIn = true;
+                            else
+                            {
+                                cout << "\nThis Account is Currently Closed. Require System Administrator to Enable\n";
+                                break;
+                            }
                             bool corPass = false;
                             while (!corPass)
                             {
@@ -288,7 +323,8 @@ int main()
                     if (!found) 
                         cout << "\nThe Account ID You Just Enter Does Not Exist\n";
                 }
-                officialMenu(chkList, savList, cdList, officList, accNum, uList, vList, xList, yList, zList, uStatus, vStatus, xStatus, yStatus, zStatus);
+                if (loggedIn)
+                    officialMenu(chkList, savList, cdList, officList, accNum, uList, vList, xList, yList, zList, uStatus, vStatus, xStatus, yStatus, zStatus, savInt, uInt, vInt, xInt, yInt, zInt);
                 break;
             }
             case 3:
@@ -301,13 +337,14 @@ int main()
             {
                 ofstream preview("preview.txt", ofstream::trunc);
                 preview << ChkAcc::totalChk << "\n";
-                preview << SavAcc::totalSav << " " << savInt << "\n";
+                preview << SavAcc::totalSav << " " << savInt << " " << savPen << " " << savSafLe << "\n";
                 preview << CD::totalCD << "\n";
-                preview << ClassU::totalU << " " << uInt << " " << uStatus << "\n";
-                preview << ClassV::totalV << " " << vInt << " " << vStatus << "\n";
-                preview << ClassX::totalX << " " << xInt << " " << xStatus << "\n";
-                preview << ClassY::totalY << " " << yInt << " " << yStatus << "\n";
-                preview << ClassZ::totalZ << " " << zInt << " " << zStatus << "\n";
+                preview << ClassU::totalU << " " << uInt << " " << uPen << " " << uSafLe << " " << uStatus << "\n";
+                cout << "|" << uStatus << "|" << "\n";
+                preview << ClassV::totalV << " " << vInt << " " << vPen << " " << vSafLe << " " << vStatus << "\n";
+                preview << ClassX::totalX << " " << xInt << " " << xPen << " " << xSafLe << " " << xStatus << "\n";
+                preview << ClassY::totalY << " " << yInt << " " << yPen << " " << ySafLe << " " << yStatus << "\n";
+                preview << ClassZ::totalZ << " " << zInt << " " << zPen << " " << zSafLe << " " << zStatus << "\n";
                 preview << BankOfficial::totalB << "\n";
                 preview << SystemAdmin::totalA << "\n";
                 acc.saveData();

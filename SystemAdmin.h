@@ -32,8 +32,8 @@ class SystemAdmin{
     int getCurrentD();
 
     void createOfficialAcc(string newID, string newPassword, string newFname,string newLname);
-    void enableOfficialAcc(BankOfficial account);
-    void disableOfficialAcc(BankOfficial account);
+    void enableOfficialAcc(BankOfficial &account);
+    void disableOfficialAcc(BankOfficial &account);
 
     void createUacc();
     void createVacc();

@@ -90,10 +90,10 @@ void BankAcc::updateDailyBalance(int year)  //update the balance after a day
 }
 string BankAcc::getID()     //get the account number, number part only
 {
-    int firstInt = ID.find_first_of("0123456789");      //find the 1st number
-    int lastInt = ID.find_last_of("0123456789");        //find the last number
-    string actualID = ID.substr(firstInt, lastInt - firstInt + 1);  //take anything in between and return it
-    return actualID;
+    // int firstInt = ID.find_first_of("0123456789");      //find the 1st number
+    // int lastInt = ID.find_last_of("0123456789");        //find the last number
+    // string actualID = ID.substr(firstInt, lastInt - firstInt + 1);  //take anything in between and return it
+    return ID;
 }
 
 //getters and setters
@@ -120,8 +120,24 @@ int BankAcc::getLastDayCounted(){ return lastDayCounted; }
 void BankAcc::setID(string newID) { ID = newID; }
 void BankAcc::setPassword(string newPassword) { password = newPassword; }
 void BankAcc::setBalance(double newBalance) { balance = newBalance; }
-void BankAcc::setSafeLevel(double newSafeLevel) {safeLevel = newSafeLevel; }
-void BankAcc::setPenalty(double newPenalty) {penalty = newPenalty; }
+void BankAcc::setSafeLevel(double newSafeLevel) 
+{
+    if (safeLevel <= penalty)
+    {
+        cout << "WTF are you doing you lil bitch you want the customer to bankrupt?" << endl;
+        return;
+    }
+    safeLevel = newSafeLevel;
+}
+void BankAcc::setPenalty(double newPenalty) 
+{
+    if (penalty >= safeLevel)
+    {
+        cout << "WTF are you doing you lil bitch you want the customer to bankrupt?" << endl;
+        return;
+    }
+    penalty = newPenalty;
+}
 void BankAcc::setInterestRate(double newInterestRate) 
 { 
     if (!isInterestFixed())
@@ -197,7 +213,7 @@ int BankAcc::getCurrentMin()  //get the current minute
 
 void BankAcc::updateOnlStat()
 {
-    if (balance < 1.0)  // if the balance is below $1
+    if (balance < -5.0)  // if the balance is below $1
     {
         closeAcc();
         return;
@@ -321,11 +337,11 @@ void BankAcc::saveData()    //save the data to a text file
     
     ofstream outFile;
 
-    string fileName = "";
-    fileName.append(ID);
-    fileName.append(".txt");
+    // string fileName = "";
+    // fileName.append(ID);
+    // fileName.append(".txt");
 
-    outFile.open(fileName, fstream::trunc);
+    outFile.open(ID + ".txt", fstream::trunc);
 
     if (!outFile)
     {
@@ -356,11 +372,11 @@ void BankAcc::loadData()    //load data from the text file
 {
     ifstream inFile;
 
-    string fileName = "";
-    fileName.append(ID);
-    fileName.append(".txt");
+    // string fileName = "";
+    // fileName.append(ID);
+    // fileName.append(".txt");
 
-    inFile.open(fileName);
+    inFile.open(ID + ".txt");
 
     if (!inFile)
     { 
@@ -413,11 +429,11 @@ void BankAcc::saveHistory(int year, int month, int day)     //save the day into 
 {
     ofstream outFile;
 
-    string fileName = "";
-    fileName.append(ID);
-    fileName.append("H.txt");
+    // string fileName = "";
+    // fileName.append(ID);
+    // fileName.append("H.txt");
 
-    outFile.open(fileName, fstream::app);
+    outFile.open(ID + "H.txt", fstream::app);
 
     if (!outFile)
     {
@@ -433,11 +449,11 @@ void BankAcc::saveTransactionHistory(char type, double amount)      //save the t
 {
     ofstream outFile;
 
-    string fileName = "";
-    fileName.append(ID);
-    fileName.append("H.txt");
+    // string fileName = "";
+    // fileName.append(ID);
+    // fileName.append("H.txt");
 
-    outFile.open(fileName, fstream::app);
+    outFile.open(ID + "H.txt", fstream::app);
 
     if (!outFile)
     {
@@ -453,11 +469,11 @@ void BankAcc::printAllHistory()
 {
     ifstream inFile;
 
-    string fileName = "";
-    fileName.append(ID);
-    fileName.append("H.txt");
+    // string fileName = "";
+    // fileName.append(ID);
+    // fileName.append("H.txt");
 
-    inFile.open(fileName);
+    inFile.open(ID + "H.txt");
 
     if (!inFile)
     {
@@ -477,11 +493,11 @@ void BankAcc::printLast7Days()
 {
     ifstream inFile;
 
-    string fileName = "";
-    fileName.append(ID);
-    fileName.append("H.txt");
+    // string fileName = "";
+    // fileName.append(ID);
+    // fileName.append("H.txt");
 
-    inFile.open(fileName);
+    inFile.open(ID + "H.txt");
 
     if (!inFile)
     {
@@ -496,7 +512,7 @@ void BankAcc::printLast7Days()
         count++;
     }
     inFile.close();
-    inFile.open(fileName);
+    inFile.open(ID + "H.txt");
     for (int i = 0; i < count; i++)
     {
         getline(inFile, text);

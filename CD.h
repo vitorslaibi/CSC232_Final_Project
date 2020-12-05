@@ -21,7 +21,7 @@ public:
     int getTermLength();
     int getRemainDays();
     double getReturnAmount();
-    CD(string newID, string newPassword, string newFname, string newLname, string newPhoneNum);
+    CD(string newID, double newBalance, string newPassword, string newFname, string newLname, string newPhoneNum);
     void deposit(double var);
     void calcInt();
     void withdraw(double var);
