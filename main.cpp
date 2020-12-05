@@ -264,7 +264,14 @@ int main()
             case 4:
             {
                 ofstream preview("preview.txt", ofstream::trunc);
-                preview << totalChk << "\n" << totalSav << "\n" << totalCD << "\n" << totalU << " " << uStatus << "\n" << totalV << " " << vStatus << "\n" << totalX << " " << xStatus << "\n" << totalY << " " << yStatus << "\n" << totalZ << " " << zStatus;
+                preview << totalChk << "\n";
+                preview << totalSav << "" << savInt << "\n";
+                preview << totalCD << "\n";
+                preview << totalU << " " << uInt << " " << uStatus << "\n";
+                preview << totalV << " " << vInt << " " << vStatus << "\n";
+                preview << totalX << " " << xInt << " " << xStatus << "\n";
+                preview << totalY << " " << yInt << " " << yStatus << "\n";
+                preview << totalZ << " " << zInt << " " << zStatus << "\n";
                 done = true;
                 break;
             }
