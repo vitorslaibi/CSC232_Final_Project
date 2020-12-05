@@ -40,12 +40,6 @@ class SystemAdmin{
     void createYacc();
     void createZacc();
 
-    void modifyChkCharge(double newCharge);
-    void modifyChkInterest(double newInterest);
-    void modifySavCharge(double newCharge);
-    void modifySavInterest(double newInterest);
-    void modifyCDInterest(double newInterest);
-
     void deleteChkAcc();
     void deleteSavAcc();
     void deleteCDacc();
@@ -55,11 +49,26 @@ class SystemAdmin{
     void deleteYacc();
     void deleteZacc();
 
-    void changePasswordChk(ChkAcc account, string newpassword);
-    void changePasswordSav(SavAcc account, string newpassword);
-    void changePasswordCD(CD account, string newpassword);
-    string encryption(string password);
+    void searchChk(ChkAcc &account);
+    void searchSav(SavAcc &account);
+    void searchCD(CD &account);
+    void searchU(ClassU &account);
+    void searchV(ClassV &account);
+    void searchX(ClassX &account);
+    void searchY(ClassY &account);
+    void searchZ(ClassZ &account);
+
+    void changePasswordChk(ChkAcc &account, string newpassword);
+    void changePasswordSav(SavAcc &account, string newpassword);
+    void changePasswordCD(CD &account, string newpassword);
+    void changePasswordU(ClassU &account, string newpassword);
+    void changePasswordV(ClassV &account, string newpassword);
+    void changePasswordX(ClassX &account, string newpassword);
+    void changePasswordY(ClassY &account, string newpassword);
+    void changePasswordZ(ClassZ &account, string newpassword);
     void updateFile(string oldPassword, string newPassword, string filename);
+
+    string encryption(string password);
     //save admin info in file
     void saveData();
 };

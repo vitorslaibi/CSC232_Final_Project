@@ -48,21 +48,21 @@ class BankOfficial{
     void saveInfoY(ClassY &account);
     void saveInfoZ(ClassZ &account);
 
-    void chkDeposit(ChkAcc &account, double ammount);
-    void savDeposit(SavAcc &account, double ammount);
-    void uDeposit(ClassU &account, double ammount);
-    void vDeposit(ClassV &account, double ammount);
-    void xDeposit(ClassX &account, double ammount);
-    void yDeposit(ClassY &account, double ammount);
-    void zDeposit(ClassZ &account, double ammount);
-    void chkWithdraw(ChkAcc &account, double ammount);
-    void savWithdraw(SavAcc &account, double ammount);
+    void chkDeposit(ChkAcc &account, double amount);
+    void savDeposit(SavAcc &account, double amount);
+    void uDeposit(ClassU &account, double amount);
+    void vDeposit(ClassV &account, double amount);
+    void xDeposit(ClassX &account, double amount);
+    void yDeposit(ClassY &account, double amount);
+    void zDeposit(ClassZ &account, double amount);
+    void chkWithdraw(ChkAcc &account, double amount);
+    void savWithdraw(SavAcc &account, double amount);
     void cdWithdraw(CD &account);
-    void uWithdraw(ClassU &account, double ammount);
-    void vWithdraw(ClassV &account, double ammount);
-    void xWithdraw(ClassX &account, double ammount);
-    void yWithdraw(ClassY &account, double ammount);
-    void zWithdraw(ClassZ &account, double ammount);
+    void uWithdraw(ClassU &account, double amount);
+    void vWithdraw(ClassV &account, double amount);
+    void xWithdraw(ClassX &account, double amount);
+    void yWithdraw(ClassY &account, double amount);
+    void zWithdraw(ClassZ &account, double amount);
     //print account info if search is succesful
     void searchChk(ChkAcc &account);
     void searchSav(SavAcc &account);
@@ -74,6 +74,6 @@ class BankOfficial{
     void searchZ(ClassZ &account);
     
     void saveData();
-    void laodData();
+    void loadData();
             
 };

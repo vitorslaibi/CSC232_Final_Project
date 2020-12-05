@@ -30,35 +30,35 @@ int main()
         getline(preview, text);
         totalU = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
-        uInt = text;
+        uInt = stod(text);
         text = text.substr(text.find(" ") + 1, text.length());
         uStatus = text;
 
         getline(preview, text);
         totalV = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
-        vInt = text;
+        vInt = stod(text);
         text = text.substr(text.find(" ") + 1, text.length());
         vStatus = text;
 
         getline(preview, text);
         totalX = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
-        xInt = text;
+        xInt = stod(text);
         text = text.substr(text.find(" ") + 1, text.length());
         xStatus = text;
 
         getline(preview, text);
         totalY = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
-        yInt = text;
+        yInt = stod(text);
         text = text.substr(text.find(" ") + 1, text.length());
         yStatus = text;
         
         getline(preview, text);
         totalZ = stoi(text.substr(0, text.find(" ")));
-        zext = text.substr(text.find(" ") + 1, text.length());
-        uInt = text;
+        text = text.substr(text.find(" ") + 1, text.length());
+        uInt = stod(text);
         text = text.substr(text.find(" ") + 1, text.length());
         zStatus = text;
     }

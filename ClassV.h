@@ -14,7 +14,7 @@ private:
 
 public:
     static bool active;
-    ClassV(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate);
+    ClassV(string newID, string newPassword, string newFname, string newLname, string newPhoneNum);
     void withdraw(double var) override;
     void deposit(double var) override;
     void closeAcc();

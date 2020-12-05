@@ -178,64 +178,64 @@ void BankOfficial::saveInfoZ(ClassZ &account){
     outFile.close();
 }
 
-void BankOfficial::chkDeposit(ChkAcc &account, double ammount){
-    account.deposit(ammount);
+void BankOfficial::chkDeposit(ChkAcc &account, double amount){
+    account.deposit(amount);
 }
 
-void BankOfficial::savDeposit(SavAcc &account, double ammount){
-    account.deposit(ammount);
+void BankOfficial::savDeposit(SavAcc &account, double amount){
+    account.deposit(amount);
 }
 
-void BankOfficial::uDeposit(ClassU &account, double ammount){
-    account.deposit(ammount);
+void BankOfficial::uDeposit(ClassU &account, double amount){
+    account.deposit(amount);
 }
 
-void BankOfficial::vDeposit(ClassV &account, double ammount){
-    account.deposit(ammount);
+void BankOfficial::vDeposit(ClassV &account, double amount){
+    account.deposit(amount);
 }
 
-void BankOfficial::xDeposit(ClassX &account, double ammount){
-    account.deposit(ammount);
+void BankOfficial::xDeposit(ClassX &account, double amount){
+    account.deposit(amount);
 }
 
-void BankOfficial::yDeposit(ClassY &account, double ammount){
-    account.deposit(ammount);
+void BankOfficial::yDeposit(ClassY &account, double amount){
+    account.deposit(amount);
 }
 
-void BankOfficial::zDeposit(ClassZ &account, double ammount){
-    account.deposit(ammount);
+void BankOfficial::zDeposit(ClassZ &account, double amount){
+    account.deposit(amount);
 }
 
-void BankOfficial::chkWithdraw(ChkAcc &account, double ammount){
-    account.withdraw(ammount);
+void BankOfficial::chkWithdraw(ChkAcc &account, double amount){
+    account.withdraw(amount);
 }
 
-void BankOfficial::savWithdraw(SavAcc &account, double ammount){
-    account.withdraw(ammount);
+void BankOfficial::savWithdraw(SavAcc &account, double amount){
+    account.withdraw(amount);
 }
 
-void BanKOfficial::cdWithdraw(CD &account){
+void BankOfficial::cdWithdraw(CD &account){
     account.withdraw(0.0);
 }
 
-void BanKOfficial::cWithdraw(ClassU &account, double ammount){
-    account.withdraw(ammount);
+void BankOfficial::uWithdraw(ClassU &account, double amount){
+    account.withdraw(amount);
 }
 
-void BanKOfficial::vWithdraw(ClassV &account, double ammount){
-    account.withdraw(ammount);
+void BankOfficial::vWithdraw(ClassV &account, double amount){
+    account.withdraw(amount);
 }
 
-void BanKOfficial::xWithdraw(ClassX &account, double ammount){
-    account.withdraw(ammount);
+void BankOfficial::xWithdraw(ClassX &account, double amount){
+    account.withdraw(amount);
 }
 
-void BanKOfficial::yWithdraw(ClassY &account, double ammount){
-    account.withdraw(ammount);
+void BankOfficial::yWithdraw(ClassY &account, double amount){
+    account.withdraw(amount);
 }
 
-void BanKOfficial::zWithdraw(ClassZ &account, double ammount){
-    account.withdraw(ammount);
+void BankOfficial::zWithdraw(ClassZ &account, double amount){
+    account.withdraw(amount);
 }
 
 //these functions print account info if search is succesful
@@ -324,7 +324,7 @@ void BankOfficial::loadData(){
     
     ifstream inFile;
 
-    outFile.open(ID + ".txt");
+    inFile.open(ID + ".txt");
 
     string text;
     getline(inFile, text);
@@ -338,7 +338,7 @@ void BankOfficial::loadData(){
     getline(inFile, text);
     openD = stoi(text);
     getline(inFile, text);
-    if (text == 0)
+    if (text == "0")
     {
         online = false;
     }
@@ -348,11 +348,5 @@ void BankOfficial::loadData(){
     }
     getline(inFile, text);
     password = text;
-    outFile << lName << endl;
-    outFile << openY << endl;
-    outFile << openM << endl;
-    outFile << openD << endl;
-    outFile << online << endl;
-    outFile << password << endl;
-    outFile.close();
+    inFile.close();
 }

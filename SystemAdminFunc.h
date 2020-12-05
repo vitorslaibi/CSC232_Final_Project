@@ -15,10 +15,10 @@ SystemAdmin::SystemAdmin(string newID, string newPassword, string newFname,strin
     openD = getCurrentD();
 }
 
-string SystemAdmin::getID(){return ID;}
-string SystemAdmin::getPassword(){return password;}
-string SystemAdmin::getFname(){return fName;}
-string SystemAdmin::getLname(){return lName;}
+string SystemAdmin::getID(){return SystemAdmin::ID;}
+string SystemAdmin::getPassword(){return SystemAdmin::password;}
+string SystemAdmin::getFname(){return SystemAdmin::fName;}
+string SystemAdmin::getLname(){return SystemAdmin::lName;}
 
 int SystemAdmin::getCurrentY() {
     time_t t = time(0);
@@ -36,10 +36,6 @@ int SystemAdmin::getCurrentD(){
     time_t t = time(0);
     tm* now = localtime(&t);
     return now->tm_mday;
-}
-
-void SystemAdmin::createOfficialAcc(string newID, string newPassword, string newFname,string newLname){
-    BankOfficial(newID, newPassword, newFname, newLname);
 }
 
 void SystemAdmin::enableOfficialAcc(BankOfficial account){
@@ -100,17 +96,84 @@ void SystemAdmin::deleteYacc(){
 void SystemAdmin::deleteZacc(){
     ClassZ::active = false;
 }
-void SystemAdmin::retrieveID(ChkAcc account){
-    ofstream outFile;
-    outFile.open(account.getID() + ".txt", ofstream::app);
-    //add bank official info to closed account file
-    outFile << "System Admin: " << endl;
-    outFile << fName << " " << lName << endl;
-    outFile << ID << endl;
-    outFile << "Account Closed at: " << getCurrentM() << "/" getCurrentD() << "/" << getCurrentY << endl;
+
+
+void SystemAdmin::searchChk(ChkAcc &account){
+    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
+    cout << "Phone Number: " << account.getPhoneNum() << endl;
+    cout << "Current Balance: " << account.getBalance() << endl;
 }
 
-void SystemAdmin::changePasswordChk(ChkAcc account, string newPassword){
+void SystemAdmin::searchSav(SavAcc &account){
+    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
+    cout << "Phone Number: " << account.getPhoneNum() << endl;
+    cout << "Current Balance: " << account.getBalance() << endl;
+
+}
+
+void SystemAdmin::searchCD(CD &account){
+    cout << "\nCD Number: " << account.getID() << endl;
+    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
+    cout << "Phone Number: " << account.getPhoneNum() << endl;
+    cout << "Current Balance: " << account.getBalance() << endl;
+    cout << "Remaining Days: " << account.getRemainDays() << endl;
+
+}
+
+void SystemAdmin::searchU(ClassU &account){
+    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
+    cout << "Phone Number: " << account.getPhoneNum() << endl;
+    cout << "Current Balance: " << account.getBalance() << endl;
+
+}
+
+void SystemAdmin::searchV(ClassV &account){
+    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
+    cout << "Phone Number: " << account.getPhoneNum() << endl;
+    cout << "Current Balance: " << account.getBalance() << endl;
+
+}
+
+void SystemAdmin::searchX(ClassX &account){
+    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
+    cout << "Phone Number: " << account.getPhoneNum() << endl;
+    cout << "Current Balance: " << account.getBalance() << endl;
+
+}
+
+void SystemAdmin::searchY(ClassY &account){
+    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
+    cout << "Phone Number: " << account.getPhoneNum() << endl;
+    cout << "Current Balance: " << account.getBalance() << endl;
+
+}
+
+void SystemAdmin::searchZ(ClassZ &account){
+    cout << "\nChecking Account: " << account.getID() << endl;
+    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
+    cout << "Phone Number: " << account.getPhoneNum() << endl;
+    cout << "Current Balance: " << account.getBalance() << endl;
+
+}
+
+void SystemAdmin::updateFile(string oldPassword, string newPassword, string filename){
+    string line;
+    ifstream inFile;
+
+    inFile.open(filename);
+    while(getline(inFile, line)){
+        line.replace(line.find(oldPassword),oldPassword.length(),newPassword);
+    }
+    inFile.close();
+}
+
+void SystemAdmin::changePasswordChk(ChkAcc &account, string newPassword){
     string oldPassword = account.getPassword();
     account.setPassword(newPassword);
     string encPassword = encryption(password);
@@ -119,7 +182,7 @@ void SystemAdmin::changePasswordChk(ChkAcc account, string newPassword){
     
 }
 
-void SystemAdmin::changePasswordSav(SavAcc account, string newPassword){
+void SystemAdmin::changePasswordSav(SavAcc &account, string newPassword){
     string oldPassword = account.getPassword();
     account.setPassword(newPassword);
     string encPassword = encryption(password);
@@ -128,7 +191,7 @@ void SystemAdmin::changePasswordSav(SavAcc account, string newPassword){
     
 }
 
-void SystemAdmin::changePasswordCD(CD account, string newPassword){
+void SystemAdmin::changePasswordCD(CD &account, string newPassword){
     string oldPassword = account.getPassword();
     account.setPassword(newPassword);
     string encPassword = encryption(password);
@@ -136,6 +199,52 @@ void SystemAdmin::changePasswordCD(CD account, string newPassword){
     updateFile(oldPassword, encPassword, filename);
     
 }
+
+void SystemAdmin::changePasswordU(ClassU &account, string newPassword){
+    string oldPassword = account.getPassword();
+    account.setPassword(newPassword);
+    string encPassword = encryption(password);
+    string filename = account.getID() + ".txt";
+    updateFile(oldPassword, encPassword, filename);
+    
+}
+
+void SystemAdmin::changePasswordV(ClassV &account, string newPassword){
+    string oldPassword = account.getPassword();
+    account.setPassword(newPassword);
+    string encPassword = encryption(password);
+    string filename = account.getID() + ".txt";
+    updateFile(oldPassword, encPassword, filename);
+    
+}
+
+void SystemAdmin::changePasswordX(ClassX &account, string newPassword){
+    string oldPassword = account.getPassword();
+    account.setPassword(newPassword);
+    string encPassword = encryption(password);
+    string filename = account.getID() + ".txt";
+    updateFile(oldPassword, encPassword, filename);
+    
+}
+
+void SystemAdmin::changePasswordY(ClassY &account, string newPassword){
+    string oldPassword = account.getPassword();
+    account.setPassword(newPassword);
+    string encPassword = encryption(password);
+    string filename = account.getID() + ".txt";
+    updateFile(oldPassword, encPassword, filename);
+    
+}
+
+void SystemAdmin::changePasswordZ(ClassZ &account, string newPassword){
+    string oldPassword = account.getPassword();
+    account.setPassword(newPassword);
+    string encPassword = encryption(password);
+    string filename = account.getID() + ".txt";
+    updateFile(oldPassword, encPassword, filename);
+    
+}
+
 string SystemAdmin::encryption(string password){
     char c;
     string encString = "";
@@ -147,16 +256,6 @@ string SystemAdmin::encryption(string password){
     return encString;
 }
 
-void updateFile(string oldPassword, string newPassword, string filename){
-    string line;
-    ifstream inFile;
-
-    inFile.open(filename);
-    while(getline(inFile, line)){
-        line.replace(line.find(oldPassword),oldPassword.length(),newPassword);
-    }
-    inFile.close();
-}
 
 //save admin info in file
 void SystemAdmin::saveData(){

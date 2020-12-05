@@ -14,7 +14,7 @@ private:
 
 public:
     static bool active;
-    ClassU(string newID, string newPassword, string newFname, string newLname, string newPhoneNum, double newInterestRate);
+    ClassU(string newID, string newPassword, string newFname, string newLname, string newPhoneNum);
     void withdraw(double var) override;
     void deposit(double var) override;
     void closeAcc();
