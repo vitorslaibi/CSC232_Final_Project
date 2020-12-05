@@ -13,6 +13,7 @@ void openChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int 
     string phone = getPhone();
 
     ChkAcc account(id, password, fName, lName, phone);
+    chkList.push_back(account);
 }
 //Open new saving account
 void openSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum)
@@ -30,6 +31,7 @@ void openSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int ac
     
 
     SavAcc account(id, password, fName, lName, phone);
+    savList.push_back(account);
 }
 //Open new Certificat of Deposit account
 void openCD(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
@@ -46,6 +48,7 @@ void openCD(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
     string phone = getPhone();
     
     CD account(id, password, fName, lName, phone);
+    cdList.push_back(account);
 }
 //Open new U account
 void openUacc(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
@@ -63,6 +66,7 @@ void openUacc(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum
     
 
     ClassU account(id, password, fName, lName, phone);
+    uList.push_back(account);
 }
 //Open new V account
 void openVacc(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
@@ -80,6 +84,7 @@ void openVacc(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum
     
 
     ClassV account(id, password, fName, lName, phone);
+    vList.push_back(account);
 }
 //Open new X account
 void openXacc(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
@@ -97,6 +102,7 @@ void openXacc(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum
     
 
     ClassX account(id, password, fName, lName, phone);
+    xList.push_back(account);
 }
 //Open new Y account
 void openYacc(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
@@ -114,6 +120,7 @@ void openYacc(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum
     
 
     ClassY account(id, password, fName, lName, phone);
+    yList.push_back(account);
 }
 //Open new Z account
 void openZacc(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
@@ -131,6 +138,7 @@ void openZacc(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum
     
 
     ClassZ account(id, password, fName, lName, phone);
+    zList.push_back(account);
 }
 
 //Close a Checking account
