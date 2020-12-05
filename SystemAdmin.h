@@ -20,6 +20,7 @@ class SystemAdmin{
     int openD;
 
     public:
+    static int totalA;
     SystemAdmin(string newID, string newPassword, string newFname,string newLname);
 
     string getID();

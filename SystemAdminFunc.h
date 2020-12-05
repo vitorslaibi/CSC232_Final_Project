@@ -13,6 +13,7 @@ SystemAdmin::SystemAdmin(string newID, string newPassword, string newFname,strin
     openY = getCurrentY();
     openM = getCurrentM();
     openD = getCurrentD();
+    totalA++;
 }
 
 string SystemAdmin::getID(){return SystemAdmin::ID;}

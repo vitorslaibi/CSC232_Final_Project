@@ -9,6 +9,7 @@ using namespace std;
 CD::CD(string newID, string newPassword = "", string newFname = "", string newLname = "", string newPhoneNum = "") : BankAcc(newID, newPassword, newFname, newLname, newPhoneNum, 0.0)
 {
     ID = newID.insert(0, "D");  //insert a D at the start of the acc number
+    totalCD++;
     setInterestRate(0.02);
 }
 

@@ -20,6 +20,7 @@ class BankOfficial{
     bool online = true;  //login profile status; false means profile is disabled
 
     public:
+    static int totalB;
     BankOfficial(string newID, string newPassword, string newFname,string newLname);
     string getID();
     string getPassword();

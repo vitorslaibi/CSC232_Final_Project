@@ -13,9 +13,19 @@ using namespace std;
     bool ClassX::active = true;
     bool ClassY::active = true;
     bool ClassZ::active = true;
+    int ChkAcc::totalChk = 0;
+    int SavAcc::totalSav = 0;
+    int CD::totalCD = 0;
+    int ClassU::totalU = 0;
+    int ClassV::totalV = 0;
+    int ClassX::totalX = 0;
+    int ClassY::totalY = 0;
+    int ClassZ::totalZ = 0;
+    int BankOfficial::totalB = 0;
+    int SystemAdmin::totalA = 0;
+    
 int main()
 {
-    int totalChk, totalSav, totalCD, totalU, totalV, totalX, totalY, totalZ;
     string uStatus, vStatus, xStatus, yStatus, zStatus;
     double savInt, uInt, vInt, xInt, yInt, zInt;
     string text;
@@ -25,50 +35,56 @@ int main()
     if (preview)
     {
         getline(preview, text);
-        totalChk = stoi(text);
+        ChkAcc::totalChk = stoi(text);
 
         getline(preview, text);
-        totalSav = stoi(text.substr(0, text.find(" ")));
+        SavAcc::totalSav = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         savInt = stod(text);
 
         getline(preview, text);
-        totalCD = stoi(text);
+        CD::totalCD = stoi(text);
 
         getline(preview, text);
-        totalU = stoi(text.substr(0, text.find(" ")));
+        ClassU::totalU = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         uInt = stod(text);
         text = text.substr(text.find(" ") + 1, text.length());
         uStatus = text;
 
         getline(preview, text);
-        totalV = stoi(text.substr(0, text.find(" ")));
+        ClassV::totalV = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         vInt = stod(text);
         text = text.substr(text.find(" ") + 1, text.length());
         vStatus = text;
 
         getline(preview, text);
-        totalX = stoi(text.substr(0, text.find(" ")));
+        ClassX::totalX = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         xInt = stod(text);
         text = text.substr(text.find(" ") + 1, text.length());
         xStatus = text;
 
         getline(preview, text);
-        totalY = stoi(text.substr(0, text.find(" ")));
+        ClassY::totalY = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         yInt = stod(text);
         text = text.substr(text.find(" ") + 1, text.length());
         yStatus = text;
         
         getline(preview, text);
-        totalZ = stoi(text.substr(0, text.find(" ")));
+        ClassZ::totalZ = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
-        uInt = stod(text);
+        zInt = stod(text);
         text = text.substr(text.find(" ") + 1, text.length());
         zStatus = text;
+
+        getline(preview, text);
+        BankOfficial::totalB = stoi(text);
+
+        getline(preview, text);
+        SystemAdmin::totalA = stoi(text);
     }
     else
     {
@@ -88,7 +104,7 @@ int main()
     vector <ClassZ> zList;
     
 
-    for (int i = 0; i < totalChk; i++)
+    for (int i = 0; i < ChkAcc::totalChk; i++)
     {
         string id = to_string(chkList.size());
         ChkAcc acc(id);
@@ -96,7 +112,7 @@ int main()
         acc.loadData();
     }
 
-    for (int i = 0; i < totalSav; i++)
+    for (int i = 0; i < SavAcc::totalSav; i++)
     {
         string id = to_string(savList.size());
         SavAcc acc(id);
@@ -105,7 +121,7 @@ int main()
         acc.loadData();
     }
 
-    for (int i = 0; i < totalCD; i++)
+    for (int i = 0; i < CD::totalCD; i++)
     {
         string id = to_string(cdList.size());
         CD acc(id);
@@ -117,7 +133,7 @@ int main()
         ClassU::active = true;
     else 
         ClassU::active = false;
-    for (int i = 0; i < totalU; i++)
+    for (int i = 0; i < ClassU::totalU; i++)
     {
         string id = to_string(uList.size());
         ClassU acc(id);
@@ -130,7 +146,7 @@ int main()
         ClassV::active = true;
     else 
         ClassV::active = false;
-    for (int i = 0; i < totalV; i++)
+    for (int i = 0; i < ClassV::totalV; i++)
     {
         string id = to_string(vList.size());
         ClassV acc(id);
@@ -143,7 +159,7 @@ int main()
         ClassX::active = true;
     else 
         ClassX::active = false;
-    for (int i = 0; i < totalX; i++)
+    for (int i = 0; i < ClassX::totalX; i++)
     {
         string id = to_string(xList.size());
         ClassX acc(id);
@@ -156,7 +172,7 @@ int main()
         ClassY::active = true;
     else 
         ClassY::active = false;
-    for (int i = 0; i < totalY; i++)
+    for (int i = 0; i < ClassY::totalY; i++)
     {
         string id = to_string(yList.size());
         ClassY acc(id);
@@ -169,7 +185,7 @@ int main()
         ClassZ::active = true;
     else 
         ClassZ::active = false;
-    for (int i = 0; i < totalZ; i++)
+    for (int i = 0; i < ClassZ::totalZ; i++)
     {
         string id = to_string(zList.size());
         ClassZ acc(id);
@@ -272,14 +288,16 @@ int main()
             case 4:
             {
                 ofstream preview("preview.txt", ofstream::trunc);
-                preview << totalChk << "\n";
-                preview << totalSav << "" << savInt << "\n";
-                preview << totalCD << "\n";
-                preview << totalU << " " << uInt << " " << uStatus << "\n";
-                preview << totalV << " " << vInt << " " << vStatus << "\n";
-                preview << totalX << " " << xInt << " " << xStatus << "\n";
-                preview << totalY << " " << yInt << " " << yStatus << "\n";
-                preview << totalZ << " " << zInt << " " << zStatus << "\n";
+                preview << ChkAcc::totalChk << "\n";
+                preview << SavAcc::totalSav << " " << savInt << "\n";
+                preview << CD::totalCD << "\n";
+                preview << ClassU::totalU << " " << uInt << " " << uStatus << "\n";
+                preview << ClassV::totalV << " " << vInt << " " << vStatus << "\n";
+                preview << ClassX::totalX << " " << xInt << " " << xStatus << "\n";
+                preview << ClassY::totalY << " " << yInt << " " << yStatus << "\n";
+                preview << ClassZ::totalZ << " " << zInt << " " << zStatus << "\n";
+                preview << BankOfficial::totalB << "\n";
+                preview << SystemAdmin::totalA << "\n";
                 done = true;
                 break;
             }

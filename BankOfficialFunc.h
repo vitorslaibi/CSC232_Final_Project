@@ -14,6 +14,7 @@ BankOfficial::BankOfficial(string newID, string newPassword, string newFname,str
     openY = getCurrentY();
     openM = getCurrentM();
     openD = getCurrentD();
+    totalB++;
 }
 
 string BankOfficial::getID(){return ID;}

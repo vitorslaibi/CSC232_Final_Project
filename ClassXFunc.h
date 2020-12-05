@@ -9,6 +9,7 @@ using namespace std;
 ClassX::ClassX(string newID, string newPassword = "", string newFname = "", string newLname = "", string newPhoneNum = "") : BankAcc(newID, newPassword, newFname, newLname, newPhoneNum, 0.0, 0.0)
 {
     ID = newID.insert(0, "X");  //insert a X at the start of the acc number
+    totalX++;
 }
 
 void ClassX::withdraw(double var)

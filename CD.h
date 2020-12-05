@@ -17,6 +17,7 @@ private:
 
 public:
     static bool active;
+    static int totalCD;
     int getTermLength();
     int getRemainDays();
     double getReturnAmount();
