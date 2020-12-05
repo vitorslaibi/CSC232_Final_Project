@@ -9,6 +9,7 @@ int main()
 {
     int totalChk, totalSav, totalCD, totalU, totalV, totalX, totalY, totalZ;
     string uStatus, vStatus, xStatus, yStatus, zStatus;
+    double savInt, uInt, vInt, xInt, yInt, zInt;
     string text;
     ifstream preview;
     preview.open("preview.txt");
@@ -17,28 +18,47 @@ int main()
     {
         getline(preview, text);
         totalChk = stoi(text);
+
         getline(preview, text);
-        totalSav = stoi(text);
+        totalSav = stoi(text.substr(0, text.find(" ")));
+        text = text.substr(text.find(" ") + 1, text.length());
+        savInt = stod(text);
+
         getline(preview, text);
         totalCD = stoi(text);
+
         getline(preview, text);
         totalU = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
+        uInt = text;
+        text = text.substr(text.find(" ") + 1, text.length());
         uStatus = text;
+
         getline(preview, text);
         totalV = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
+        vInt = text;
+        text = text.substr(text.find(" ") + 1, text.length());
         vStatus = text;
+
         getline(preview, text);
         totalX = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
+        xInt = text;
+        text = text.substr(text.find(" ") + 1, text.length());
         xStatus = text;
+
         getline(preview, text);
         totalY = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
+        yInt = text;
+        text = text.substr(text.find(" ") + 1, text.length());
         yStatus = text;
+        
         getline(preview, text);
         totalZ = stoi(text.substr(0, text.find(" ")));
+        zext = text.substr(text.find(" ") + 1, text.length());
+        uInt = text;
         text = text.substr(text.find(" ") + 1, text.length());
         zStatus = text;
     }
@@ -72,6 +92,7 @@ int main()
     {
         string id = to_string(savList.size());
         SavAcc acc(id);
+        acc.setInterestRate(savInt);
         savList.push_back(acc);
         acc.loadData();
     }
@@ -92,6 +113,7 @@ int main()
     {
         string id = to_string(uList.size());
         ClassU acc(id);
+        acc.setInterestRate(uInt);
         uList.push_back(acc);
         acc.loadData();
     }
@@ -104,6 +126,7 @@ int main()
     {
         string id = to_string(vList.size());
         ClassV acc(id);
+        acc.setInterestRate(vInt);
         vList.push_back(acc);
         acc.loadData();
     }
@@ -116,6 +139,7 @@ int main()
     {
         string id = to_string(xList.size());
         ClassX acc(id);
+        acc.setInterestRate(xInt);
         xList.push_back(acc);
         acc.loadData();
     }
@@ -128,6 +152,7 @@ int main()
     {
         string id = to_string(yList.size());
         ClassY acc(id);
+        acc.setInterestRate(yInt);
         yList.push_back(acc);
         acc.loadData();
     }
@@ -140,6 +165,7 @@ int main()
     {
         string id = to_string(zList.size());
         ClassZ acc(id);
+        acc.setInterestRate(zInt);
         zList.push_back(acc);
         acc.loadData();
     }

@@ -27,11 +27,9 @@ void openSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int ac
     string lName = getLastName();
     cout << "\nPLease Enter Your Phone Number\n";
     string phone = getPhone();
-    cout << "\nPLease Enter The Desire Interest Rate\n";
-    double rate = getRate();
     
 
-    SavAcc account(id, password, fName, lName, phone, rate);
+    SavAcc account(id, password, fName, lName, phone);
 }
 //Open new Certificat of Deposit account
 void openCD(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
@@ -62,11 +60,9 @@ void openUacc(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum
     string lName = getLastName();
     cout << "\nPLease Enter Your Phone Number\n";
     string phone = getPhone();
-    cout << "\nPLease Enter The Desire Interest Rate\n";
-    double rate = getRate();
     
 
-    ClassU account(id, password, fName, lName, phone, rate);
+    ClassU account(id, password, fName, lName, phone);
 }
 //Open new V account
 void openVacc(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
@@ -81,11 +77,9 @@ void openVacc(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum
     string lName = getLastName();
     cout << "\nPLease Enter Your Phone Number\n";
     string phone = getPhone();
-    cout << "\nPLease Enter The Desire Interest Rate\n";
-    double rate = getRate();
     
 
-    ClassV account(id, password, fName, lName, phone, rate);
+    ClassV account(id, password, fName, lName, phone);
 }
 //Open new X account
 void openXacc(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
@@ -100,11 +94,9 @@ void openXacc(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum
     string lName = getLastName();
     cout << "\nPLease Enter Your Phone Number\n";
     string phone = getPhone();
-    cout << "\nPLease Enter The Desire Interest Rate\n";
-    double rate = getRate();
     
 
-    ClassX account(id, password, fName, lName, phone, rate);
+    ClassX account(id, password, fName, lName, phone);
 }
 //Open new Y account
 void openYacc(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
@@ -119,11 +111,9 @@ void openYacc(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum
     string lName = getLastName();
     cout << "\nPLease Enter Your Phone Number\n";
     string phone = getPhone();
-    cout << "\nPLease Enter The Desire Interest Rate\n";
-    double rate = getRate();
     
 
-    ClassY account(id, password, fName, lName, phone, rate);
+    ClassY account(id, password, fName, lName, phone);
 }
 //Open new Z account
 void openZacc(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
@@ -138,11 +128,9 @@ void openZacc(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum
     string lName = getLastName();
     cout << "\nPLease Enter Your Phone Number\n";
     string phone = getPhone();
-    cout << "\nPLease Enter The Desire Interest Rate\n";
-    double rate = getRate();
     
 
-    ClassZ account(id, password, fName, lName, phone, rate);
+    ClassZ account(id, password, fName, lName, phone);
 }
 
 //Close a Checking account
@@ -215,7 +203,7 @@ void closeU(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
             if (uList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].closeUAcc(id);
+                officList[accNum].closeUAcc(uList[i]);
                 // if (savList[i].isOnline())
                 // {
                 //     savList[i].setOnlStat(false);
@@ -243,7 +231,7 @@ void closeV(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
             if (vList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].closeVAcc(id);
+                officList[accNum].closeVAcc(vList[i]);
                 // if (savList[i].isOnline())
                 // {
                 //     savList[i].setOnlStat(false);
@@ -271,7 +259,7 @@ void closeX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
             if (xList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].closeXAcc(id);
+                officList[accNum].closeXAcc(xList[i]);
                 // if (savList[i].isOnline())
                 // {
                 //     savList[i].setOnlStat(false);
@@ -299,7 +287,7 @@ void closeY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
             if (yList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].closeYAcc(id);
+                officList[accNum].closeYAcc(yList[i]);
                 // if (savList[i].isOnline())
                 // {
                 //     savList[i].setOnlStat(false);
@@ -327,7 +315,7 @@ void closeZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
             if (zList[i].getID() == id)
             {
                 found = true;
-                officList[accNum].closeZAcc(id);
+                officList[accNum].closeZAcc(zList[i]);
                 // if (savList[i].isOnline())
                 // {
                 //     savList[i].setOnlStat(false);
