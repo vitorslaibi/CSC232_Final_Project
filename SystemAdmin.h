@@ -72,4 +72,5 @@ class SystemAdmin{
     string encryption(string password);
     //save admin info in file
     void saveData();
+    void loadData();
 };

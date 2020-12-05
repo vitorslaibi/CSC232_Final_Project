@@ -5,7 +5,7 @@
 #include "include.h"
 using namespace std;
 
-SystemAdmin::SystemAdmin(string newID, string newPassword, string newFname,string newLname){
+SystemAdmin::SystemAdmin(string newID, string newPassword = "", string newFname = "",string newLname = ""){
     ID = newID.insert(0, "A");
     password = newPassword;
     fName = newFname;
@@ -272,4 +272,26 @@ void SystemAdmin::saveData(){
     outFile << openD << endl;
     outFile << password << endl;
     outFile.close();
+}
+
+void SystemAdmin::loadData(){
+    
+    ifstream inFile;
+
+    inFile.open(ID + ".txt");
+
+    string text;
+    getline(inFile, text);
+    fName = text;
+    getline(inFile, text);
+    lName = text;
+    getline(inFile, text);
+    openY = stoi(text);
+    getline(inFile, text);
+    openM = stoi(text);
+    getline(inFile, text);
+    openD = stoi(text);
+    getline(inFile, text);
+    password = text;
+    inFile.close();
 }

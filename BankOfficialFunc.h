@@ -5,7 +5,7 @@
 #include "include.h"
 using namespace std;
 
-BankOfficial::BankOfficial(string newID, string newPassword, string newFname,string newLname)
+BankOfficial::BankOfficial(string newID, string newPassword = "", string newFname = "",string newLname = "")
 {
     ID = newID.insert(0, "B");
     password = newPassword;

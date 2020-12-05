@@ -194,6 +194,14 @@ int main()
         acc.loadData();
     }
 
+    for (int i = 0; i < BankOfficial::totalB; i++)
+    {
+        string id = to_string(officList.size());
+        BankOfficial acc(id);
+        officList.push_back(acc);
+        acc.loadData();
+    }
+
 
     bool done = false;
     while (!done)
