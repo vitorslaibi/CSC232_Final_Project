@@ -5,6 +5,14 @@
 
 using namespace std;
 
+    bool ChkAcc::active = true;
+    bool SavAcc::active = true;
+    bool CD::active = true;
+    bool ClassU::active = true;
+    bool ClassV::active = true;
+    bool ClassX::active = true;
+    bool ClassY::active = true;
+    bool ClassZ::active = true;
 int main()
 {
     int totalChk, totalSav, totalCD, totalU, totalV, totalX, totalY, totalZ;
