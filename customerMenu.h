@@ -591,7 +591,12 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 if (loggedIn)
                 {
-                    cout << "Your last login date was in " << chkList[accNum].getLastMonthCounted() << "/" << chkList[accNum].getLastDayCounted() << "/" << chkList[accNum].getLastYearCounted() << " at " << chkList[accNum].getLastHourCounted() << ":" << chkList[accNum].getLastMinCounted() << ".\n";
+                    string minut = to_string(chkList[accNum].getLastMinCounted());
+                    if (minut.length() == 1)
+                    {
+                        minut.insert(0, "0");
+                    }
+                    cout << "Your last login date was in " << chkList[accNum].getLastMonthCounted() << "/" << chkList[accNum].getLastDayCounted() << "/" << chkList[accNum].getLastYearCounted() << " at " << chkList[accNum].getLastHourCounted() << ":" << minut << ".\n";
                     chkList[accNum].calcInt();
                     checkingMenu(chkList, accNum);
                 }
@@ -660,7 +665,12 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 if (loggedIn)
                 {
-                    cout << "Your last login date was in " << savList[accNum].getLastMonthCounted() << "/" << savList[accNum].getLastDayCounted() << "/" << savList[accNum].getLastYearCounted() << " at " << savList[accNum].getLastHourCounted() << ":" << savList[accNum].getLastMinCounted() << ".\n";
+                    string minut = to_string(savList[accNum].getLastMinCounted());
+                    if (minut.length() == 1)
+                    {
+                        minut.insert(0, "0");
+                    }
+                    cout << "Your last login date was in " << savList[accNum].getLastMonthCounted() << "/" << savList[accNum].getLastDayCounted() << "/" << savList[accNum].getLastYearCounted() << " at " << savList[accNum].getLastHourCounted() << ":" << minut << ".\n";
                     savList[accNum].calcInt();
                     savingMenu(savList, accNum);
                 }
@@ -729,7 +739,12 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 if (loggedIn)
                 {
-                    cout << "Your last login date was in " << cdList[accNum].getLastMonthCounted() << "/" << cdList[accNum].getLastDayCounted() << "/" << cdList[accNum].getLastYearCounted() << " at " << cdList[accNum].getLastHourCounted() << ":" << cdList[accNum].getLastMinCounted() << ".\n";
+                    string minut = to_string(cdList[accNum].getLastMinCounted());
+                    if (minut.length() == 1)
+                    {
+                        minut.insert(0, "0");
+                    }
+                    cout << "Your last login date was in " << cdList[accNum].getLastMonthCounted() << "/" << cdList[accNum].getLastDayCounted() << "/" << cdList[accNum].getLastYearCounted() << " at " << cdList[accNum].getLastHourCounted() << ":" << minut << ".\n";
                     cdList[accNum].calcInt();
                     cdMenu(cdList, accNum);
                 }
@@ -798,7 +813,12 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 if (loggedIn)
                 {
-                    cout << "Your last login date was in " << uList[accNum].getLastMonthCounted() << "/" << uList[accNum].getLastDayCounted() << "/" << uList[accNum].getLastYearCounted() << " at " << uList[accNum].getLastHourCounted() << ":" << uList[accNum].getLastMinCounted() << ".\n";
+                    string minut = to_string(uList[accNum].getLastMinCounted());
+                    if (minut.length() == 1)
+                    {
+                        minut.insert(0, "0");
+                    }
+                    cout << "Your last login date was in " << uList[accNum].getLastMonthCounted() << "/" << uList[accNum].getLastDayCounted() << "/" << uList[accNum].getLastYearCounted() << " at " << uList[accNum].getLastHourCounted() << ":" << minut << ".\n";
                     uList[accNum].calcInt();
                     uMenu(uList, accNum);
                 }
@@ -867,7 +887,12 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 if (loggedIn)
                 {
-                    cout << "Your last login date was in " << vList[accNum].getLastMonthCounted() << "/" << vList[accNum].getLastDayCounted() << "/" << vList[accNum].getLastYearCounted() << " at " << vList[accNum].getLastHourCounted() << ":" << vList[accNum].getLastMinCounted() << ".\n";
+                    string minut = to_string(vList[accNum].getLastMinCounted());
+                    if (minut.length() == 1)
+                    {
+                        minut.insert(0, "0");
+                    }
+                    cout << "Your last login date was in " << vList[accNum].getLastMonthCounted() << "/" << vList[accNum].getLastDayCounted() << "/" << vList[accNum].getLastYearCounted() << " at " << vList[accNum].getLastHourCounted() << ":" << minut << ".\n";
                     vList[accNum].calcInt();
                     vMenu(vList, accNum);
                 }
@@ -936,7 +961,12 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 if (loggedIn)
                 {
-                    cout << "Your last login date was in " << xList[accNum].getLastMonthCounted() << "/" << xList[accNum].getLastDayCounted() << "/" << xList[accNum].getLastYearCounted() << " at " << xList[accNum].getLastHourCounted() << ":" << xList[accNum].getLastMinCounted() << ".\n";
+                    string minut = to_string(xList[accNum].getLastMinCounted());
+                    if (minut.length() == 1)
+                    {
+                        minut.insert(0, "0");
+                    }
+                    cout << "Your last login date was in " << xList[accNum].getLastMonthCounted() << "/" << xList[accNum].getLastDayCounted() << "/" << xList[accNum].getLastYearCounted() << " at " << xList[accNum].getLastHourCounted() << ":" << minut << ".\n";
                     xList[accNum].calcInt();
                     xMenu(xList, accNum);
                 }
@@ -1005,7 +1035,12 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 if (loggedIn)
                 {
-                    cout << "Your last login date was in " << yList[accNum].getLastMonthCounted() << "/" << yList[accNum].getLastDayCounted() << "/" << yList[accNum].getLastYearCounted() << " at " << yList[accNum].getLastHourCounted() << ":" << yList[accNum].getLastMinCounted() << ".\n";
+                    string minut = to_string(yList[accNum].getLastMinCounted());
+                    if (minut.length() == 1)
+                    {
+                        minut.insert(0, "0");
+                    }
+                    cout << "Your last login date was in " << yList[accNum].getLastMonthCounted() << "/" << yList[accNum].getLastDayCounted() << "/" << yList[accNum].getLastYearCounted() << " at " << yList[accNum].getLastHourCounted() << ":" << minut << ".\n";
                     yList[accNum].calcInt();
                     yMenu(yList, accNum);
                 }
@@ -1074,7 +1109,12 @@ void customerMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
                 }
                 if (loggedIn)
                 {
-                    cout << "Your last login date was in " << zList[accNum].getLastMonthCounted() << "/" << zList[accNum].getLastDayCounted() << "/" << zList[accNum].getLastYearCounted() << " at " << zList[accNum].getLastHourCounted() << ":" << zList[accNum].getLastMinCounted() << ".\n";
+                    string minut = to_string(zList[accNum].getLastMinCounted());
+                    if (minut.length() == 1)
+                    {
+                        minut.insert(0, "0");
+                    }
+                    cout << "Your last login date was in " << zList[accNum].getLastMonthCounted() << "/" << zList[accNum].getLastDayCounted() << "/" << zList[accNum].getLastYearCounted() << " at " << zList[accNum].getLastHourCounted() << ":" << minut << ".\n";
                     zList[accNum].calcInt();
                     zMenu(zList, accNum);
                 }

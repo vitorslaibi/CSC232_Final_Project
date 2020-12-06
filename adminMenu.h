@@ -827,8 +827,12 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
             bool found = false;
             while (!found)
             {
-                cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+                cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Return To The Previous Menu.\n";
                 string id = getChkID();
+                if (id == "quit")
+                {
+                    break;
+                }
                 for (int i = 0; i < chkList.size(); i++)
                 {
                     if (chkList[i].getID() == id)
@@ -851,8 +855,12 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
             bool found = false;
             while (!found)
             {
-                cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+                cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Return To The Previous Menu.\n";
                 string id = getSavID();
+                if (id == "quit")
+                {
+                    break;
+                }
                 for (int i = 0; i < savList.size(); i++)
                 {
                     if (savList[i].getID() == id)
@@ -875,8 +883,12 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
             bool found = false;
             while (!found)
             {
-                cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+                cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Return To The Previous Menu.\n";
                 string id = getCDID();
+                if (id == "quit")
+                {
+                    break;
+                }
                 for (int i = 0; i < cdList.size(); i++)
                 {
                     if (cdList[i].getID() == id)
@@ -901,8 +913,12 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
                 bool found = false;
                 while (!found)
                 {
-                    cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+                    cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Return To The Previous Menu.\n";
                     string id = getUID();
+                    if (id == "quit")
+                    {
+                        break;
+                    }
                     for (int i = 0; i < uList.size(); i++)
                     {
                         if (uList[i].getID() == id)
@@ -931,8 +947,12 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
                 bool found = false;
                 while (!found)
                 {
-                    cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+                    cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Return To The Previous Menu.\n";
                     string id = getVID();
+                    if (id == "quit")
+                    {
+                        break;
+                    }
                     for (int i = 0; i < vList.size(); i++)
                     {
                         if (vList[i].getID() == id)
@@ -961,8 +981,12 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
                 bool found = false;
                 while (!found)
                 {
-                    cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+                    cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Return To The Previous Menu.\n";
                     string id = getXID();
+                    if (id == "quit")
+                    {
+                        break;
+                    }
                     for (int i = 0; i < xList.size(); i++)
                     {
                         if (xList[i].getID() == id)
@@ -991,8 +1015,12 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
                 bool found = false;
                 while (!found)
                 {
-                    cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+                    cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Return To The Previous Menu.\n";
                     string id = getYID();
+                    if (id == "quit")
+                    {
+                        break;
+                    }
                     for (int i = 0; i < yList.size(); i++)
                     {
                         if (yList[i].getID() == id)
@@ -1021,8 +1049,12 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
                 bool found = false;
                 while (!found)
                 {
-                    cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+                    cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Return To The Previous Menu.\n";
                     string id = getZID();
+                    if (id == "quit")
+                    {
+                        break;
+                    }
                     for (int i = 0; i < zList.size(); i++)
                     {
                         if (zList[i].getID() == id)
@@ -1090,6 +1122,10 @@ void searchCheckingName(vector<ChkAcc> &chkList, vector<SystemAdmin> &adminList,
     {
         cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
+        if ((fName == "quit"))
+        {
+            break;
+        }
         string lName = getLastName();
         if ((fName == "quit") or (lName == "quit"))
         {
@@ -1205,6 +1241,10 @@ void searchSavingName(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, i
     {
         cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
+        if ((fName == "quit"))
+        {
+            break;
+        }
         string lName = getLastName();
         if ((fName == "quit") or (lName == "quit"))
         {
@@ -1320,6 +1360,10 @@ void searchCDName(vector<CD> &cdList, vector<SystemAdmin> &adminList, int accNum
     {
         cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
+        if ((fName == "quit"))
+        {
+            break;
+        }
         string lName = getLastName();
         if ((fName == "quit") or (lName == "quit"))
         {
@@ -1435,6 +1479,10 @@ void searchVName(vector<ClassV> &vList, vector<SystemAdmin> &adminList, int accN
     {
         cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
+        if ((fName == "quit"))
+        {
+            break;
+        }
         string lName = getLastName();
         if ((fName == "quit") or (lName == "quit"))
         {
@@ -1550,6 +1598,10 @@ void searchUName(vector<ClassU> &uList, vector<SystemAdmin> &adminList, int accN
     {
         cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
+        if ((fName == "quit"))
+        {
+            break;
+        }
         string lName = getLastName();
         if ((fName == "quit") or (lName == "quit"))
         {
@@ -1665,6 +1717,10 @@ void searchXName(vector<ClassX> &xList, vector<SystemAdmin> &adminList, int accN
     {
         cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
+        if ((fName == "quit"))
+        {
+            break;
+        }
         string lName = getLastName();
         if ((fName == "quit") or (lName == "quit"))
         {
@@ -1780,6 +1836,10 @@ void searchYName(vector<ClassY> &yList, vector<SystemAdmin> &adminList, int accN
     {
         cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
+        if ((fName == "quit"))
+        {
+            break;
+        }
         string lName = getLastName();
         if ((fName == "quit") or (lName == "quit"))
         {
@@ -1895,6 +1955,10 @@ void searchZName(vector<ClassZ> &zList, vector<SystemAdmin> &adminList, int accN
     {
         cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
+        if ((fName == "quit"))
+        {
+            break;
+        }
         string lName = getLastName();
         if ((fName == "quit") or (lName == "quit"))
         {

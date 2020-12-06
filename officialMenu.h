@@ -1241,8 +1241,12 @@ void searchCheckingId(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, 
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string id = getChkID();
+        if (id == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < chkList.size(); i++)
         {
             if (chkList[i].getID() == id)
@@ -1261,9 +1265,17 @@ void searchCheckingName(vector<ChkAcc> &chkList, vector<BankOfficial> &officList
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
+        if (fName == "quit")
+        {
+            break;
+        }
         string lName = getLastName();
+        if (lName == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < chkList.size(); i++)
         {
             if (chkList[i].getFname() == fName && chkList[i].getLname() == lName)
@@ -1282,8 +1294,12 @@ void searchCheckingPhone(vector<ChkAcc> &chkList, vector<BankOfficial> &officLis
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        cout << "\nPlease Enter The Phone Number That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string phone = getPhone();
+        if (phone == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < chkList.size(); i++)
         {
             if (chkList[i].getPhoneNum() == phone)
@@ -1344,8 +1360,12 @@ void searchSavingId(vector<SavAcc> &savList, vector<BankOfficial> &officList, in
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string id = getSavID();
+        if (id == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < savList.size(); i++)
         {
             if (savList[i].getID() == id)
@@ -1364,9 +1384,17 @@ void searchSavingName(vector<SavAcc> &savList, vector<BankOfficial> &officList, 
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
+        if (fName == "quit")
+        {
+            break;
+        }
         string lName = getLastName();
+        if (lName == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < savList.size(); i++)
         {
             if (savList[i].getFname() == fName && savList[i].getLname() == lName)
@@ -1385,8 +1413,12 @@ void searchSavingPhone(vector<SavAcc> &savList, vector<BankOfficial> &officList,
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        cout << "\nPlease Enter The Phone Number That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string phone = getPhone();
+        if (phone == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < savList.size(); i++)
         {
             if (savList[i].getPhoneNum() == phone)
@@ -1447,8 +1479,12 @@ void searchCDId(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string id = getCDID();
+        if (id == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < cdList.size(); i++)
         {
             if (cdList[i].getID() == id)
@@ -1467,9 +1503,17 @@ void searchCDName(vector<CD> &cdList, vector<BankOfficial> &officList, int accNu
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
+        if (fName == "quit")
+        {
+            break;
+        }
         string lName = getLastName();
+        if (lName == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < cdList.size(); i++)
         {
             if (cdList[i].getFname() == fName && cdList[i].getLname() == lName)
@@ -1488,8 +1532,12 @@ void searchCDPhone(vector<CD> &cdList, vector<BankOfficial> &officList, int accN
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        cout << "\nPlease Enter The Phone Number That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string phone = getPhone();
+        if (phone == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < cdList.size(); i++)
         {
             if (cdList[i].getPhoneNum() == phone)
@@ -1550,8 +1598,12 @@ void searchVId(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNu
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string id = getVID();
+        if (id == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < vList.size(); i++)
         {
             if (vList[i].getID() == id)
@@ -1570,9 +1622,17 @@ void searchVName(vector<ClassV> &vList, vector<BankOfficial> &officList, int acc
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
+        if (fName == "quit")
+        {
+            break;
+        }
         string lName = getLastName();
+        if (lName == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < vList.size(); i++)
         {
             if (vList[i].getFname() == fName && vList[i].getLname() == lName)
@@ -1591,8 +1651,12 @@ void searchVPhone(vector<ClassV> &vList, vector<BankOfficial> &officList, int ac
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        cout << "\nPlease Enter The Phone Number That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string phone = getPhone();
+        if (phone == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < vList.size(); i++)
         {
             if (vList[i].getPhoneNum() == phone)
@@ -1653,8 +1717,12 @@ void searchUId(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNu
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string id = getUID();
+        if (id == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < uList.size(); i++)
         {
             if (uList[i].getID() == id)
@@ -1673,9 +1741,17 @@ void searchUName(vector<ClassU> &uList, vector<BankOfficial> &officList, int acc
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
+        if (fName == "quit")
+        {
+            break;
+        }
         string lName = getLastName();
+        if (lName == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < uList.size(); i++)
         {
             if (uList[i].getFname() == fName && uList[i].getLname() == lName)
@@ -1694,8 +1770,12 @@ void searchUPhone(vector<ClassU> &uList, vector<BankOfficial> &officList, int ac
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        cout << "\nPlease Enter The Phone Number That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string phone = getPhone();
+        if (phone == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < uList.size(); i++)
         {
             if (uList[i].getPhoneNum() == phone)
@@ -1756,8 +1836,12 @@ void searchXId(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNu
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string id = getXID();
+        if (id == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < xList.size(); i++)
         {
             if (xList[i].getID() == id)
@@ -1776,9 +1860,17 @@ void searchXName(vector<ClassX> &xList, vector<BankOfficial> &officList, int acc
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
+        if (fName == "quit")
+        {
+            break;
+        }
         string lName = getLastName();
+        if (lName == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < xList.size(); i++)
         {
             if (xList[i].getFname() == fName && xList[i].getLname() == lName)
@@ -1797,8 +1889,12 @@ void searchXPhone(vector<ClassX> &xList, vector<BankOfficial> &officList, int ac
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        cout << "\nPlease Enter The Phone Number That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string phone = getPhone();
+        if (phone == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < xList.size(); i++)
         {
             if (xList[i].getPhoneNum() == phone)
@@ -1859,8 +1955,12 @@ void searchYId(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNu
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string id = getYID();
+        if (id == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < yList.size(); i++)
         {
             if (yList[i].getID() == id)
@@ -1879,9 +1979,17 @@ void searchYName(vector<ClassY> &yList, vector<BankOfficial> &officList, int acc
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
+        if (fName == "quit")
+        {
+            break;
+        }
         string lName = getLastName();
+        if (lName == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < yList.size(); i++)
         {
             if (yList[i].getFname() == fName && yList[i].getLname() == lName)
@@ -1900,8 +2008,12 @@ void searchYPhone(vector<ClassY> &yList, vector<BankOfficial> &officList, int ac
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        cout << "\nPlease Enter The Phone Number That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string phone = getPhone();
+        if (phone == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < yList.size(); i++)
         {
             if (yList[i].getPhoneNum() == phone)
@@ -1962,8 +2074,12 @@ void searchZId(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNu
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string id = getZID();
+        if (id == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < zList.size(); i++)
         {
             if (zList[i].getID() == id)
@@ -1982,9 +2098,17 @@ void searchZName(vector<ClassZ> &zList, vector<BankOfficial> &officList, int acc
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
+        if (fName == "quit")
+        {
+            break;
+        }
         string lName = getLastName();
+        if (lName == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < zList.size(); i++)
         {
             if (zList[i].getFname() == fName && zList[i].getLname() == lName)
@@ -2003,8 +2127,12 @@ void searchZPhone(vector<ClassZ> &zList, vector<BankOfficial> &officList, int ac
     bool found = false;
     while(!found)
     {
-        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        cout << "\nPlease Enter The Phone Number That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string phone = getPhone();
+        if (phone == "quit")
+        {
+            break;
+        }
         for (int i = 0; i < zList.size(); i++)
         {
             if (zList[i].getPhoneNum() == phone)
@@ -2074,7 +2202,6 @@ void officialSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
         cout << "[7] Y Account\n";
         cout << "[8] Z Account\n";
         cout << "[9] Go Back\n";
-        cout << "[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {

@@ -239,7 +239,7 @@ void BankAcc::calcInt()
     {
         if (monthNow == lastMonthCounted)   //if we are in the same month as the last month recorded
         {
-            for (int day = lastDayCounted + 1; day <= dayNow; day++)    //loop from day the account created to today
+            for (int day = lastDayCounted + 1; day < dayNow; day++)    //loop from day the account created to today
             {
                 updateDailyBalance(yearNow);    //update the balance
                 saveHistory(yearNow, monthNow, day);    //save the day into the text file
