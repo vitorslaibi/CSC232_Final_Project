@@ -48,11 +48,17 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                         //cout << uList[i].getSafeLevel() << uList[i].getPenalty();
                     }
                     break;
+                adminList[accNum].createUacc();
+                ClassU::active = true;
+                uStatus = "1";
+                cout << "\nNew Bank Account Type Created\n";
                 }
             }
-            adminList[accNum].createUacc();
-            uStatus = "1";
-            cout << "\nNew Bank Account Type Created\n";
+            else
+            {
+                cout << "\nThis Account Type Is Already Activated\n";
+            }
+            
             break;
         }
         case 2:
@@ -89,11 +95,16 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                         vList[i].setInterestRate(rate);
                     }
                     break;
+                adminList[accNum].createVacc();
+                ClassV::active = true;
+                vStatus = "1";
+                cout << "\nNew Bank Account Type Created\n";
                 }
             }
-            adminList[accNum].createVacc();
-            vStatus = "1";
-            cout << "\nNew Bank Account Type Created\n";
+            else
+            {
+                cout << "\nThis Account Type Is Already Activated\n";
+            }
             break;
         }
         case 3:
@@ -130,11 +141,16 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                         xList[i].setInterestRate(rate);
                     }
                     break;
+                adminList[accNum].createXacc();
+                ClassX::active = true;
+                xStatus = "1";
+                cout << "\nNew Bank Account Type Created\n";
                 }
             }
-            adminList[accNum].createXacc();
-            xStatus = "1";
-            cout << "\nNew Bank Account Type Created\n";
+            else
+            {
+                cout << "\nThis Account Type Is Already Activated\n";
+            }
             break;
         }
         case 4:
@@ -171,11 +187,16 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                         yList[i].setInterestRate(rate);
                     }
                     break;
+                adminList[accNum].createYacc();
+                ClassY::active = true;
+                yStatus = "1";
+                cout << "\nNew Bank Account Type Created\n";
                 }
             }
-            adminList[accNum].createYacc();
-            yStatus = "1";
-            cout << "\nNew Bank Account Type Created\n";
+            else
+            {
+                cout << "\nThis Account Type Is Already Activated\n";
+            }
             break;
         }
         case 5:
@@ -212,11 +233,16 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                         zList[i].setInterestRate(rate);
                     }
                     break;
+                adminList[accNum].createZacc();
+                ClassZ::active = true;
+                zStatus = "1";
+                cout << "\nNew Bank Account Type Created\n";
                 }
             }
-            adminList[accNum].createZacc();
-            zStatus = "1";
-            cout << "\nNew Bank Account Type Created\n";
+            else
+            {
+                cout << "\nThis Account Type Is Already Activated\n";
+            }
             break;
         }
         case 6:
