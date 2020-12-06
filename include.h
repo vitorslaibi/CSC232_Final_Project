@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <iomanip>
 #include <vector>
 #include <ctime>
 #include "mainFunc.h"

@@ -311,7 +311,7 @@ void BankAcc::calcInt()
             }
             monthlyCharge();
         }
-        for (int day = 0; day < dayNow; day++)  //loop from Jan 1st of the current year to the current day
+        for (int day = 1; day < dayNow; day++)  //loop from Jan 1st of the current year to the current day
         {
             updateDailyBalance(yearNow);
             saveHistory(yearNow, monthNow, day);
@@ -354,24 +354,60 @@ void BankAcc::saveData()    //save the data to a text file
         cout << "Cannot find .txt file(s). All data corrupted." << endl;
         return;
     }
-    outFile << fName << endl;
-    outFile << lName << endl;
-    outFile << phoneNum << endl;
-    outFile << openY << endl;
-    outFile << openM << endl;
-    outFile << openD << endl;
-    outFile << closeY << endl;
-    outFile << closeM << endl;
-    outFile << closeD << endl;
-    outFile << balance << endl;
-    outFile << interestRate << endl;
-    outFile << servCharge << endl;
-    outFile << online << endl;
-    outFile << lastYearCounted << endl;
-    outFile << lastMonthCounted << endl;
-    outFile << lastDayCounted << endl;
-    outFile << password;
-    outFile.close();
+    string text;
+    text = encryption(fName);
+    outFile << text << endl;
+    text = encryption(lName);
+    outFile << text << endl;
+    text = encryption(phoneNum);
+    outFile << text << endl;
+    text = to_string(openY);
+    text = encryption(text);
+    outFile << text << endl;
+    text = to_string(openM);
+    text = encryption(text);
+    outFile << text << endl;
+    text = to_string(openD);
+    text = encryption(text);
+    outFile << text << endl;
+    text = to_string(closeY);
+    text = encryption(text);
+    outFile << text << endl;
+    text = to_string(closeM);
+    text = encryption(text);
+    outFile << text << endl;
+    text = to_string(closeD);
+    text = encryption(text);
+    outFile << text << endl;
+    text = to_string(balance);
+    text = encryption(text);
+    outFile << text << endl;
+    text = to_string(interestRate);
+    text = encryption(text);
+    outFile << text << endl;
+    text = to_string(servCharge);
+    text = encryption(text);
+    outFile << text << endl;
+    text = to_string(online);
+    text = encryption(text);
+    outFile << text << endl;
+    text = to_string(lastYearCounted);
+    text = encryption(text);
+    outFile << text << endl;
+    text = to_string(lastMonthCounted);
+    text = encryption(text);
+    outFile << text << endl;
+    text = to_string(lastDayCounted);
+    text = encryption(text);
+    outFile << text << endl;
+    text = to_string(lastHourCounted);
+    text = encryption(text);
+    outFile << text << endl;
+    text = to_string(lastMinCounted);
+    text = encryption(text);
+    outFile << text << endl;
+    text = encryption(password);
+    outFile << text << endl;
 }
 
 void BankAcc::loadData()    //load data from the text file
@@ -392,42 +428,67 @@ void BankAcc::loadData()    //load data from the text file
 
     string text;
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     fName = text;
+
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     lName = text;
+
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     phoneNum = text;
+
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     openY = stoi(text);
+
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     openM = stoi(text);
+
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     openD = stoi(text);
+
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     closeY = stoi(text);
+
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     closeM = stoi(text);
+
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     closeD = stoi(text);
+
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     balance = stod(text);
+
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     interestRate = stod(text);
+
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     servCharge = stod(text);
+
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     if (text == "0")
     {
@@ -437,18 +498,37 @@ void BankAcc::loadData()    //load data from the text file
     {
         online = true;
     }
+
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     lastYearCounted = stoi(text);
+
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     lastMonthCounted = stoi(text);
+
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     lastDayCounted = stoi(text);
+
     getline(inFile, text);
+    text = decryption(text);
+    stripSpace(text);
+    lastHourCounted = stoi(text);
+
+    getline(inFile, text);
+    text = decryption(text);
+    stripSpace(text);
+    lastMinCounted = stoi(text);
+
+    getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     password = text;
+
     inFile.close();
 }
 
@@ -467,8 +547,10 @@ void BankAcc::saveHistory(int year, int month, int day)     //save the day into 
         cout << "Cannot find history .txt file(s). All data corrupted." << endl;
         return;
     }
+    string text = "Y" + to_string(year) + "M" + to_string(month) + "D" + to_string(day);
+    text = encryption(text);
 
-    outFile << endl << "Y" << year << "M" << month << "D" << day;
+    outFile << endl << text;
     outFile.close();
 }
 
@@ -487,8 +569,11 @@ void BankAcc::saveTransactionHistory(char type, double amount)      //save the t
         cout << "Cannot find history .txt file(s). All data corrupted." << endl;
         return;
     }
+    
+    string text = string(" ") + type + to_string(amount) + "H" + to_string(getCurrentH()) + "M" + to_string(getCurrentMin());
+    text = encryption(text);
 
-    outFile << " " << type << amount << "H" << getCurrentH() << "M" << getCurrentMin();
+    outFile << text;
     outFile.close();
 }
 
@@ -512,6 +597,7 @@ void BankAcc::printAllHistory()
     getline(inFile, text);
     while (getline(inFile, text))
     {
+        text = decryption(text);
         getDayHistory(text);
     }
     inFile.close();
@@ -548,6 +634,7 @@ void BankAcc::printLast7Days()
         getline(inFile, text);
         if (i >= count - 7)
         {
+            text = decryption(text);
             getDayHistory(text);
         }
     }
@@ -566,6 +653,7 @@ void BankAcc::getDayHistory(string text)
     {
         day = text;
         cout << "At " << month << "/" << day << "/" << year << ", No Transaction Were Made.\n";
+        return;
         //continue; WHY IS THERE A CONTINUE HERE??? Sorry, I cut it from a loop XP
     }
     else
@@ -589,16 +677,29 @@ void BankAcc::getDayHistory(string text)
         val = text.substr(0, text.find_first_of("H"));
         text = text.substr(text.find_first_of("H") + 1);
         hour = text.substr(0, text.find_first_of("M"));
+        if (hour.length() == 1)
+        {
+            hour.insert(0, "0");
+        }
         text = text.substr(text.find_first_of("M") + 1);
+        int intMin;
         if (text.find_first_of(" ") == string::npos)
         {
             min = text;
-            cout << "\t" << type << " " << val << " at " << hour << ":" << min << ".\n";
+            if (min.length() == 1)
+            {
+                min.insert(0, "0");
+            }
+            cout << "\t" << type << " $" << val << " at " << hour << ":" << min << ".\n";
             break;
         }
         min = text.substr(0, text.find_first_of(" "));
+        if (min.length() == 1)
+        {
+            min.insert(0, "0");
+        }
         text = text.substr(text.find_first_of(" ") + 1);
-        cout << "\t" << type << " " << val << " at " << hour << ":" << min << ".\n";
+        cout << "\t" << type << " $" << val << " at " << hour << ":" << min << ".\n";
     }
 }
 

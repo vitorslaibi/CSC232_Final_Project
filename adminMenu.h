@@ -1064,7 +1064,7 @@ void searchCheckingId(vector<ChkAcc> &chkList, vector<SystemAdmin> &adminList, i
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string id = getChkID();
         if (id == "quit")
         {
@@ -1088,7 +1088,7 @@ void searchCheckingName(vector<ChkAcc> &chkList, vector<SystemAdmin> &adminList,
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
         string lName = getLastName();
         if ((fName == "quit") or (lName == "quit"))
@@ -1113,7 +1113,7 @@ void searchCheckingPhone(vector<ChkAcc> &chkList, vector<SystemAdmin> &adminList
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        cout << "\nPlease Enter The Phone Number That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string phone = getPhone();
         if (phone == "quit")
         {
@@ -1179,7 +1179,7 @@ void searchSavingId(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, int
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string id = getSavID();
         if (id == "quit")
         {
@@ -1203,7 +1203,7 @@ void searchSavingName(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, i
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
         string lName = getLastName();
         if ((fName == "quit") or (lName == "quit"))
@@ -1228,7 +1228,7 @@ void searchSavingPhone(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, 
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        cout << "\nPlease Enter The Phone Number That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string phone = getPhone();
         if (phone == "quit")
         {
@@ -1294,7 +1294,7 @@ void searchCDId(vector<CD> &cdList, vector<SystemAdmin> &adminList, int accNum)
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string id = getCDID();
         if (id == "quit")
         {
@@ -1343,7 +1343,7 @@ void searchCDPhone(vector<CD> &cdList, vector<SystemAdmin> &adminList, int accNu
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        cout << "\nPlease Enter The Phone Number That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string phone = getPhone();
         if (phone == "quit")
         {
@@ -1409,7 +1409,7 @@ void searchVId(vector<ClassV> &vList, vector<SystemAdmin> &adminList, int accNum
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string id = getVID();
         if (id == "quit")
         {
@@ -1433,7 +1433,7 @@ void searchVName(vector<ClassV> &vList, vector<SystemAdmin> &adminList, int accN
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
         string lName = getLastName();
         if ((fName == "quit") or (lName == "quit"))
@@ -1458,7 +1458,7 @@ void searchVPhone(vector<ClassV> &vList, vector<SystemAdmin> &adminList, int acc
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        cout << "\nPlease Enter The Phone Number That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string phone = getPhone();
         if (phone == "quit")
         {
@@ -1524,7 +1524,7 @@ void searchUId(vector<ClassU> &uList, vector<SystemAdmin> &adminList, int accNum
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string id = getUID();
         if (id == "quit")
         {
@@ -1548,7 +1548,7 @@ void searchUName(vector<ClassU> &uList, vector<SystemAdmin> &adminList, int accN
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
         string lName = getLastName();
         if ((fName == "quit") or (lName == "quit"))
@@ -1573,7 +1573,7 @@ void searchUPhone(vector<ClassU> &uList, vector<SystemAdmin> &adminList, int acc
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        cout << "\nPlease Enter The Phone Number That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string phone = getPhone();
         if (phone == "quit")
         {
@@ -1639,7 +1639,7 @@ void searchXId(vector<ClassX> &xList, vector<SystemAdmin> &adminList, int accNum
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string id = getXID();
         if (id == "quit")
         {
@@ -1663,7 +1663,7 @@ void searchXName(vector<ClassX> &xList, vector<SystemAdmin> &adminList, int accN
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
         string lName = getLastName();
         if ((fName == "quit") or (lName == "quit"))
@@ -1688,7 +1688,7 @@ void searchXPhone(vector<ClassX> &xList, vector<SystemAdmin> &adminList, int acc
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        cout << "\nPlease Enter The Phone Number That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string phone = getPhone();
         if (phone == "quit")
         {
@@ -1754,7 +1754,7 @@ void searchYId(vector<ClassY> &yList, vector<SystemAdmin> &adminList, int accNum
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string id = getYID();
         if (id == "quit")
         {
@@ -1778,7 +1778,7 @@ void searchYName(vector<ClassY> &yList, vector<SystemAdmin> &adminList, int accN
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
         string lName = getLastName();
         if ((fName == "quit") or (lName == "quit"))
@@ -1803,7 +1803,7 @@ void searchYPhone(vector<ClassY> &yList, vector<SystemAdmin> &adminList, int acc
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        cout << "\nPlease Enter The Phone Number That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string phone = getPhone();
         if (phone == "quit")
         {
@@ -1869,7 +1869,7 @@ void searchZId(vector<ClassZ> &zList, vector<SystemAdmin> &adminList, int accNum
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Account ID That You Are Searching For.\n";
+        cout << "\nPlease Enter The Account ID That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string id = getZID();
         if (id == "quit")
         {
@@ -1893,7 +1893,7 @@ void searchZName(vector<ClassZ> &zList, vector<SystemAdmin> &adminList, int accN
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Name That You Are Searching For.\n";
+        cout << "\nPlease Enter The Name That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string fName = getFirstName();
         string lName = getLastName();
         if ((fName == "quit") or (lName == "quit"))
@@ -1918,7 +1918,7 @@ void searchZPhone(vector<ClassZ> &zList, vector<SystemAdmin> &adminList, int acc
     bool found = false;
     while (!found)
     {
-        cout << "\nPlease Enter The Phone Number That You Are Searching For.\n";
+        cout << "\nPlease Enter The Phone Number That You Are Searching For, Or Enter \"quit\" To Exit To The Previous Menu.\n";
         string phone = getPhone();
         if (phone == "quit")
         {
@@ -2171,7 +2171,7 @@ void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdL
         case 9:
         {
             done = true;
-            cout << "\nLogged Out Of System Adminastrator Account\n";
+            cout << "\nLogged Out Of System Administrator Account\n";
             break;
         }
         default:

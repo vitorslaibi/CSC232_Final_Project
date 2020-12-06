@@ -1,10 +1,10 @@
-1
-2 0.02 0 0
-10
-0 0.02 0 0 0
-1 0.05 49 50 1
-0 0.02 0 0 0
-0 0.02 0 0 0
-0 0.02 0 0 0
-4
-1
+n
+m~npnlnnnn~npnnnnnn~npnnnnnn
+n
+n~npnmnnnn~npnnnnnn~npnnnnnn~n
+n~npninnnn~npnnnnnn~npnnnnnn~n
+n~npnlnnnn~npnnnnnn~npnnnnnn~n
+n~npnlnnnn~npnnnnnn~npnnnnnn~n
+n~npnlnnnn~npnnnnnn~npnnnnnn~n
+l
+m

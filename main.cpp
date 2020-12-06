@@ -37,9 +37,11 @@ int main()
     if (preview)
     {
         getline(preview, text);
+        text = decryption(text);
         ChkAcc::totalChk = stoi(text);
 
         getline(preview, text);
+        text = decryption(text);
         SavAcc::totalSav = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         savInt = stod(text.substr(0, text.find(" ")));
@@ -49,9 +51,11 @@ int main()
         savSafLe = stod(text);
 
         getline(preview, text);
+        text = decryption(text);
         CD::totalCD = stoi(text);
 
         getline(preview, text);
+        text = decryption(text);
         ClassU::totalU = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         uInt = stod(text.substr(0, text.find(" ")));
@@ -63,6 +67,7 @@ int main()
         uStatus = text;
 
         getline(preview, text);
+        text = decryption(text);
         ClassV::totalV = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         vInt = stod(text.substr(0, text.find(" ")));
@@ -74,6 +79,7 @@ int main()
         vStatus = text;
 
         getline(preview, text);
+        text = decryption(text);
         ClassX::totalX = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         xInt = stod(text.substr(0, text.find(" ")));
@@ -85,6 +91,7 @@ int main()
         xStatus = text;
 
         getline(preview, text);
+        text = decryption(text);
         ClassY::totalY = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         yInt = stod(text.substr(0, text.find(" ")));
@@ -96,6 +103,7 @@ int main()
         yStatus = text;
         
         getline(preview, text);
+        text = decryption(text);
         ClassZ::totalZ = stoi(text.substr(0, text.find(" ")));
         text = text.substr(text.find(" ") + 1, text.length());
         zInt = stod(text.substr(0, text.find(" ")));
@@ -107,9 +115,11 @@ int main()
         zStatus = text;
 
         getline(preview, text);
+        text = decryption(text);
         BankOfficial::totalB = stoi(text);
 
         getline(preview, text);
+        text = decryption(text);
         SystemAdmin::totalA = stoi(text);
     }
     else
@@ -117,7 +127,7 @@ int main()
         cout << "\nPreview File Does Not Exist\n";
     }
     preview.close();  
-
+    
     vector <SavAcc> savList;
     vector <ChkAcc> chkList;
     vector <CD> cdList;
@@ -128,7 +138,6 @@ int main()
     vector <ClassX> xList;
     vector <ClassY> yList;
     vector <ClassZ> zList;
-
     SystemAdmin acc("0");
     acc.loadData();
     adminList.push_back(acc);
@@ -140,7 +149,7 @@ int main()
         acc.loadData();
         chkList.push_back(acc);
     }
-
+    
     for (int i = 0; i < SavAcc::totalSav; i++)
     {
         string id = to_string(savList.size());
@@ -326,7 +335,7 @@ int main()
                             bool corPass = false;
                             while (!corPass)
                             {
-                                cout << "\nPlease Enter Password, Or Enter \"quit\" To Exit To The Previous Menu: \n" <<officList[i].getPassword() << endl;
+                                cout << "\nPlease Enter Password, Or Enter \"quit\" To Exit To The Previous Menu: \n" << endl;
                                 string password = getPassword();
                                 if (password == "quit")
                                 {
@@ -365,16 +374,37 @@ int main()
             case 4:
             {
                 ofstream preview("preview.txt", ofstream::trunc);
-                preview << ChkAcc::totalChk << "\n";
-                preview << SavAcc::totalSav << " " << savInt << " " << savPen << " " << savSafLe << "\n";
-                preview << CD::totalCD << "\n";
-                preview << ClassU::totalU << " " << uInt << " " << uPen << " " << uSafLe << " " << uStatus << "\n";
-                preview << ClassV::totalV << " " << vInt << " " << vPen << " " << vSafLe << " " << vStatus << "\n";
-                preview << ClassX::totalX << " " << xInt << " " << xPen << " " << xSafLe << " " << xStatus << "\n";
-                preview << ClassY::totalY << " " << yInt << " " << yPen << " " << ySafLe << " " << yStatus << "\n";
-                preview << ClassZ::totalZ << " " << zInt << " " << zPen << " " << zSafLe << " " << zStatus << "\n";
-                preview << BankOfficial::totalB << "\n";
-                preview << SystemAdmin::totalA;
+                string text;
+                text = to_string(ChkAcc::totalChk);
+                text = encryption(text);
+                preview << text << "\n";
+                text = to_string(SavAcc::totalSav) + " " + to_string(savInt) + " " + to_string(savPen) + " " + to_string(savSafLe);
+                text = encryption(text);
+                preview << text << "\n";
+                text = to_string(CD::totalCD);
+                text = encryption(text);
+                preview << text << "\n";
+                text = to_string(ClassU::totalU) + " " + to_string(uInt) + " " + to_string(uPen) + " " + to_string(uSafLe) + " " + uStatus;
+                text = encryption(text);
+                preview << text << "\n";
+                text = to_string(ClassV::totalV) + " " + to_string(vInt) + " " + to_string(vPen) + " " + to_string(vSafLe) + " " + vStatus;
+                text = encryption(text);
+                preview << text << "\n";
+                text = to_string(ClassX::totalX) + " " + to_string(xInt) + " " + to_string(xPen) + " " + to_string(xSafLe) + " " + xStatus;
+                text = encryption(text);
+                preview << text << "\n";
+                text = to_string(ClassY::totalY) + " " + to_string(yInt) + " " + to_string(yPen) + " " + to_string(ySafLe) + " " + yStatus;
+                text = encryption(text);
+                preview << text << "\n";
+                text = to_string(ClassZ::totalZ) + " " + to_string(zInt) + " " + to_string(zPen) + " " + to_string(zSafLe) + " " + zStatus;
+                text = encryption(text);
+                preview << text << "\n";
+                text = to_string(BankOfficial::totalB);
+                text = encryption(text);
+                preview << text << "\n";
+                text = to_string(SystemAdmin::totalA);
+                text = encryption(text);
+                preview << text;
                 acc.saveData();
                 done = true;
                 break;

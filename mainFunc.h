@@ -1,5 +1,31 @@
 using namespace std;
 
+string encryption(string rawString)
+{
+    char element;
+    string encryptedString = "";
+    for (int i = 0; i < rawString.length(); i++)
+    {
+        element = rawString.at(i);
+        element = 158 - element;
+        encryptedString += element;
+    }
+    return encryptedString;
+}
+
+string decryption(string encryptedString)
+{
+    char element;
+    string rawString = "";
+    for (int i = 0; i < encryptedString.length(); i++)
+    {
+        element = encryptedString.at(i);
+        element = 158 - element;
+        rawString += element;
+    }
+    return rawString;
+}
+
 void stripSpace(string &text)   // remove the leading and trailing space of a string
 {
     if (text.find_first_not_of(" \n\v\t\r\f") != string::npos)
@@ -160,7 +186,7 @@ double getRate()    //get the interest rate
         }
         if (stod(str) > 0.1 or stod(str) < 0.001)
         {
-            cout << "Interest rate must be between 0.1% and 10%" << "\n";
+            cout << "Interest rate must be between 0.001 and 0.1" << "\n";
             continue;
         }
         break;
@@ -593,6 +619,10 @@ double getAmount()  //get the amount from user to deposit or withdraw
     {
         getline(cin, str);
         stripSpace(str);
+        if (str == "quit")
+        {
+            return -1.0;
+        }
 
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos)

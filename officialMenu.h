@@ -35,7 +35,6 @@ void openSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int ac
 
     SavAcc account(id, password, fName, lName, phone);
     account.setInterestRate(savInt);
-    cout << account.getInterestRate() << endl;
     account.saveData();
     account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
     SavAcc::totalSav++;

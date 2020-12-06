@@ -74,6 +74,9 @@ class BankOfficial{
     void searchX(ClassX &account);
     void searchY(ClassY &account);
     void searchZ(ClassZ &account);
+
+    string encryption(string rawString);
+    string decryption(string encryptedString);
     
     void saveData();
     void loadData();

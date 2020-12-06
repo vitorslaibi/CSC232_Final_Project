@@ -13,15 +13,23 @@ void checkingMenu(vector<ChkAcc> &chkList, int accNum)
         {
             case 1:
             {
-                cout << "\nPlease Enter The Deposit Amount: $";
+                cout << "\nPlease Enter The Deposit Amount, Or Enter \"quit\" To Return To The Previous Menu: $";
                 double amount = getAmount();
+                if (amount == -1.0)
+                {
+                    break;
+                }
                 chkList[accNum].deposit(amount);
                 break;
             }
             case 2:
             {
-                cout << "\nPlease Enter The Withdraw Amount: $";
+                cout << "\nPlease Enter The Withdraw Amount, Or Enter \"quit\" To Return To The Previous Menu: $";
                 double amount = getAmount();
+                if (amount == -1.0)
+                {
+                    break;
+                }
                 chkList[accNum].withdraw(amount);
                 break;
             }
@@ -70,15 +78,23 @@ void savingMenu(vector<SavAcc> &savList, int accNum)
         {
             case 1:
             {
-                cout << "\nPlease Enter The Deposit Amount: $";
+                cout << "\nPlease Enter The Deposit Amount, Or Enter \"quit\" To Return To The Previous Menu: $";
                 double amount = getAmount();
+                if (amount == -1.0)
+                {
+                    break;
+                }
                 savList[accNum].deposit(amount);
                 break;
             }
             case 2:
             {
-                cout << "\nPlease Enter The Withdraw Amount: $";
+                cout << "\nPlease Enter The Withdraw Amount, Or Enter \"quit\" To Return To The Previous Menu: $";
                 double amount = getAmount();
+                if (amount == -1.0)
+                {
+                    break;
+                }
                 savList[accNum].withdraw(amount);
                 break;
             }
@@ -185,15 +201,23 @@ void uMenu(vector<ClassU> &uList, int accNum)
         {
             case 1:
             {
-                cout << "\nPlease Enter The Deposit Amount: $";
+                cout << "\nPlease Enter The Deposit Amount, Or Enter \"quit\" To Return To The Previous Menu: $";
                 double amount = getAmount();
+                if (amount == -1.0)
+                {
+                    break;
+                }
                 uList[accNum].deposit(amount);
                 break;
             }
             case 2:
             {
-                cout << "\nPlease Enter The Withdraw Amount: $";
+                cout << "\nPlease Enter The Withdraw Amount, Or Enter \"quit\" To Return To The Previous Menu: $";
                 double amount = getAmount();
+                if (amount == -1.0)
+                {
+                    break;
+                }
                 uList[accNum].withdraw(amount);
                 break;
             }
@@ -242,15 +266,23 @@ void vMenu(vector<ClassV> &vList, int accNum)
         {
             case 1:
             {
-                cout << "\nPlease Enter The Deposit Amount: $";
+                cout << "\nPlease Enter The Deposit Amount, Or Enter \"quit\" To Return To The Previous Menu: $";
                 double amount = getAmount();
+                if (amount == -1.0)
+                {
+                    break;
+                }
                 vList[accNum].deposit(amount);
                 break;
             }
             case 2:
             {
-                cout << "\nPlease Enter The Withdraw Amount: $";
+                cout << "\nPlease Enter The Withdraw Amount, Or Enter \"quit\" To Return To The Previous Menu: $";
                 double amount = getAmount();
+                if (amount == -1.0)
+                {
+                    break;
+                }
                 vList[accNum].withdraw(amount);
                 break;
             }
@@ -299,15 +331,23 @@ void xMenu(vector<ClassX> &xList, int accNum)
         {
             case 1:
             {
-                cout << "\nPlease Enter The Deposit Amount: $";
+                cout << "\nPlease Enter The Deposit Amount, Or Enter \"quit\" To Return To The Previous Menu: $";
                 double amount = getAmount();
+                if (amount == -1.0)
+                {
+                    break;
+                }
                 xList[accNum].deposit(amount);
                 break;
             }
             case 2:
             {
-                cout << "\nPlease Enter The Withdraw Amount: $";
+                cout << "\nPlease Enter The Withdraw Amount, Or Enter \"quit\" To Return To The Previous Menu: $";
                 double amount = getAmount();
+                if (amount == -1.0)
+                {
+                    break;
+                }
                 xList[accNum].withdraw(amount);
                 break;
             }
@@ -356,15 +396,23 @@ void yMenu(vector<ClassY> &yList, int accNum)
         {
             case 1:
             {
-                cout << "\nPlease Enter The Deposit Amount: $";
+                cout << "\nPlease Enter The Deposit Amount, Or Enter \"quit\" To Return To The Previous Menu: $";
                 double amount = getAmount();
+                if (amount == -1.0)
+                {
+                    break;
+                }
                 yList[accNum].deposit(amount);
                 break;
             }
             case 2:
             {
-                cout << "\nPlease Enter The Withdraw Amount: $";
+                cout << "\nPlease Enter The Withdraw Amount, Or Enter \"quit\" To Return To The Previous Menu: $";
                 double amount = getAmount();
+                if (amount == -1.0)
+                {
+                    break;
+                }
                 yList[accNum].withdraw(amount);
                 break;
             }
@@ -413,15 +461,23 @@ void zMenu(vector<ClassZ> &zList, int accNum)
         {
             case 1:
             {
-                cout << "\nPlease Enter The Deposit Amount: $";
+                cout << "\nPlease Enter The Deposit Amount, Or Enter \"quit\" To Return To The Previous Menu: $";
                 double amount = getAmount();
+                if (amount == -1.0)
+                {
+                    break;
+                }
                 zList[accNum].deposit(amount);
                 break;
             }
             case 2:
             {
-                cout << "\nPlease Enter The Withdraw Amount: $";
+                cout << "\nPlease Enter The Withdraw Amount, Or Enter \"quit\" To Return To The Previous Menu: $";
                 double amount = getAmount();
+                if (amount == -1.0)
+                {
+                    break;
+                }
                 zList[accNum].withdraw(amount);
                 break;
             }

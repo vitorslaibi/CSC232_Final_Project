@@ -264,6 +264,18 @@ string SystemAdmin::encryption(string password){
     return encString;
 }
 
+string SystemAdmin::decryption(string encryptedString)
+{
+    char element;
+    string rawString = "";
+    for (int i = 0; i < encryptedString.length(); i++)
+    {
+        element = encryptedString.at(i);
+        element = 158 - element;
+        rawString += element;
+    }
+    return rawString;
+}
 
 //save admin info in file
 void SystemAdmin::saveData(){
@@ -272,12 +284,23 @@ void SystemAdmin::saveData(){
 
     outFile.open(ID + ".txt", fstream::trunc);
 
-    outFile << fName << endl;
-    outFile << lName << endl;
-    outFile << openY << endl;
-    outFile << openM << endl;
-    outFile << openD << endl;
-    outFile << password;
+    string text;
+    text = encryption(fName);
+    outFile << text << endl;
+    text = encryption(lName);
+    outFile << text << endl;
+    text = to_string(openY);
+    text = encryption(text);
+    outFile << text << endl;
+    text = to_string(openM);
+    text = encryption(text);
+    outFile << text << endl;
+    text = to_string(openD);
+    text = encryption(text);
+    outFile << text << endl;
+    text = encryption(password);
+    outFile << text << endl;
+    
     outFile.close();
 }
 
@@ -289,21 +312,27 @@ void SystemAdmin::loadData(){
 
     string text;
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);    
     fName = text;
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     lName = text;
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     openY = stoi(text);
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     openM = stoi(text);
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     openD = stoi(text);
     getline(inFile, text);
+    text = decryption(text);
     stripSpace(text);
     password = text;
     inFile.close();

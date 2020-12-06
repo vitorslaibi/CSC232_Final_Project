@@ -70,6 +70,7 @@ class SystemAdmin{
     void updateFile(string oldPassword, string newPassword, string filename);
 
     string encryption(string password);
+    string decryption(string password);
     //save admin info in file
     void saveData();
     void loadData();
