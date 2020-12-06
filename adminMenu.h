@@ -16,43 +16,38 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
         {
             if (!ClassU::active)
             {
-                //cout << ClassU::active;
-                while (true)
+                uSafLe = 0;
+                uPen = 0;
+                cout << "\nPlease Set The Interest Rate (In Decimal Number): ";
+                double rate = getRate();
+                uInt = rate;
+                cout << "\nPlease Set The Safety Level: $";
+                double safeLev = getAmount();
+                uSafLe = safeLev;
+                if (uSafLe < uPen)
                 {
-                    uSafLe = 0;
-                    uPen = 0;
-                    cout << "\nPlease Set The Interest Rate (In Decimal Number): ";
-                    double rate = getRate();
-                    uInt = rate;
-                    cout << "\nPlease Set The Safety Level: $";
-                    double safeLev = getAmount();
-                    uSafLe = safeLev;
-                    if (uSafLe < uPen)
-                    {
-                        cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
-                        continue;
-                    }
-                    cout << "\nPlease Enter The Penalty Amount: $";
-                    double pen = getAmount();
-                    uPen = pen;
-                    if (uPen >= uSafLe)
-                    {
-                        cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
-                        continue;
-                    }
-                    for (int i = 0; i < uList.size(); i++)
-                    {
-                        uList[i].setSafeLevel(safeLev);
-                        uList[i].setPenalty(pen);
-                        uList[i].setInterestRate(rate);
-                        //cout << uList[i].getSafeLevel() << uList[i].getPenalty();
-                    }
-                    break;
+                    cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
+                    continue;
+                }
+                cout << "\nPlease Enter The Penalty Amount: $";
+                double pen = getAmount();
+                uPen = pen;
+                if (uPen >= uSafLe)
+                {
+                    cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
+                    continue;
+                }
+                for (int i = 0; i < uList.size(); i++)
+                {
+                    uList[i].setSafeLevel(safeLev);
+                    uList[i].setPenalty(pen);
+                    uList[i].setInterestRate(rate);
+                    //cout << uList[i].getSafeLevel() << uList[i].getPenalty();
+                }
                 adminList[accNum].createUacc();
                 ClassU::active = true;
                 uStatus = "1";
                 cout << "\nNew Bank Account Type Created\n";
-                }
             }
             else
             {
@@ -65,41 +60,37 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
         {
             if (!ClassV::active)
             {
-                while (true)
+                vSafLe = 0;
+                vPen = 0;
+                cout << "\nPlease Set The Interest Rate (In Decimal Number): ";
+                double rate = getRate();
+                vInt = rate;
+                cout << "\nPlease Set The Safety Level: $";
+                double safeLev = getAmount();
+                vSafLe = safeLev;
+                if (vSafLe < vPen)
                 {
-                    vSafLe = 0;
-                    vPen = 0;
-                    cout << "\nPlease Set The Interest Rate (In Decimal Number): ";
-                    double rate = getRate();
-                    vInt = rate;
-                    cout << "\nPlease Set The Safety Level: $";
-                    double safeLev = getAmount();
-                    vSafLe = safeLev;
-                    if (vSafLe < vPen)
-                    {
-                        cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
-                        continue;
-                    }
-                    cout << "\nPlease Enter the Penalty Amount: $";
-                    double pen = getAmount();
-                    vPen = pen;
-                    if (vPen >= vSafLe)
-                    {
-                        cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
-                        continue;
-                    }
-                    for (int i = 0; i < vList.size(); i++)
-                    {
-                        vList[i].setSafeLevel(safeLev);
-                        vList[i].setPenalty(pen);
-                        vList[i].setInterestRate(rate);
-                    }
-                    break;
+                    cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
+                    continue;
+                }
+                cout << "\nPlease Enter the Penalty Amount: $";
+                double pen = getAmount();
+                vPen = pen;
+                if (vPen >= vSafLe)
+                {
+                    cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
+                    continue;
+                }
+                for (int i = 0; i < vList.size(); i++)
+                {
+                    vList[i].setSafeLevel(safeLev);
+                    vList[i].setPenalty(pen);
+                    vList[i].setInterestRate(rate);
+                }
                 adminList[accNum].createVacc();
                 ClassV::active = true;
                 vStatus = "1";
                 cout << "\nNew Bank Account Type Created\n";
-                }
             }
             else
             {
@@ -111,41 +102,37 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
         {
             if (!ClassX::active)
             {
-                while (true)
+                xSafLe = 0;
+                xPen = 0;
+                cout << "\nPlease Set The Interest Rate (In Decimal Number): ";
+                double rate = getRate();
+                xInt = rate;
+                cout << "\nPlease Set The Safety Level: $";
+                double safeLev = getAmount();
+                xSafLe = safeLev;
+                if (xSafLe < xPen)
                 {
-                    xSafLe = 0;
-                    xPen = 0;
-                    cout << "\nPlease Set The Interest Rate (In Decimal Number): ";
-                    double rate = getRate();
-                    xInt = rate;
-                    cout << "\nPlease Set The Safety Level: $";
-                    double safeLev = getAmount();
-                    xSafLe = safeLev;
-                    if (xSafLe < xPen)
-                    {
-                        cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
-                        continue;
-                    }
-                    cout << "\nPlease Enter the Penalty Amount: $";
-                    double pen = getAmount();
-                    xPen = pen;
-                    if (xPen >= xSafLe)
-                    {
-                        cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
-                        continue;
-                    }
-                    for (int i = 0; i < xList.size(); i++)
-                    {
-                        xList[i].setSafeLevel(safeLev);
-                        xList[i].setPenalty(pen);
-                        xList[i].setInterestRate(rate);
-                    }
-                    break;
+                    cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
+                    continue;
+                }
+                cout << "\nPlease Enter the Penalty Amount: $";
+                double pen = getAmount();
+                xPen = pen;
+                if (xPen >= xSafLe)
+                {
+                    cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
+                    continue;
+                }
+                for (int i = 0; i < xList.size(); i++)
+                {
+                    xList[i].setSafeLevel(safeLev);
+                    xList[i].setPenalty(pen);
+                    xList[i].setInterestRate(rate);
+                }
                 adminList[accNum].createXacc();
                 ClassX::active = true;
                 xStatus = "1";
                 cout << "\nNew Bank Account Type Created\n";
-                }
             }
             else
             {
@@ -157,41 +144,37 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
         {
             if (!ClassY::active)
             {
-                while (true)
+                ySafLe = 0;
+                yPen = 0;
+                cout << "\nPlease Set The Interest Rate (In Decimal Number): ";
+                double rate = getRate();
+                yInt = rate;
+                cout << "\nPlease Set The Safety Level: $";
+                double safeLev = getAmount();
+                ySafLe = safeLev;
+                if (ySafLe < yPen)
                 {
-                    ySafLe = 0;
-                    yPen = 0;
-                    cout << "\nPlease Set The Interest Rate (In Decimal Number): ";
-                    double rate = getRate();
-                    yInt = rate;
-                    cout << "\nPlease Set The Safety Level: $";
-                    double safeLev = getAmount();
-                    ySafLe = safeLev;
-                    if (ySafLe < yPen)
-                    {
-                        cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
-                        continue;
-                    }
-                    cout << "\nPlease Enter the Penalty Amount: $";
-                    double pen = getAmount();
-                    yPen = pen;
-                    if (yPen >= ySafLe)
-                    {
-                        cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
-                        continue;
-                    }
-                    for (int i = 0; i < yList.size(); i++)
-                    {
-                        yList[i].setSafeLevel(safeLev);
-                        yList[i].setPenalty(pen);
-                        yList[i].setInterestRate(rate);
-                    }
-                    break;
+                    cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
+                    continue;
+                }
+                cout << "\nPlease Enter the Penalty Amount: $";
+                double pen = getAmount();
+                yPen = pen;
+                if (yPen >= ySafLe)
+                {
+                    cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
+                    continue;
+                }
+                for (int i = 0; i < yList.size(); i++)
+                {
+                    yList[i].setSafeLevel(safeLev);
+                    yList[i].setPenalty(pen);
+                    yList[i].setInterestRate(rate);
+                }
                 adminList[accNum].createYacc();
                 ClassY::active = true;
                 yStatus = "1";
                 cout << "\nNew Bank Account Type Created\n";
-                }
             }
             else
             {
@@ -203,41 +186,37 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
         {
             if (!ClassZ::active)
             {
-                while (true)
+                zSafLe = 0;
+                zPen = 0;
+                cout << "\nPlease Set The Interest Rate (In Decimal Number): ";
+                double rate = getRate();
+                zInt = rate;
+                cout << "\nPlease Set The Safety Level: $";
+                double safeLev = getAmount();
+                zSafLe = safeLev;
+                if (zSafLe < zPen)
                 {
-                    zSafLe = 0;
-                    zPen = 0;
-                    cout << "\nPlease Set The Interest Rate (In Decimal Number): ";
-                    double rate = getRate();
-                    zInt = rate;
-                    cout << "\nPlease Set The Safety Level: $";
-                    double safeLev = getAmount();
-                    zSafLe = safeLev;
-                    if (zSafLe < zPen)
-                    {
-                        cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
-                        continue;
-                    }
-                    cout << "\nPlease Enter the Penalty Amount: $";
-                    double pen = getAmount();
-                    zPen = pen;
-                    if (zPen >= zSafLe)
-                    {
-                        cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
-                        continue;
-                    }
-                    for (int i = 0; i < zList.size(); i++)
-                    {
-                        zList[i].setSafeLevel(safeLev);
-                        zList[i].setPenalty(pen);
-                        zList[i].setInterestRate(rate);
-                    }
-                    break;
+                    cout << "Safe Level Cannot Be Lower Than The Penalty." << endl;
+                    continue;
+                }
+                cout << "\nPlease Enter the Penalty Amount: $";
+                double pen = getAmount();
+                zPen = pen;
+                if (zPen >= zSafLe)
+                {
+                    cout << "Penalty Cannot Be Higher Than The Safe Level." << endl;
+                    continue;
+                }
+                for (int i = 0; i < zList.size(); i++)
+                {
+                    zList[i].setSafeLevel(safeLev);
+                    zList[i].setPenalty(pen);
+                    zList[i].setInterestRate(rate);
+                }
                 adminList[accNum].createZacc();
                 ClassZ::active = true;
                 zStatus = "1";
                 cout << "\nNew Bank Account Type Created\n";
-                }
             }
             else
             {
