@@ -1,7 +1,7 @@
 /* 
 Name:Huy Doan Minh Huynh; M-number: M03321126;
-Name Hung Hoang Nguyen; M-number: M03320038;
-
+Name: Hung Hoang Nguyen; M-number: M03320038;
+Name: Vitor Freitas; M-number: M03143006;
 */
 
 #include "include.h"
