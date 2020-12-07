@@ -1,10 +1,10 @@
 n
 m~npnlnnnn~npnnnnnn~npnnnnnn
 n
-n~npnmnnnn~npnnnnnn~npnnnnnn~n
-n~npninnnn~npnnnnnn~npnnnnnn~n
+n~npmnnnnn~lnpnnnnnn~inpnnnnnn~m
+n~npninnnn~inpnnnnnn~mnnpnnnnnn~m
 n~npnlnnnn~npnnnnnn~npnnnnnn~n
 n~npnlnnnn~npnnnnnn~npnnnnnn~n
 n~npnlnnnn~npnnnnnn~npnnnnnn~n
-l
+k
 m
