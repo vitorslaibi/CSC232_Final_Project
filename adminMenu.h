@@ -2182,7 +2182,7 @@ void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdL
             officList.push_back(account);
             account.saveData();
             cout << "\nNew Bank Official Created.\n";
-            cout << "\n\tID: " << id;
+            cout << "\n\tID: B" << id;
             cout << "\n\tPassword: " << password;
             cout << "\n\tName: " << fName << " " << lName << endl;
             break;

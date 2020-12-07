@@ -18,7 +18,7 @@ void openChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int 
     ChkAcc::totalChk++;
     chkList.push_back(account);
     cout << "\nAccount Created.\n";
-    cout << "\n\tID: " << id;
+    cout << "\n\tID: C" << id;
     cout << "\n\tPassword: " << password;
     cout << "\n\tName: " << fName << " " << lName;
     cout << "\n\tPhone Number: " << phone << endl;
@@ -45,7 +45,7 @@ void openSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int ac
     SavAcc::totalSav++;
     savList.push_back(account);
     cout << "\nAccount Created.\n";
-    cout << "\n\tID: " << id;
+    cout << "\n\tID: S" << id;
     cout << "\n\tPassword: " << password;
     cout << "\n\tName: " << fName << " " << lName;
     cout << "\n\tPhone Number: " << phone << endl;
@@ -72,7 +72,7 @@ void openCD(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
     CD::totalCD++;
     cdList.push_back(account);
     cout << "\nAccount Created.\n";
-    cout << "\n\tID: " << id;
+    cout << "\n\tID: D" << id;
     cout << "\n\tPassword: " << password;
     cout << "\n\tName: " << fName << " " << lName;
     cout << "\n\tPhone Number: " << phone << endl;
@@ -99,7 +99,7 @@ void openUacc(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum
     ClassU::totalU++;
     uList.push_back(account);
     cout << "\nAccount Created.\n";
-    cout << "\n\tID: " << id;
+    cout << "\n\tID: U" << id;
     cout << "\n\tPassword: " << password;
     cout << "\n\tName: " << fName << " " << lName;
     cout << "\n\tPhone Number: " << phone << endl;
@@ -126,7 +126,7 @@ void openVacc(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum
     ClassV::totalV++;
     vList.push_back(account);
     cout << "\nAccount Created.\n";
-    cout << "\n\tID: " << id;
+    cout << "\n\tID: V" << id;
     cout << "\n\tPassword: " << password;
     cout << "\n\tName: " << fName << " " << lName;
     cout << "\n\tPhone Number: " << phone << endl;
@@ -153,7 +153,7 @@ void openXacc(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum
     ClassX::totalX++;
     xList.push_back(account);
     cout << "\nAccount Created.\n";
-    cout << "\n\tID: " << id;
+    cout << "\n\tID: X" << id;
     cout << "\n\tPassword: " << password;
     cout << "\n\tName: " << fName << " " << lName;
     cout << "\n\tPhone Number: " << phone << endl;
@@ -180,7 +180,7 @@ void openYacc(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum
     ClassY::totalY++;
     yList.push_back(account);
     cout << "\nAccount Created.\n";
-    cout << "\n\tID: " << id;
+    cout << "\n\tID: Y" << id;
     cout << "\n\tPassword: " << password;
     cout << "\n\tName: " << fName << " " << lName;
     cout << "\n\tPhone Number: " << phone << endl;
@@ -207,7 +207,7 @@ void openZacc(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum
     ClassZ::totalZ++;
     zList.push_back(account);
     cout << "\nAccount Created.\n";
-    cout << "\n\tID: " << id;
+    cout << "\n\tID: Z" << id;
     cout << "\n\tPassword: " << password;
     cout << "\n\tName: " << fName << " " << lName;
     cout << "\n\tPhone Number: " << phone << endl;
