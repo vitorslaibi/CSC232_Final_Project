@@ -133,6 +133,13 @@ string getPhone()
         int lastCharPos = str.find_last_not_of(" ");
         str = str.substr(firstCharPos, lastCharPos - firstCharPos + 1);
 
+        int nonIntChar = str.find_first_not_of("0123456789");
+        if (nonIntChar != string::npos)
+        {
+            cout << "Invalid Input. Please Enter Again.\n";
+            continue;
+        }
+
         break;
     }
     return str;
