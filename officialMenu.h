@@ -17,6 +17,11 @@ void openChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, int 
     account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
     ChkAcc::totalChk++;
     chkList.push_back(account);
+    cout << "\nAccount Created.\n";
+    cout << "\n\tID: " << id;
+    cout << "\n\tPassword: " << password;
+    cout << "\n\tName: " << fName << " " << lName;
+    cout << "\n\tPhone Number: " << phone << endl;
 }
 //Open new saving account
 void openSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int accNum, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
@@ -39,6 +44,11 @@ void openSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int ac
     account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
     SavAcc::totalSav++;
     savList.push_back(account);
+    cout << "\nAccount Created.\n";
+    cout << "\n\tID: " << id;
+    cout << "\n\tPassword: " << password;
+    cout << "\n\tName: " << fName << " " << lName;
+    cout << "\n\tPhone Number: " << phone << endl;
 }
 //Open new Certificat of Deposit account
 void openCD(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
@@ -61,6 +71,11 @@ void openCD(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
     account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
     CD::totalCD++;
     cdList.push_back(account);
+    cout << "\nAccount Created.\n";
+    cout << "\n\tID: " << id;
+    cout << "\n\tPassword: " << password;
+    cout << "\n\tName: " << fName << " " << lName;
+    cout << "\n\tPhone Number: " << phone << endl;
 }
 //Open new U account
 void openUacc(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
@@ -83,6 +98,11 @@ void openUacc(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum
     account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
     ClassU::totalU++;
     uList.push_back(account);
+    cout << "\nAccount Created.\n";
+    cout << "\n\tID: " << id;
+    cout << "\n\tPassword: " << password;
+    cout << "\n\tName: " << fName << " " << lName;
+    cout << "\n\tPhone Number: " << phone << endl;
 }
 //Open new V account
 void openVacc(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
@@ -105,6 +125,11 @@ void openVacc(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum
     account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
     ClassV::totalV++;
     vList.push_back(account);
+    cout << "\nAccount Created.\n";
+    cout << "\n\tID: " << id;
+    cout << "\n\tPassword: " << password;
+    cout << "\n\tName: " << fName << " " << lName;
+    cout << "\n\tPhone Number: " << phone << endl;
 }
 //Open new X account
 void openXacc(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
@@ -127,6 +152,11 @@ void openXacc(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum
     account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
     ClassX::totalX++;
     xList.push_back(account);
+    cout << "\nAccount Created.\n";
+    cout << "\n\tID: " << id;
+    cout << "\n\tPassword: " << password;
+    cout << "\n\tName: " << fName << " " << lName;
+    cout << "\n\tPhone Number: " << phone << endl;
 }
 //Open new Y account
 void openYacc(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
@@ -149,6 +179,11 @@ void openYacc(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum
     account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
     ClassY::totalY++;
     yList.push_back(account);
+    cout << "\nAccount Created.\n";
+    cout << "\n\tID: " << id;
+    cout << "\n\tPassword: " << password;
+    cout << "\n\tName: " << fName << " " << lName;
+    cout << "\n\tPhone Number: " << phone << endl;
 }
 //Open new Z account
 void openZacc(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum, double &savInt, double &uInt, double &vInt, double &xInt, double &yInt, double &zInt)
@@ -171,6 +206,11 @@ void openZacc(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum
     account.saveHistory(account.getCurrentY(), account.getCurrentM(), account.getCurrentD());
     ClassZ::totalZ++;
     zList.push_back(account);
+    cout << "\nAccount Created.\n";
+    cout << "\n\tID: " << id;
+    cout << "\n\tPassword: " << password;
+    cout << "\n\tName: " << fName << " " << lName;
+    cout << "\n\tPhone Number: " << phone << endl;
 }
 
 //Close a Checking account
@@ -1318,10 +1358,11 @@ void searchChecking(vector<ChkAcc> &chkList, vector<BankOfficial> &officList, in
     bool done = false;
     while (!done)
     {
-        cout << "[1] Search By Account Account Number\n";
-        cout << "[2] Search By Name\n";
-        cout << "[3] Search By Phone\n";
-        cout << "[4] Go Back\n";
+        cout << "\nWhat Would You Like To Search By?\n";
+        cout << "\t[1] Search By Account Account Number\n";
+        cout << "\t[2] Search By Name\n";
+        cout << "\t[3] Search By Phone\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -1437,10 +1478,11 @@ void searchSaving(vector<SavAcc> &savList, vector<BankOfficial> &officList, int 
     bool done = false;
     while (!done)
     {
-        cout << "[1] Search By Account Account Number\n";
-        cout << "[2] Search By Name\n";
-        cout << "[3] Search By Phone\n";
-        cout << "[4] Go Back\n";
+        cout << "\nWhat Would You Like To Search By?\n";
+        cout << "\t[1] Search By Account Account Number\n";
+        cout << "\t[2] Search By Name\n";
+        cout << "\t[3] Search By Phone\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -1556,10 +1598,11 @@ void searchCD(vector<CD> &cdList, vector<BankOfficial> &officList, int accNum)
     bool done = false;
     while (!done)
     {
-        cout << "[1] Search By Account Account Number\n";
-        cout << "[2] Search By Name\n";
-        cout << "[3] Search By Phone\n";
-        cout << "[4] Go Back\n";
+        cout << "\nWhat Would You Like To Search By?\n";
+        cout << "\t[1] Search By Account Account Number\n";
+        cout << "\t[2] Search By Name\n";
+        cout << "\t[3] Search By Phone\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -1675,10 +1718,11 @@ void searchV(vector<ClassV> &vList, vector<BankOfficial> &officList, int accNum)
     bool done = false;
     while (!done)
     {
-        cout << "[1] Search By Account Account Number\n";
-        cout << "[2] Search By Name\n";
-        cout << "[3] Search By Phone\n";
-        cout << "[4] Go Back\n";
+        cout << "\nWhat Would You Like To Search By?\n";
+        cout << "\t[1] Search By Account Account Number\n";
+        cout << "\t[2] Search By Name\n";
+        cout << "\t[3] Search By Phone\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -1794,10 +1838,11 @@ void searchU(vector<ClassU> &uList, vector<BankOfficial> &officList, int accNum)
     bool done = false;
     while (!done)
     {
-        cout << "[1] Search By Account Account Number\n";
-        cout << "[2] Search By Name\n";
-        cout << "[3] Search By Phone\n";
-        cout << "[4] Go Back\n";
+        cout << "\nWhat Would You Like To Search By?\n";
+        cout << "\t[1] Search By Account Account Number\n";
+        cout << "\t[2] Search By Name\n";
+        cout << "\t[3] Search By Phone\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -1913,10 +1958,11 @@ void searchX(vector<ClassX> &xList, vector<BankOfficial> &officList, int accNum)
     bool done = false;
     while (!done)
     {
-        cout << "[1] Search By Account Account Number\n";
-        cout << "[2] Search By Name\n";
-        cout << "[3] Search By Phone\n";
-        cout << "[4] Go Back\n";
+        cout << "\nWhat Would You Like To Search By?\n";
+        cout << "\t[1] Search By Account Account Number\n";
+        cout << "\t[2] Search By Name\n";
+        cout << "\t[3] Search By Phone\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -2032,10 +2078,11 @@ void searchY(vector<ClassY> &yList, vector<BankOfficial> &officList, int accNum)
     bool done = false;
     while (!done)
     {
-        cout << "[1] Search By Account Account Number\n";
-        cout << "[2] Search By Name\n";
-        cout << "[3] Search By Phone\n";
-        cout << "[4] Go Back\n";
+        cout << "\nWhat Would You Like To Search By?\n";
+        cout << "\t[1] Search By Account Account Number\n";
+        cout << "\t[2] Search By Name\n";
+        cout << "\t[3] Search By Phone\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -2151,10 +2198,11 @@ void searchZ(vector<ClassZ> &zList, vector<BankOfficial> &officList, int accNum)
     bool done = false;
     while (!done)
     {
-        cout << "[1] Search By Account Account Number\n";
-        cout << "[2] Search By Name\n";
-        cout << "[3] Search By Phone\n";
-        cout << "[4] Go Back\n";
+        cout << "\nWhat Would You Like To Search By?\n";
+        cout << "\t[1] Search By Account Account Number\n";
+        cout << "\t[2] Search By Name\n";
+        cout << "\t[3] Search By Phone\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -2193,15 +2241,16 @@ void officialSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
     bool done = false;
     while (!done)
     {
-        cout << "[1] Checking Account\n";
-        cout << "[2] Saving Account\n";
-        cout << "[3] Certificate of Deposit\n";
-        cout << "[4] U Account\n";
-        cout << "[5] V Account\n";
-        cout << "[6] X Account\n";
-        cout << "[7] Y Account\n";
-        cout << "[8] Z Account\n";
-        cout << "[9] Go Back\n";
+        cout << "What Type Of Account Do You Want To Search?\n";
+        cout << "\t[1] Checking Account\n";
+        cout << "\t[2] Saving Account\n";
+        cout << "\t[3] Certificate of Deposit\n";
+        cout << "\t[4] U Account\n";
+        cout << "\t[5] V Account\n";
+        cout << "\t[6] X Account\n";
+        cout << "\t[7] Y Account\n";
+        cout << "\t[8] Z Account\n";
+        cout << "\t[9] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -2272,12 +2321,13 @@ void officialMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &
     bool done = false;
     while (!done)
     {
-        cout << "[1] Open Account\n";
-        cout << "[2] Close Account\n";
-        cout << "[3] Search Account\n";
-        cout << "[4] Deposit\n";
-        cout << "[5] Withdraw\n";
-        cout << "[6] Log out\n";
+        cout << "What Would You Like To Do?\n";
+        cout << "\t[1] Open Account\n";
+        cout << "\t[2] Close Account\n";
+        cout << "\t[3] Search Account\n";
+        cout << "\t[4] Deposit\n";
+        cout << "\t[5] Withdraw\n";
+        cout << "\t[6] Log out\n";
         int input = stoi(getInput());
         switch (input)
         {

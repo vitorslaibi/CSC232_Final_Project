@@ -26,6 +26,7 @@ using namespace std;
     
 int main()
 {
+    cout << "Loading Data...";
     string uStatus, vStatus, xStatus, yStatus, zStatus;
     double savInt, uInt, vInt, xInt, yInt, zInt;
     double savPen, uPen, vPen, xPen, yPen, zPen;
@@ -126,7 +127,8 @@ int main()
     {
         cout << "\nPreview File Does Not Exist\n";
     }
-    preview.close();  
+    preview.close();
+    cout << "Finished.\nPopulating Vectors...";  
     
     vector <SavAcc> savList;
     vector <ChkAcc> chkList;
@@ -239,16 +241,18 @@ int main()
         acc.loadData();
         officList.push_back(acc);
     }
+    cout << "Finished.\n\n";
 
 
     bool done = false;
+    cout << "Welcome To Bear Bank!\n";
     while (!done)
     {
-        cout << "Log in as:\n";
-        cout << "[1] System Administrator\n";
-        cout << "[2] Bear Officials\n";
-        cout << "[3] Customers\n";
-        cout << "[4] Exit\n";
+        cout << "Please Choose One Of The Login Options:\n";
+        cout << "\t[1] System Administrator\n";
+        cout << "\t[2] Bear Officials\n";
+        cout << "\t[3] Customers\n";
+        cout << "\t[4] Exit\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -259,7 +263,7 @@ int main()
                 bool back = false;
                 while(!found)
                 {
-                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into, Or Enter \"quit\" To Exit To The Previous Menu.\n";
+                    cout << "\nPlease Enter The Account ID That You Would Like To Log Into, Or Enter \"quit\" To Exit To The Previous Menu:\n";
                     string id = getAdminID();
                     if (id == "quit")
                     {
@@ -289,19 +293,19 @@ int main()
                                 }
                                 else
                                 {
-                                    cout << "\nIncorrect Password\n";
+                                    cout << "\nIncorrect Password.\n";
                                 }                                
                             }
                         }        
                     }
                     if (!found) 
-                        cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                        cout << "\nThe Account ID You Just Enter Does Not Exist.\n";
                 }
                 if (back)
                 {
                     break;
                 }
-                cout << "\nSuccessfully Logged In\n";
+                cout << "\nSuccessfully Logged In. Welcome Back, " << adminList[accNum].getFname() << " " << adminList[accNum].getLname() << "\n\n";
                 adminMenu(chkList, savList, cdList, officList, adminList, accNum, uList, vList, xList, yList, zList, uStatus, vStatus, xStatus, yStatus, zStatus, savPen, uPen, vPen, xPen, yPen, zPen, savSafLe, uSafLe, vSafLe, xSafLe, ySafLe, zSafLe, savInt, uInt, vInt, xInt, yInt, zInt);
                 break;
             }
@@ -329,7 +333,7 @@ int main()
                                 loggedIn = true;
                             else
                             {
-                                cout << "\nThis Account is Currently Closed. Require System Administrator to Enable\n";
+                                cout << "\nThis Account is Currently Closed. Require System Administrator to be Enabled.\n";
                                 break;
                             }
                             bool corPass = false;
@@ -349,30 +353,35 @@ int main()
                                 }
                                 else
                                 {
-                                    cout << "\nIncorrect Password\n";
+                                    cout << "\nIncorrect Password. Please Enter Again.\n";
                                 }                                
                             }
                         }        
                     }
                     if (!found) 
-                        cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                        cout << "\nThe Account ID You Just Enter Does Not Exist.\n";
                 }
                 if (back)
                 {
                     break;
                 }
                 if (loggedIn)
+                {
+                    cout << "\nSuccessfully Logged In. Welcome Back, " << officList[accNum].getFname() << " " << officList[accNum].getLname() << "\n\n";
                     officialMenu(chkList, savList, cdList, officList, accNum, uList, vList, xList, yList, zList, uStatus, vStatus, xStatus, yStatus, zStatus, savInt, uInt, vInt, xInt, yInt, zInt);
+                    officList[accNum].saveData();
+                }
                 break;
             }
             case 3:
             {
-                cout << "\nChoose An Account To Interact With.\n";
+                cout << "\nChoose An Account To Interact With:\n\n";
                 customerMenu(chkList, savList, cdList, uList, vList, xList, yList, zList);
                 break;
             }
             case 4:
             {
+                cout << "Saving Data...";
                 ofstream preview("preview.txt", ofstream::trunc);
                 string text;
                 text = to_string(ChkAcc::totalChk);
@@ -407,6 +416,7 @@ int main()
                 preview << text;
                 acc.saveData();
                 done = true;
+                cout << "Finished.";
                 break;
             }
             default:
@@ -414,6 +424,6 @@ int main()
         }
         cout << endl;
     }
-    cout << "\nGoodbye\n";
+    cout << "\nThank You For Using Our Service!\n";
     return 1;
 }

@@ -25,6 +25,7 @@ void ChkAcc::withdraw(double var)
     else
     {
         balance -= var;
+        cout << "\nYou Withdrawed $" << var << " From This Account Balance.\nNew Balance: " << balance << "\n";
         updateOnlStat();
         saveTransactionHistory('W', var);
         saveData();
@@ -41,6 +42,7 @@ void ChkAcc::deposit(double var)
     else
     {
         balance += var;
+        cout << "\nYou Deposited $" << var << " To This Account Balance.\nNew Balance: " << balance << "\n";
         updateOnlStat();
         saveTransactionHistory('D', var);
         saveData();

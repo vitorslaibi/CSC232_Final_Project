@@ -164,11 +164,14 @@ void CD::withdraw(double var)
 {
     if (remainDays > 0)
     {
+        cout << "\nYou Withdrawed The Balance Prematurely. A Fee of 10% Of The Current Balance Will Be Applied.";
         balance = balance*0.9;  //if the term get cancelled prematurely, the customer loses 10% of the total balance at that time ~~EVIL~~ >:))
     }
     returnAmount = balance;
     balance = 0.0;
+    cout << "\nYou Withdrawed $" << returnAmount << " From This Account Balance.\nNew Balance: " << balance << "\n";
     saveTransactionHistory('W', returnAmount);
+    saveData();
     closeAcc();
 }
 

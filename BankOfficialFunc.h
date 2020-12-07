@@ -88,21 +88,21 @@ void BankOfficial::saveInfoChk(ChkAcc &account){
     ofstream outFile;
     outFile.open(account.getID() + ".txt", ofstream::app);
     //add bank official info to closed account file
-    outFile << "Bank Official: " << endl;
-    outFile << fName << " " << lName << endl;
-    outFile << ID << endl;
-    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << endl;
+    outFile << "Bank Official: " << "\n";
+    outFile << fName << " " << lName << "\n";
+    outFile << ID << "\n";
+    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << "\n";
 }
 
 void BankOfficial::saveInfoSav(SavAcc &account){
     ofstream outFile;
     outFile.open(account.getID() + ".txt", ofstream::app);
     //add bank official info to closed account file
-    outFile << "Bank Official: " << endl;
+    outFile << "Bank Official: " << "\n";
     outFile << fName << " ";
-    outFile << lName << endl;
-    outFile << ID << endl;
-    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << endl;
+    outFile << lName << "\n";
+    outFile << ID << "\n";
+    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << "\n";
     outFile.close();
 }
 
@@ -110,11 +110,11 @@ void BankOfficial::saveInfoCD(CD &account){
     ofstream outFile;
     outFile.open(account.getID() + ".txt", ofstream::app);
     //add bank official info to closed account file
-    outFile << "Bank Official: " << endl;
+    outFile << "Bank Official: " << "\n";
     outFile << fName << " ";
-    outFile << lName << endl;
-    outFile << ID << endl;
-    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << endl;
+    outFile << lName << "\n";
+    outFile << ID << "\n";
+    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << "\n";
     outFile.close();
 }
 
@@ -122,11 +122,11 @@ void BankOfficial::saveInfoU(ClassU &account){
     ofstream outFile;
     outFile.open(account.getID() + ".txt", ofstream::app);
     //add bank official info to closed account file
-    outFile << "Bank Official: " << endl;
+    outFile << "Bank Official: " << "\n";
     outFile << fName << " ";
-    outFile << lName << endl;
-    outFile << ID << endl;
-    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << endl;
+    outFile << lName << "\n";
+    outFile << ID << "\n";
+    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << "\n";
     outFile.close();
 }
 
@@ -134,11 +134,11 @@ void BankOfficial::saveInfoV(ClassV &account){
     ofstream outFile;
     outFile.open(account.getID() + ".txt", ofstream::app);
     //add bank official info to closed account file
-    outFile << "Bank Official: " << endl;
+    outFile << "Bank Official: " << "\n";
     outFile << fName << " ";
-    outFile << lName << endl;
-    outFile << ID << endl;
-    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << endl;
+    outFile << lName << "\n";
+    outFile << ID << "\n";
+    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << "\n";
     outFile.close();
 }
 
@@ -146,11 +146,11 @@ void BankOfficial::saveInfoX(ClassX &account){
     ofstream outFile;
     outFile.open(account.getID() + ".txt", ofstream::app);
     //add bank official info to closed account file
-    outFile << "Bank Official: " << endl;
+    outFile << "Bank Official: " << "\n";
     outFile << fName << " ";
-    outFile << lName << endl;
-    outFile << ID << endl;
-    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << endl;
+    outFile << lName << "\n";
+    outFile << ID << "\n";
+    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << "\n";
     outFile.close();
 }
 
@@ -158,11 +158,11 @@ void BankOfficial::saveInfoY(ClassY &account){
     ofstream outFile;
     outFile.open(account.getID() + ".txt", ofstream::app);
     //add bank official info to closed account file
-    outFile << "Bank Official: " << endl;
+    outFile << "Bank Official: " << "\n";
     outFile << fName << " ";
-    outFile << lName << endl;
-    outFile << ID << endl;
-    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << endl;
+    outFile << lName << "\n";
+    outFile << ID << "\n";
+    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << "\n";
     outFile.close();
 }
 
@@ -170,11 +170,11 @@ void BankOfficial::saveInfoZ(ClassZ &account){
     ofstream outFile;
     outFile.open(account.getID() + ".txt", ofstream::app);
     //add bank official info to closed account file
-    outFile << "Bank Official: " << endl;
+    outFile << "Bank Official: " << "\n";
     outFile << fName << " ";
-    outFile << lName << endl;
-    outFile << ID << endl;
-    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << endl;
+    outFile << lName << "\n";
+    outFile << ID << "\n";
+    outFile << "Account Closed at: " << getCurrentM() << "/" << getCurrentD() << "/" << getCurrentY() << "\n";
     outFile.close();
 }
 
@@ -240,66 +240,66 @@ void BankOfficial::zWithdraw(ClassZ &account, double amount){
 
 //these functions print account info if search is succesful
 void BankOfficial::searchChk(ChkAcc &account){
-    cout << "\nChecking Account: " << account.getID() << endl;
-    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
-    cout << "Phone Number: " << account.getPhoneNum() << endl;
-    cout << "Current Balance: " << account.getBalance() << endl;
+    cout << "\nChecking Account: " << account.getID() << "\n";
+    cout << "Name: " << account.getFname() << " " << account.getLname() << "\n";
+    cout << "Phone Number: " << account.getPhoneNum() << "\n";
+    cout << "Current Balance: " << account.getBalance() << "\n";
 }
 
 void BankOfficial::searchSav(SavAcc &account){
-    cout << "\nSaving Account: " << account.getID() << endl;
-    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
-    cout << "Phone Number: " << account.getPhoneNum() << endl;
-    cout << "Current Balance: " << account.getBalance() << endl;
+    cout << "\nSaving Account: " << account.getID() << "\n";
+    cout << "Name: " << account.getFname() << " " << account.getLname() << "\n";
+    cout << "Phone Number: " << account.getPhoneNum() << "\n";
+    cout << "Current Balance: " << account.getBalance() << "\n";
 
 }
 
 void BankOfficial::searchCD(CD &account){
-    cout << "\nCD Number: " << account.getID() << endl;
-    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
-    cout << "Phone Number: " << account.getPhoneNum() << endl;
-    cout << "Current Balance: " << account.getBalance() << endl;
-    cout << "Remaining Days: " << account.getRemainDays() << endl;
+    cout << "\nCD Number: " << account.getID() << "\n";
+    cout << "Name: " << account.getFname() << " " << account.getLname() << "\n";
+    cout << "Phone Number: " << account.getPhoneNum() << "\n";
+    cout << "Current Balance: " << account.getBalance() << "\n";
+    cout << "Remaining Days: " << account.getRemainDays() << "\n";
 
 }
 
 void BankOfficial::searchU(ClassU &account){
-    cout << "\nU Account: " << account.getID() << endl;
-    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
-    cout << "Phone Number: " << account.getPhoneNum() << endl;
-    cout << "Current Balance: " << account.getBalance() << endl;
+    cout << "\nU Account: " << account.getID() << "\n";
+    cout << "Name: " << account.getFname() << " " << account.getLname() << "\n";
+    cout << "Phone Number: " << account.getPhoneNum() << "\n";
+    cout << "Current Balance: " << account.getBalance() << "\n";
 
 }
 
 void BankOfficial::searchV(ClassV &account){
-    cout << "\nV Account: " << account.getID() << endl;
-    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
-    cout << "Phone Number: " << account.getPhoneNum() << endl;
-    cout << "Current Balance: " << account.getBalance() << endl;
+    cout << "\nV Account: " << account.getID() << "\n";
+    cout << "Name: " << account.getFname() << " " << account.getLname() << "\n";
+    cout << "Phone Number: " << account.getPhoneNum() << "\n";
+    cout << "Current Balance: " << account.getBalance() << "\n";
 
 }
 
 void BankOfficial::searchX(ClassX &account){
-    cout << "\nX Account: " << account.getID() << endl;
-    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
-    cout << "Phone Number: " << account.getPhoneNum() << endl;
-    cout << "Current Balance: " << account.getBalance() << endl;
+    cout << "\nX Account: " << account.getID() << "\n";
+    cout << "Name: " << account.getFname() << " " << account.getLname() << "\n";
+    cout << "Phone Number: " << account.getPhoneNum() << "\n";
+    cout << "Current Balance: " << account.getBalance() << "\n";
 
 }
 
 void BankOfficial::searchY(ClassY &account){
-    cout << "\nY Account: " << account.getID() << endl;
-    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
-    cout << "Phone Number: " << account.getPhoneNum() << endl;
-    cout << "Current Balance: " << account.getBalance() << endl;
+    cout << "\nY Account: " << account.getID() << "\n";
+    cout << "Name: " << account.getFname() << " " << account.getLname() << "\n";
+    cout << "Phone Number: " << account.getPhoneNum() << "\n";
+    cout << "Current Balance: " << account.getBalance() << "\n";
 
 }
 
 void BankOfficial::searchZ(ClassZ &account){
-    cout << "\nZ Account: " << account.getID() << endl;
-    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
-    cout << "Phone Number: " << account.getPhoneNum() << endl;
-    cout << "Current Balance: " << account.getBalance() << endl;
+    cout << "\nZ Account: " << account.getID() << "\n";
+    cout << "Name: " << account.getFname() << " " << account.getLname() << "\n";
+    cout << "Phone Number: " << account.getPhoneNum() << "\n";
+    cout << "Current Balance: " << account.getBalance() << "\n";
 
 }
 
@@ -312,23 +312,23 @@ void BankOfficial::saveData(){
 
     string text;
     text = encryption(fName);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = encryption(lName);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(openY);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(openM);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(openD);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(online);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = encryption(password);
-    outFile << text << endl;
+    outFile << text << "\n";
     
     outFile.close();
 }
@@ -341,28 +341,28 @@ void BankOfficial::loadData(){
 
     string text;
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     fName = text;
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     lName = text;
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     openY = stoi(text);
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     openM = stoi(text);
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     openD = stoi(text);
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     if (text == "0")
     {
         online = false;

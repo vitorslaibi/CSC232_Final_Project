@@ -126,7 +126,7 @@ void BankAcc::setSafeLevel(double newSafeLevel)
 {
     if (safeLevel <= penalty)
     {
-        cout << "WTF are you doing you lil bitch you want the customer to bankrupt?" << endl;
+        cout << "WTF are you doing you lil bitch you want the customer to bankrupt?" << "\n";
         return;
     }
     safeLevel = newSafeLevel;
@@ -135,7 +135,7 @@ void BankAcc::setPenalty(double newPenalty)
 {
     if (penalty >= safeLevel)
     {
-        cout << "WTF are you doing you lil bitch you want the customer to bankrupt?" << endl;
+        cout << "WTF are you doing you lil bitch you want the customer to bankrupt?" << "\n";
         return;
     }
     penalty = newPenalty;
@@ -234,7 +234,7 @@ void BankAcc::calcInt()
     int yearNow = getCurrentY();  //get the current year
     int monthNow = getCurrentM();
     int dayNow = getCurrentD();          //get the current day after Jan 1st
-    //cout << "|" << lastYearCounted << "|" << lastDayCounted << "|" << yearNow << "|" << dayNow << "|" << endl;
+    //cout << "|" << lastYearCounted << "|" << lastDayCounted << "|" << yearNow << "|" << dayNow << "|" << "\n";
     if (yearNow == lastYearCounted)     //if we're in the same year as the last year recorded
     {
         if (monthNow == lastMonthCounted)   //if we are in the same month as the last month recorded
@@ -351,63 +351,63 @@ void BankAcc::saveData()    //save the data to a text file
 
     if (!outFile)
     {
-        cout << "Cannot find .txt file(s). All data corrupted." << endl;
+        cout << "Cannot find .txt file(s). All data corrupted." << "\n";
         return;
     }
     string text;
     text = encryption(fName);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = encryption(lName);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = encryption(phoneNum);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(openY);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(openM);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(openD);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(closeY);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(closeM);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(closeD);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(balance);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(interestRate);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(servCharge);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(online);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(lastYearCounted);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(lastMonthCounted);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(lastDayCounted);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(lastHourCounted);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = to_string(lastMinCounted);
     text = encryption(text);
-    outFile << text << endl;
+    outFile << text << "\n";
     text = encryption(password);
-    outFile << text << endl;
+    outFile << text << "\n";
 }
 
 void BankAcc::loadData()    //load data from the text file
@@ -422,74 +422,74 @@ void BankAcc::loadData()    //load data from the text file
 
     if (!inFile)
     { 
-        cout << "Cannot find .txt file(s). All data corrupted." << endl;
+        cout << "Cannot find .txt file(s). All data corrupted." << "\n";
         return;
     }
 
     string text;
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     fName = text;
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     lName = text;
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     phoneNum = text;
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     openY = stoi(text);
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     openM = stoi(text);
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     openD = stoi(text);
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     closeY = stoi(text);
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     closeM = stoi(text);
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     closeD = stoi(text);
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     balance = stod(text);
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     interestRate = stod(text);
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     servCharge = stod(text);
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     if (text == "0")
     {
         online = false;
@@ -500,33 +500,33 @@ void BankAcc::loadData()    //load data from the text file
     }
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     lastYearCounted = stoi(text);
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     lastMonthCounted = stoi(text);
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     lastDayCounted = stoi(text);
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     lastHourCounted = stoi(text);
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     lastMinCounted = stoi(text);
 
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     password = text;
 
     inFile.close();
@@ -544,13 +544,13 @@ void BankAcc::saveHistory(int year, int month, int day)     //save the day into 
 
     if (!outFile)
     {
-        cout << "Cannot find history .txt file(s). All data corrupted." << endl;
+        cout << "Cannot find history .txt file(s). All data corrupted." << "\n";
         return;
     }
     string text = "Y" + to_string(year) + "M" + to_string(month) + "D" + to_string(day);
     text = encryption(text);
 
-    outFile << endl << text;
+    outFile << "\n" << text;
     outFile.close();
 }
 
@@ -566,7 +566,7 @@ void BankAcc::saveTransactionHistory(char type, double amount)      //save the t
 
     if (!outFile)
     {
-        cout << "Cannot find history .txt file(s). All data corrupted." << endl;
+        cout << "Cannot find history .txt file(s). All data corrupted." << "\n";
         return;
     }
     
@@ -589,7 +589,7 @@ void BankAcc::printAllHistory()
 
     if (!inFile)
     {
-        cout << "Cannot find history .txt file(s). All data corrupted." << endl;
+        cout << "Cannot find history .txt file(s). All data corrupted." << "\n";
         return;
     }
 
@@ -597,6 +597,7 @@ void BankAcc::printAllHistory()
     getline(inFile, text);
     while (getline(inFile, text))
     {
+        stripSpace(text);
         text = decryption(text);
         getDayHistory(text);
     }
@@ -615,7 +616,7 @@ void BankAcc::printLast7Days()
 
     if (!inFile)
     {
-        cout << "Cannot find history .txt file(s). All data corrupted." << endl;
+        cout << "Cannot find history .txt file(s). All data corrupted." << "\n";
         return;
     }
 
@@ -632,6 +633,7 @@ void BankAcc::printLast7Days()
     for (int i = 0; i < count; i++)
     {
         getline(inFile, text);
+        stripSpace(text);
         if (i >= count - 7)
         {
             text = decryption(text);

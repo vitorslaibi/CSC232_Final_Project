@@ -3,11 +3,12 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
     bool done = false;
     while (!done)
     {
-        cout << "[1] Create U Account\n";
-        cout << "[2] Create V Account\n";
-        cout << "[3] Create X Account\n";
-        cout << "[4] Create Y Account\n";
-        cout << "[5] Create Z Account\n";
+        cout << "Please Choose One Of These Option:\n";
+        cout << "[1] Enable U Account Type\n";
+        cout << "[2] Enable V Account Type\n";
+        cout << "[3] Enable X Account Type\n";
+        cout << "[4] Enable Y Account Type\n";
+        cout << "[5] Enable Z Account Type\n";
         cout << "[6] Go Back\n";
         int input = stoi(getInput());
         switch (input)
@@ -49,8 +50,12 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                     }
                     break;
                 }
+                adminList[accNum].createUacc();
             }
-            adminList[accNum].createUacc();
+            else
+            {
+                cout << "\nThis Account Type Is Already Online.\n";
+            }            
             uStatus = "1";
             cout << "\nNew Bank Account Type Created\n";
             break;
@@ -90,8 +95,12 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                     }
                     break;
                 }
+                adminList[accNum].createVacc();
             }
-            adminList[accNum].createVacc();
+            else
+            {
+                cout << "\nThis Account Type Is Already Online.\n";
+            }
             vStatus = "1";
             cout << "\nNew Bank Account Type Created\n";
             break;
@@ -131,8 +140,12 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                     }
                     break;
                 }
+                adminList[accNum].createXacc();
             }
-            adminList[accNum].createXacc();
+            else
+            {
+                cout << "\nThis Account Type Is Already Online.\n";
+            }
             xStatus = "1";
             cout << "\nNew Bank Account Type Created\n";
             break;
@@ -172,8 +185,12 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                     }
                     break;
                 }
+                adminList[accNum].createYacc();
             }
-            adminList[accNum].createYacc();
+            else
+            {
+                cout << "\nThis Account Type Is Already Online.\n";
+            }
             yStatus = "1";
             cout << "\nNew Bank Account Type Created\n";
             break;
@@ -213,8 +230,12 @@ void createAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
                     }
                     break;
                 }
+                adminList[accNum].createZacc();
             }
-            adminList[accNum].createZacc();
+            else
+            {
+                cout << "\nThis Account Type Is Already Online.\n";
+            }
             zStatus = "1";
             cout << "\nNew Bank Account Type Created\n";
             break;
@@ -238,12 +259,14 @@ void deleteAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
     bool done = false;
     while (!done)
     {
-        cout << "[1] Delete U Account\n";
-        cout << "[2] Delete V Account\n";
-        cout << "[3] Delete X Account\n";
-        cout << "[4] Delete Y Account\n";
-        cout << "[5] Delete Z Account\n";
-        cout << "[6] Go Back\n";
+        cout << "Please Choose One Of The Account Type To Delete:\n"; 
+        cout << "(Deleted Accounts Type Will Be Unable To Generate New Accounts, While Old Accounts Of That Type Stay Online)\n";
+        cout << "\t[1] Delete U Account\n";
+        cout << "\t[2] Delete V Account\n";
+        cout << "\t[3] Delete X Account\n";
+        cout << "\t[4] Delete Y Account\n";
+        cout << "\t[5] Delete Z Account\n";
+        cout << "\t[6] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -251,35 +274,35 @@ void deleteAccMenu(vector<SystemAdmin> &adminList, int accNum, vector<ClassU> &u
         {
             adminList[accNum].deleteUacc();
             uStatus = "0";
-            cout << "\nBank Account Type Deleted\n";
+            cout << "\nBank Account Type Deleted.\n";
             return;
         }
         case 2:
         {
             adminList[accNum].deleteVacc();
             vStatus = "0";
-            cout << "\nBank Account Type Deleted\n";
+            cout << "\nBank Account Type Deleted.\n";
             return;
         }
         case 3:
         {
             adminList[accNum].deleteXacc();
             xStatus = "0";
-            cout << "\nBank Account Type Deleted\n";
+            cout << "\nBank Account Type Deleted.\n";
             return;
         }
         case 4:
         {
             adminList[accNum].deleteYacc();
             yStatus = "0";
-            cout << "\nBank Account Type Deleted\n";
+            cout << "\nBank Account Type Deleted.\n";
             return;
         }
         case 5:
         {
             adminList[accNum].deleteZacc();
             zStatus = "0";
-            cout << "\nBank Account Type Deleted\n";
+            cout << "\nBank Account Type Deleted.\n";
             return;
         }
         case 6:
@@ -301,10 +324,11 @@ void modSav(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, int accNum,
     bool done = false;
     while (!done)
     {
-        cout << "[1] Modify Interest Rate\n";
-        cout << "[2] Modify Penalty\n";
-        cout << "[3] Modify Safety Level\n";
-        cout << "[4] Go Back\n";
+        cout << "What Would You Like To Do?\n";
+        cout << "\t[1] Modify Interest Rate\n";
+        cout << "\t[2] Modify Penalty\n";
+        cout << "\t[3] Modify Safety Level\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -375,10 +399,11 @@ void modU(vector<ClassU> &uList, vector<SystemAdmin> &adminList, int accNum, dou
     bool done = false;
     while (!done)
     {
-        cout << "[1] Modify Interest Rate\n";
-        cout << "[2] Modify Penalty\n";
-        cout << "[3] Modify Safety Level\n";
-        cout << "[4] Go Back\n";
+        cout << "What Would You Like To Do?\n";
+        cout << "\t[1] Modify Interest Rate\n";
+        cout << "\t[2] Modify Penalty\n";
+        cout << "\t[3] Modify Safety Level\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -449,10 +474,11 @@ void modV(vector<ClassV> &vList, vector<SystemAdmin> &adminList, int accNum, dou
     bool done = false;
     while (!done)
     {
-        cout << "[1] Modify Interest Rate\n";
-        cout << "[2] Modify Penalty\n";
-        cout << "[3] Modify Safety Level\n";
-        cout << "[4] Go Back\n";
+        cout << "What Would You Like To Do?\n";
+        cout << "\t[1] Modify Interest Rate\n";
+        cout << "\t[2] Modify Penalty\n";
+        cout << "\t[3] Modify Safety Level\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -523,10 +549,11 @@ void modX(vector<ClassX> &xList, vector<SystemAdmin> &adminList, int accNum, dou
     bool done = false;
     while (!done)
     {
-        cout << "[1] Modify Interest Rate\n";
-        cout << "[2] Modify Penalty\n";
-        cout << "[3] Modify Safety Level\n";
-        cout << "[4] Go Back\n";
+        cout << "What Would You Like To Do?\n";
+        cout << "\t[1] Modify Interest Rate\n";
+        cout << "\t[2] Modify Penalty\n";
+        cout << "\t[3] Modify Safety Level\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -597,10 +624,11 @@ void modY(vector<ClassY> &yList, vector<SystemAdmin> &adminList, int accNum, dou
     bool done = false;
     while (!done)
     {
-        cout << "[1] Modify Interest Rate\n";
-        cout << "[2] Modify Penalty\n";
-        cout << "[3] Modify Safety Level\n";
-        cout << "[4] Go Back\n";
+        cout << "What Would You Like To Do?\n";
+        cout << "\t[1] Modify Interest Rate\n";
+        cout << "\t[2] Modify Penalty\n";
+        cout << "\t[3] Modify Safety Level\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -671,10 +699,11 @@ void modZ(vector<ClassZ> &zList, vector<SystemAdmin> &adminList, int accNum, dou
     bool done = false;
     while (!done)
     {
-        cout << "[1] Modify Interest Rate\n";
-        cout << "[2] Modify Penalty\n";
-        cout << "[3] Modify Safety Level\n";
-        cout << "[4] Go Back\n";
+        cout << "What Would You Like To Do?\n";
+        cout << "\t[1] Modify Interest Rate\n";
+        cout << "\t[2] Modify Penalty\n";
+        cout << "\t[3] Modify Safety Level\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -745,13 +774,14 @@ void modAccMenu(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, int acc
     bool done = false;
     while (!done)
     {
-        cout << "[1] Modify Saving Account\n";
-        cout << "[2] Modify U Account\n";
-        cout << "[3] Modify V Account\n";
-        cout << "[4] Modify X Account\n";
-        cout << "[5] Modify Y Account\n";
-        cout << "[6] Modify Z Account\n";
-        cout << "[7] Go Back\n";
+        cout << "What Type Of Account Would You Like To Modify?\n";
+        cout << "\t[1] Modify Saving Account\n";
+        cout << "\t[2] Modify U Account\n";
+        cout << "\t[3] Modify V Account\n";
+        cout << "\t[4] Modify X Account\n";
+        cout << "\t[5] Modify Y Account\n";
+        cout << "\t[6] Modify Z Account\n";
+        cout << "\t[7] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -810,15 +840,16 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
     bool done = false;
     while (!done)
     {
-        cout << "[1] Checking Account\n";
-        cout << "[2] Saving Account\n";
-        cout << "[3] Certificate of Deposit\n";
-        cout << "[4] U Account\n";
-        cout << "[5] V Account\n";
-        cout << "[6] X Account\n";
-        cout << "[7] Y Account\n";
-        cout << "[8] Z Account\n";
-        cout << "[9] Go Back\n";
+        cout << "Please Enter The Type Of The Account You Would Like To Change Password:\n";
+        cout << "\t[1] Checking Account\n";
+        cout << "\t[2] Saving Account\n";
+        cout << "\t[3] Certificate of Deposit\n";
+        cout << "\t[4] U Account\n";
+        cout << "\t[5] V Account\n";
+        cout << "\t[6] X Account\n";
+        cout << "\t[7] Y Account\n";
+        cout << "\t[8] Z Account\n";
+        cout << "\t[9] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -838,15 +869,15 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
                     if (chkList[i].getID() == id)
                     {
                         found = true;
-                        cout << "\nPlease Set the New PassWord\n";
+                        cout << "\nPlease Set the New PassWord:\n";
                         string pass = getPassword();
                         adminList[accNum].changePasswordChk(chkList[i], pass);
-                        cout << "\nUser's Password changed\n";
+                        cout << "\nUser's Password changed.\n";
                         break;
                     }
                 }
                 if (!found)
-                    cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                    cout << "\nThe Account ID You Just Enter Does Not Exist.\n";
             }
             break;
         }
@@ -866,15 +897,15 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
                     if (savList[i].getID() == id)
                     {
                         found = true;
-                        cout << "\nPlease Set the New PassWord\n";
+                        cout << "\nPlease Set the New PassWord:\n";
                         string pass = getPassword();
                         adminList[accNum].changePasswordSav(savList[i], pass);
-                        cout << "\nUser's Password changed\n";
+                        cout << "\nUser's Password changed.\n";
                         break;
                     }
                 }
                 if (!found)
-                    cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                    cout << "\nThe Account ID You Just Enter Does Not Exist.\n";
             }
             break;
         }
@@ -894,15 +925,15 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
                     if (cdList[i].getID() == id)
                     {
                         found = true;
-                        cout << "\nPlease Set the New PassWord\n";
+                        cout << "\nPlease Set the New PassWord:\n";
                         string pass = getPassword();
                         adminList[accNum].changePasswordCD(cdList[i], pass);
-                        cout << "\nUser's Password changed\n";
+                        cout << "\nUser's Password changed.\n";
                         break;
                     }
                 }
                 if (!found)
-                    cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                    cout << "\nThe Account ID You Just Enter Does Not Exist.\n";
             }
             break;
         }
@@ -924,20 +955,20 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
                         if (uList[i].getID() == id)
                         {
                             found = true;
-                            cout << "\nPlease Set the New PassWord\n";
+                            cout << "\nPlease Set the New PassWord:\n";
                             string pass = getPassword();
                             adminList[accNum].changePasswordU(uList[i], pass);
-                            cout << "\nUser's Password changed\n";
+                            cout << "\nUser's Password changed.\n";
                             break;
                         }
                     }
                     if (!found)
-                        cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                        cout << "\nThe Account ID You Just Enter Does Not Exist.\n";
                 }
             }
             else
             {
-                cout << "\nThis Account Type Is Not Available To Be Used\n";
+                cout << "\nThis Account Type Is Not Available To Be Used.\n";
             }
         }
         case 5:
@@ -958,20 +989,20 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
                         if (vList[i].getID() == id)
                         {
                             found = true;
-                            cout << "\nPlease Set the New PassWord\n";
+                            cout << "\nPlease Set the New PassWord:\n";
                             string pass = getPassword();
                             adminList[accNum].changePasswordV(vList[i], pass);
-                            cout << "\nUser's Password changed\n";
+                            cout << "\nUser's Password changed.\n";
                             break;
                         }
                     }
                     if (!found)
-                        cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                        cout << "\nThe Account ID You Just Enter Does Not Exist.\n";
                 }
             }
             else
             {
-                cout << "\nThis Account Type Is Not Available To Be Used\n";
+                cout << "\nThis Account Type Is Not Available To Be Used.\n";
             }
         }
         case 6:
@@ -992,20 +1023,20 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
                         if (xList[i].getID() == id)
                         {
                             found = true;
-                            cout << "\nPlease Set the New PassWord\n";
+                            cout << "\nPlease Set the New PassWord:\n";
                             string pass = getPassword();
                             adminList[accNum].changePasswordX(xList[i], pass);
-                            cout << "\nUser's Password changed\n";
+                            cout << "\nUser's Password changed.\n";
                             break;
                         }
                     }
                     if (!found)
-                        cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                        cout << "\nThe Account ID You Just Enter Does Not Exist.\n";
                 }
             }
             else
             {
-                cout << "\nThis Account Type Is Not Available To Be Used\n";
+                cout << "\nThis Account Type Is Not Available To Be Used.\n";
             }
         }
         case 7:
@@ -1026,20 +1057,20 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
                         if (yList[i].getID() == id)
                         {
                             found = true;
-                            cout << "\nPlease Set the New PassWord\n";
+                            cout << "\nPlease Set the New PassWord:\n";
                             string pass = getPassword();
                             adminList[accNum].changePasswordY(yList[i], pass);
-                            cout << "\nUser's Password changed\n";
+                            cout << "\nUser's Password changed.\n";
                             break;
                         }
                     }
                     if (!found)
-                        cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                        cout << "\nThe Account ID You Just Enter Does Not Exist.\n";
                 }
             }
             else
             {
-                cout << "\nThis Account Type Is Not Available To Be Used\n";
+                cout << "\nThis Account Type Is Not Available To Be Used.\n";
             }
         }
         case 8:
@@ -1060,20 +1091,20 @@ void changePassMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD>
                         if (zList[i].getID() == id)
                         {
                             found = true;
-                            cout << "\nPlease Set the New PassWord\n";
+                            cout << "\nPlease Set the New PassWord:\n";
                             string pass = getPassword();
                             adminList[accNum].changePasswordZ(zList[i], pass);
-                            cout << "\nUser's Password changed\n";
+                            cout << "\nUser's Password changed.\n";
                             break;
                         }
                     }
                     if (!found)
-                        cout << "\nThe Account ID You Just Enter Does Not Exist\n";
+                        cout << "\nThe Account ID You Just Enter Does Not Exist.\n";
                 }
             }
             else
             {
-                cout << "\nThis Account Type Is Not Available To Be Used\n";
+                cout << "\nThis Account Type Is Not Available To Be Used.\n";
             }
         }
         case 9:
@@ -1173,10 +1204,11 @@ void searchChecking(vector<ChkAcc> &chkList, vector<SystemAdmin> &adminList, int
     bool done = false;
     while (!done)
     {
-        cout << "[1] Search By Account Account Number\n";
-        cout << "[2] Search By Name\n";
-        cout << "[3] Search By Phone\n";
-        cout << "[4] Go Back\n";
+        cout << "\nWhat Would You Like To Search By?\n";
+        cout << "\t[1] Search By Account Account Number\n";
+        cout << "\t[2] Search By Name\n";
+        cout << "\t[3] Search By Phone\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -1292,10 +1324,11 @@ void searchSaving(vector<SavAcc> &savList, vector<SystemAdmin> &adminList, int a
     bool done = false;
     while (!done)
     {
-        cout << "[1] Search By Account Account Number\n";
-        cout << "[2] Search By Name\n";
-        cout << "[3] Search By Phone\n";
-        cout << "[4] Go Back\n";
+        cout << "\nWhat Would You Like To Search By?\n";
+        cout << "\t[1] Search By Account Account Number\n";
+        cout << "\t[2] Search By Name\n";
+        cout << "\t[3] Search By Phone\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -1411,10 +1444,11 @@ void searchCD(vector<CD> &cdList, vector<SystemAdmin> &adminList, int accNum)
     bool done = false;
     while (!done)
     {
-        cout << "[1] Search By Account Account Number\n";
-        cout << "[2] Search By Name\n";
-        cout << "[3] Search By Phone\n";
-        cout << "[4] Go Back\n";
+        cout << "\nWhat Would You Like To Search By?\n";
+        cout << "\t[1] Search By Account Account Number\n";
+        cout << "\t[2] Search By Name\n";
+        cout << "\t[3] Search By Phone\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -1530,10 +1564,11 @@ void searchV(vector<ClassV> &vList, vector<SystemAdmin> &adminList, int accNum)
     bool done = false;
     while (!done)
     {
-        cout << "[1] Search By Account Account Number\n";
-        cout << "[2] Search By Name\n";
-        cout << "[3] Search By Phone\n";
-        cout << "[4] Go Back\n";
+        cout << "\nWhat Would You Like To Search By?\n";
+        cout << "\t[1] Search By Account Account Number\n";
+        cout << "\t[2] Search By Name\n";
+        cout << "\t[3] Search By Phone\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -1649,10 +1684,11 @@ void searchU(vector<ClassU> &uList, vector<SystemAdmin> &adminList, int accNum)
     bool done = false;
     while (!done)
     {
-        cout << "[1] Search By Account Account Number\n";
-        cout << "[2] Search By Name\n";
-        cout << "[3] Search By Phone\n";
-        cout << "[4] Go Back\n";
+        cout << "\nWhat Would You Like To Search By?\n";
+        cout << "\t[1] Search By Account Account Number\n";
+        cout << "\t[2] Search By Name\n";
+        cout << "\t[3] Search By Phone\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -1768,10 +1804,11 @@ void searchX(vector<ClassX> &xList, vector<SystemAdmin> &adminList, int accNum)
     bool done = false;
     while (!done)
     {
-        cout << "[1] Search By Account Account Number\n";
-        cout << "[2] Search By Name\n";
-        cout << "[3] Search By Phone\n";
-        cout << "[4] Go Back\n";
+        cout << "\nWhat Would You Like To Search By?\n";
+        cout << "\t[1] Search By Account Account Number\n";
+        cout << "\t[2] Search By Name\n";
+        cout << "\t[3] Search By Phone\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -1887,10 +1924,11 @@ void searchY(vector<ClassY> &yList, vector<SystemAdmin> &adminList, int accNum)
     bool done = false;
     while (!done)
     {
-        cout << "[1] Search By Account Account Number\n";
-        cout << "[2] Search By Name\n";
-        cout << "[3] Search By Phone\n";
-        cout << "[4] Go Back\n";
+        cout << "\nWhat Would You Like To Search By?\n";
+        cout << "\t[1] Search By Account Account Number\n";
+        cout << "\t[2] Search By Name\n";
+        cout << "\t[3] Search By Phone\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -2006,10 +2044,11 @@ void searchZ(vector<ClassZ> &zList, vector<SystemAdmin> &adminList, int accNum)
     bool done = false;
     while (!done)
     {
-        cout << "[1] Search By Account Account Number\n";
-        cout << "[2] Search By Name\n";
-        cout << "[3] Search By Phone\n";
-        cout << "[4] Go Back\n";
+        cout << "\nWhat Would You Like To Search By?\n";
+        cout << "\t[1] Search By Account Account Number\n";
+        cout << "\t[2] Search By Name\n";
+        cout << "\t[3] Search By Phone\n";
+        cout << "\t[4] Go Back\n";
         int input = stoi(getInput());
         switch (input)
         {
@@ -2047,15 +2086,16 @@ void adminSearch(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &c
     bool done = false;
     while (!done)
     {
-        cout << "[1] Checking Account\n";
-        cout << "[2] Saving Account\n";
-        cout << "[3] Certificate of Deposit\n";
-        cout << "[4] U Account\n";
-        cout << "[5] V Account\n";
-        cout << "[6] X Account\n";
-        cout << "[7] Y Account\n";
-        cout << "[8] Z Account\n";
-        cout << "[9] Go Back\n";
+        cout << "What Type Of Account ID Do You Want To Retrieve?\n";
+        cout << "\t[1] Checking Account\n";
+        cout << "\t[2] Saving Account\n";
+        cout << "\t[3] Certificate of Deposit\n";
+        cout << "\t[4] U Account\n";
+        cout << "\t[5] V Account\n";
+        cout << "\t[6] X Account\n";
+        cout << "\t[7] Y Account\n";
+        cout << "\t[8] Z Account\n";
+        cout << "\t[9] Go Back\n";
 
         int input = stoi(getInput());
         switch (input)
@@ -2127,15 +2167,16 @@ void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdL
     bool done = false;
     while (!done)
     {
-        cout << "[1] Create New Bank Official Account\n";
-        cout << "[2] Enable Bank Official Account\n";
-        cout << "[3] Disable Bank Official Account\n";
-        cout << "[4] Create New Bank Account Type\n";
-        cout << "[5] Delete Bank Account Type\n";
-        cout << "[6] Modify Bank Account Type\n";
-        cout << "[7] Retrieve User ID\n";
-        cout << "[8] Change User's Password\n";
-        cout << "[9] Log out\n";
+        cout << "Please Choose One of These Options:\n";
+        cout << "\t[1] Create New Bank Official Account\n";
+        cout << "\t[2] Enable Bank Official Account\n";
+        cout << "\t[3] Disable Bank Official Account\n";
+        cout << "\t[4] Create New Bank Account Type\n";
+        cout << "\t[5] Delete Bank Account Type\n";
+        cout << "\t[6] Modify Bank Account Type\n";
+        cout << "\t[7] Retrieve User ID\n";
+        cout << "\t[8] Change User's Password\n";
+        cout << "\t[9] Log out\n";
 
         int input = stoi(getInput());
         switch (input)
@@ -2155,7 +2196,10 @@ void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdL
             BankOfficial::totalB++;
             officList.push_back(account);
             account.saveData();
-            cout << "\nNew Bank Official Created\n";
+            cout << "\nNew Bank Official Created.\n";
+            cout << "\n\tID: " << id;
+            cout << "\n\tPassword: " << password;
+            cout << "\n\tName: " << fName << " " << lName << endl;
             break;
         }
         case 2:
@@ -2177,7 +2221,7 @@ void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdL
                 if (!found)
                     cout << "\nThe Account ID You Just Enter Does Not Exist\n";
             }
-            cout << "\nBank Official Enabled\n";
+            cout << "\nBank Official Enabled.\n";
             break;
         }
         case 3:
@@ -2199,7 +2243,7 @@ void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdL
                 if (!found)
                     cout << "\nThe Account ID You Just Enter Does Not Exist\n";
             }
-            cout << "\nBank Official Disabled\n";
+            cout << "\nBank Official Disabled. In Order To Enable It, Your Permission Is Required.\n";
             break;
         }
         case 4:
@@ -2235,7 +2279,7 @@ void adminMenu(vector<ChkAcc> &chkList, vector<SavAcc> &savList, vector<CD> &cdL
         case 9:
         {
             done = true;
-            cout << "\nLogged Out Of System Administrator Account\n";
+            cout << "\nLogged Out Of System Administrator Account.\n";
             break;
         }
         default:

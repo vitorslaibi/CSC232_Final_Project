@@ -100,66 +100,66 @@ void SystemAdmin::deleteZacc(){
 
 
 void SystemAdmin::searchChk(ChkAcc &account){
-    cout << "\nChecking Account: " << account.getID() << endl;
-    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
-    cout << "Phone Number: " << account.getPhoneNum() << endl;
-    cout << "Current Balance: " << account.getBalance() << endl;
+    cout << "\nChecking Account: " << account.getID() << "\n";
+    cout << "Name: " << account.getFname() << " " << account.getLname() << "\n";
+    cout << "Phone Number: " << account.getPhoneNum() << "\n";
+    cout << "Current Balance: " << account.getBalance() << "\n";
 }
 
 void SystemAdmin::searchSav(SavAcc &account){
-    cout << "\nSaving Account: " << account.getID() << endl;
-    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
-    cout << "Phone Number: " << account.getPhoneNum() << endl;
-    cout << "Current Balance: " << account.getBalance() << endl;
+    cout << "\nSaving Account: " << account.getID() << "\n";
+    cout << "Name: " << account.getFname() << " " << account.getLname() << "\n";
+    cout << "Phone Number: " << account.getPhoneNum() << "\n";
+    cout << "Current Balance: " << account.getBalance() << "\n";
 
 }
 
 void SystemAdmin::searchCD(CD &account){
-    cout << "\nCD Number: " << account.getID() << endl;
-    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
-    cout << "Phone Number: " << account.getPhoneNum() << endl;
-    cout << "Current Balance: " << account.getBalance() << endl;
-    cout << "Remaining Days: " << account.getRemainDays() << endl;
+    cout << "\nCD Number: " << account.getID() << "\n";
+    cout << "Name: " << account.getFname() << " " << account.getLname() << "\n";
+    cout << "Phone Number: " << account.getPhoneNum() << "\n";
+    cout << "Current Balance: " << account.getBalance() << "\n";
+    cout << "Remaining Days: " << account.getRemainDays() << "\n";
 
 }
 
 void SystemAdmin::searchU(ClassU &account){
-    cout << "\nU Account: " << account.getID() << endl;
-    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
-    cout << "Phone Number: " << account.getPhoneNum() << endl;
-    cout << "Current Balance: " << account.getBalance() << endl;
+    cout << "\nU Account: " << account.getID() << "\n";
+    cout << "Name: " << account.getFname() << " " << account.getLname() << "\n";
+    cout << "Phone Number: " << account.getPhoneNum() << "\n";
+    cout << "Current Balance: " << account.getBalance() << "\n";
 
 }
 
 void SystemAdmin::searchV(ClassV &account){
-    cout << "\nV Account: " << account.getID() << endl;
-    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
-    cout << "Phone Number: " << account.getPhoneNum() << endl;
-    cout << "Current Balance: " << account.getBalance() << endl;
+    cout << "\nV Account: " << account.getID() << "\n";
+    cout << "Name: " << account.getFname() << " " << account.getLname() << "\n";
+    cout << "Phone Number: " << account.getPhoneNum() << "\n";
+    cout << "Current Balance: " << account.getBalance() << "\n";
 
 }
 
 void SystemAdmin::searchX(ClassX &account){
-    cout << "\nX Account: " << account.getID() << endl;
-    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
-    cout << "Phone Number: " << account.getPhoneNum() << endl;
-    cout << "Current Balance: " << account.getBalance() << endl;
+    cout << "\nX Account: " << account.getID() << "\n";
+    cout << "Name: " << account.getFname() << " " << account.getLname() << "\n";
+    cout << "Phone Number: " << account.getPhoneNum() << "\n";
+    cout << "Current Balance: " << account.getBalance() << "\n";
 
 }
 
 void SystemAdmin::searchY(ClassY &account){
-    cout << "\nY Account: " << account.getID() << endl;
-    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
-    cout << "Phone Number: " << account.getPhoneNum() << endl;
-    cout << "Current Balance: " << account.getBalance() << endl;
+    cout << "\nY Account: " << account.getID() << "\n";
+    cout << "Name: " << account.getFname() << " " << account.getLname() << "\n";
+    cout << "Phone Number: " << account.getPhoneNum() << "\n";
+    cout << "Current Balance: " << account.getBalance() << "\n";
 
 }
 
 void SystemAdmin::searchZ(ClassZ &account){
-    cout << "\nZ Account: " << account.getID() << endl;
-    cout << "Name: " << account.getFname() << " " << account.getLname() << endl;
-    cout << "Phone Number: " << account.getPhoneNum() << endl;
-    cout << "Current Balance: " << account.getBalance() << endl;
+    cout << "\nZ Account: " << account.getID() << "\n";
+    cout << "Name: " << account.getFname() << " " << account.getLname() << "\n";
+    cout << "Phone Number: " << account.getPhoneNum() << "\n";
+    cout << "Current Balance: " << account.getBalance() << "\n";
 
 }
 
@@ -286,20 +286,26 @@ void SystemAdmin::saveData(){
 
     string text;
     text = encryption(fName);
-    outFile << text << endl;
+    stripSpace(text);
+    outFile << text << "\n";
     text = encryption(lName);
-    outFile << text << endl;
+    stripSpace(text);
+    outFile << text << "\n";
     text = to_string(openY);
     text = encryption(text);
-    outFile << text << endl;
+    stripSpace(text);
+    outFile << text << "\n";
     text = to_string(openM);
     text = encryption(text);
-    outFile << text << endl;
+    stripSpace(text);
+    outFile << text << "\n";
     text = to_string(openD);
     text = encryption(text);
-    outFile << text << endl;
+    stripSpace(text);
+    outFile << text << "\n";
     text = encryption(password);
-    outFile << text << endl;
+    stripSpace(text);
+    outFile << text;
     
     outFile.close();
 }
@@ -312,28 +318,28 @@ void SystemAdmin::loadData(){
 
     string text;
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);    
+    text = decryption(text);
     fName = text;
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     lName = text;
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     openY = stoi(text);
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     openM = stoi(text);
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     openD = stoi(text);
     getline(inFile, text);
-    text = decryption(text);
     stripSpace(text);
+    text = decryption(text);
     password = text;
     inFile.close();
 }

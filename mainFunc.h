@@ -47,7 +47,7 @@ string getInput()
         stripSpace(str);
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos){
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue; 
         }
         int lastCharPos = str.find_last_not_of(" ");
@@ -56,7 +56,7 @@ string getInput()
         int nonIntChar = str.find_first_not_of("0123456789");
         if (nonIntChar != string::npos)
         {
-            cout << "Error\n";
+            cout << "Invalid Input. Please Enter Again.\n";
             continue;
         }
         break;
@@ -69,6 +69,7 @@ string getFirstName()
     string str;
     while (true)
     {
+        cout << "First Name: ";
         getline(cin,str);
         stripSpace(str);
         if (str == "quit")
@@ -77,7 +78,7 @@ string getFirstName()
         }
         int firstCharPos = str.find_first_not_of(" \t\f\v\n\r"); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos){
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue; 
         }
         int lastCharPos = str.find_last_not_of(" \t\f\v\n\r");
@@ -93,6 +94,7 @@ string getLastName()
     string str;
     while (true)
     {
+        cout << "Last Name: ";
         getline(cin,str);
         stripSpace(str);
         if (str == "quit")
@@ -101,7 +103,7 @@ string getLastName()
         }
         int firstCharPos = str.find_first_not_of(" \t\f\v\n\r"); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos){
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue; 
         }
         int lastCharPos = str.find_last_not_of(" \t\f\v\n\r");
@@ -125,7 +127,7 @@ string getPhone()
         }
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos){
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue; 
         }
         int lastCharPos = str.find_last_not_of(" ");
@@ -149,7 +151,7 @@ string getPassword()
         }
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos){
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue; 
         }
         int lastCharPos = str.find_last_not_of(" ");
@@ -172,7 +174,7 @@ double getRate()    //get the interest rate
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         int lastCharPos = str.find_last_not_of(" ");
@@ -181,7 +183,7 @@ double getRate()    //get the interest rate
         int nonIntChar = str.find_first_not_of("0123456789.");
         if (nonIntChar != string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         if (stod(str) > 0.1 or stod(str) < 0.001)
@@ -209,7 +211,7 @@ string getChkID() //this fucntion is used to getaccount nummber
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         int lastCharPos = str.find_last_not_of(" ");
@@ -219,7 +221,7 @@ string getChkID() //this fucntion is used to getaccount nummber
         int nonIntChar = numPart.find_first_not_of("0123456789");
         if (nonIntChar != string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
 
@@ -227,7 +229,7 @@ string getChkID() //this fucntion is used to getaccount nummber
         int accChar = str.find_first_of("C");
         if (accChar == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         break;
@@ -250,7 +252,7 @@ string getSavID() //this fucntion is used to getaccount nummber
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         int lastCharPos = str.find_last_not_of(" ");
@@ -260,7 +262,7 @@ string getSavID() //this fucntion is used to getaccount nummber
         int nonIntChar = numPart.find_first_not_of("0123456789");
         if (nonIntChar != string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
 
@@ -268,7 +270,7 @@ string getSavID() //this fucntion is used to getaccount nummber
         int accChar = str.find_first_of("S");
         if (accChar == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         break;
@@ -292,7 +294,7 @@ string getCDID() //this fucntion is used to getaccount nummber
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         int lastCharPos = str.find_last_not_of(" ");
@@ -302,7 +304,7 @@ string getCDID() //this fucntion is used to getaccount nummber
         int nonIntChar = numPart.find_first_not_of("0123456789");
         if (nonIntChar != string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
 
@@ -310,7 +312,7 @@ string getCDID() //this fucntion is used to getaccount nummber
         int accChar = str.find_first_of("D");
         if (accChar == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         break;
@@ -334,7 +336,7 @@ string getUID() //this fucntion is used to getaccount nummber
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         int lastCharPos = str.find_last_not_of(" ");
@@ -344,7 +346,7 @@ string getUID() //this fucntion is used to getaccount nummber
         int nonIntChar = numPart.find_first_not_of("0123456789");
         if (nonIntChar != string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
 
@@ -352,7 +354,7 @@ string getUID() //this fucntion is used to getaccount nummber
         int accChar = str.find_first_of("U");
         if (accChar == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         break;
@@ -376,7 +378,7 @@ string getVID() //this fucntion is used to getaccount nummber
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         int lastCharPos = str.find_last_not_of(" ");
@@ -386,7 +388,7 @@ string getVID() //this fucntion is used to getaccount nummber
         int nonIntChar = numPart.find_first_not_of("0123456789");
         if (nonIntChar != string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
 
@@ -394,7 +396,7 @@ string getVID() //this fucntion is used to getaccount nummber
         int accChar = str.find_first_of("V");
         if (accChar == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         break;
@@ -418,7 +420,7 @@ string getXID() //this fucntion is used to getaccount nummber
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         int lastCharPos = str.find_last_not_of(" ");
@@ -428,7 +430,7 @@ string getXID() //this fucntion is used to getaccount nummber
         int nonIntChar = numPart.find_first_not_of("0123456789");
         if (nonIntChar != string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
 
@@ -436,7 +438,7 @@ string getXID() //this fucntion is used to getaccount nummber
         int accChar = str.find_first_of("X");
         if (accChar == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         break;
@@ -460,7 +462,7 @@ string getYID() //this fucntion is used to getaccount nummber
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         int lastCharPos = str.find_last_not_of(" ");
@@ -470,7 +472,7 @@ string getYID() //this fucntion is used to getaccount nummber
         int nonIntChar = numPart.find_first_not_of("0123456789");
         if (nonIntChar != string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
 
@@ -478,7 +480,7 @@ string getYID() //this fucntion is used to getaccount nummber
         int accChar = str.find_first_of("Y");
         if (accChar == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         break;
@@ -502,7 +504,7 @@ string getZID() //this fucntion is used to getaccount nummber
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         int lastCharPos = str.find_last_not_of(" ");
@@ -512,7 +514,7 @@ string getZID() //this fucntion is used to getaccount nummber
         int nonIntChar = numPart.find_first_not_of("0123456789");
         if (nonIntChar != string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
 
@@ -520,7 +522,7 @@ string getZID() //this fucntion is used to getaccount nummber
         int accChar = str.find_first_of("Z");
         if (accChar == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         break;
@@ -543,7 +545,7 @@ string getOffID() //this fucntion is used to getaccount nummber
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         int lastCharPos = str.find_last_not_of(" ");
@@ -553,7 +555,7 @@ string getOffID() //this fucntion is used to getaccount nummber
         int nonIntChar = numPart.find_first_not_of("0123456789");
         if (nonIntChar != string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
 
@@ -561,7 +563,7 @@ string getOffID() //this fucntion is used to getaccount nummber
         int accChar = str.find_first_of("B");
         if (accChar == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         break;
@@ -585,7 +587,7 @@ string getAdminID() //this fucntion is used to getaccount nummber
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         int lastCharPos = str.find_last_not_of(" ");
@@ -595,7 +597,7 @@ string getAdminID() //this fucntion is used to getaccount nummber
         int nonIntChar = numPart.find_first_not_of("0123456789");
         if (nonIntChar != string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
 
@@ -603,7 +605,7 @@ string getAdminID() //this fucntion is used to getaccount nummber
         int accChar = str.find_first_of("A");
         if (accChar == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         break;
@@ -627,7 +629,7 @@ double getAmount()  //get the amount from user to deposit or withdraw
         int firstCharPos = str.find_first_not_of(" "); //strip the spaces of 2 ends of the string
         if (firstCharPos == string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         int lastCharPos = str.find_last_not_of(" ");
@@ -636,7 +638,7 @@ double getAmount()  //get the amount from user to deposit or withdraw
         int nonIntChar = str.find_first_not_of("0123456789.");
         if (nonIntChar != string::npos)
         {
-            cout << "Error" <<"\n";
+            cout << "Invalid Input. Please Enter Again." <<"\n";
             continue;  //return the error condition
         }
         break;
