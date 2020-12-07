@@ -311,6 +311,11 @@ int main()
             }
             case 2:
             { 
+                if (BankOfficial::totalB == 0)
+                {
+                    cout << "\nThere Are No Bank Official Account Right Now.\n";
+                    break;
+                }
                 int accNum;
                 bool found = false;
                 bool back = false;
